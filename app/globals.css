@@ -1,6 +1,8 @@
 /* ===================== TOKENS ===================== */
-/* --font-display / --font-body / --font-mono are injected by next/font (see layout.tsx) */
 :root{
+  --font-display:"Bricolage Grotesque",serif;
+  --font-body:"Hanken Grotesk",sans-serif;
+  --font-mono:"JetBrains Mono",monospace;
   --ink:#0c0b0a; --ink-2:#141210; --ink-3:#1c1916;
   --bone:#ece6da; --bone-dim:#a59c8c; --bone-faint:#6f675b;
   --line:rgba(236,230,218,.10); --line-2:rgba(236,230,218,.06);
