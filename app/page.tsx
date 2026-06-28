@@ -636,7 +636,7 @@ export default function Home() {
               <div className="who">the software team</div>
               <div className="amt">
                 <span className="cur">$</span>
-                <span className="big">89</span>
+                <span className="big">49</span>
               </div>
               <div className="once">one-time · lifetime updates</div>
               <ul>
@@ -659,7 +659,7 @@ export default function Home() {
               {/* POLAR: replace href with your Engineer product checkout link */}
               <a
                 className="btn btn-ghost"
-                href="https://buy.polar.sh/REPLACE_ENGINEER_LINK"
+                href="https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa"
                 data-polar-checkout=""
                 data-polar-checkout-theme="dark"
               >
@@ -673,8 +673,8 @@ export default function Home() {
               <div className="who">engineer + marketing</div>
               <div className="amt">
                 <span className="cur">$</span>
-                <span className="big">129</span>
-                <span className="was">$178</span>
+                <span className="big">89</span>
+                <span className="was">$129</span>
               </div>
               <div className="once">one-time · lifetime updates</div>
               <ul>
@@ -698,7 +698,7 @@ export default function Home() {
               {/* POLAR: replace href with your Bundle product checkout link */}
               <a
                 className="btn btn-primary"
-                href="https://buy.polar.sh/REPLACE_BUNDLE_LINK"
+                href="https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC"
                 data-polar-checkout=""
                 data-polar-checkout-theme="dark"
               >
@@ -711,7 +711,7 @@ export default function Home() {
               <div className="who">the growth team</div>
               <div className="amt">
                 <span className="cur">$</span>
-                <span className="big">89</span>
+                <span className="big">49</span>
               </div>
               <div className="once">one-time · lifetime updates</div>
               <ul>
@@ -734,7 +734,7 @@ export default function Home() {
               {/* POLAR: replace href with your Marketing product checkout link */}
               <a
                 className="btn btn-ghost"
-                href="https://buy.polar.sh/REPLACE_MARKETING_LINK"
+                href="https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL"
                 data-polar-checkout=""
                 data-polar-checkout-theme="dark"
               >
