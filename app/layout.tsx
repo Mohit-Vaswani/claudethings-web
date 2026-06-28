@@ -13,6 +13,21 @@ export const metadata: Metadata = {
       "89 agents · 104 skills · 191 slash commands. One command. Any stack. Built for Claude Code.",
     type: "website",
     url: "https://claudethings.com",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ClaudeThings — Your AI Engineering & Marketing Team in one command.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ClaudeThings — Your AI Engineering & Marketing Team",
+    description:
+      "89 agents · 104 skills · 191 slash commands. One command. Any stack. Built for Claude Code.",
+    images: ["/og.jpg"],
   },
   metadataBase: new URL("https://claudethings.com"),
 };
