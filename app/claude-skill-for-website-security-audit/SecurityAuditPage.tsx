@@ -1,22 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 /**
  * Landing page for the free Website Security Audit Claude skill.
  * Reuses the global design system in app/globals.css so it matches the main site.
  *
- * Lead capture: set LEAD_ENDPOINT to your ESP / webhook URL (Mailchimp, ConvertKit,
- * Formspree, ManyChat webhook, etc.). It "fails open" — if unset or erroring, the
- * download still starts so users are never blocked.
+ * Free, no-gate download — the button links straight to the skill zip.
  */
-const LEAD_ENDPOINT = ""; // <-- paste your email capture endpoint
 const ZIP_URL = "/downloads/website-security-audit.zip";
 
 export default function SecurityAuditPage() {
   const year = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
 
   // nav scrolled state + scroll reveal (mirrors the home page)
   useEffect(() => {
@@ -42,32 +37,6 @@ export default function SecurityAuditPage() {
 
     return () => cleanups.forEach((fn) => fn());
   }, []);
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const value = email.trim();
-    if (!value) return;
-
-    if (LEAD_ENDPOINT) {
-      try {
-        await fetch(LEAD_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: value, source: "security-audit-skill" }),
-        });
-      } catch {
-        /* fail open — still let them download */
-      }
-    }
-
-    setSent(true);
-    const a = document.createElement("a");
-    a.href = ZIP_URL;
-    a.download = "website-security-audit.zip";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  }
 
   const sev = {
     crit: { color: "var(--coral)" },
@@ -188,59 +157,19 @@ export default function SecurityAuditPage() {
             <div className="tag t-teal" style={{ position: "relative" }}>
               Free download
             </div>
-            <h2 style={{ position: "relative" }}>Get the skill — it&apos;s free</h2>
+            <h2 style={{ position: "relative" }}>Download the skill — it&apos;s free</h2>
             <p className="lead" style={{ position: "relative", margin: "16px auto 0" }}>
-              Drop your email and we&apos;ll send the download + a quick guide on running your first
-              audit.
+              No signup, no email. Click below, unzip, and run your first audit in two minutes.
             </p>
 
-            <form
-              onSubmit={handleSubmit}
-              style={{
-                position: "relative",
-                display: "flex",
-                gap: 10,
-                maxWidth: 460,
-                margin: "26px auto 10px",
-                flexWrap: "wrap",
-                justifyContent: "center",
-              }}
-            >
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                aria-label="Email address"
-                style={{
-                  flex: 1,
-                  minWidth: 230,
-                  padding: "14px 16px",
-                  borderRadius: 11,
-                  border: "1px solid var(--line)",
-                  background: "rgba(0,0,0,.25)",
-                  color: "var(--bone)",
-                  fontFamily: "var(--font-body)",
-                  fontSize: 15,
-                }}
-              />
-              <button type="submit" className="btn btn-primary btn-lg">
-                Send me the skill →
-              </button>
-            </form>
+            <div style={{ position: "relative", marginTop: 28, marginBottom: 10 }}>
+              <a href={ZIP_URL} download className="btn btn-primary btn-lg">
+                ⬇ Download the free skill (.zip)
+              </a>
+            </div>
             <p className="micro" style={{ position: "relative" }}>
-              No spam. Unsubscribe anytime. We&apos;ll also share new free skills.
+              Free forever · runs 100% local · works in Claude Code
             </p>
-
-            {sent && (
-              <p
-                className="guarantee"
-                style={{ position: "relative", color: "var(--teal)", borderColor: "rgba(25,227,193,.4)" }}
-              >
-                ✅ Thanks! Your download is starting — check your inbox for the guide.
-              </p>
-            )}
 
             {/* 2-step install */}
             <div className="steps" style={{ position: "relative", textAlign: "left", maxWidth: 720, margin: "40px auto 0" }}>
