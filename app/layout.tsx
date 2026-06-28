@@ -45,6 +45,26 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        {/* DataFast analytics */}
+        <Script
+          src="https://datafa.st/js/script.js"
+          data-website-id="dfid_2KgXjGdUBXKPy7nxWR30T"
+          data-domain="claudethings.com"
+          strategy="afterInteractive"
+        />
+        {/* Google Analytics (GA4) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KNHJ5C1QYJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KNHJ5C1QYJ');
+          `}
+        </Script>
         {/* Polar checkout embed — powers the data-polar-checkout buttons */}
         <Script
           src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js"
