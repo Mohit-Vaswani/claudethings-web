@@ -69,8 +69,8 @@ export default function Home() {
     }
     const lines: [string, string][] = [
       ["ok", "✔ Installing into your-project"],
-      ["ok", "✔ engineer kit → 58 agents, 62 skills, 159 commands"],
-      ["ok", "✔ marketing kit → 31 agents, 42 skills, 32 commands"],
+      ["ok", "✔ engineer kit → 58 agents, 61 skills, 159 commands"],
+      ["ok", "✔ marketing kit → 31 agents, 42 skills, 22 commands (10 shared, already in)"],
       ["ok", "✔ wrote CLAUDE.md — fill it in so agents learn your project"],
       ["dim", "› Done. Your AI team is ready."],
     ];
@@ -153,7 +153,7 @@ export default function Home() {
           </h1>
           <p className="sub reveal-h d3">
             Stop buying dead boilerplate. ClaudeThings drops <b>89 specialized agents</b>,{" "}
-            <b>104 pre-built skills</b>, and <b>191 slash commands</b> into any project — a living
+            <b>103 pre-built skills</b>, and <b>181 slash commands</b> into any project — a living
             team that plans, builds, tests, ships, <em>and</em> markets alongside you.
           </p>
           <div className="cta-row reveal-h d4">
@@ -193,10 +193,10 @@ export default function Home() {
             <b>89</b> agents
           </span>
           <span>
-            <b>104</b> skills
+            <b>103</b> skills
           </span>
           <span>
-            <b>191</b> slash commands
+            <b>181</b> slash commands
           </span>
           <span>
             <b>2</b> kits — engineer + marketing
@@ -314,7 +314,7 @@ export default function Home() {
                   <span>agents</span>
                 </div>
                 <div className="s">
-                  <b>62</b>
+                  <b>61</b>
                   <span>skills</span>
                 </div>
                 <div className="s">
@@ -355,7 +355,7 @@ export default function Home() {
                 <li>
                   <span className="ck">✦</span>
                   <span>
-                    62 skills — Next.js, Tailwind, Drizzle, Docker, Stripe, MCP, TDD, Playwright… plus{" "}
+                    61 skills — Next.js, Tailwind, Drizzle, Docker, Stripe, MCP, TDD, Playwright… plus{" "}
                     <code>/api-scaffold</code>, <code>/test-coverage</code>, <code>/deploy-checklist</code>.
                   </span>
                 </li>
@@ -433,11 +433,11 @@ export default function Home() {
               <span>specialized agents</span>
             </div>
             <div className="num fade">
-              <b data-count="104">104</b>
+              <b data-count="103">103</b>
               <span>pre-built skills</span>
             </div>
             <div className="num fade">
-              <b data-count="191">191</b>
+              <b data-count="181">181</b>
               <span>slash commands</span>
             </div>
           </div>
@@ -560,7 +560,7 @@ export default function Home() {
                   <td>What you get</td>
                   <td className="no">Dead code</td>
                   <td>Agents + skills</td>
-                  <td className="us">89 agents · 104 skills · 191 commands</td>
+                  <td className="us">89 agents · 103 skills · 181 commands</td>
                 </tr>
                 <tr>
                   <td>
@@ -644,7 +644,7 @@ export default function Home() {
                   <span className="ck">✓</span> 58 engineering agents
                 </li>
                 <li>
-                  <span className="ck">✓</span> 62 pre-built skills
+                  <span className="ck">✓</span> 61 pre-built skills
                 </li>
                 <li>
                   <span className="ck">✓</span> 159 slash commands
@@ -683,7 +683,7 @@ export default function Home() {
                   both kits
                 </li>
                 <li>
-                  <span className="ck">✓</span> 89 agents · 104 skills · 191 commands
+                  <span className="ck">✓</span> 89 agents · 103 skills · 181 commands
                 </li>
                 <li>
                   <span className="ck">✓</span> Ship code <em>and</em> growth

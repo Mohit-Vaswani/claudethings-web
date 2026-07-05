@@ -6,11 +6,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ClaudeThings — Your AI Engineering & Marketing Team for Claude Code",
   description:
-    "89 specialized agents, 104 skills, and 191 slash commands you drop into any project with one command. Built for Claude Code. Ship code and growth faster.",
+    "89 specialized agents, 103 skills, and 181 slash commands you drop into any project with one command. Built for Claude Code. Ship code and growth faster.",
   openGraph: {
     title: "ClaudeThings — Your AI Engineering & Marketing Team",
     description:
-      "89 agents · 104 skills · 191 slash commands. One command. Any stack. Built for Claude Code.",
+      "89 agents · 103 skills · 181 slash commands. One command. Any stack. Built for Claude Code.",
     type: "website",
     url: "https://claudethings.com",
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ClaudeThings — Your AI Engineering & Marketing Team",
     description:
-      "89 agents · 104 skills · 191 slash commands. One command. Any stack. Built for Claude Code.",
+      "89 agents · 103 skills · 181 slash commands. One command. Any stack. Built for Claude Code.",
     images: ["/og.jpg"],
   },
   metadataBase: new URL("https://claudethings.com"),
