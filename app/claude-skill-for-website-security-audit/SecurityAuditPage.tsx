@@ -290,8 +290,15 @@ export default function SecurityAuditPage() {
                 <a href="https://claudethings.com">More skills</a>
               </div>
               <div className="foot-col">
+                <h5>Legal</h5>
+                <a href="/legal">Legal</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/refund">Refunds</a>
+              </div>
+              <div className="foot-col">
                 <h5>Connect</h5>
-                <a href="mailto:hello@claudethings.com">Email</a>
+                <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
                 <a href="https://claudethings.com">claudethings.com</a>
               </div>
             </div>

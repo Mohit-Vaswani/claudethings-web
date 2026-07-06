@@ -56,7 +56,7 @@ export default function Home() {
     cleanups.push(() => cio.disconnect());
 
     // terminal typing
-    const cmd = "npx claudethings init --kit both";
+    const cmd = "npx github:claudethings/claudethings-kit init --kit both";
     const typedEl = document.getElementById("typed");
     const curEl = document.getElementById("cur");
     const outEl = document.getElementById("term-out");
@@ -456,8 +456,8 @@ export default function Home() {
               <div className="n">01</div>
               <h4>Install</h4>
               <p>
-                Run <code>npx claudethings init</code> in your project. Pick engineer, marketing, or
-                both. No global install.
+                Run the <code>npx github:claudethings/…</code> one-liner from your private
+                repo&apos;s README. Pick engineer, marketing, or both. No global install.
               </p>
             </div>
             <div className="step fade">
@@ -764,7 +764,9 @@ export default function Home() {
                 Access to a private GitHub repo containing the kit(s) you bought: a{" "}
                 <code>.claude/</code> directory of agents, skills, and slash commands, CLAUDE.md
                 templates, the <code>claudethings</code> installer CLI, and full docs. You drop it
-                into any project with <code>npx claudethings init</code>.
+                into any project with a one-line <code>npx github:claudethings/…</code> command
+                that pulls straight from your private repo — the exact command is in your
+                repo&apos;s README.
               </div>
             </details>
             <details className="q fade">
@@ -866,13 +868,14 @@ export default function Home() {
               </div>
               <div className="foot-col">
                 <h5>Legal</h5>
+                <a href="/legal">Legal</a>
                 <a href="/terms">Terms</a>
                 <a href="/privacy">Privacy</a>
                 <a href="/refund">Refunds</a>
               </div>
               <div className="foot-col">
                 <h5>Connect</h5>
-                <a href="mailto:hello@claudethings.com">Email</a>
+                <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
                 <a href="https://claudethings.com">claudethings.com</a>
               </div>
             </div>
