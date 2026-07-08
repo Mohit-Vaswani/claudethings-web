@@ -286,6 +286,8 @@ export default function SecurityAuditPage() {
               </div>
               <div className="foot-col">
                 <h5>Free Skills</h5>
+                <a href="/tools">All free tools</a>
+                <a href="/claude-skill-md-validator">SKILL.md Validator</a>
                 <a href="/claude-skill-for-website-security-audit">Website Security Audit</a>
                 <a href="https://claudethings.com">More skills</a>
               </div>
