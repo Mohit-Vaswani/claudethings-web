@@ -133,6 +133,7 @@ export default function Home() {
           <div className="nav-links">
             <a href="#whats-inside">What&apos;s inside</a>
             <a href="#kits">Kits</a>
+            <a href="/tools">Free tools</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <a className="btn btn-primary nav-cta" href="#pricing">
@@ -865,6 +866,12 @@ export default function Home() {
                 <a href="#kits">Kits</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
+              </div>
+              <div className="foot-col">
+                <h5>Free Tools</h5>
+                <a href="/tools">All free tools</a>
+                <a href="/claude-skill-md-validator">SKILL.md Validator</a>
+                <a href="/claude-skill-for-website-security-audit">Website Security Audit</a>
               </div>
               <div className="foot-col">
                 <h5>Legal</h5>
