@@ -249,6 +249,12 @@ h2{font-family:var(--font-display);font-weight:700;letter-spacing:-.025em;line-h
 .legal-doc li::before{content:"→";color:var(--ember);flex:none}
 .legal-doc a{color:var(--ember)}
 .legal-doc a:hover{text-decoration:underline}
+/* Buttons inside doc pages keep their own colors — the link rules above would
+   otherwise paint .btn-primary's text ember-on-ember (unreadable). */
+.legal-doc a.btn{margin-top:10px}
+.legal-doc a.btn:hover{text-decoration:none}
+.legal-doc a.btn-primary{color:#220c05}
+.legal-doc a.btn-ghost{color:var(--bone)}
 .legal-doc strong{color:var(--bone);font-weight:600}
 .legal-doc code{font-family:var(--font-mono);font-size:13px;background:rgba(236,230,218,.06);padding:1px 6px;border-radius:5px;color:var(--bone)}
 .legal-doc .callout{border:1px solid var(--line);border-left:2px solid var(--ember);border-radius:12px;padding:20px 22px;background:rgba(255,157,77,.04);margin:24px 0}
