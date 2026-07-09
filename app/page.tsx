@@ -137,7 +137,7 @@ export default function Home() {
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <a className="btn btn-primary nav-cta" href="#pricing">
-              Get ClaudeThings
+              Get ClaudeThings <span className="ar">↗</span>
             </a>
           </div>
         </div>
@@ -147,7 +147,8 @@ export default function Home() {
       <header id="top">
         <div className="wrap">
           <div className="eyebrow reveal-h d1">
-            <span className="pulse"></span> Built for Claude Code · Any stack · Zero lock-in
+            <span className="ticks"></span> Built for Claude Code · Any stack · Zero lock-in{" "}
+            <span className="ticks g"></span>
           </div>
           <h1 className="reveal-h d2">
             Your AI <span className="grad">engineering &amp; marketing</span> team. In one command.
@@ -159,54 +160,58 @@ export default function Home() {
           </p>
           <div className="cta-row reveal-h d4">
             <a className="btn btn-primary btn-lg" href="#pricing">
-              Get ClaudeThings →
+              Get ClaudeThings <span className="ar">↗</span>
             </a>
             <a className="btn btn-ghost btn-lg" href="#whats-inside">
-              See what&apos;s inside
+              See what&apos;s inside <span className="ar">↗</span>
             </a>
           </div>
           <div className="micro reveal-h d4">
             One-time payment · Lifetime updates · 14-day money-back guarantee
           </div>
 
-          {/* terminal */}
-          <div className="terminal reveal-h d5">
-            <div className="term-bar">
-              <span className="dot r"></span>
-              <span className="dot y"></span>
-              <span className="dot g"></span>
-              <span className="term-title">your-project — bash</span>
-            </div>
-            <div className="term-body" id="term">
-              <div>
-                <span className="pr">$</span> <span className="cmd" id="typed"></span>
-                <span className="cursor" id="cur"></span>
+          {/* vista panel: terminal + proof card */}
+          <div className="hero-panel reveal-h d5">
+            <div className="vista hero-vista">
+              <div className="terminal">
+                <div className="term-bar">
+                  <span className="dot r"></span>
+                  <span className="dot y"></span>
+                  <span className="dot g"></span>
+                  <span className="term-title">your-project — bash</span>
+                </div>
+                <div className="term-body" id="term">
+                  <div>
+                    <span className="pr">$</span> <span className="cmd" id="typed"></span>
+                    <span className="cursor" id="cur"></span>
+                  </div>
+                  <div id="term-out"></div>
+                </div>
               </div>
-              <div id="term-out"></div>
             </div>
+            <aside className="hero-side">
+              <div className="side-label">Inside the kit</div>
+              <ul>
+                <li>
+                  <b>89</b> agents
+                </li>
+                <li>
+                  <b>103</b> skills
+                </li>
+                <li>
+                  <b>181</b> slash commands
+                </li>
+                <li>
+                  <b>2</b> kits — engineer + marketing
+                </li>
+                <li>
+                  <b>npx</b> · no install needed
+                </li>
+              </ul>
+            </aside>
           </div>
         </div>
       </header>
-
-      <div className="proof">
-        <div className="wrap">
-          <span>
-            <b>89</b> agents
-          </span>
-          <span>
-            <b>103</b> skills
-          </span>
-          <span>
-            <b>181</b> slash commands
-          </span>
-          <span>
-            <b>2</b> kits — engineer + marketing
-          </span>
-          <span>
-            <b>npx</b> · no install needed
-          </span>
-        </div>
-      </div>
 
       {/* PROBLEM */}
       <section id="problem">
@@ -248,7 +253,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOLUTION */}
+      {/* SOLUTION — showcase rows */}
       <section id="whats-inside">
         <div className="wrap">
           <div className="center fade">
@@ -262,31 +267,65 @@ export default function Home() {
             </p>
           </div>
           <div className="sol-grid">
-            <div className="card fade">
-              <div className="ic">⚙️</div>
-              <h3>Works with ANY stack</h3>
-              <p>
-                Next.js → Django → Rails → Go → Rust. No forced framework. Agents learn your patterns
-                via context engineering, not template conventions.
-              </p>
+            <div className="show fade">
+              <div className="show-text">
+                <div className="ic">01</div>
+                <h3>Works with ANY stack</h3>
+                <p>
+                  Next.js → Django → Rails → Go → Rust. No forced framework. Agents learn your
+                  patterns via context engineering, not template conventions.
+                </p>
+              </div>
+              <div className="show-vista vista">
+                <div className="ui-card">
+                  <div className="u-label">Your stack</div>
+                  <div className="chip-row">
+                    <span className="chip hot">Next.js</span>
+                    <span className="chip">Django</span>
+                    <span className="chip">Rails</span>
+                    <span className="chip">Go</span>
+                    <span className="chip">Rust</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="card fade">
-              <div className="ic">♾️</div>
-              <h3>Living, not frozen</h3>
-              <p>
-                Traditional kits are frozen at purchase. When Anthropic ships a smarter Claude, your
-                team levels up automatically. No upgrade fees.
-              </p>
+            <div className="show fade">
+              <div className="show-text">
+                <div className="ic">02</div>
+                <h3>Living, not frozen</h3>
+                <p>
+                  Traditional kits are frozen at purchase. When Anthropic ships a smarter Claude,
+                  your team levels up automatically. No upgrade fees.
+                </p>
+              </div>
+              <div className="show-vista vista v2">
+                <div className="ui-card">
+                  <div className="u-label">Lifetime updates</div>
+                  <div className="ui-line">$ claudethings update</div>
+                  <div className="ui-line">
+                    <span className="ck">✓</span> up to date — no upgrade fees
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="card fade">
-              <div className="ic">⚡</div>
-              <h3>
-                Code <em>and</em> growth
-              </h3>
-              <p>
-                Two kits in one. An engineering team that ships features, and a marketing team that
-                ships the launch. Most kits only do one.
-              </p>
+            <div className="show fade">
+              <div className="show-text">
+                <div className="ic">03</div>
+                <h3>
+                  Code <em>and</em> growth
+                </h3>
+                <p>
+                  Two kits in one. An engineering team that ships features, and a marketing team
+                  that ships the launch. Most kits only do one.
+                </p>
+              </div>
+              <div className="show-vista vista v3">
+                <div className="ui-card">
+                  <div className="u-label">Two kits</div>
+                  <div className="ui-line">🛠 Engineer — 58 agents · 61 skills · 159 commands</div>
+                  <div className="ui-line">📣 Marketing — 31 agents · 42 skills · 32 commands</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -325,14 +364,14 @@ export default function Home() {
               </div>
               <ul>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>
                     <b style={{ color: "var(--bone)" }}>tech-lead</b> plans &amp; delegates;{" "}
                     <b style={{ color: "var(--bone)" }}>shipper</b> gates every release.
                   </span>
                 </li>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>
                     Build across the stack: <code>backend-architect</code>, <code>react-specialist</code>,{" "}
                     <code>typescript-pro</code>, <code>python-pro</code>, <code>golang-pro</code>,{" "}
@@ -340,21 +379,21 @@ export default function Home() {
                   </span>
                 </li>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>
                     Data &amp; infra: <code>postgres-pro</code>, <code>kubernetes-specialist</code>,{" "}
                     <code>terraform-specialist</code>, <code>sre-engineer</code>.
                   </span>
                 </li>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>
                     Quality: <code>code-reviewer</code>, <code>test-automator</code>,{" "}
                     <code>debugger</code>, <code>security-auditor</code>.
                   </span>
                 </li>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>
                     61 skills — Next.js, Tailwind, Drizzle, Docker, Stripe, MCP, TDD, Playwright… plus{" "}
                     <code>/api-scaffold</code>, <code>/test-coverage</code>, <code>/deploy-checklist</code>.
@@ -387,7 +426,7 @@ export default function Home() {
               </div>
               <ul>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>
                     <b style={{ color: "var(--bone)" }}>growth-strategist</b> finds your funnel&apos;s
                     constraint; <b style={{ color: "var(--bone)" }}>brand-voice</b> keeps copy
@@ -395,28 +434,28 @@ export default function Home() {
                   </span>
                 </li>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>
                     Specialists: <code>seo-specialist</code>, <code>content-marketer</code>,{" "}
                     <code>competitive-analyst</code>, <code>market-researcher</code>.
                   </span>
                 </li>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>
                     Commands that ship: <code>/campaign-brief</code>, <code>/blog-post</code>,{" "}
                     <code>/email-sequence</code>, <code>/landing-page</code>, <code>/launch-plan</code>.
                   </span>
                 </li>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>
                     42 skills — SEO audits, programmatic SEO, full CRO set, pricing, paid ads,
                     marketing psychology, analytics.
                   </span>
                 </li>
                 <li>
-                  <span className="ck">✦</span>
+                  <span className="ck">✓</span>
                   <span>From positioning to launch day, the same context as your code.</span>
                 </li>
               </ul>
@@ -428,7 +467,7 @@ export default function Home() {
       {/* NUMBERS */}
       <section>
         <div className="wrap">
-          <div className="numbers">
+          <div className="numbers" style={{ marginTop: 0 }}>
             <div className="num fade">
               <b data-count="89">89</b>
               <span>specialized agents</span>
@@ -448,34 +487,41 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section id="how">
         <div className="wrap">
-          <div className="center fade">
-            <div className="tag">Get started in seconds</div>
-            <h2>One command. No copy-pasting.</h2>
-          </div>
-          <div className="steps">
-            <div className="step fade">
-              <div className="n">01</div>
-              <h4>Install</h4>
-              <p>
-                Run the <code>npx github:claudethings/…</code> one-liner from your private
-                repo&apos;s README. Pick engineer, marketing, or both. No global install.
-              </p>
+          <div className="hiw">
+            <div className="hiw-left fade">
+              <div className="tag">Get started in seconds</div>
+              <h2>One command. No copy-pasting.</h2>
+              <div style={{ marginTop: 28 }}>
+                <a className="btn btn-primary" href="#pricing">
+                  Get ClaudeThings <span className="ar">↗</span>
+                </a>
+              </div>
             </div>
-            <div className="step fade">
-              <div className="n">02</div>
-              <h4>Teach it your project</h4>
-              <p>
-                Fill in the generated <code>CLAUDE.md</code> once — stack, conventions, brand voice.
-                Every agent reads it first.
-              </p>
-            </div>
-            <div className="step fade">
-              <div className="n">03</div>
-              <h4>Ship</h4>
-              <p>
-                Open Claude Code: <code>&quot;use tech-lead to build auth&quot;</code> or{" "}
-                <code>/blog-post our launch</code>. That&apos;s it.
-              </p>
+            <div className="steps">
+              <div className="step fade">
+                <div className="n">01</div>
+                <h4>Install</h4>
+                <p>
+                  Run the <code>npx github:claudethings/…</code> one-liner from your private
+                  repo&apos;s README. Pick engineer, marketing, or both. No global install.
+                </p>
+              </div>
+              <div className="step fade">
+                <div className="n">02</div>
+                <h4>Teach it your project</h4>
+                <p>
+                  Fill in the generated <code>CLAUDE.md</code> once — stack, conventions, brand
+                  voice. Every agent reads it first.
+                </p>
+              </div>
+              <div className="step fade">
+                <div className="n">03</div>
+                <h4>Ship</h4>
+                <p>
+                  Open Claude Code: <code>&quot;use tech-lead to build auth&quot;</code> or{" "}
+                  <code>/blog-post our launch</code>. That&apos;s it.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -633,13 +679,28 @@ export default function Home() {
           <div className="price-grid">
             {/* ENGINEER */}
             <div className="plan fade">
-              <h3>Engineer</h3>
-              <div className="who">the software team</div>
-              <div className="amt">
-                <span className="cur">$</span>
-                <span className="big">49</span>
+              <div className="plan-head">
+                <div>
+                  <h3>Engineer</h3>
+                  <div className="who">the software team</div>
+                </div>
               </div>
-              <div className="once">one-time · lifetime updates</div>
+              <div className="plan-buy">
+                <div className="amt">
+                  <span className="cur">$</span>
+                  <span className="big">49</span>
+                </div>
+                <div className="once">one-time · lifetime updates</div>
+                {/* POLAR: replace href with your Engineer product checkout link */}
+                <a
+                  className="btn btn-ghost"
+                  href="https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa"
+                  data-polar-checkout=""
+                  data-polar-checkout-theme="light"
+                >
+                  Get Engineer <span className="ar">↗</span>
+                </a>
+              </div>
               <ul>
                 <li>
                   <span className="ck">✓</span> 58 engineering agents
@@ -657,37 +718,48 @@ export default function Home() {
                   <span className="ck">✓</span> Private repo + lifetime updates
                 </li>
               </ul>
-              {/* POLAR: replace href with your Engineer product checkout link */}
-              <a
-                className="btn btn-ghost"
-                href="https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa"
-                data-polar-checkout=""
-                data-polar-checkout-theme="dark"
-              >
-                Get Engineer
-              </a>
             </div>
             {/* BUNDLE */}
             <div className="plan feat-plan fade">
-              <div className="pill">Best value · save $49</div>
-              <h3>Complete Bundle</h3>
-              <div className="who">engineer + marketing</div>
-              <div className="amt">
-                <span className="cur">$</span>
-                <span className="big">89</span>
-                <span className="was">$129</span>
+              <div className="plan-head">
+                <div>
+                  <h3>Complete Bundle</h3>
+                  <div className="who">engineer + marketing</div>
+                </div>
+                <div className="pill">Best value · save $49</div>
               </div>
-              <div className="once">one-time · lifetime updates</div>
+              <div className="plan-buy">
+                <div className="amt">
+                  <span className="cur">$</span>
+                  <span className="big">89</span>
+                  <span className="was">$129</span>
+                </div>
+                <div className="once">one-time · lifetime updates</div>
+                {/* POLAR: replace href with your Bundle product checkout link */}
+                <a
+                  className="btn btn-primary"
+                  href="https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC"
+                  data-polar-checkout=""
+                  data-polar-checkout-theme="light"
+                >
+                  Get the Bundle <span className="ar">↗</span>
+                </a>
+              </div>
               <ul>
                 <li>
-                  <span className="ck">✓</span> <b style={{ color: "var(--bone)" }}>Everything</b> in
-                  both kits
+                  <span className="ck">✓</span>{" "}
+                  <span>
+                    <b style={{ color: "var(--bone)" }}>Everything</b> in both kits
+                  </span>
                 </li>
                 <li>
                   <span className="ck">✓</span> 89 agents · 103 skills · 181 commands
                 </li>
                 <li>
-                  <span className="ck">✓</span> Ship code <em>and</em> growth
+                  <span className="ck">✓</span>{" "}
+                  <span>
+                    Ship code <em>and</em> growth
+                  </span>
                 </li>
                 <li>
                   <span className="ck">✓</span> Both CLAUDE.md templates
@@ -696,25 +768,31 @@ export default function Home() {
                   <span className="ck">✓</span> Private repo + lifetime updates
                 </li>
               </ul>
-              {/* POLAR: replace href with your Bundle product checkout link */}
-              <a
-                className="btn btn-primary"
-                href="https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC"
-                data-polar-checkout=""
-                data-polar-checkout-theme="dark"
-              >
-                Get the Bundle →
-              </a>
             </div>
             {/* MARKETING */}
             <div className="plan fade">
-              <h3>Marketing</h3>
-              <div className="who">the growth team</div>
-              <div className="amt">
-                <span className="cur">$</span>
-                <span className="big">49</span>
+              <div className="plan-head">
+                <div>
+                  <h3>Marketing</h3>
+                  <div className="who">the growth team</div>
+                </div>
               </div>
-              <div className="once">one-time · lifetime updates</div>
+              <div className="plan-buy">
+                <div className="amt">
+                  <span className="cur">$</span>
+                  <span className="big">49</span>
+                </div>
+                <div className="once">one-time · lifetime updates</div>
+                {/* POLAR: replace href with your Marketing product checkout link */}
+                <a
+                  className="btn btn-ghost"
+                  href="https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL"
+                  data-polar-checkout=""
+                  data-polar-checkout-theme="light"
+                >
+                  Get Marketing <span className="ar">↗</span>
+                </a>
+              </div>
               <ul>
                 <li>
                   <span className="ck">✓</span> 31 marketing agents
@@ -732,15 +810,6 @@ export default function Home() {
                   <span className="ck">✓</span> Private repo + lifetime updates
                 </li>
               </ul>
-              {/* POLAR: replace href with your Marketing product checkout link */}
-              <a
-                className="btn btn-ghost"
-                href="https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL"
-                data-polar-checkout=""
-                data-polar-checkout-theme="dark"
-              >
-                Get Marketing
-              </a>
             </div>
           </div>
           <div className="plan-foot">
@@ -752,80 +821,91 @@ export default function Home() {
       {/* FAQ */}
       <section id="faq">
         <div className="wrap">
-          <div className="center fade">
-            <div className="tag">Questions</div>
-            <h2>Everything you need to know.</h2>
-          </div>
-          <div className="faq">
-            <details className="q fade">
-              <summary>
-                What exactly do I get? <span className="plus">+</span>
-              </summary>
-              <div className="a">
-                Access to a private GitHub repo containing the kit(s) you bought: a{" "}
-                <code>.claude/</code> directory of agents, skills, and slash commands, CLAUDE.md
-                templates, the <code>claudethings</code> installer CLI, and full docs. You drop it
-                into any project with a one-line <code>npx github:claudethings/…</code> command
-                that pulls straight from your private repo — the exact command is in your
-                repo&apos;s README.
+          <div className="faq-split">
+            <div className="faq-side fade">
+              <div className="tag">Questions</div>
+              <h2>Everything you need to know.</h2>
+              <div className="faq-contact">
+                <div className="fc-ic">✉</div>
+                <p>More questions?</p>
+                <span>Reach out anytime</span>
+                <a className="btn btn-primary" href="mailto:epictools.io@gmail.com">
+                  Email us <span className="ar">↗</span>
+                </a>
               </div>
-            </details>
-            <details className="q fade">
-              <summary>
-                Do I need to know how to code? <span className="plus">+</span>
-              </summary>
-              <div className="a">
-                You need{" "}
-                <a href="https://claude.com/claude-code" style={{ color: "var(--ember)" }}>
-                  Claude Code
-                </a>{" "}
-                and a project to work in. The agents do the heavy lifting — you direct them in plain
-                English. Installation is a single command.
-              </div>
-            </details>
-            <details className="q fade">
-              <summary>
-                Does it lock me into a framework? <span className="plus">+</span>
-              </summary>
-              <div className="a">
-                No. Agents adapt to your stack — Next.js, Django, Rails, Go, Rust, anything — by
-                reading your CLAUDE.md. Zero forced architecture.
-              </div>
-            </details>
-            <details className="q fade">
-              <summary>
-                How do updates work? <span className="plus">+</span>
-              </summary>
-              <div className="a">
-                Buy once, get every future update. Run <code>claudethings update</code> (or{" "}
-                <code>git pull</code>) to refresh. Your custom files and CLAUDE.md are never touched.
-              </div>
-            </details>
-            <details className="q fade">
-              <summary>
-                Is this affiliated with Anthropic? <span className="plus">+</span>
-              </summary>
-              <div className="a">
-                No. ClaudeThings is an independent, unofficial product and is not affiliated with,
-                endorsed by, or sponsored by Anthropic. &quot;Claude&quot; and &quot;Claude Code&quot;
-                are trademarks of Anthropic.
-              </div>
-            </details>
-            <details className="q fade">
-              <summary>
-                What&apos;s the refund policy? <span className="plus">+</span>
-              </summary>
-              <div className="a">
-                14-day money-back guarantee, no questions asked. If it doesn&apos;t save you hours,
-                you get a full refund.
-              </div>
-            </details>
+            </div>
+            <div className="faq">
+              <details className="q fade">
+                <summary>
+                  What exactly do I get? <span className="plus">+</span>
+                </summary>
+                <div className="a">
+                  Access to a private GitHub repo containing the kit(s) you bought: a{" "}
+                  <code>.claude/</code> directory of agents, skills, and slash commands, CLAUDE.md
+                  templates, the <code>claudethings</code> installer CLI, and full docs. You drop it
+                  into any project with a one-line <code>npx github:claudethings/…</code> command
+                  that pulls straight from your private repo — the exact command is in your
+                  repo&apos;s README.
+                </div>
+              </details>
+              <details className="q fade">
+                <summary>
+                  Do I need to know how to code? <span className="plus">+</span>
+                </summary>
+                <div className="a">
+                  You need{" "}
+                  <a href="https://claude.com/claude-code" style={{ color: "var(--ember)" }}>
+                    Claude Code
+                  </a>{" "}
+                  and a project to work in. The agents do the heavy lifting — you direct them in
+                  plain English. Installation is a single command.
+                </div>
+              </details>
+              <details className="q fade">
+                <summary>
+                  Does it lock me into a framework? <span className="plus">+</span>
+                </summary>
+                <div className="a">
+                  No. Agents adapt to your stack — Next.js, Django, Rails, Go, Rust, anything — by
+                  reading your CLAUDE.md. Zero forced architecture.
+                </div>
+              </details>
+              <details className="q fade">
+                <summary>
+                  How do updates work? <span className="plus">+</span>
+                </summary>
+                <div className="a">
+                  Buy once, get every future update. Run <code>claudethings update</code> (or{" "}
+                  <code>git pull</code>) to refresh. Your custom files and CLAUDE.md are never
+                  touched.
+                </div>
+              </details>
+              <details className="q fade">
+                <summary>
+                  Is this affiliated with Anthropic? <span className="plus">+</span>
+                </summary>
+                <div className="a">
+                  No. ClaudeThings is an independent, unofficial product and is not affiliated
+                  with, endorsed by, or sponsored by Anthropic. &quot;Claude&quot; and &quot;Claude
+                  Code&quot; are trademarks of Anthropic.
+                </div>
+              </details>
+              <details className="q fade">
+                <summary>
+                  What&apos;s the refund policy? <span className="plus">+</span>
+                </summary>
+                <div className="a">
+                  14-day money-back guarantee, no questions asked. If it doesn&apos;t save you
+                  hours, you get a full refund.
+                </div>
+              </details>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section>
+      <section className="cta-sec">
         <div className="final fade">
           <h2>Get your AI team. Ship faster today.</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
@@ -833,7 +913,7 @@ export default function Home() {
           </p>
           <div className="cta-row" style={{ marginTop: 30 }}>
             <a className="btn btn-primary btn-lg" href="#pricing">
-              Get ClaudeThings →
+              Get ClaudeThings <span className="ar">↗</span>
             </a>
           </div>
           <div className="guarantee">🔒 14-day money-back guarantee · Pay once, use forever</div>
