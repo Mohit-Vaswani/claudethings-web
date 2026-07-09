@@ -726,7 +726,7 @@ export default function Home() {
                   <h3>Complete Bundle</h3>
                   <div className="who">engineer + marketing</div>
                 </div>
-                <div className="pill">Best value · save $49</div>
+                <div className="pill">Launch Price</div>
               </div>
               <div className="plan-buy">
                 <div className="amt">
