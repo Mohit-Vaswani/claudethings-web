@@ -1,0 +1,47 @@
+# ClaudeThings
+
+> ClaudeThings is a paid toolkit for [Claude Code](https://claude.com/claude-code) that drops a full AI engineering and marketing team into any project with one command — 89 specialized agents, 103 pre-built skills, and 181 slash commands. It works with any tech stack, adapts to your conventions via a CLAUDE.md file, and ships as two kits (Engineer + Marketing) you can install separately or together.
+
+ClaudeThings is an independent, unofficial product. It is not affiliated with, endorsed by, or sponsored by Anthropic. "Claude" and "Claude Code" are trademarks of Anthropic. It is delivered as a private GitHub repository and installed with a one-line `npx github:claudethings/… init` command (no npm publish, no global install; Node 18+).
+
+## What you get
+
+- 89 specialized agents (58 engineering + 31 marketing)
+- 103 pre-built skills (61 engineering + 42 marketing)
+- 181 slash commands (159 engineering + 32 marketing; 10 shared docs commands counted once)
+- Two kits: Engineer (the software team) and Marketing (the growth team)
+- CLAUDE.md templates so agents learn your stack, conventions, and brand voice
+- The `claudethings` installer CLI; cherry-pick any single agent, skill, or command
+- Lifetime updates: buy once, run `claudethings update` (or `git pull`) forever
+
+## Kits
+
+- [Engineer kit](https://claudethings.com/#kits): 58 agents, 61 skills, 159 commands. Includes tech-lead, backend-architect, react-specialist, typescript-pro, python-pro, golang-pro, rust-pro, postgres-pro, kubernetes-specialist, terraform-specialist, sre-engineer, code-reviewer, test-automator, debugger, security-auditor, and commands like /api-scaffold, /test-coverage, /deploy-checklist.
+- [Marketing kit](https://claudethings.com/#kits): 31 agents, 42 skills, 32 commands. Includes growth-strategist, brand-voice, seo-specialist, content-marketer, competitive-analyst, market-researcher, and commands like /campaign-brief, /blog-post, /email-sequence, /landing-page, /launch-plan.
+
+## Pricing
+
+- [Engineer](https://claudethings.com/#pricing): $49 one-time, lifetime updates.
+- [Marketing](https://claudethings.com/#pricing): $49 one-time, lifetime updates.
+- [Complete Bundle](https://claudethings.com/#pricing): $89 one-time (normally $129), both kits, all 89 agents / 103 skills / 181 commands.
+- Every plan: one-time payment, lifetime updates, private-repo delivery, 14-day money-back guarantee. Secure checkout via Polar.
+
+## Key pages
+
+- [Home](https://claudethings.com/): product overview, what's inside, kits, pricing, FAQ.
+- [Free tools](https://claudethings.com/tools): free browser tools and Claude skills for people building with Claude Code.
+- [Pricing](https://claudethings.com/#pricing): plans and what each includes.
+- [FAQ](https://claudethings.com/#faq): what you get, framework lock-in, updates, refunds.
+
+## Free tools
+
+- [SKILL.md Validator](https://claudethings.com/claude-skill-md-validator): paste a Claude Code SKILL.md and instantly lint the YAML frontmatter, name and description rules, body length, and when-to-use structure, with the exact fixes. Runs 100% in your browser.
+- [Website Security Audit](https://claudethings.com/claude-skill-for-website-security-audit): a free Claude skill that audits your own website or codebase for missing HTTPS, exposed files, hardcoded secrets, and vulnerable dependencies, then returns a prioritized plain-English fix-it report.
+
+## Optional
+
+- [Terms of Service](https://claudethings.com/terms)
+- [Privacy Policy](https://claudethings.com/privacy)
+- [Refund Policy](https://claudethings.com/refund)
+- [Legal overview](https://claudethings.com/legal)
+- Contact: epictools.io@gmail.com
