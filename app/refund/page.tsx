@@ -3,59 +3,53 @@ import LegalLayout from "../components/LegalLayout";
 
 export const metadata: Metadata = {
   title: "Refund Policy · ClaudeThings",
-  description: "ClaudeThings' 14-day money-back guarantee and how to request a refund.",
+  description:
+    "ClaudeThings is a digital product delivered instantly, so all sales are final.",
 };
 
 export default function RefundPage() {
   return (
-    <LegalLayout title="Refund Policy" updated="July 6, 2026">
+    <LegalLayout title="Refund Policy" updated="July 10, 2026">
       <p className="intro">
-        We want you to be happy with ClaudeThings. If it&apos;s not the right fit, we offer a
-        straightforward money-back guarantee.
+        ClaudeThings is a digital product that&apos;s delivered to you in full the moment your
+        purchase is complete. Because of that, all sales are final.
       </p>
 
       <div className="callout">
         <p>
-          <strong>14-day money-back guarantee.</strong> If you&apos;re not satisfied for any reason
-          within 14 days of your purchase, email us and we&apos;ll issue a full refund — no
-          hoops.
+          <strong>All sales are final.</strong> Since ClaudeThings is a digital product delivered
+          instantly and in its entirety at checkout, we&apos;re unable to offer refunds once a
+          purchase has been made.
         </p>
       </div>
 
-      <h2>1. Eligibility</h2>
-      <ul>
-        <li>Requests made within 14 days of the original purchase date are eligible.</li>
-        <li>You do not need to provide a reason, though feedback helps us improve.</li>
-        <li>
-          Refunds apply to the price you paid for the Product through our payment processor.
-        </li>
-      </ul>
-
-      <h2>2. How to request a refund</h2>
+      <h2>1. Why refunds aren&apos;t offered</h2>
       <p>
-        Email us at <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a> from the
-        address you used at checkout, or include your order/receipt details. We&apos;ll confirm and
-        process the refund.
+        The moment you check out, you receive immediate access to the complete Product — including
+        the private repository and every included file. Because a digital product can&apos;t be
+        &quot;returned&quot; once it has been delivered, purchases are non-refundable.
       </p>
 
-      <h2>3. How refunds are issued</h2>
+      <h2>2. Before you buy</h2>
       <p>
-        Approved refunds are returned to your original payment method. Depending on your bank or card
-        issuer, it may take a few business days for the funds to appear after we process the refund.
+        We want you to buy with confidence, so please review everything on this site — what&apos;s
+        included, the details, and the FAQ — before completing your purchase. If anything is
+        unclear, reach out first and we&apos;ll gladly answer your questions.
       </p>
 
-      <h2>4. After a refund</h2>
+      <h2>3. A problem with your purchase?</h2>
       <p>
-        Once a refund is issued, your license to use the Product ends and you should remove the
-        Product from your projects. Open-source components bundled with the Product remain governed by
-        their own licenses.
+        If you were charged incorrectly, bought by mistake (for example, a duplicate charge), or
+        can&apos;t access what you paid for, email us at{" "}
+        <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a> and we&apos;ll make it
+        right.
       </p>
 
-      <h2>5. Questions</h2>
+      <h2>4. Questions</h2>
       <p>
-        Not sure if you qualify, or having trouble? Just email{" "}
-        <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a> and we&apos;ll sort it
-        out.
+        Have a question before buying? Just email{" "}
+        <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a> and we&apos;ll help you
+        decide whether ClaudeThings is right for you.
       </p>
     </LegalLayout>
   );

@@ -167,7 +167,7 @@ export default function Home() {
             </a>
           </div>
           <div className="micro reveal-h d4">
-            One-time payment · Lifetime updates · 14-day money-back guarantee
+            One-time payment · Lifetime updates · Instant access
           </div>
 
           {/* vista panel: terminal + proof card */}
@@ -672,8 +672,8 @@ export default function Home() {
             <div className="tag">Simple, one-time pricing</div>
             <h2>Pay once. Use forever.</h2>
             <p className="lead">
-              Lifetime access &amp; all future updates. Private repo delivery. 14-day money-back
-              guarantee.
+              Lifetime access &amp; all future updates. Private repo delivery. Instant access
+              after checkout.
             </p>
           </div>
           <div className="price-grid">
@@ -815,6 +815,16 @@ export default function Home() {
           <div className="plan-foot">
             Secure checkout via Polar · instant private-repo access after purchase
           </div>
+          <p
+            style={{
+              color: "var(--ember)",
+              textAlign: "center",
+              marginTop: "14px",
+              fontSize: "14px",
+            }}
+          >
+            This is the launch price, prices will increase soon.
+          </p>
         </div>
       </section>
 
@@ -895,8 +905,9 @@ export default function Home() {
                   What&apos;s the refund policy? <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  14-day money-back guarantee, no questions asked. If it doesn&apos;t save you
-                  hours, you get a full refund.
+                  ClaudeThings is a digital product delivered instantly and in full at checkout,
+                  so all sales are final and purchases are non-refundable. Have questions before
+                  buying? Email us and we&apos;ll help you decide.
                 </div>
               </details>
             </div>
@@ -916,7 +927,7 @@ export default function Home() {
               Get ClaudeThings <span className="ar">↗</span>
             </a>
           </div>
-          <div className="guarantee">🔒 14-day money-back guarantee · Pay once, use forever</div>
+          <div className="guarantee">🔒 Secure checkout · Pay once, use forever</div>
         </div>
       </section>
 

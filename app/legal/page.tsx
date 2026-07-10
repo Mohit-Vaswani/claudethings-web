@@ -28,7 +28,7 @@ export default function LegalPage() {
         </a>
         <a href="/refund">
           <h3>Refund Policy</h3>
-          <p>Our 14-day money-back guarantee and how to request a refund.</p>
+          <p>Why ClaudeThings sales are final, and how to reach us.</p>
           <span className="arrow">Read Refunds →</span>
         </a>
       </div>

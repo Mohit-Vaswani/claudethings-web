@@ -67,8 +67,8 @@ export default function TermsPage() {
 
       <h2>5. Refunds</h2>
       <p>
-        We offer a 14-day money-back guarantee. See our{" "}
-        <a href="/refund">Refund Policy</a> for details on eligibility and how to request a refund.
+        ClaudeThings is a digital product delivered instantly, so all sales are final and
+        purchases are non-refundable. See our <a href="/refund">Refund Policy</a> for full details.
       </p>
 
       <h2>6. Acceptable use</h2>
