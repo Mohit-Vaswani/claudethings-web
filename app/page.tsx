@@ -155,7 +155,7 @@ export default function Home() {
           </h1>
           <p className="sub reveal-h d3">
             Stop buying dead boilerplate. ClaudeThings drops <b>89 specialized agents</b>,{" "}
-            <b>103 pre-built skills</b>, and <b>181 slash commands</b> into any project — a living
+            <b>103 pre-built skills</b>, and <b>181 slash commands</b> into any project, a living
             team that plans, builds, tests, ships, <em>and</em> markets alongside you.
           </p>
           <div className="cta-row reveal-h d4">
@@ -202,7 +202,7 @@ export default function Home() {
                   <b>181</b> slash commands
                 </li>
                 <li>
-                  <b>2</b> kits — engineer + marketing
+                  <b>2</b> kits ( engineer + marketing )
                 </li>
                 <li>
                   <b>npx</b> · no install needed
@@ -262,7 +262,7 @@ export default function Home() {
             <p className="lead">
               ClaudeThings agents read a{" "}
               <code style={{ fontFamily: "var(--font-mono)", fontSize: ".85em" }}>CLAUDE.md</code>{" "}
-              you fill in once, then adapt to <em>your</em> stack and conventions — and get smarter
+              you fill in once, then adapt to <em>your</em> stack and conventions and get smarter
               every time Claude does.
             </p>
           </div>
