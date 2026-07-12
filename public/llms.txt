@@ -38,10 +38,32 @@ ClaudeThings is an independent, unofficial product. It is not affiliated with, e
 - [SKILL.md Validator](https://claudethings.com/claude-skill-md-validator): paste a Claude Code SKILL.md and instantly lint the YAML frontmatter, name and description rules, body length, and when-to-use structure, with the exact fixes. Runs 100% in your browser.
 - [Website Security Audit](https://claudethings.com/claude-skill-for-website-security-audit): a free Claude skill that audits your own website or codebase for missing HTTPS, exposed files, hardcoded secrets, and vulnerable dependencies, then returns a prioritized plain-English fix-it report.
 
+## Free resources (guides & prompt library)
+
+- [Claude prompt library](https://claudethings.com/prompts): 50 field-tested Claude prompts across five collections, each with the reasoning for why it works.
+- [Claude prompts for data analysis](https://claudethings.com/prompts/claude-prompts-for-data-analysis): 10 prompts — dataset profiling, hypothesis-first analysis, SQL with guardrails, statistical sanity checks, executive translation.
+- [Claude prompts for writing](https://claudethings.com/prompts/claude-prompts-for-writing): 10 prompts — voice-matched drafts, ruthless editing, de-AI-ifying text, structure diagnosis, titles.
+- [Claude prompts for business](https://claudethings.com/prompts/claude-prompts-for-business): 10 prompts — strategy red-teaming, pricing decisions, negotiation prep, hiring scorecards, decision journals.
+- [Claude prompts for coding](https://claudethings.com/prompts/claude-prompts-for-coding): 10 prompts — hypothesis-driven debugging, adversarial code review, refactoring plans, bug-hunting tests, security pre-flight.
+- [Claude prompts for marketing](https://claudethings.com/prompts/claude-prompts-for-marketing): 10 prompts — positioning, landing pages, customer-language mining, email sequences, SEO briefs, ad variants.
+- [Blog](https://claudethings.com/blog): practical guides for building with Claude.
+- [Getting started with Claude Code](https://claudethings.com/blog/getting-started-with-claude-code): install to first shipped feature — CLAUDE.md, permissions, skills, workflow habits.
+- [How to build AI agents with Claude](https://claudethings.com/blog/how-to-build-ai-agents-with-claude): the agent loop, tool use, MCP, Agent SDK, and reliability practices, with code.
+- [10 prompting techniques for Claude](https://claudethings.com/blog/10-prompting-techniques-for-claude): context front-loading, examples, XML tags, chain-of-thought, role prompts, and more, each with before/after.
+- [7 Claude prompts for smarter investing](https://claudethings.com/blog/7-claude-prompts-for-smarter-investing): research workflows (annual reports, thesis red-teaming, decision journals) — educational, not financial advice.
+- [Use cases](https://claudethings.com/use-cases): honest, role-by-role maps of where Claude changes real work.
+- [Claude for developers](https://claudethings.com/use-cases/claude-for-developers) · [Claude for data scientists](https://claudethings.com/use-cases/claude-for-data-scientists) · [Claude for product managers](https://claudethings.com/use-cases/claude-for-product-managers) · [Claude for students](https://claudethings.com/use-cases/claude-for-students)
+- [Comparisons](https://claudethings.com/comparisons): hype-free tool comparisons with bias disclosed.
+- [Claude vs ChatGPT](https://claudethings.com/comparisons/claude-vs-chatgpt) · [Claude Sonnet vs Opus](https://claudethings.com/comparisons/claude-sonnet-vs-opus) · [Claude vs GitHub Copilot](https://claudethings.com/comparisons/claude-vs-copilot)
+- [Claude coding tools guide](https://claudethings.com/tools/claude-coding-tools): the 2026 stack — Claude Code, IDE surfaces, MCP connectors, skills layer.
+- [Claude MCP servers guide](https://claudethings.com/tools/claude-mcp-servers): what MCP is, the connector categories worth installing, and how to add them safely.
+- [Claude productivity tools guide](https://claudethings.com/tools/claude-productivity-tools): Projects, Artifacts, connectors, skills, and power-user habits.
+
 ## Optional
 
 - [Terms of Service](https://claudethings.com/terms)
 - [Privacy Policy](https://claudethings.com/privacy)
 - [Refund Policy](https://claudethings.com/refund)
 - [Legal overview](https://claudethings.com/legal)
+- [Disclaimer](https://claudethings.com/disclaimer)
 - Contact: epictools.io@gmail.com

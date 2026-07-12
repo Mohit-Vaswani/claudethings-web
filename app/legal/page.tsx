@@ -31,6 +31,11 @@ export default function LegalPage() {
           <p>Why ClaudeThings sales are final, and how to reach us.</p>
           <span className="arrow">Read Refunds →</span>
         </a>
+        <a href="/disclaimer">
+          <h3>Disclaimer</h3>
+          <p>Educational content, no professional advice, and the limits of what we promise.</p>
+          <span className="arrow">Read Disclaimer →</span>
+        </a>
       </div>
 
       <div className="callout">

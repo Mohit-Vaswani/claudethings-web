@@ -3,19 +3,12 @@ import type { ReactNode } from "react";
 const CONTACT_EMAIL = "epictools.io@gmail.com";
 
 /**
- * Shared shell for the static legal pages (Legal, Terms, Privacy, Refunds).
- * Mirrors the nav/footer of the landing page but links back to it via /#anchors,
- * since these live on their own routes.
+ * Shared shell for the resource/content pages (/prompts, /blog, /use-cases,
+ * /comparisons, /tools guides). Server-rendered, zero client JS: the nav is
+ * pinned in its "scrolled" state like the legal pages. Footer carries the
+ * Resources column so every content page cross-links the others.
  */
-export default function LegalLayout({
-  title,
-  updated,
-  children,
-}: {
-  title: string;
-  updated: string;
-  children: ReactNode;
-}) {
+export default function SiteShell({ children }: { children: ReactNode }) {
   const year = new Date().getFullYear();
 
   return (
@@ -27,10 +20,10 @@ export default function LegalLayout({
             <span className="dia">◆</span> ClaudeThings
           </a>
           <div className="nav-links">
-            <a href="/#whats-inside">What&apos;s inside</a>
-            <a href="/#kits">Kits</a>
-            <a href="/#pricing">Pricing</a>
-            <a href="/#faq">FAQ</a>
+            <a href="/prompts">Prompts</a>
+            <a href="/blog">Blog</a>
+            <a href="/use-cases">Use cases</a>
+            <a href="/tools">Free tools</a>
             <a className="btn btn-primary nav-cta" href="/#pricing">
               Get ClaudeThings
             </a>
@@ -38,19 +31,7 @@ export default function LegalLayout({
         </div>
       </nav>
 
-      {/* CONTENT */}
-      <main className="legal-main">
-        <div className="wrap">
-          <article className="legal-doc">
-            <div className="eyebrow">
-              <span className="pulse"></span> Legal
-            </div>
-            <h1>{title}</h1>
-            <div className="updated">Last updated: {updated}</div>
-            {children}
-          </article>
-        </div>
-      </main>
+      {children}
 
       {/* FOOTER */}
       <footer>
@@ -84,6 +65,7 @@ export default function LegalLayout({
                 <a href="/prompts">Claude prompts</a>
                 <a href="/blog">Blog</a>
                 <a href="/use-cases">Use cases</a>
+                <a href="/comparisons">Comparisons</a>
                 <a href="/tools">Free tools</a>
               </div>
               <div className="foot-col">
@@ -102,12 +84,10 @@ export default function LegalLayout({
             </div>
           </div>
           <div className="disclaimer">
-            <b>Unofficial &amp; independent.</b> ClaudeThings is not affiliated with, endorsed by, or
-            sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
-            &quot;Anthropic&quot; are trademarks of Anthropic. ClaudeThings is a curated
-            distribution; many bundled components are sourced from open-source projects under
-            MIT/Apache-2.0 licenses, with full attribution preserved in the product&apos;s CREDITS
-            file.
+            <b>Unofficial &amp; independent.</b> ClaudeThings is not affiliated with, endorsed by,
+            or sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
+            &quot;Anthropic&quot; are trademarks of Anthropic. Content on this site is for
+            educational purposes — see our <a href="/disclaimer" style={{ color: "var(--bone-dim)" }}>disclaimer</a>.
             <br />
             <br />© {year} ClaudeThings. All rights reserved.
           </div>

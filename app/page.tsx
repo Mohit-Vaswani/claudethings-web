@@ -965,11 +965,19 @@ export default function Home() {
                 <a href="/claude-skill-for-website-security-audit">Website Security Audit</a>
               </div>
               <div className="foot-col">
+                <h5>Resources</h5>
+                <a href="/prompts">Claude prompts</a>
+                <a href="/blog">Blog</a>
+                <a href="/use-cases">Use cases</a>
+                <a href="/comparisons">Comparisons</a>
+              </div>
+              <div className="foot-col">
                 <h5>Legal</h5>
                 <a href="/legal">Legal</a>
                 <a href="/terms">Terms</a>
                 <a href="/privacy">Privacy</a>
                 <a href="/refund">Refunds</a>
+                <a href="/disclaimer">Disclaimer</a>
               </div>
               <div className="foot-col">
                 <h5>Connect</h5>

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { TOOLS } from "./toolsData";
+import { TOOL_GUIDES } from "./guidesData";
 
 /**
  * /tools — index of free ClaudeThings tools. Data-driven from toolsData.ts so
@@ -118,6 +119,32 @@ export default function ToolsIndex() {
         </div>
       </section>
 
+      {/* CURATED GUIDES */}
+      <section id="guides">
+        <div className="wrap">
+          <div className="tag fade">Curated guides</div>
+          <h2 className="fade">Know what to install before you install it</h2>
+          <p className="lead fade">
+            Editorial roundups of the Claude ecosystem — the tools, connectors, and setups that
+            earn their place, and the ones to skip.
+          </p>
+          <div className="tools-grid" style={{ marginTop: 46 }}>
+            {TOOL_GUIDES.map((g) => (
+              <a className="tool-card fade" href={`/tools/${g.slug}`} key={g.slug}>
+                <div className="tool-top">
+                  <span className="tool-ic">{g.icon}</span>
+                  <span className="tool-badge">Guide</span>
+                </div>
+                <h3>{g.name}</h3>
+                <p className="tool-tag">{g.tagline}</p>
+                <p className="tool-desc">{g.description}</p>
+                <span className="tool-arrow">Read the guide →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PAID OFFER */}
       <section id="kits">
         <div className="wrap center">
@@ -217,11 +244,19 @@ export default function ToolsIndex() {
                 ))}
               </div>
               <div className="foot-col">
+                <h5>Resources</h5>
+                <a href="/prompts">Claude prompts</a>
+                <a href="/blog">Blog</a>
+                <a href="/use-cases">Use cases</a>
+                <a href="/comparisons">Comparisons</a>
+              </div>
+              <div className="foot-col">
                 <h5>Legal</h5>
                 <a href="/legal">Legal</a>
                 <a href="/terms">Terms</a>
                 <a href="/privacy">Privacy</a>
                 <a href="/refund">Refunds</a>
+                <a href="/disclaimer">Disclaimer</a>
               </div>
               <div className="foot-col">
                 <h5>Connect</h5>
