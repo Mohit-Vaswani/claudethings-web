@@ -18,7 +18,7 @@ export default function PromptCard({
     <div className="prompt-card">
       <div className="prompt-head">
         <span className="p-title">{title}</span>
-        <CopyPrompt text={prompt} />
+        <CopyPrompt text={prompt} title={title} />
       </div>
       <pre className="prompt-body">{prompt}</pre>
       {note && (

@@ -136,7 +136,12 @@ export default function Home() {
             <a href="/tools">Free tools</a>
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
-            <a className="btn btn-primary nav-cta" href="#pricing">
+            <a
+              className="btn btn-primary nav-cta"
+              href="#pricing"
+              data-fast-goal="cta_get_claudethings"
+              data-fast-goal-location="nav"
+            >
               Get ClaudeThings <span className="ar">↗</span>
             </a>
           </div>
@@ -159,7 +164,12 @@ export default function Home() {
             team that plans, builds, tests, ships, <em>and</em> markets alongside you.
           </p>
           <div className="cta-row reveal-h d4">
-            <a className="btn btn-primary btn-lg" href="#pricing">
+            <a
+              className="btn btn-primary btn-lg"
+              href="#pricing"
+              data-fast-goal="cta_get_claudethings"
+              data-fast-goal-location="hero"
+            >
               Get ClaudeThings <span className="ar">↗</span>
             </a>
             <a className="btn btn-ghost btn-lg" href="#whats-inside">
@@ -492,7 +502,12 @@ export default function Home() {
               <div className="tag">Get started in seconds</div>
               <h2>One command. No copy-pasting.</h2>
               <div style={{ marginTop: 28 }}>
-                <a className="btn btn-primary" href="#pricing">
+                <a
+                  className="btn btn-primary"
+                  href="#pricing"
+                  data-fast-goal="cta_get_claudethings"
+                  data-fast-goal-location="how_it_works"
+                >
                   Get ClaudeThings <span className="ar">↗</span>
                 </a>
               </div>
@@ -697,6 +712,9 @@ export default function Home() {
                   href="https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa"
                   data-polar-checkout=""
                   data-polar-checkout-theme="light"
+                  data-fast-goal="initiate_checkout"
+                  data-fast-goal-plan="engineer"
+                  data-fast-goal-price="49"
                 >
                   Get Engineer <span className="ar">↗</span>
                 </a>
@@ -741,6 +759,9 @@ export default function Home() {
                   href="https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC"
                   data-polar-checkout=""
                   data-polar-checkout-theme="light"
+                  data-fast-goal="initiate_checkout"
+                  data-fast-goal-plan="bundle"
+                  data-fast-goal-price="89"
                 >
                   Get the Bundle <span className="ar">↗</span>
                 </a>
@@ -789,6 +810,9 @@ export default function Home() {
                   href="https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL"
                   data-polar-checkout=""
                   data-polar-checkout-theme="light"
+                  data-fast-goal="initiate_checkout"
+                  data-fast-goal-plan="marketing"
+                  data-fast-goal-price="49"
                 >
                   Get Marketing <span className="ar">↗</span>
                 </a>
@@ -839,14 +863,19 @@ export default function Home() {
                 <div className="fc-ic">✉</div>
                 <p>More questions?</p>
                 <span>Reach out anytime</span>
-                <a className="btn btn-primary" href="mailto:epictools.io@gmail.com">
+                <a
+                  className="btn btn-primary"
+                  href="mailto:epictools.io@gmail.com"
+                  data-fast-goal="contact_email"
+                  data-fast-goal-location="faq"
+                >
                   Email us <span className="ar">↗</span>
                 </a>
               </div>
             </div>
             <div className="faq">
               <details className="q fade">
-                <summary>
+                <summary data-fast-goal="faq_what_do_i_get">
                   What exactly do I get? <span className="plus">+</span>
                 </summary>
                 <div className="a">
@@ -859,7 +888,7 @@ export default function Home() {
                 </div>
               </details>
               <details className="q fade">
-                <summary>
+                <summary data-fast-goal="faq_need_to_code">
                   Do I need to know how to code? <span className="plus">+</span>
                 </summary>
                 <div className="a">
@@ -872,7 +901,7 @@ export default function Home() {
                 </div>
               </details>
               <details className="q fade">
-                <summary>
+                <summary data-fast-goal="faq_framework_lock_in">
                   Does it lock me into a framework? <span className="plus">+</span>
                 </summary>
                 <div className="a">
@@ -881,7 +910,7 @@ export default function Home() {
                 </div>
               </details>
               <details className="q fade">
-                <summary>
+                <summary data-fast-goal="faq_how_updates_work">
                   How do updates work? <span className="plus">+</span>
                 </summary>
                 <div className="a">
@@ -891,7 +920,7 @@ export default function Home() {
                 </div>
               </details>
               <details className="q fade">
-                <summary>
+                <summary data-fast-goal="faq_anthropic_affiliation">
                   Is this affiliated with Anthropic? <span className="plus">+</span>
                 </summary>
                 <div className="a">
@@ -901,7 +930,7 @@ export default function Home() {
                 </div>
               </details>
               <details className="q fade">
-                <summary>
+                <summary data-fast-goal="faq_refund_policy">
                   What&apos;s the refund policy? <span className="plus">+</span>
                 </summary>
                 <div className="a">
@@ -923,7 +952,12 @@ export default function Home() {
             Code and growth, from one toolkit. One command away.
           </p>
           <div className="cta-row" style={{ marginTop: 30 }}>
-            <a className="btn btn-primary btn-lg" href="#pricing">
+            <a
+              className="btn btn-primary btn-lg"
+              href="#pricing"
+              data-fast-goal="cta_get_claudethings"
+              data-fast-goal-location="final_cta"
+            >
               Get ClaudeThings <span className="ar">↗</span>
             </a>
           </div>
@@ -981,7 +1015,13 @@ export default function Home() {
               </div>
               <div className="foot-col">
                 <h5>Connect</h5>
-                <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
+                <a
+                  href="mailto:epictools.io@gmail.com"
+                  data-fast-goal="contact_email"
+                  data-fast-goal-location="footer"
+                >
+                  epictools.io@gmail.com
+                </a>
                 <a href="https://claudethings.com">claudethings.com</a>
               </div>
             </div>

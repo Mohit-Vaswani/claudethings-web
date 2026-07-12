@@ -46,6 +46,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        {/* DataFast goal queue — buffers window.datafast() calls made before the script loads */}
+        <Script id="datafast-queue" strategy="beforeInteractive">
+          {`window.datafast = window.datafast || function() {
+            window.datafast.q = window.datafast.q || [];
+            window.datafast.q.push(arguments);
+          };`}
+        </Script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
