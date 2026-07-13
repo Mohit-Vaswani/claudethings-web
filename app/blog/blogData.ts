@@ -17,6 +17,16 @@ export interface BlogPost {
 
 export const POSTS: BlogPost[] = [
   {
+    slug: "mention-your-product-on-reddit-without-getting-banned",
+    title: "How to Mention Your Product on Reddit Without Getting Banned (with a Claude Prompt That Writes the Post for You)",
+    description:
+      "Why most product posts get removed or shadow-banned on Reddit — and a copy-paste Claude prompt that interviews you about your product, karma, and goal, then writes a post that reads like a real person, not an ad.",
+    date: "July 2026",
+    readingTime: "8 min read",
+    tag: "Marketing",
+    icon: "👽",
+  },
+  {
     slug: "claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp",
     title: "Claude Code Skills vs Subagents vs Slash Commands vs MCP: What Each Does and When to Use Each",
     description:
