@@ -421,6 +421,8 @@ h2{font-family:var(--font-display);font-weight:400;letter-spacing:-.01em;line-he
 .legal-doc a.btn-ghost{color:var(--bone)}
 .legal-doc strong{color:var(--bone);font-weight:600}
 .legal-doc code{font-family:var(--font-mono);font-size:12.5px;background:var(--white);border:1px solid var(--line-2);padding:1px 6px;border-radius:5px;color:var(--bone)}
+.legal-doc pre{border:1px solid var(--line);border-radius:12px;background:var(--white);padding:18px 20px;margin:20px 0;overflow-x:auto}
+.legal-doc pre code{display:block;background:none;border:0;padding:0;border-radius:0;font-size:12.5px;line-height:1.7;white-space:pre;color:var(--bone)}
 .legal-doc .callout{border:1px solid var(--line);border-left:2px solid var(--ember);border-radius:12px;padding:20px 22px;background:var(--card);margin:24px 0}
 .legal-doc .callout p{margin-bottom:0}
 .legal-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:32px}

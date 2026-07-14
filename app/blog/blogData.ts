@@ -17,6 +17,86 @@ export interface BlogPost {
 
 export const POSTS: BlogPost[] = [
   {
+    slug: "claude-skills-examples",
+    title: "Claude Skills Examples: 6 Real SKILL.md Files and What Makes Each One Work",
+    description:
+      "Worked examples of Claude skills — commit messages, tests, PDFs, brand voice, debugging, and project conventions — with the anatomy of a SKILL.md and the two rules that decide whether a skill ever fires.",
+    date: "July 2026",
+    readingTime: "8 min read",
+    tag: "Skills",
+    icon: "🧪",
+  },
+  {
+    slug: "claude-skills-for-coding",
+    title: "Claude Skills for Coding: The 8 That Actually Improve Your Code",
+    description:
+      "Code review, tests, debugging, refactoring, security, migrations, git hygiene, and your own conventions — what goes inside each coding skill, and when to use a skill instead of CLAUDE.md or a subagent.",
+    date: "July 2026",
+    readingTime: "9 min read",
+    tag: "Coding",
+    icon: "💻",
+  },
+  {
+    slug: "claude-skills-marketplace",
+    title: "Claude Skills Marketplace: Where to Find, Vet, and Install Skills",
+    description:
+      "There is no single app store for Claude skills — there are many marketplaces, GitHub repos, and curated kits. How plugin marketplaces work, how to vet a skill in thirty seconds, and what is actually worth paying for.",
+    date: "July 2026",
+    readingTime: "8 min read",
+    tag: "Ecosystem",
+    icon: "🏪",
+  },
+  {
+    slug: "claude-skills-for-pdf",
+    title: "Claude Skills for PDF: Extract, Fill, Merge, OCR, and Generate Real Files",
+    description:
+      "Reading a PDF is not the same as working with one. How a PDF skill bundles scripts to extract tables, fill forms, merge, split, OCR scans, and generate documents — and the pattern worth stealing for every other skill.",
+    date: "July 2026",
+    readingTime: "8 min read",
+    tag: "Documents",
+    icon: "📄",
+  },
+  {
+    slug: "claude-skills-github",
+    title: "Claude Skills on GitHub: Where to Find Them and How to Install Them Safely",
+    description:
+      "Almost every Claude skill lives on GitHub — unreviewed and sorted by nothing useful. Where the good ones are, how to copy a skill folder into place, how to judge a repo in a minute, and the safety rules people skip.",
+    date: "July 2026",
+    readingTime: "8 min read",
+    tag: "Skills",
+    icon: "🐙",
+  },
+  {
+    slug: "claude-skills-for-research",
+    title: "Claude Skills for Research: Method Instead of Confident Guessing",
+    description:
+      "Fluency is not rigor. How a research skill encodes a search protocol, a sourcing rule with teeth, and permission to find nothing — plus the five research skills worth having, for academics and analysts alike.",
+    date: "July 2026",
+    readingTime: "8 min read",
+    tag: "Research",
+    icon: "🔬",
+  },
+  {
+    slug: "claude-skills-for-developers",
+    title: "Claude Skills for Developers: The Complete Guide",
+    description:
+      "How skills work (progressive disclosure), how they differ from CLAUDE.md, subagents, and MCP, the let-the-model-decide-let-the-code-execute pattern, and how to roll skills out across a team via git.",
+    date: "July 2026",
+    readingTime: "9 min read",
+    tag: "Skills",
+    icon: "🛠️",
+  },
+  {
+    slug: "claude-skills-for-studying",
+    title: "Claude Skills for Studying: Turn Claude Into a Tutor, Not an Answer Machine",
+    description:
+      "Reading a fluent explanation feels like learning and mostly isn't. Six study skills — Socratic tutoring, active recall, the Feynman technique, spaced repetition, worked examples, and exam simulation — plus how to write one in five minutes.",
+    date: "July 2026",
+    readingTime: "8 min read",
+    tag: "Learning",
+    icon: "📚",
+  },
+  {
     slug: "mention-your-product-on-reddit-without-getting-banned",
     title: "How to Mention Your Product on Reddit Without Getting Banned (with a Claude Prompt That Writes the Post for You)",
     description:
