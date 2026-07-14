@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import ArticlePage from "../../components/ArticlePage";
 
 const TITLE = "Claude vs ChatGPT (2026): An Honest Comparison for Real Work";
@@ -15,9 +16,9 @@ export const metadata: Metadata = {
     description: DESC,
     type: "article",
     url: URL,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: TITLE }],
+    images: [{ url: ogImage(TITLE), width: 1200, height: 630, alt: TITLE }],
   },
-  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: ["/og.jpg"] },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESC, images: [ogImage(TITLE)] },
 };
 
 const articleLd = {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import SiteShell from "../components/SiteShell";
 import { USE_CASES } from "./useCasesData";
 
@@ -13,14 +14,14 @@ export const metadata: Metadata = {
       "How developers, data scientists, PMs, and students actually use Claude — with workflows and starter prompts.",
     type: "website",
     url: "https://claudethings.com/use-cases",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Claude use cases by role." }],
+    images: [{ url: ogImage("Claude Use Cases — Real Workflows by Role"), width: 1200, height: 630, alt: "Claude use cases by role." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Claude Use Cases — Real Workflows by Role",
     description:
       "How developers, data scientists, PMs, and students actually use Claude — with workflows and starter prompts.",
-    images: ["/og.jpg"],
+    images: [ogImage("Claude Use Cases — Real Workflows by Role")],
   },
 };
 

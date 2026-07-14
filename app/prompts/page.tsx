@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import SiteShell from "../components/SiteShell";
 import { COLLECTIONS } from "./promptsData";
 
@@ -13,14 +14,14 @@ export const metadata: Metadata = {
       "Field-tested Claude prompts for coding, writing, data analysis, business, and marketing — with the reasoning behind each one.",
     type: "website",
     url: "https://claudethings.com/prompts",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Claude prompts library by ClaudeThings." }],
+    images: [{ url: ogImage("Claude Prompts Library — 50 Copy-Paste Prompts That Work"), width: 1200, height: 630, alt: "Claude prompts library by ClaudeThings." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Claude Prompts Library — 50 Copy-Paste Prompts That Work",
     description:
       "Field-tested Claude prompts for coding, writing, data analysis, business, and marketing.",
-    images: ["/og.jpg"],
+    images: [ogImage("Claude Prompts Library — 50 Copy-Paste Prompts That Work")],
   },
 };
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import SiteShell from "../components/SiteShell";
 import { POSTS } from "./blogData";
 
@@ -13,14 +14,14 @@ export const metadata: Metadata = {
       "Practical guides for getting real work out of Claude — Claude Code, agents, prompting technique, applied workflows.",
     type: "website",
     url: "https://claudethings.com/blog",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "The ClaudeThings blog." }],
+    images: [{ url: ogImage("Blog — Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The ClaudeThings blog." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "ClaudeThings Blog — Claude Code Guides, Agents & Prompting",
     description:
       "Practical guides for getting real work out of Claude — Claude Code, agents, prompting technique, applied workflows.",
-    images: ["/og.jpg"],
+    images: [ogImage("Blog — Claude Code Guides, Agents & Prompting")],
   },
 };
 

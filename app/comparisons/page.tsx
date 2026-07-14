@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import SiteShell from "../components/SiteShell";
 import { COMPARISONS } from "./comparisonsData";
 
@@ -13,14 +14,14 @@ export const metadata: Metadata = {
       "Honest, hype-free comparisons: Claude vs ChatGPT, Sonnet vs Opus, Claude Code vs GitHub Copilot.",
     type: "website",
     url: "https://claudethings.com/comparisons",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "AI tool comparisons." }],
+    images: [{ url: ogImage("AI Comparisons — Claude vs ChatGPT, Copilot & More"), width: 1200, height: 630, alt: "AI tool comparisons." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Comparisons — Claude vs ChatGPT, Copilot & More",
     description:
       "Honest, hype-free comparisons: Claude vs ChatGPT, Sonnet vs Opus, Claude Code vs GitHub Copilot.",
-    images: ["/og.jpg"],
+    images: [ogImage("AI Comparisons — Claude vs ChatGPT, Copilot & More")],
   },
 };
 

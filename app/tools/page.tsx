@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import ToolsIndex from "./ToolsIndex";
 import { TOOLS } from "./toolsData";
 
@@ -24,14 +25,14 @@ export const metadata: Metadata = {
       "Free validators, auditors, and skills for people building with Claude Code. No signup, no cost.",
     type: "website",
     url: URL,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Free Claude Code tools by ClaudeThings." }],
+    images: [{ url: ogImage("Free Claude Code Tools — Validators, Auditors & Skills"), width: 1200, height: 630, alt: "Free Claude Code tools by ClaudeThings." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Claude Code Tools — ClaudeThings",
     description:
       "Free validators, auditors, and skills for people building with Claude Code. No signup, no cost.",
-    images: ["/og.jpg"],
+    images: [ogImage("Free Claude Code Tools — Validators, Auditors & Skills")],
   },
 };
 

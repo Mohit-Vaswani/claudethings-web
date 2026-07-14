@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import SecurityAuditPage from "./SecurityAuditPage";
 
 const PATH = "/claude-skill-for-website-security-audit";
@@ -23,14 +24,14 @@ export const metadata: Metadata = {
       "Scan your own website for the security issues that actually get sites breached — and get a plain-English report with exact fixes. Free download.",
     type: "website",
     url: `https://claudethings.com${PATH}`,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Free Website Security Audit Claude skill." }],
+    images: [{ url: ogImage("Free Claude Skill for Website Security Audit — Scan Your Site in Minutes"), width: 1200, height: 630, alt: "Free Website Security Audit Claude skill." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Claude Skill for Website Security Audit",
     description:
       "Scan your own website for the security issues that actually get sites breached — free Claude skill with a prioritized fix-it report.",
-    images: ["/og.jpg"],
+    images: [ogImage("Free Claude Skill for Website Security Audit — Scan Your Site in Minutes")],
   },
 };
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import { notFound } from "next/navigation";
 import SiteShell from "../../components/SiteShell";
 import PromptCard from "../../components/PromptCard";
@@ -28,13 +29,13 @@ export async function generateMetadata({
       description: c.description,
       type: "article",
       url,
-      images: [{ url: "/og.jpg", width: 1200, height: 630, alt: c.title }],
+      images: [{ url: ogImage(c.title), width: 1200, height: 630, alt: c.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: c.title,
       description: c.description,
-      images: ["/og.jpg"],
+      images: [ogImage(c.title)],
     },
   };
 }

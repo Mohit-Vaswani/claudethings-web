@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import ValidatorPage from "./ValidatorPage";
 
 const PATH = "/claude-skill-md-validator";
@@ -25,14 +26,14 @@ export const metadata: Metadata = {
       "Paste your Claude Code skill and instantly lint the YAML frontmatter, name/description rules, and structure — with exact fixes. Free and fully client-side.",
     type: "website",
     url: URL,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Free SKILL.md validator for Claude Code skills." }],
+    images: [{ url: ogImage("SKILL.md Validator — Free Claude Skill Format Checker & Linter"), width: 1200, height: 630, alt: "Free SKILL.md validator for Claude Code skills." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free SKILL.md Validator — Claude Skill Format Checker",
     description:
       "Lint your Claude Code SKILL.md in seconds: frontmatter, name, description, body length, and when-to-use structure. Free, runs in your browser.",
-    images: ["/og.jpg"],
+    images: [ogImage("SKILL.md Validator — Free Claude Skill Format Checker & Linter")],
   },
 };
 

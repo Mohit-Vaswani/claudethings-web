@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImage } from "@/app/lib/og";
 import type { ReactNode } from "react";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     url: "https://claudethings.com",
     images: [
       {
-        url: "/og.jpg",
+        url: ogImage("ClaudeThings — Your AI Engineering & Marketing Team for Claude Code"),
         width: 1200,
         height: 630,
         alt: "ClaudeThings — Your AI Engineering & Marketing Team in one command.",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "ClaudeThings — Your AI Engineering & Marketing Team",
     description:
       "89 agents · 103 skills · 181 slash commands. One command. Any stack. Built for Claude Code.",
-    images: ["/og.jpg"],
+    images: [ogImage("ClaudeThings — Your AI Engineering & Marketing Team for Claude Code")],
   },
   metadataBase: new URL("https://claudethings.com"),
   icons: {
