@@ -24,7 +24,7 @@ export default function LegalLayout({
       <nav id="nav" className="scrolled">
         <div className="nav-inner">
           <a className="logo" href="/">
-            <span className="dia">◆</span> ClaudeThings
+            ClaudeThings
           </a>
           <div className="nav-links">
             <a href="/#whats-inside">What&apos;s inside</a>
@@ -58,7 +58,7 @@ export default function LegalLayout({
           <div className="foot-top">
             <div>
               <a className="logo" href="/">
-                <span className="dia">◆</span> ClaudeThings
+                ClaudeThings
               </a>
               <p
                 style={{

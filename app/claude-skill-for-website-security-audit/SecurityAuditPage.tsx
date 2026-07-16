@@ -51,7 +51,7 @@ export default function SecurityAuditPage() {
       <nav id="nav">
         <div className="nav-inner">
           <a className="logo" href="https://claudethings.com">
-            <span className="dia">◆</span> ClaudeThings
+            ClaudeThings
           </a>
           <div className="nav-links">
             <a href="https://claudethings.com/#whats-inside">What&apos;s inside</a>
@@ -270,7 +270,7 @@ export default function SecurityAuditPage() {
           <div className="foot-top">
             <div>
               <a className="logo" href="https://claudethings.com">
-                <span className="dia">◆</span> ClaudeThings
+                ClaudeThings
               </a>
               <p style={{ color: "var(--bone-faint)", fontSize: 14, marginTop: 12, maxWidth: "34ch" }}>
                 Your AI engineering &amp; marketing team for Claude Code.

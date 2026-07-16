@@ -73,7 +73,7 @@ export function ToolNav({
     <nav id="nav">
       <div className="nav-inner">
         <a className="logo" href="https://claudethings.com">
-          <span className="dia">◆</span> ClaudeThings
+          ClaudeThings
         </a>
         <div className="nav-links">
           {links.map((l) => (
@@ -212,7 +212,7 @@ export function ToolFooter({ disclaimer }: { disclaimer: ReactNode }) {
         <div className="foot-top">
           <div>
             <a className="logo" href="https://claudethings.com">
-              <span className="dia">◆</span> ClaudeThings
+              ClaudeThings
             </a>
             <p style={{ color: "var(--bone-faint)", fontSize: 14, marginTop: 12, maxWidth: "34ch" }}>
               Your AI engineering &amp; marketing team for Claude Code.

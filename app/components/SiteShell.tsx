@@ -17,7 +17,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
       <nav id="nav" className="scrolled">
         <div className="nav-inner">
           <a className="logo" href="/">
-            <span className="dia">◆</span> ClaudeThings
+            ClaudeThings
           </a>
           <div className="nav-links">
             <a href="/prompts">Prompts</a>
@@ -39,7 +39,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           <div className="foot-top">
             <div>
               <a className="logo" href="/">
-                <span className="dia">◆</span> ClaudeThings
+                ClaudeThings
               </a>
               <p
                 style={{

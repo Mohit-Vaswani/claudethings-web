@@ -128,7 +128,7 @@ export default function Home() {
       <nav id="nav">
         <div className="nav-inner">
           <a className="logo" href="#top">
-            <span className="dia">◆</span> ClaudeThings
+            ClaudeThings
           </a>
           <div className="nav-links">
             <a href="#whats-inside">What&apos;s inside</a>
@@ -971,7 +971,7 @@ export default function Home() {
           <div className="foot-top">
             <div>
               <a className="logo" href="#top">
-                <span className="dia">◆</span> ClaudeThings
+                ClaudeThings
               </a>
               <p
                 style={{

@@ -5,7 +5,6 @@ import { ImageResponse } from "next/og";
 export const runtime = "nodejs";
 
 const PAPER = "#f6f2ea"; // page background
-const INK = "#191510"; // near-black logo mark
 const EMBER = "#e04e1b"; // vermilion accent
 const TEXT = "#1e1912"; // primary text
 const DIM = "#5d564a"; // secondary text
@@ -56,24 +55,8 @@ export function GET(req: Request) {
             justifyContent: "space-between",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <div
-              style={{
-                width: 50,
-                height: 50,
-                borderRadius: "50%",
-                background: INK,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              {/* CSS-drawn diamond — avoids depending on a glyph in Satori's font */}
-              <div style={{ width: 16, height: 16, background: EMBER, transform: "rotate(45deg)", borderRadius: 3 }} />
-            </div>
-            <div style={{ display: "flex", fontSize: 30, fontWeight: 700, color: TEXT, letterSpacing: -0.5 }}>
-              ClaudeThings
-            </div>
+          <div style={{ display: "flex", fontSize: 30, fontWeight: 700, color: TEXT, letterSpacing: -0.5 }}>
+            ClaudeThings
           </div>
           <div
             style={{
