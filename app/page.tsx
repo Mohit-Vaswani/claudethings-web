@@ -691,6 +691,29 @@ export default function Home() {
               after checkout.
             </p>
           </div>
+
+          {/* PRICE LADDER — bundle price rises as spots fill */}
+          <div className="ladder fade" aria-label="Bundle pricing steps">
+            <div className="ladder-track" aria-hidden="true" />
+            <div className="ladder-step">
+              <span className="node" />
+              <div className="step-price">$89</div>
+              <div className="step-note">
+                <b>2</b> spots left
+              </div>
+            </div>
+            <div className="ladder-step is-next">
+              <span className="node" />
+              <div className="step-price">$129</div>
+              <div className="step-note">next 50 users</div>
+            </div>
+            <div className="ladder-step is-next">
+              <span className="node" />
+              <div className="step-price">$199</div>
+              <div className="step-note">next 50 users</div>
+            </div>
+          </div>
+
           <div className="price-grid">
             {/* ENGINEER */}
             <div className="plan fade">
