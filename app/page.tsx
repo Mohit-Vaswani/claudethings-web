@@ -137,7 +137,7 @@ export default function Home() {
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <a
-              className="btn btn-primary nav-cta"
+              className="btn btn-primary nav-cta hover:text-white"
               href="#pricing"
               data-fast-goal="cta_get_claudethings"
               data-fast-goal-location="nav"
@@ -699,7 +699,7 @@ export default function Home() {
               <span className="node" />
               <div className="step-price">$89</div>
               <div className="step-note">
-                <b>2</b> spots left
+                <b>1</b> spots left
               </div>
             </div>
             <div className="ladder-step is-next">
