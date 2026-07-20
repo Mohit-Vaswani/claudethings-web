@@ -699,7 +699,7 @@ export default function Home() {
               <span className="node" />
               <div className="step-price">$89</div>
               <div className="step-note">
-                <b>2</b> spots left
+                <b>1</b> spots left
               </div>
             </div>
             <div className="ladder-step is-next">
