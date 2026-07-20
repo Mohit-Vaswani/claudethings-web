@@ -137,7 +137,7 @@ export default function Home() {
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
             <a
-              className="btn btn-primary nav-cta"
+              className="btn btn-primary nav-cta hover:text-white"
               href="#pricing"
               data-fast-goal="cta_get_claudethings"
               data-fast-goal-location="nav"
