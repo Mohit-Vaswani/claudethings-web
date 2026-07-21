@@ -156,15 +156,13 @@ export default function Home() {
             <span className="ticks g"></span>
           </div>
           <h1 className="reveal-h d2">
-            Turn <span className="grad">Claude Code</span> into a full engineering &amp; marketing
-            team.
+            Give <span className="grad">Claude Code</span> an entire AI team.
           </h1>
           <p className="sub reveal-h d3">
-            AgentsKit is an add-on for <b>Claude Code</b> — Anthropic&apos;s AI coding tool that runs
-            in your terminal. One command installs <b>89 specialized agents</b>,{" "}
-            <b>103 pre-built skills</b>, and <b>181 slash commands</b> into your project, so Claude
-            plans, builds, tests, ships, <em>and</em> markets like a team instead of a single
-            assistant.
+            AgentsKit gives <b>Claude Code</b> an entire AI engineering and marketing team. Install{" "}
+            <b>89 specialized agents</b>, <b>103 pre-built skills</b>, and{" "}
+            <b>181 slash commands</b> with one command, so your AI can plan, build, test, ship, and
+            market your project from start to finish.
           </p>
           <div className="cta-row reveal-h d4">
             <a
