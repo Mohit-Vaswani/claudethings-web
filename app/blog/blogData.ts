@@ -17,6 +17,56 @@ export interface BlogPost {
 
 export const POSTS: BlogPost[] = [
   {
+    slug: "best-mcp-servers-for-claude-code",
+    title: "The 12 Best MCP Servers for Claude Code in 2026 (Ranked)",
+    description:
+      "Not a directory dump — a ranked shortlist of the MCP servers worth connecting, why Context7 is the first one to install, which ones duplicate what Claude Code already does, and why four to six beats forty.",
+    date: "July 2026",
+    readingTime: "9 min read",
+    tag: "MCP",
+    icon: "🔌",
+  },
+  {
+    slug: "best-claude-code-plugins",
+    title: "The Best Claude Code Plugins in 2026 (and How to Install Them in One Command)",
+    description:
+      "Plugins bundle skills, agents, commands, hooks, and MCP servers into one versioned install. Which ones are worth it, the sixty-second test for judging any plugin, and the three kinds you should never install.",
+    date: "July 2026",
+    readingTime: "9 min read",
+    tag: "Plugins",
+    icon: "🧰",
+  },
+  {
+    slug: "best-ai-coding-assistants",
+    title: "The Best AI Coding Assistants in 2026, Ranked by What They Actually Ship",
+    description:
+      "Claude Code, Cursor, Codex, Copilot, Cline, Aider and more — ranked on completed work rather than demos, with a pick-by-job table and the configuration variable that decides most of the difference.",
+    date: "July 2026",
+    readingTime: "10 min read",
+    tag: "Tools",
+    icon: "⚖️",
+  },
+  {
+    slug: "best-claude-code-hooks",
+    title: "The 9 Best Claude Code Hooks to Set Up First",
+    description:
+      "Hooks are the only layer of your setup that can't be ignored. The nine worth having — auto-format, dangerous-command blocking, secret guards, test runs, notifications — plus which event to use for what.",
+    date: "July 2026",
+    readingTime: "9 min read",
+    tag: "Hooks",
+    icon: "🪝",
+  },
+  {
+    slug: "best-ai-tools-for-marketers",
+    title: "The Best AI Tools for Marketers in 2026 (Ranked by Output, Not Hype)",
+    description:
+      "Seven tools that cover the whole job instead of fifty that overlap: production, keyword data, research, design, video, lifecycle, and automation — with a clear #1 and the rule that keeps AI content from becoming slop.",
+    date: "July 2026",
+    readingTime: "9 min read",
+    tag: "Marketing",
+    icon: "🧲",
+  },
+  {
     slug: "claude-skills-examples",
     title: "Claude Skills Examples: 6 Real SKILL.md Files and What Makes Each One Work",
     description:
