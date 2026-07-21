@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("claude-md-best-practices-template")!;
-const URL = `https://claudethings.com/blog/${post.slug}`;
+const URL = `https://agentskit.co/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — ClaudeThings`,
+  title: `${post.title} — AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -205,7 +205,7 @@ Stack: <framework + language + DB + anything unusual>.
 
       <div className="callout">
         <p>
-          <strong>This file is also how kits adapt:</strong> ClaudeThings agents and skills read
+          <strong>This file is also how kits adapt:</strong> AgentsKit agents and skills read
           your CLAUDE.md to match your stack and conventions — the same 89 agents behave like they
           were written for your repo. <a href="/#pricing">See how the kits work →</a>
         </p>

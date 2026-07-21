@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import LegalLayout from "../components/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Refund Policy · ClaudeThings",
+  title: "Refund Policy · AgentsKit",
   description:
-    "ClaudeThings is a digital product delivered instantly, so all sales are final. Here's why, and what we do to make sure you buy with confidence.",
+    "AgentsKit is a digital product delivered instantly, so all sales are final. Here's why, and what we do to make sure you buy with confidence.",
 };
 
 export default function RefundPage() {
   return (
     <LegalLayout title="Refund Policy" updated="July 10, 2026">
       <p className="intro">
-        ClaudeThings is a digital product. The moment you check out, everything is yours: the
+        AgentsKit is a digital product. The moment you check out, everything is yours: the
         private repository and every file in it, delivered in full. There&apos;s nothing to ship
         back, which is why all sales are final.
       </p>
@@ -37,7 +37,7 @@ export default function RefundPage() {
 
       <h2>2. Know exactly what you&apos;re buying</h2>
       <p>
-        Nothing inside ClaudeThings is a mystery box. The full contents are listed on the
+        Nothing inside AgentsKit is a mystery box. The full contents are listed on the
         What&apos;s inside page, the kits are described individually, and the FAQ covers the
         questions people actually ask before buying. If you want a feel for how we build things,
         try the free tools and prompts on this site first. They&apos;re made the same way as the
@@ -57,7 +57,7 @@ export default function RefundPage() {
       <p>
         If you&apos;re on the fence, email{" "}
         <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a> before you buy and tell
-        us what you&apos;re working on. You&apos;ll get a straight answer. If ClaudeThings
+        us what you&apos;re working on. You&apos;ll get a straight answer. If AgentsKit
         isn&apos;t a fit for you, we&apos;d rather say so before you pay than after.
       </p>
     </LegalLayout>

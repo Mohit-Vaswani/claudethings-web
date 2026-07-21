@@ -5,10 +5,10 @@ import ArticlePage from "../../components/ArticlePage";
 const TITLE = "Claude vs ChatGPT (2026): An Honest Comparison for Real Work";
 const DESC =
   "Claude vs ChatGPT compared by workload: writing, coding, long documents, agents, research, and price. Where each genuinely wins, and a decision framework that isn't fandom.";
-const URL = "https://claudethings.com/comparisons/claude-vs-chatgpt";
+const URL = "https://agentskit.co/comparisons/claude-vs-chatgpt";
 
 export const metadata: Metadata = {
-  title: `${TITLE} — ClaudeThings`,
+  title: `${TITLE} — AgentsKit`,
   description: DESC,
   alternates: { canonical: "/comparisons/claude-vs-chatgpt" },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 export default function Page() {

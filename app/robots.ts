@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/app/lib/site";
 
-const BASE = "https://claudethings.com";
+const BASE = SITE_URL;
 
 /**
  * robots.txt — served at /robots.txt.
  *
  * We explicitly welcome the major AI crawlers and answer-engine bots (ChatGPT,
  * Claude, Perplexity, Gemini, and others) in addition to classic search
- * engines, so ClaudeThings can be indexed and cited across AI platforms.
+ * engines, so AgentsKit can be indexed and cited across AI platforms.
  * AI-facing content lives in /llms.txt, /llms-full.txt, and /ai.txt.
  */
 

@@ -1,6 +1,6 @@
-# ClaudeThings — Landing Page (Next.js)
+# AgentsKit — Landing Page (Next.js)
 
-The ClaudeThings sales landing page as a **Next.js 15 (App Router)** app — same design as the
+The AgentsKit sales landing page as a **Next.js 15 (App Router)** app — same design as the
 standalone HTML version, ready to deploy on Vercel or merge into your existing Next.js site.
 
 ## Run locally
@@ -32,7 +32,7 @@ In `app/page.tsx`, search for `REPLACE_` and swap in your real Polar checkout UR
 
 The Polar embed script is already loaded in `app/layout.tsx`, so any link with
 `data-polar-checkout` opens an inline checkout overlay. In each Polar product, enable the
-**GitHub Repository Access** benefit pointing at your private `claudethings-kit` repo for
+**GitHub Repository Access** benefit pointing at your private `agentskit-kit` repo for
 automatic delivery on purchase.
 
 ### 2. Prices
@@ -48,7 +48,7 @@ Footer links to `/terms`, `/privacy`, `/refund` — point them at your real page
   `npx vercel`. Zero config.
 - **Netlify / Cloudflare Pages:** also work with the Next.js preset.
 
-## Merge into your existing claudethings.com site
+## Merge into your existing agentskit.co site
 
 Since your main site is already Next.js, you can drop this in as a route:
 1. Copy `app/page.tsx` → a route in your site (e.g. `app/(marketing)/page.tsx` or `app/kit/page.tsx`).

@@ -430,7 +430,7 @@ export default function CalculatorPage() {
         heading="Whatever plan you pick, ship faster on it"
         lead={
           <>
-            The ClaudeThings kits squeeze more out of every session window: production-grade
+            The AgentsKit kits squeeze more out of every session window: production-grade
             agents, skills, and slash commands for engineering and marketing work.
           </>
         }

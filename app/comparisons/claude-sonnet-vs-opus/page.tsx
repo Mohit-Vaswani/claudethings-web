@@ -5,10 +5,10 @@ import ArticlePage from "../../components/ArticlePage";
 const TITLE = "Claude Sonnet vs Opus: Which Model Tier Should You Actually Use?";
 const DESC =
   "Sonnet vs Opus explained without the marketing: what the Opus tier actually buys you, when Sonnet is the smarter default, cost dynamics, and a decision framework by task type.";
-const URL = "https://claudethings.com/comparisons/claude-sonnet-vs-opus";
+const URL = "https://agentskit.co/comparisons/claude-sonnet-vs-opus";
 
 export const metadata: Metadata = {
-  title: `${TITLE} — ClaudeThings`,
+  title: `${TITLE} — AgentsKit`,
   description: DESC,
   alternates: { canonical: "/comparisons/claude-sonnet-vs-opus" },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 export default function Page() {
@@ -194,7 +194,7 @@ export default function Page() {
           prompted Opus on almost anything — see{" "}
           <a href="/blog/10-prompting-techniques-for-claude">the ten techniques</a> that matter
           more than the tier, or install them pre-packaged via the{" "}
-          <a href="/#pricing">ClaudeThings kits</a>.
+          <a href="/#pricing">AgentsKit kits</a>.
         </p>
       </div>
 

@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("how-to-write-a-claude-code-skill-that-triggers")!;
-const URL = `https://claudethings.com/blog/${post.slug}`;
+const URL = `https://agentskit.co/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — ClaudeThings`,
+  title: `${post.title} — AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -211,7 +211,7 @@ description: Extract text and tables from PDF files, fill
 
       <div className="callout">
         <p>
-          <strong>Prefer skills that already trigger?</strong> The 103 skills in the ClaudeThings
+          <strong>Prefer skills that already trigger?</strong> The 103 skills in the AgentsKit
           kits ship with descriptions tuned exactly this way — installed in one command, firing on
           the first try. <a href="/#pricing">Browse the kits →</a>
         </p>

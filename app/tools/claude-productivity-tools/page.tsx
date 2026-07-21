@@ -5,10 +5,10 @@ import ArticlePage from "../../components/ArticlePage";
 const TITLE = "Claude Productivity Tools: The Features Most People Never Find";
 const DESC =
   "A guided tour of Claude's productivity layer: Projects, Artifacts, connectors, skills, file analysis, and the workflow setups that turn a chat window into a working system — plus the free tools we build.";
-const URL = "https://claudethings.com/tools/claude-productivity-tools";
+const URL = "https://agentskit.co/tools/claude-productivity-tools";
 
 export const metadata: Metadata = {
-  title: `${TITLE} — ClaudeThings`,
+  title: `${TITLE} — AgentsKit`,
   description: DESC,
   alternates: { canonical: "/tools/claude-productivity-tools" },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 export default function Page() {
@@ -146,7 +146,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>The productized version:</strong> the ClaudeThings kits install 89 agents, 103
+          <strong>The productized version:</strong> the AgentsKit kits install 89 agents, 103
           skills, and 181 slash commands — engineering and marketing workflows that turn this
           whole page into a one-command setup. <a href="/#pricing">See the kits →</a>
         </p>

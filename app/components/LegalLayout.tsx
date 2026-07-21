@@ -24,7 +24,7 @@ export default function LegalLayout({
       <nav id="nav" className="scrolled">
         <div className="nav-inner">
           <a className="logo" href="/">
-            ClaudeThings
+            AgentsKit
           </a>
           <div className="nav-links">
             <a href="/#whats-inside">What&apos;s inside</a>
@@ -32,7 +32,7 @@ export default function LegalLayout({
             <a href="/#pricing">Pricing</a>
             <a href="/#faq">FAQ</a>
             <a className="btn btn-primary nav-cta" href="/#pricing">
-              Get ClaudeThings
+              Get AgentsKit
             </a>
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function LegalLayout({
           <div className="foot-top">
             <div>
               <a className="logo" href="/">
-                ClaudeThings
+                AgentsKit
               </a>
               <p
                 style={{
@@ -97,19 +97,19 @@ export default function LegalLayout({
               <div className="foot-col">
                 <h5>Connect</h5>
                 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-                <a href="https://claudethings.com">claudethings.com</a>
+                <a href="https://agentskit.co">agentskit.co</a>
               </div>
             </div>
           </div>
           <div className="disclaimer">
-            <b>Unofficial &amp; independent.</b> ClaudeThings is not affiliated with, endorsed by, or
+            <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by, or
             sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
-            &quot;Anthropic&quot; are trademarks of Anthropic. ClaudeThings is a curated
+            &quot;Anthropic&quot; are trademarks of Anthropic. AgentsKit is a curated
             distribution; many bundled components are sourced from open-source projects under
             MIT/Apache-2.0 licenses, with full attribution preserved in the product&apos;s CREDITS
             file.
             <br />
-            <br />© {year} ClaudeThings. All rights reserved.
+            <br />© {year} AgentsKit. All rights reserved.
           </div>
         </div>
       </footer>

@@ -5,7 +5,7 @@ export const business: PromptCollection = {
   label: "Business",
   icon: "💼",
   title: "10 Claude Prompts for Business Strategy & Operations",
-  metaTitle: "10 Claude Prompts for Business (Copy & Paste) — ClaudeThings",
+  metaTitle: "10 Claude Prompts for Business (Copy & Paste) — AgentsKit",
   description:
     "Ten practical Claude prompts for business: pressure-testing strategy, pricing decisions, meeting prep, competitive analysis, hiring scorecards, and hard emails. Built for founders, operators, and managers.",
   intro: [

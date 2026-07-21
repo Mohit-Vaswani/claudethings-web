@@ -1,37 +1,38 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
+import { SITE_DOMAIN, SITE_URL } from "@/app/lib/site";
 import type { ReactNode } from "react";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ClaudeThings — Your AI Engineering & Marketing Team for Claude Code",
+  title: "AgentsKit — Your AI Engineering & Marketing Team for Claude Code",
   description:
     "89 specialized agents, 103 skills, and 181 slash commands you drop into any project with one command. Built for Claude Code. Ship code and growth faster.",
   openGraph: {
-    title: "ClaudeThings — Your AI Engineering & Marketing Team",
+    title: "AgentsKit — Your AI Engineering & Marketing Team",
     description:
       "89 agents · 103 skills · 181 slash commands. One command. Any stack. Built for Claude Code.",
     type: "website",
-    url: "https://claudethings.com",
+    url: SITE_URL,
     images: [
       {
-        url: ogImage("ClaudeThings — Your AI Engineering & Marketing Team for Claude Code"),
+        url: ogImage("AgentsKit — Your AI Engineering & Marketing Team for Claude Code"),
         width: 1200,
         height: 630,
-        alt: "ClaudeThings — Your AI Engineering & Marketing Team in one command.",
+        alt: "AgentsKit — Your AI Engineering & Marketing Team in one command.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ClaudeThings — Your AI Engineering & Marketing Team",
+    title: "AgentsKit — Your AI Engineering & Marketing Team",
     description:
       "89 agents · 103 skills · 181 slash commands. One command. Any stack. Built for Claude Code.",
-    images: [ogImage("ClaudeThings — Your AI Engineering & Marketing Team for Claude Code")],
+    images: [ogImage("AgentsKit — Your AI Engineering & Marketing Team for Claude Code")],
   },
-  metadataBase: new URL("https://claudethings.com"),
+  metadataBase: new URL(SITE_URL),
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -67,7 +68,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Script
           src="https://datafa.st/js/script.js"
           data-website-id="dfid_2KgXjGdUBXKPy7nxWR30T"
-          data-domain="claudethings.com"
+          data-domain={SITE_DOMAIN}
           strategy="afterInteractive"
         />
         {/* Google Analytics (GA4) */}

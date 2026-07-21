@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("best-claude-code-subagents")!;
-const URL = `https://claudethings.com/blog/${post.slug}`;
+const URL = `https://agentskit.co/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — ClaudeThings`,
+  title: `${post.title} — AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -176,7 +176,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Or skip the setup entirely:</strong> all twelve of these — and 77 more, tuned
-          with correct tool scoping and delegation descriptions — ship in the ClaudeThings kits. 89
+          with correct tool scoping and delegation descriptions — ship in the AgentsKit kits. 89
           agents, one install command. <a href="/#pricing">See the full roster →</a>
         </p>
       </div>

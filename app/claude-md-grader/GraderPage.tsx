@@ -248,7 +248,7 @@ export default function GraderPage() {
           `${SEV_META[f.severity].icon} [${f.category}${f.points ? ` −${f.points}` : ""}] ${f.message.replace(/`/g, "")}`
       ),
       "",
-      "Graded free at https://claudethings.com/claude-md-grader",
+      "Graded free at https://agentskit.co/claude-md-grader",
     ];
     try {
       await navigator.clipboard.writeText(lines.join("\n"));
@@ -261,7 +261,7 @@ export default function GraderPage() {
     ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         `My CLAUDE.md scored ${result.score}/100 (${result.grade}) ${
           result.score >= 88 ? "😤" : "💀"
-        }\n\nGrade yours free:\nhttps://claudethings.com/claude-md-grader`
+        }\n\nGrade yours free:\nhttps://agentskit.co/claude-md-grader`
       )}`
     : "#";
 
@@ -473,7 +473,7 @@ export default function GraderPage() {
         heading="Want the configs already done right?"
         lead={
           <>
-            The ClaudeThings kits ship production-grade agents, skills, and commands — written to
+            The AgentsKit kits ship production-grade agents, skills, and commands — written to
             the same bar this grader enforces, so your whole Claude Code setup starts at an A.
           </>
         }

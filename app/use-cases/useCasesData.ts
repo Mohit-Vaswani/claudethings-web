@@ -34,7 +34,7 @@ export const USE_CASES: UseCase[] = [
     label: "Developers",
     icon: "👩‍💻",
     title: "Claude for Developers: What It's Actually Good For",
-    metaTitle: "Claude for Developers — Real Workflows, Not Demos — ClaudeThings",
+    metaTitle: "Claude for Developers — Real Workflows, Not Demos — AgentsKit",
     description:
       "How professional developers actually use Claude: codebase archaeology, debugging, review, test generation, and Claude Code workflows — with the starter prompts and setup that make it stick.",
     intro: [
@@ -107,7 +107,7 @@ List the possible causes ranked by likelihood, with the fastest check for each. 
     setup: [
       "Claude Code in the terminal or IDE — the chat window is for questions; the repo is where the work is.",
       "A real CLAUDE.md: commands, conventions, gotchas. Five minutes now, repaid every session.",
-      "Skills and slash commands for your repeated workflows — /review, /test, /security-review. Write your own or install the ClaudeThings Engineering Kit (58 agents, 61 skills, 159 commands).",
+      "Skills and slash commands for your repeated workflows — /review, /test, /security-review. Write your own or install the AgentsKit Engineering Kit (58 agents, 61 skills, 159 commands).",
       "A habit: read every diff. The tool is a very fast colleague, not a compiler.",
     ],
     faq: [
@@ -130,7 +130,7 @@ List the possible causes ranked by likelihood, with the fastest check for each. 
     label: "Data scientists",
     icon: "🔬",
     title: "Claude for Data Scientists: From Messy CSV to Defensible Finding",
-    metaTitle: "Claude for Data Scientists — Real Workflows — ClaudeThings",
+    metaTitle: "Claude for Data Scientists — Real Workflows — AgentsKit",
     description:
       "How data scientists use Claude across the real lifecycle: profiling messy data, pandas and SQL pair-programming, statistical sanity checks, literature-grade skepticism, and stakeholder translation.",
     intro: [
@@ -230,7 +230,7 @@ Stress test before I present it: sample adequacy, confounders that could produce
     label: "Product managers",
     icon: "🧭",
     title: "Claude for Product Managers: The Leverage Is in the Writing",
-    metaTitle: "Claude for Product Managers — Real Workflows — ClaudeThings",
+    metaTitle: "Claude for Product Managers — Real Workflows — AgentsKit",
     description:
       "How PMs use Claude for the work that actually consumes the week: PRDs that survive engineering review, user-feedback synthesis, prioritization math, stakeholder communication, and sharper product thinking.",
     intro: [
@@ -313,7 +313,7 @@ Strategy context: [what the company must be true by year-end]
       "Claude with Projects (claude.ai) — one project per product area with your strategy docs, past PRDs, and personas loaded as context.",
       "A voice-and-standards doc: how your org writes specs, what a good success metric looks like, banned vagueness ('improve UX').",
       "Pipe in real data: exports from your support tool, call transcripts, NPS verbatims. Synthesis quality tracks input volume.",
-      "For PM + growth work together, the ClaudeThings Marketing Kit covers the messaging half: positioning, launch copy, email sequences.",
+      "For PM + growth work together, the AgentsKit Marketing Kit covers the messaging half: positioning, launch copy, email sequences.",
     ],
     faq: [
       {
@@ -335,7 +335,7 @@ Strategy context: [what the company must be true by year-end]
     label: "Students",
     icon: "🎓",
     title: "Claude for Students: Learn Faster Without Learning Less",
-    metaTitle: "Claude for Students — Study Workflows That Don't Backfire — ClaudeThings",
+    metaTitle: "Claude for Students — Study Workflows That Don't Backfire — AgentsKit",
     description:
       "How to use Claude as a student without hollowing out your education: Socratic tutoring, feedback on your drafts, exam generation from your notes, research assistance — and where the academic-integrity line actually is.",
     intro: [

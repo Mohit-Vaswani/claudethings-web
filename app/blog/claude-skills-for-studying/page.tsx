@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("claude-skills-for-studying")!;
-const URL = `https://claudethings.com/blog/${post.slug}`;
+const URL = `https://agentskit.co/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — ClaudeThings`,
+  title: `${post.title} — AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 const faqLd = {
@@ -200,7 +200,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Skills are not just for students:</strong> the same mechanism that turns Claude
-          into a tutor turns it into a reviewer, an editor, or a researcher. ClaudeThings ships 103
+          into a tutor turns it into a reviewer, an editor, or a researcher. AgentsKit ships 103
           production skills with 89 agents and 181 commands.{" "}
           <a href="/#pricing">See the kits →</a>
         </p>

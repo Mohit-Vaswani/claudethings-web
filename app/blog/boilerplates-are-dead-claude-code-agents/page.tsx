@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("boilerplates-are-dead-claude-code-agents")!;
-const URL = `https://claudethings.com/blog/${post.slug}`;
+const URL = `https://agentskit.co/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — ClaudeThings`,
+  title: `${post.title} — AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 export default function Page() {
@@ -148,7 +148,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>This thesis is our product:</strong> ClaudeThings kits are the agent-first
+          <strong>This thesis is our product:</strong> AgentsKit kits are the agent-first
           replacement for the boilerplate — 89 agents, 103 skills, and 181 commands that build,
           review, and test in <em>your</em> stack, adapting to each project via CLAUDE.md instead
           of locking you into one. <a href="/#pricing">See the kits →</a>

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description:
       "Scan your own website for the security issues that actually get sites breached — and get a plain-English report with exact fixes. Free download.",
     type: "website",
-    url: `https://claudethings.com${PATH}`,
+    url: `https://agentskit.co${PATH}`,
     images: [{ url: ogImage("Free Claude Skill for Website Security Audit — Scan Your Site in Minutes"), width: 1200, height: 630, alt: "Free Website Security Audit Claude skill." }],
   },
   twitter: {
@@ -44,7 +44,7 @@ const jsonLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   description:
     "A free Claude skill that audits your own website or codebase for common security issues and produces a prioritized report with exact fixes.",
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 export default function Page() {

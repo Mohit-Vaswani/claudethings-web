@@ -5,7 +5,7 @@ export const dataAnalysis: PromptCollection = {
   label: "Data analysis",
   icon: "📊",
   title: "10 Claude Prompts for Data Analysis That Actually Work",
-  metaTitle: "10 Claude Prompts for Data Analysis (Copy & Paste) — ClaudeThings",
+  metaTitle: "10 Claude Prompts for Data Analysis (Copy & Paste) — AgentsKit",
   description:
     "Ten battle-tested Claude prompts for data analysis: profiling messy datasets, writing SQL, statistical sanity checks, chart selection, and turning numbers into an executive narrative. Copy, paste, and adapt.",
   intro: [

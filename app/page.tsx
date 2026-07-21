@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 /**
- * ClaudeThings landing page (Next.js App Router).
+ * AgentsKit landing page (Next.js App Router).
  * Styling lives in app/globals.css. Buy buttons use Polar's embed (loaded in layout.tsx).
  * Replace the REPLACE_* checkout links below with your real Polar product links.
  */
@@ -56,7 +56,7 @@ export default function Home() {
     cleanups.push(() => cio.disconnect());
 
     // terminal typing
-    const cmd = "npx github:claudethings/claudethings-kit init --kit both";
+    const cmd = "npx github:agentskit-co/kit init --kit both";
     const typedEl = document.getElementById("typed");
     const curEl = document.getElementById("cur");
     const outEl = document.getElementById("term-out");
@@ -128,7 +128,7 @@ export default function Home() {
       <nav id="nav">
         <div className="nav-inner">
           <a className="logo" href="#top">
-            ClaudeThings
+            AgentsKit
           </a>
           <div className="nav-links">
             <a href="#whats-inside">What&apos;s inside</a>
@@ -142,7 +142,7 @@ export default function Home() {
               data-fast-goal="cta_get_claudethings"
               data-fast-goal-location="nav"
             >
-              Get ClaudeThings <span className="ar">↗</span>
+              Get AgentsKit <span className="ar">↗</span>
             </a>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function Home() {
             Your AI <span className="grad">engineering &amp; marketing</span> team. In one command.
           </h1>
           <p className="sub reveal-h d3">
-            Stop buying dead boilerplate. ClaudeThings drops <b>89 specialized agents</b>,{" "}
+            Stop buying dead boilerplate. AgentsKit drops <b>89 specialized agents</b>,{" "}
             <b>103 pre-built skills</b>, and <b>181 slash commands</b> into any project, a living
             team that plans, builds, tests, ships, <em>and</em> markets alongside you.
           </p>
@@ -170,7 +170,7 @@ export default function Home() {
               data-fast-goal="cta_get_claudethings"
               data-fast-goal-location="hero"
             >
-              Get ClaudeThings <span className="ar">↗</span>
+              Get AgentsKit <span className="ar">↗</span>
             </a>
             <a className="btn btn-ghost btn-lg" href="#whats-inside">
               See what&apos;s inside <span className="ar">↗</span>
@@ -270,7 +270,7 @@ export default function Home() {
             <div className="tag">A living team, not dead code</div>
             <h2>Not a template. A team that works like real people.</h2>
             <p className="lead">
-              ClaudeThings agents read a{" "}
+              AgentsKit agents read a{" "}
               <code style={{ fontFamily: "var(--font-mono)", fontSize: ".85em" }}>CLAUDE.md</code>{" "}
               you fill in once, then adapt to <em>your</em> stack and conventions and get smarter
               every time Claude does.
@@ -311,7 +311,7 @@ export default function Home() {
               <div className="show-vista vista v2">
                 <div className="ui-card">
                   <div className="u-label">Lifetime updates</div>
-                  <div className="ui-line">$ claudethings update</div>
+                  <div className="ui-line">$ agentskit update</div>
                   <div className="ui-line">
                     <span className="ck">✓</span> up to date — no upgrade fees
                   </div>
@@ -508,7 +508,7 @@ export default function Home() {
                   data-fast-goal="cta_get_claudethings"
                   data-fast-goal-location="how_it_works"
                 >
-                  Get ClaudeThings <span className="ar">↗</span>
+                  Get AgentsKit <span className="ar">↗</span>
                 </a>
               </div>
             </div>
@@ -517,7 +517,7 @@ export default function Home() {
                 <div className="n">01</div>
                 <h4>Install</h4>
                 <p>
-                  Run the <code>npx github:claudethings/…</code> one-liner from your private
+                  Run the <code>npx github:agentskit-co/…</code> one-liner from your private
                   repo&apos;s README. Pick engineer, marketing, or both. No global install.
                 </p>
               </div>
@@ -547,7 +547,7 @@ export default function Home() {
         <div className="wrap">
           <div className="center fade">
             <div className="tag">Built different</div>
-            <h2>Why builders pick ClaudeThings.</h2>
+            <h2>Why builders pick AgentsKit.</h2>
           </div>
           <div className="feat-grid">
             <div className="feat fade">
@@ -556,7 +556,7 @@ export default function Home() {
               <p>
                 Want just the debugger?{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>
-                  claudethings add agent debugger
+                  agentskit add agent debugger
                 </code>
                 . No all-or-nothing.
               </p>
@@ -576,7 +576,7 @@ export default function Home() {
               <p>
                 Run{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>
-                  claudethings update
+                  agentskit update
                 </code>{" "}
                 for the latest agents. Buy once, use forever.
               </p>
@@ -614,7 +614,7 @@ export default function Home() {
                   <th>Feature</th>
                   <th>Boilerplate</th>
                   <th>Other AI kits</th>
-                  <th>ClaudeThings</th>
+                  <th>AgentsKit</th>
                 </tr>
               </thead>
               <tbody>
@@ -904,8 +904,8 @@ export default function Home() {
                 <div className="a">
                   Access to a private GitHub repo containing the kit(s) you bought: a{" "}
                   <code>.claude/</code> directory of agents, skills, and slash commands, CLAUDE.md
-                  templates, the <code>claudethings</code> installer CLI, and full docs. You drop it
-                  into any project with a one-line <code>npx github:claudethings/…</code> command
+                  templates, the <code>agentskit</code> installer CLI, and full docs. You drop it
+                  into any project with a one-line <code>npx github:agentskit-co/…</code> command
                   that pulls straight from your private repo — the exact command is in your
                   repo&apos;s README.
                 </div>
@@ -937,7 +937,7 @@ export default function Home() {
                   How do updates work? <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  Buy once, get every future update. Run <code>claudethings update</code> (or{" "}
+                  Buy once, get every future update. Run <code>agentskit update</code> (or{" "}
                   <code>git pull</code>) to refresh. Your custom files and CLAUDE.md are never
                   touched.
                 </div>
@@ -947,7 +947,7 @@ export default function Home() {
                   Is this affiliated with Anthropic? <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  No. ClaudeThings is an independent, unofficial product and is not affiliated
+                  No. AgentsKit is an independent, unofficial product and is not affiliated
                   with, endorsed by, or sponsored by Anthropic. &quot;Claude&quot; and &quot;Claude
                   Code&quot; are trademarks of Anthropic.
                 </div>
@@ -957,7 +957,7 @@ export default function Home() {
                   What&apos;s the refund policy? <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  ClaudeThings is a digital product delivered instantly and in full at checkout,
+                  AgentsKit is a digital product delivered instantly and in full at checkout,
                   so all sales are final and purchases are non-refundable. Have questions before
                   buying? Email us and we&apos;ll help you decide.
                 </div>
@@ -981,7 +981,7 @@ export default function Home() {
               data-fast-goal="cta_get_claudethings"
               data-fast-goal-location="final_cta"
             >
-              Get ClaudeThings <span className="ar">↗</span>
+              Get AgentsKit <span className="ar">↗</span>
             </a>
           </div>
           <div className="guarantee">🔒 Secure checkout · Pay once, use forever</div>
@@ -994,7 +994,7 @@ export default function Home() {
           <div className="foot-top">
             <div>
               <a className="logo" href="#top">
-                ClaudeThings
+                AgentsKit
               </a>
               <p
                 style={{
@@ -1045,19 +1045,19 @@ export default function Home() {
                 >
                   epictools.io@gmail.com
                 </a>
-                <a href="https://claudethings.com">claudethings.com</a>
+                <a href="https://agentskit.co">agentskit.co</a>
               </div>
             </div>
           </div>
           <div className="disclaimer">
-            <b>Unofficial &amp; independent.</b> ClaudeThings is not affiliated with, endorsed by, or
+            <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by, or
             sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
-            &quot;Anthropic&quot; are trademarks of Anthropic. ClaudeThings is a curated
+            &quot;Anthropic&quot; are trademarks of Anthropic. AgentsKit is a curated
             distribution; many bundled components are sourced from open-source projects under
             MIT/Apache-2.0 licenses, with full attribution preserved in the product&apos;s CREDITS
             file.
             <br />
-            <br />© {year} ClaudeThings. All rights reserved.
+            <br />© {year} AgentsKit. All rights reserved.
           </div>
         </div>
       </footer>

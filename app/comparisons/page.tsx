@@ -4,7 +4,7 @@ import SiteShell from "../components/SiteShell";
 import { COMPARISONS } from "./comparisonsData";
 
 export const metadata: Metadata = {
-  title: "AI Comparisons — Claude vs ChatGPT, Copilot & More — ClaudeThings",
+  title: "AI Comparisons — Claude vs ChatGPT, Copilot & More — AgentsKit",
   description:
     "Honest, hype-free comparisons for choosing AI tools: Claude vs ChatGPT, Claude Sonnet vs Opus, Claude Code vs GitHub Copilot — written by people who use all of them daily.",
   alternates: { canonical: "/comparisons" },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       "Honest, hype-free comparisons: Claude vs ChatGPT, Sonnet vs Opus, Claude Code vs GitHub Copilot.",
     type: "website",
-    url: "https://claudethings.com/comparisons",
+    url: "https://agentskit.co/comparisons",
     images: [{ url: ogImage("AI Comparisons — Claude vs ChatGPT, Copilot & More"), width: 1200, height: 630, alt: "AI tool comparisons." }],
   },
   twitter: {
@@ -68,7 +68,7 @@ export default function ComparisonsIndex() {
           <p className="lead">
             Start with the <a href="/prompts" className="accent">free prompt library</a>, graduate
             to <a href="/blog/getting-started-with-claude-code" className="accent">Claude Code</a>,
-            and install the <a href="/#pricing" className="accent">ClaudeThings kits</a> when
+            and install the <a href="/#pricing" className="accent">AgentsKit kits</a> when
             you&apos;re ready to move faster than prompts allow.
           </p>
         </div>

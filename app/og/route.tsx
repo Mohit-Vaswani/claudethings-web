@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { SITE_DOMAIN, SITE_NAME } from "@/app/lib/site";
 
 // Dynamic Open Graph image generator, branded to match the site (see globals.css tokens).
 // Usage: /og?title=<title>&label=<pill>  — wired up via app/lib/og.ts.
@@ -13,8 +14,8 @@ const WHITE = "#fdfcf8"; // raised surface
 
 export function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const title = (searchParams.get("title") || "ClaudeThings").slice(0, 150);
-  const label = (searchParams.get("label") || "ClaudeThings").slice(0, 26);
+  const title = (searchParams.get("title") || SITE_NAME).slice(0, 150);
+  const label = (searchParams.get("label") || SITE_NAME).slice(0, 26);
 
   const len = title.length;
   const fontSize = len > 95 ? 52 : len > 72 ? 60 : len > 46 ? 70 : 82;
@@ -56,7 +57,7 @@ export function GET(req: Request) {
           }}
         >
           <div style={{ display: "flex", fontSize: 30, fontWeight: 700, color: TEXT, letterSpacing: -0.5 }}>
-            ClaudeThings
+            {SITE_NAME}
           </div>
           <div
             style={{
@@ -114,7 +115,7 @@ export function GET(req: Request) {
           }}
         >
           <div style={{ display: "flex", fontSize: 24, fontWeight: 600, color: EMBER }}>
-            claudethings.com
+            {SITE_DOMAIN}
           </div>
           <div style={{ display: "flex", fontSize: 20, fontWeight: 500, color: DIM }}>
             89 agents · 103 skills · 181 slash commands

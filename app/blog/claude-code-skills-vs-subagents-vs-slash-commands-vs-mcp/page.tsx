@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp")!;
-const URL = `https://claudethings.com/blog/${post.slug}`;
+const URL = `https://agentskit.co/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — ClaudeThings`,
+  title: `${post.title} — AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -188,7 +188,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Skip the assembly:</strong> ClaudeThings kits ship 89 subagents, 103 skills, and
+          <strong>Skip the assembly:</strong> AgentsKit kits ship 89 subagents, 103 skills, and
           181 slash commands — pre-built, pre-tuned, and installed into Claude Code with one
           command. <a href="/#pricing">See what&apos;s inside →</a>
         </p>

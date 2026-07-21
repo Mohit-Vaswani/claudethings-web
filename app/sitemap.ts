@@ -5,8 +5,9 @@ import { COLLECTIONS } from "./prompts/promptsData";
 import { POSTS } from "./blog/blogData";
 import { USE_CASES } from "./use-cases/useCasesData";
 import { COMPARISONS } from "./comparisons/comparisonsData";
+import { SITE_URL } from "@/app/lib/site";
 
-const BASE = "https://claudethings.com";
+const BASE = SITE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

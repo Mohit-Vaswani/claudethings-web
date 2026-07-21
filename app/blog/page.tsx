@@ -4,21 +4,21 @@ import SiteShell from "../components/SiteShell";
 import { POSTS } from "./blogData";
 
 export const metadata: Metadata = {
-  title: "Blog — Claude Code Guides, Agents & Prompting — ClaudeThings",
+  title: "Blog — Claude Code Guides, Agents & Prompting — AgentsKit",
   description:
     "Practical guides for getting real work out of Claude: Claude Code walkthroughs, building AI agents, prompting techniques, and applied workflows. Written by builders, not content farms.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "ClaudeThings Blog — Claude Code Guides, Agents & Prompting",
+    title: "AgentsKit Blog — Claude Code Guides, Agents & Prompting",
     description:
       "Practical guides for getting real work out of Claude — Claude Code, agents, prompting technique, applied workflows.",
     type: "website",
-    url: "https://claudethings.com/blog",
-    images: [{ url: ogImage("Blog — Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The ClaudeThings blog." }],
+    url: "https://agentskit.co/blog",
+    images: [{ url: ogImage("Blog — Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The AgentsKit blog." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ClaudeThings Blog — Claude Code Guides, Agents & Prompting",
+    title: "AgentsKit Blog — Claude Code Guides, Agents & Prompting",
     description:
       "Practical guides for getting real work out of Claude — Claude Code, agents, prompting technique, applied workflows.",
     images: [ogImage("Blog — Claude Code Guides, Agents & Prompting")],
@@ -38,7 +38,7 @@ export default function BlogIndex() {
           </h1>
           <p className="sub">
             Long-form, practical, and specific: <b>Claude Code workflows, agent architecture, and
-            prompting technique</b> — the write-ups we wished existed while building ClaudeThings.
+            prompting technique</b> — the write-ups we wished existed while building AgentsKit.
           </p>
         </div>
       </header>

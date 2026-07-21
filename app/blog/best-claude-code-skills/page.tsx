@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("best-claude-code-skills")!;
-const URL = `https://claudethings.com/blog/${post.slug}`;
+const URL = `https://agentskit.co/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — ClaudeThings`,
+  title: `${post.title} — AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -169,12 +169,12 @@ export default function Page() {
       </p>
       <p>
         The one-command version: skills increasingly ship in plugins and kits, installed as a
-        bundle instead of folder-by-folder — which is exactly how ClaudeThings works.
+        bundle instead of folder-by-folder — which is exactly how AgentsKit works.
       </p>
 
       <div className="callout">
         <p>
-          <strong>Everything on this list, one command:</strong> the ClaudeThings kits include all
+          <strong>Everything on this list, one command:</strong> the AgentsKit kits include all
           fifteen categories above among 103 skills — descriptions tuned to trigger, scripts
           bundled, kept current — plus the 89 agents and 181 commands they pair with.{" "}
           <a href="/#pricing">Install the full library →</a>

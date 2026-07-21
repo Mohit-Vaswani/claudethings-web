@@ -5,7 +5,7 @@ export const marketing: PromptCollection = {
   label: "Marketing",
   icon: "📣",
   title: "10 Claude Prompts for Marketing That Converts",
-  metaTitle: "10 Claude Prompts for Marketing (Copy & Paste) — ClaudeThings",
+  metaTitle: "10 Claude Prompts for Marketing (Copy & Paste) — AgentsKit",
   description:
     "Ten field-tested Claude prompts for marketers: positioning, landing pages that convert, email sequences, SEO content briefs, ad variants, and turning customer interviews into messaging. Copy and adapt.",
   intro: [
@@ -224,7 +224,7 @@ What we've already tried: [so Claude doesn't suggest it again]
     },
     {
       q: "Can Claude run my whole marketing function?",
-      a: "It can draft, analyze, and strategize at a level that replaces a lot of agency work. What it can't do alone is choose what's true about your product, gather proof, or press publish. Pair it with the ClaudeThings Marketing Kit and one decisive human, and you have a function.",
+      a: "It can draft, analyze, and strategize at a level that replaces a lot of agency work. What it can't do alone is choose what's true about your product, gather proof, or press publish. Pair it with the AgentsKit Marketing Kit and one decisive human, and you have a function.",
     },
   ],
 };

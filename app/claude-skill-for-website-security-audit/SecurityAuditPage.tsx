@@ -50,13 +50,13 @@ export default function SecurityAuditPage() {
       {/* NAV */}
       <nav id="nav">
         <div className="nav-inner">
-          <a className="logo" href="https://claudethings.com">
-            ClaudeThings
+          <a className="logo" href="https://agentskit.co">
+            AgentsKit
           </a>
           <div className="nav-links">
-            <a href="https://claudethings.com/#whats-inside">What&apos;s inside</a>
-            <a href="https://claudethings.com/#kits">Kits</a>
-            <a href="https://claudethings.com/#pricing">Pricing</a>
+            <a href="https://agentskit.co/#whats-inside">What&apos;s inside</a>
+            <a href="https://agentskit.co/#kits">Kits</a>
+            <a href="https://agentskit.co/#pricing">Pricing</a>
             <a href="#download" className="btn btn-primary nav-cta">
               Get the free skill
             </a>
@@ -222,7 +222,7 @@ export default function SecurityAuditPage() {
                 <li><span className="ck">✓</span> Lifetime updates</li>
               </ul>
               <a
-                href="https://claudethings.com/#pricing"
+                href="https://agentskit.co/#pricing"
                 className="btn btn-primary"
                 style={{ width: "100%", justifyContent: "center", marginTop: 22 }}
               >
@@ -248,7 +248,7 @@ export default function SecurityAuditPage() {
                 <li><span className="ck">✓</span> Lifetime updates</li>
               </ul>
               <a
-                href="https://claudethings.com/#pricing"
+                href="https://agentskit.co/#pricing"
                 className="btn btn-ghost"
                 style={{ width: "100%", justifyContent: "center", marginTop: 22 }}
               >
@@ -257,7 +257,7 @@ export default function SecurityAuditPage() {
             </div>
           </div>
           <p className="fade" style={{ marginTop: 26 }}>
-            <a href="https://claudethings.com/#pricing" className="accent" style={{ fontWeight: 600 }}>
+            <a href="https://agentskit.co/#pricing" className="accent" style={{ fontWeight: 600 }}>
               Or grab both in the Complete Bundle →
             </a>
           </p>
@@ -269,8 +269,8 @@ export default function SecurityAuditPage() {
         <div className="wrap">
           <div className="foot-top">
             <div>
-              <a className="logo" href="https://claudethings.com">
-                ClaudeThings
+              <a className="logo" href="https://agentskit.co">
+                AgentsKit
               </a>
               <p style={{ color: "var(--bone-faint)", fontSize: 14, marginTop: 12, maxWidth: "34ch" }}>
                 Your AI engineering &amp; marketing team for Claude Code.
@@ -279,17 +279,17 @@ export default function SecurityAuditPage() {
             <div className="foot-links">
               <div className="foot-col">
                 <h5>Product</h5>
-                <a href="https://claudethings.com/#whats-inside">What&apos;s inside</a>
-                <a href="https://claudethings.com/#kits">Kits</a>
-                <a href="https://claudethings.com/#pricing">Pricing</a>
-                <a href="https://claudethings.com/#faq">FAQ</a>
+                <a href="https://agentskit.co/#whats-inside">What&apos;s inside</a>
+                <a href="https://agentskit.co/#kits">Kits</a>
+                <a href="https://agentskit.co/#pricing">Pricing</a>
+                <a href="https://agentskit.co/#faq">FAQ</a>
               </div>
               <div className="foot-col">
                 <h5>Free Skills</h5>
                 <a href="/tools">All free tools</a>
                 <a href="/claude-skill-md-validator">SKILL.md Validator</a>
                 <a href="/claude-skill-for-website-security-audit">Website Security Audit</a>
-                <a href="https://claudethings.com">More skills</a>
+                <a href="https://agentskit.co">More skills</a>
               </div>
               <div className="foot-col">
                 <h5>Legal</h5>
@@ -301,7 +301,7 @@ export default function SecurityAuditPage() {
               <div className="foot-col">
                 <h5>Connect</h5>
                 <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
-                <a href="https://claudethings.com">claudethings.com</a>
+                <a href="https://agentskit.co">agentskit.co</a>
               </div>
             </div>
           </div>
@@ -311,11 +311,11 @@ export default function SecurityAuditPage() {
             guarantee your site is secure.
             <br />
             <br />
-            <b>Unofficial &amp; independent.</b> ClaudeThings is not affiliated with, endorsed by, or
+            <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by, or
             sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
             &quot;Anthropic&quot; are trademarks of Anthropic.
             <br />
-            <br />© {year} ClaudeThings. All rights reserved.
+            <br />© {year} AgentsKit. All rights reserved.
           </div>
         </div>
       </footer>

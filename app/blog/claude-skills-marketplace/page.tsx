@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("claude-skills-marketplace")!;
-const URL = `https://claudethings.com/blog/${post.slug}`;
+const URL = `https://agentskit.co/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — ClaudeThings`,
+  title: `${post.title} — AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 const faqLd = {
@@ -193,7 +193,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>The curated option:</strong> ClaudeThings is a vetted library — 103 skills, 89
+          <strong>The curated option:</strong> AgentsKit is a vetted library — 103 skills, 89
           agents, and 181 commands, deduplicated, trigger-tested, and installed with one command
           instead of forty folder copies.{" "}
           <a href="/#pricing">See what is inside →</a>

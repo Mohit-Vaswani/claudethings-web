@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 const CONTACT_EMAIL = "epictools.io@gmail.com";
 
 export const metadata: Metadata = {
-  title: "Purchase complete · ClaudeThings",
-  description: "Thanks for purchasing ClaudeThings. Here's what happens next.",
+  title: "Purchase complete · AgentsKit",
+  description: "Thanks for purchasing AgentsKit. Here's what happens next.",
   // Post-checkout landing page — not for search engines.
   robots: { index: false, follow: false },
 };
@@ -24,7 +24,7 @@ export default function SuccessPage() {
       <nav id="nav" className="scrolled">
         <div className="nav-inner">
           <a className="logo" href="/">
-            ClaudeThings
+            AgentsKit
           </a>
           <div className="nav-links">
             <a href="/#whats-inside">What&apos;s inside</a>
@@ -44,7 +44,7 @@ export default function SuccessPage() {
             </div>
             <h1>You&apos;re in. 🎉</h1>
             <p className="intro">
-              Thanks for purchasing ClaudeThings. Your payment went through and your access is on
+              Thanks for purchasing AgentsKit. Your payment went through and your access is on
               its way.
             </p>
 
@@ -73,7 +73,7 @@ export default function SuccessPage() {
 
             <p>
               <a className="btn btn-primary" href="/">
-                Back to ClaudeThings →
+                Back to AgentsKit →
               </a>
             </p>
           </article>
@@ -84,11 +84,11 @@ export default function SuccessPage() {
       <footer>
         <div className="wrap">
           <div className="disclaimer">
-            <b>Unofficial &amp; independent.</b> ClaudeThings is not affiliated with, endorsed by,
+            <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by,
             or sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
             &quot;Anthropic&quot; are trademarks of Anthropic.
             <br />
-            <br />© {year} ClaudeThings. All rights reserved.
+            <br />© {year} AgentsKit. All rights reserved.
           </div>
         </div>
       </footer>

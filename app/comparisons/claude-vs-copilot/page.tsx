@@ -5,10 +5,10 @@ import ArticlePage from "../../components/ArticlePage";
 const TITLE = "Claude vs GitHub Copilot: Autocomplete vs Agent";
 const DESC =
   "Claude Code and GitHub Copilot solve different problems: inline completion vs delegated engineering. Where each wins, where they overlap in 2026, and why many developers run both.";
-const URL = "https://claudethings.com/comparisons/claude-vs-copilot";
+const URL = "https://agentskit.co/comparisons/claude-vs-copilot";
 
 export const metadata: Metadata = {
-  title: `${TITLE} — ClaudeThings`,
+  title: `${TITLE} — AgentsKit`,
   description: DESC,
   alternates: { canonical: "/comparisons/claude-vs-copilot" },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "ClaudeThings" },
-  publisher: { "@type": "Organization", name: "ClaudeThings", url: "https://claudethings.com" },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
 };
 
 export default function Page() {

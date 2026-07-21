@@ -4,7 +4,7 @@ import SiteShell from "../components/SiteShell";
 import { COLLECTIONS } from "./promptsData";
 
 export const metadata: Metadata = {
-  title: "Claude Prompts Library — 50 Copy-Paste Prompts That Work — ClaudeThings",
+  title: "Claude Prompts Library — 50 Copy-Paste Prompts That Work — AgentsKit",
   description:
     "A free library of 50 field-tested Claude prompts for coding, writing, data analysis, business, and marketing. Every prompt explains why it works. Copy, paste, adapt.",
   alternates: { canonical: "/prompts" },
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     description:
       "Field-tested Claude prompts for coding, writing, data analysis, business, and marketing — with the reasoning behind each one.",
     type: "website",
-    url: "https://claudethings.com/prompts",
-    images: [{ url: ogImage("Claude Prompts Library — 50 Copy-Paste Prompts That Work"), width: 1200, height: 630, alt: "Claude prompts library by ClaudeThings." }],
+    url: "https://agentskit.co/prompts",
+    images: [{ url: ogImage("Claude Prompts Library — 50 Copy-Paste Prompts That Work"), width: 1200, height: 630, alt: "Claude prompts library by AgentsKit." }],
   },
   twitter: {
     card: "summary_large_image",
@@ -88,7 +88,7 @@ export default function PromptsIndex() {
           <div className="tag">Beyond prompts</div>
           <h2>Prompts are the manual way. Kits are the installed way.</h2>
           <p className="lead">
-            The ClaudeThings kits package this kind of expertise as 89 agents, 103 skills, and 181
+            The AgentsKit kits package this kind of expertise as 89 agents, 103 skills, and 181
             slash commands that live inside Claude Code — so instead of pasting a code-review
             prompt, you type <code style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}>/review</code>.
           </p>

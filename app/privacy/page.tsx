@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import LegalLayout from "../components/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy · ClaudeThings",
-  description: "How ClaudeThings collects, uses, and protects your data.",
+  title: "Privacy Policy · AgentsKit",
+  description: "How AgentsKit collects, uses, and protects your data.",
 };
 
 export default function PrivacyPage() {
@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <LegalLayout title="Privacy Policy" updated="July 6, 2026">
       <p className="intro">
         This Privacy Policy explains what information we collect when you visit our site or purchase
-        ClaudeThings (the &quot;Product&quot;), how we use it, and the choices you have. We keep data
+        AgentsKit (the &quot;Product&quot;), how we use it, and the choices you have. We keep data
         collection to the minimum needed to run the business.
       </p>
 

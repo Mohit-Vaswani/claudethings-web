@@ -1,6 +1,6 @@
 {
-  "name": "ClaudeThings",
-  "short_name": "ClaudeThings",
+  "name": "AgentsKit",
+  "short_name": "AgentsKit",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

@@ -1,8 +1,8 @@
-# ClaudeThings
+# AgentsKit
 
-> ClaudeThings is a paid toolkit for [Claude Code](https://claude.com/claude-code) that drops a full AI engineering and marketing team into any project with one command — 89 specialized agents, 103 pre-built skills, and 181 slash commands. It works with any tech stack, adapts to your conventions via a CLAUDE.md file, and ships as two kits (Engineer + Marketing) you can install separately or together.
+> AgentsKit is a paid toolkit for [Claude Code](https://claude.com/claude-code) that drops a full AI engineering and marketing team into any project with one command — 89 specialized agents, 103 pre-built skills, and 181 slash commands. It works with any tech stack, adapts to your conventions via a CLAUDE.md file, and ships as two kits (Engineer + Marketing) you can install separately or together.
 
-ClaudeThings is an independent, unofficial product. It is not affiliated with, endorsed by, or sponsored by Anthropic. "Claude" and "Claude Code" are trademarks of Anthropic. It is delivered as a private GitHub repository and installed with a one-line `npx github:claudethings/… init` command (no npm publish, no global install; Node 18+).
+AgentsKit is an independent, unofficial product. It is not affiliated with, endorsed by, or sponsored by Anthropic. "Claude" and "Claude Code" are trademarks of Anthropic. It is delivered as a private GitHub repository and installed with a one-line `npx github:agentskit-co/… init` command (no npm publish, no global install; Node 18+).
 
 ## What you get
 
@@ -11,59 +11,59 @@ ClaudeThings is an independent, unofficial product. It is not affiliated with, e
 - 181 slash commands (159 engineering + 32 marketing; 10 shared docs commands counted once)
 - Two kits: Engineer (the software team) and Marketing (the growth team)
 - CLAUDE.md templates so agents learn your stack, conventions, and brand voice
-- The `claudethings` installer CLI; cherry-pick any single agent, skill, or command
-- Lifetime updates: buy once, run `claudethings update` (or `git pull`) forever
+- The `agentskit` installer CLI; cherry-pick any single agent, skill, or command
+- Lifetime updates: buy once, run `agentskit update` (or `git pull`) forever
 
 ## Kits
 
-- [Engineer kit](https://claudethings.com/#kits): 58 agents, 61 skills, 159 commands. Includes tech-lead, backend-architect, react-specialist, typescript-pro, python-pro, golang-pro, rust-pro, postgres-pro, kubernetes-specialist, terraform-specialist, sre-engineer, code-reviewer, test-automator, debugger, security-auditor, and commands like /api-scaffold, /test-coverage, /deploy-checklist.
-- [Marketing kit](https://claudethings.com/#kits): 31 agents, 42 skills, 32 commands. Includes growth-strategist, brand-voice, seo-specialist, content-marketer, competitive-analyst, market-researcher, and commands like /campaign-brief, /blog-post, /email-sequence, /landing-page, /launch-plan.
+- [Engineer kit](https://agentskit.co/#kits): 58 agents, 61 skills, 159 commands. Includes tech-lead, backend-architect, react-specialist, typescript-pro, python-pro, golang-pro, rust-pro, postgres-pro, kubernetes-specialist, terraform-specialist, sre-engineer, code-reviewer, test-automator, debugger, security-auditor, and commands like /api-scaffold, /test-coverage, /deploy-checklist.
+- [Marketing kit](https://agentskit.co/#kits): 31 agents, 42 skills, 32 commands. Includes growth-strategist, brand-voice, seo-specialist, content-marketer, competitive-analyst, market-researcher, and commands like /campaign-brief, /blog-post, /email-sequence, /landing-page, /launch-plan.
 
 ## Pricing
 
-- [Engineer](https://claudethings.com/#pricing): $49 one-time, lifetime updates.
-- [Marketing](https://claudethings.com/#pricing): $49 one-time, lifetime updates.
-- [Complete Bundle](https://claudethings.com/#pricing): $89 one-time (normally $129), both kits, all 89 agents / 103 skills / 181 commands.
+- [Engineer](https://agentskit.co/#pricing): $49 one-time, lifetime updates.
+- [Marketing](https://agentskit.co/#pricing): $49 one-time, lifetime updates.
+- [Complete Bundle](https://agentskit.co/#pricing): $89 one-time (normally $129), both kits, all 89 agents / 103 skills / 181 commands.
 - Every plan: one-time payment, lifetime updates, private-repo delivery, 14-day money-back guarantee. Secure checkout via Polar.
 
 ## Key pages
 
-- [Home](https://claudethings.com/): product overview, what's inside, kits, pricing, FAQ.
-- [Free tools](https://claudethings.com/tools): free browser tools and Claude skills for people building with Claude Code.
-- [Pricing](https://claudethings.com/#pricing): plans and what each includes.
-- [FAQ](https://claudethings.com/#faq): what you get, framework lock-in, updates, refunds.
+- [Home](https://agentskit.co/): product overview, what's inside, kits, pricing, FAQ.
+- [Free tools](https://agentskit.co/tools): free browser tools and Claude skills for people building with Claude Code.
+- [Pricing](https://agentskit.co/#pricing): plans and what each includes.
+- [FAQ](https://agentskit.co/#faq): what you get, framework lock-in, updates, refunds.
 
 ## Free tools
 
-- [SKILL.md Validator](https://claudethings.com/claude-skill-md-validator): paste a Claude Code SKILL.md and instantly lint the YAML frontmatter, name and description rules, body length, and when-to-use structure, with the exact fixes. Runs 100% in your browser.
-- [Website Security Audit](https://claudethings.com/claude-skill-for-website-security-audit): a free Claude skill that audits your own website or codebase for missing HTTPS, exposed files, hardcoded secrets, and vulnerable dependencies, then returns a prioritized plain-English fix-it report.
+- [SKILL.md Validator](https://agentskit.co/claude-skill-md-validator): paste a Claude Code SKILL.md and instantly lint the YAML frontmatter, name and description rules, body length, and when-to-use structure, with the exact fixes. Runs 100% in your browser.
+- [Website Security Audit](https://agentskit.co/claude-skill-for-website-security-audit): a free Claude skill that audits your own website or codebase for missing HTTPS, exposed files, hardcoded secrets, and vulnerable dependencies, then returns a prioritized plain-English fix-it report.
 
 ## Free resources (guides & prompt library)
 
-- [Claude prompt library](https://claudethings.com/prompts): 50 field-tested Claude prompts across five collections, each with the reasoning for why it works.
-- [Claude prompts for data analysis](https://claudethings.com/prompts/claude-prompts-for-data-analysis): 10 prompts — dataset profiling, hypothesis-first analysis, SQL with guardrails, statistical sanity checks, executive translation.
-- [Claude prompts for writing](https://claudethings.com/prompts/claude-prompts-for-writing): 10 prompts — voice-matched drafts, ruthless editing, de-AI-ifying text, structure diagnosis, titles.
-- [Claude prompts for business](https://claudethings.com/prompts/claude-prompts-for-business): 10 prompts — strategy red-teaming, pricing decisions, negotiation prep, hiring scorecards, decision journals.
-- [Claude prompts for coding](https://claudethings.com/prompts/claude-prompts-for-coding): 10 prompts — hypothesis-driven debugging, adversarial code review, refactoring plans, bug-hunting tests, security pre-flight.
-- [Claude prompts for marketing](https://claudethings.com/prompts/claude-prompts-for-marketing): 10 prompts — positioning, landing pages, customer-language mining, email sequences, SEO briefs, ad variants.
-- [Blog](https://claudethings.com/blog): practical guides for building with Claude.
-- [Getting started with Claude Code](https://claudethings.com/blog/getting-started-with-claude-code): install to first shipped feature — CLAUDE.md, permissions, skills, workflow habits.
-- [How to build AI agents with Claude](https://claudethings.com/blog/how-to-build-ai-agents-with-claude): the agent loop, tool use, MCP, Agent SDK, and reliability practices, with code.
-- [10 prompting techniques for Claude](https://claudethings.com/blog/10-prompting-techniques-for-claude): context front-loading, examples, XML tags, chain-of-thought, role prompts, and more, each with before/after.
-- [7 Claude prompts for smarter investing](https://claudethings.com/blog/7-claude-prompts-for-smarter-investing): research workflows (annual reports, thesis red-teaming, decision journals) — educational, not financial advice.
-- [Use cases](https://claudethings.com/use-cases): honest, role-by-role maps of where Claude changes real work.
-- [Claude for developers](https://claudethings.com/use-cases/claude-for-developers) · [Claude for data scientists](https://claudethings.com/use-cases/claude-for-data-scientists) · [Claude for product managers](https://claudethings.com/use-cases/claude-for-product-managers) · [Claude for students](https://claudethings.com/use-cases/claude-for-students)
-- [Comparisons](https://claudethings.com/comparisons): hype-free tool comparisons with bias disclosed.
-- [Claude vs ChatGPT](https://claudethings.com/comparisons/claude-vs-chatgpt) · [Claude Sonnet vs Opus](https://claudethings.com/comparisons/claude-sonnet-vs-opus) · [Claude vs GitHub Copilot](https://claudethings.com/comparisons/claude-vs-copilot)
-- [Claude coding tools guide](https://claudethings.com/tools/claude-coding-tools): the 2026 stack — Claude Code, IDE surfaces, MCP connectors, skills layer.
-- [Claude MCP servers guide](https://claudethings.com/tools/claude-mcp-servers): what MCP is, the connector categories worth installing, and how to add them safely.
-- [Claude productivity tools guide](https://claudethings.com/tools/claude-productivity-tools): Projects, Artifacts, connectors, skills, and power-user habits.
+- [Claude prompt library](https://agentskit.co/prompts): 50 field-tested Claude prompts across five collections, each with the reasoning for why it works.
+- [Claude prompts for data analysis](https://agentskit.co/prompts/claude-prompts-for-data-analysis): 10 prompts — dataset profiling, hypothesis-first analysis, SQL with guardrails, statistical sanity checks, executive translation.
+- [Claude prompts for writing](https://agentskit.co/prompts/claude-prompts-for-writing): 10 prompts — voice-matched drafts, ruthless editing, de-AI-ifying text, structure diagnosis, titles.
+- [Claude prompts for business](https://agentskit.co/prompts/claude-prompts-for-business): 10 prompts — strategy red-teaming, pricing decisions, negotiation prep, hiring scorecards, decision journals.
+- [Claude prompts for coding](https://agentskit.co/prompts/claude-prompts-for-coding): 10 prompts — hypothesis-driven debugging, adversarial code review, refactoring plans, bug-hunting tests, security pre-flight.
+- [Claude prompts for marketing](https://agentskit.co/prompts/claude-prompts-for-marketing): 10 prompts — positioning, landing pages, customer-language mining, email sequences, SEO briefs, ad variants.
+- [Blog](https://agentskit.co/blog): practical guides for building with Claude.
+- [Getting started with Claude Code](https://agentskit.co/blog/getting-started-with-claude-code): install to first shipped feature — CLAUDE.md, permissions, skills, workflow habits.
+- [How to build AI agents with Claude](https://agentskit.co/blog/how-to-build-ai-agents-with-claude): the agent loop, tool use, MCP, Agent SDK, and reliability practices, with code.
+- [10 prompting techniques for Claude](https://agentskit.co/blog/10-prompting-techniques-for-claude): context front-loading, examples, XML tags, chain-of-thought, role prompts, and more, each with before/after.
+- [7 Claude prompts for smarter investing](https://agentskit.co/blog/7-claude-prompts-for-smarter-investing): research workflows (annual reports, thesis red-teaming, decision journals) — educational, not financial advice.
+- [Use cases](https://agentskit.co/use-cases): honest, role-by-role maps of where Claude changes real work.
+- [Claude for developers](https://agentskit.co/use-cases/claude-for-developers) · [Claude for data scientists](https://agentskit.co/use-cases/claude-for-data-scientists) · [Claude for product managers](https://agentskit.co/use-cases/claude-for-product-managers) · [Claude for students](https://agentskit.co/use-cases/claude-for-students)
+- [Comparisons](https://agentskit.co/comparisons): hype-free tool comparisons with bias disclosed.
+- [Claude vs ChatGPT](https://agentskit.co/comparisons/claude-vs-chatgpt) · [Claude Sonnet vs Opus](https://agentskit.co/comparisons/claude-sonnet-vs-opus) · [Claude vs GitHub Copilot](https://agentskit.co/comparisons/claude-vs-copilot)
+- [Claude coding tools guide](https://agentskit.co/tools/claude-coding-tools): the 2026 stack — Claude Code, IDE surfaces, MCP connectors, skills layer.
+- [Claude MCP servers guide](https://agentskit.co/tools/claude-mcp-servers): what MCP is, the connector categories worth installing, and how to add them safely.
+- [Claude productivity tools guide](https://agentskit.co/tools/claude-productivity-tools): Projects, Artifacts, connectors, skills, and power-user habits.
 
 ## Optional
 
-- [Terms of Service](https://claudethings.com/terms)
-- [Privacy Policy](https://claudethings.com/privacy)
-- [Refund Policy](https://claudethings.com/refund)
-- [Legal overview](https://claudethings.com/legal)
-- [Disclaimer](https://claudethings.com/disclaimer)
+- [Terms of Service](https://agentskit.co/terms)
+- [Privacy Policy](https://agentskit.co/privacy)
+- [Refund Policy](https://agentskit.co/refund)
+- [Legal overview](https://agentskit.co/legal)
+- [Disclaimer](https://agentskit.co/disclaimer)
 - Contact: epictools.io@gmail.com

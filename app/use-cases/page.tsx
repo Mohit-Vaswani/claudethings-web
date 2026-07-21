@@ -4,7 +4,7 @@ import SiteShell from "../components/SiteShell";
 import { USE_CASES } from "./useCasesData";
 
 export const metadata: Metadata = {
-  title: "Claude Use Cases — Real Workflows by Role — ClaudeThings",
+  title: "Claude Use Cases — Real Workflows by Role — AgentsKit",
   description:
     "How developers, data scientists, product managers, and students actually use Claude — honest assessments of where it excels, realistic workflows, and starter prompts for each role.",
   alternates: { canonical: "/use-cases" },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       "How developers, data scientists, PMs, and students actually use Claude — with workflows and starter prompts.",
     type: "website",
-    url: "https://claudethings.com/use-cases",
+    url: "https://agentskit.co/use-cases",
     images: [{ url: ogImage("Claude Use Cases — Real Workflows by Role"), width: 1200, height: 630, alt: "Claude use cases by role." }],
   },
   twitter: {
@@ -69,7 +69,7 @@ export default function UseCasesIndex() {
             Whatever your role, the pattern repeats: prompts get you started,{" "}
             <a href="/blog/getting-started-with-claude-code" className="accent">Claude Code</a>{" "}
             closes the loop, and the{" "}
-            <a href="/#pricing" className="accent">ClaudeThings kits</a> install the expertise —
+            <a href="/#pricing" className="accent">AgentsKit kits</a> install the expertise —
             89 agents, 103 skills, 181 commands.
           </p>
           <p style={{ marginTop: 26 }}>
