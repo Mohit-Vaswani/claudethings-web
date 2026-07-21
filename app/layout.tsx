@@ -9,7 +9,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "AgentsKit — Your AI Engineering & Marketing Team for Claude Code",
   description:
-    "89 specialized agents, 103 skills, and 181 slash commands you drop into any project with one command. Built for Claude Code. Ship code and growth faster.",
+    "AgentsKit is an add-on for Claude Code: 89 specialized agents, 103 skills, and 181 slash commands you install into any project with one command. Ship code and growth faster.",
   openGraph: {
     title: "AgentsKit — Your AI Engineering & Marketing Team",
     description:

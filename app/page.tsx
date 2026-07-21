@@ -72,7 +72,7 @@ export default function Home() {
       ["ok", "✔ engineer kit → 58 agents, 61 skills, 159 commands"],
       ["ok", "✔ marketing kit → 31 agents, 42 skills, 22 commands (10 shared, already in)"],
       ["ok", "✔ wrote CLAUDE.md — fill it in so agents learn your project"],
-      ["dim", "› Done. Your AI team is ready."],
+      ["dim", "› Done. Open Claude Code — your AI team is ready."],
     ];
     let i = 0;
     const type = () => {
@@ -152,16 +152,19 @@ export default function Home() {
       <header id="top">
         <div className="wrap">
           <div className="eyebrow reveal-h d1">
-            <span className="ticks"></span> Built for Claude Code · Any stack · Zero lock-in{" "}
+            <span className="ticks"></span> An add-on for Claude Code · Any stack · Zero lock-in{" "}
             <span className="ticks g"></span>
           </div>
           <h1 className="reveal-h d2">
-            Your AI <span className="grad">engineering &amp; marketing</span> team. In one command.
+            Turn <span className="grad">Claude Code</span> into a full engineering &amp; marketing
+            team.
           </h1>
           <p className="sub reveal-h d3">
-            Stop buying dead boilerplate. AgentsKit drops <b>89 specialized agents</b>,{" "}
-            <b>103 pre-built skills</b>, and <b>181 slash commands</b> into any project, a living
-            team that plans, builds, tests, ships, <em>and</em> markets alongside you.
+            AgentsKit is an add-on for <b>Claude Code</b> — Anthropic&apos;s AI coding tool that runs
+            in your terminal. One command installs <b>89 specialized agents</b>,{" "}
+            <b>103 pre-built skills</b>, and <b>181 slash commands</b> into your project, so Claude
+            plans, builds, tests, ships, <em>and</em> markets like a team instead of a single
+            assistant.
           </p>
           <div className="cta-row reveal-h d4">
             <a
@@ -177,7 +180,7 @@ export default function Home() {
             </a>
           </div>
           <div className="micro reveal-h d4">
-            One-time payment · Lifetime updates · Instant access
+            Requires Claude Code · One-time payment · Lifetime updates · Instant access
           </div>
 
           {/* vista panel: terminal + proof card */}
@@ -216,6 +219,9 @@ export default function Home() {
                 </li>
                 <li>
                   <b>npx</b> · no install needed
+                </li>
+                <li>
+                  Runs inside <b>Claude Code</b>
                 </li>
               </ul>
             </aside>
@@ -270,7 +276,9 @@ export default function Home() {
             <div className="tag">A living team, not dead code</div>
             <h2>Not a template. A team that works like real people.</h2>
             <p className="lead">
-              AgentsKit agents read a{" "}
+              Everything installs into your project&apos;s{" "}
+              <code style={{ fontFamily: "var(--font-mono)", fontSize: ".85em" }}>.claude/</code>{" "}
+              folder, so Claude Code picks it up automatically. Agents read a{" "}
               <code style={{ fontFamily: "var(--font-mono)", fontSize: ".85em" }}>CLAUDE.md</code>{" "}
               you fill in once, then adapt to <em>your</em> stack and conventions and get smarter
               every time Claude does.
@@ -347,6 +355,10 @@ export default function Home() {
           <div className="center fade">
             <div className="tag">Two kits · install either or both</div>
             <h2>A full software team. A full growth team.</h2>
+            <p className="lead">
+              Both are Claude Code kits — agents you call by name, skills Claude loads on its own,
+              and slash commands you type straight into the prompt.
+            </p>
           </div>
           <div className="kits">
             {/* ENGINEER */}
@@ -688,7 +700,7 @@ export default function Home() {
             <h2>Pay once. Use forever.</h2>
             <p className="lead">
               Lifetime access &amp; all future updates. Private repo delivery. Instant access
-              after checkout.
+              after checkout. Works with any Claude Code plan — Pro, Max, Team, or API.
             </p>
           </div>
 
@@ -898,6 +910,23 @@ export default function Home() {
             </div>
             <div className="faq">
               <details className="q fade">
+                <summary data-fast-goal="faq_need_claude_code">
+                  Do I need Claude Code? Does it work with Cursor or ChatGPT?{" "}
+                  <span className="plus">+</span>
+                </summary>
+                <div className="a">
+                  Yes — AgentsKit is built specifically for{" "}
+                  <a href="https://claude.com/claude-code" style={{ color: "var(--ember)" }}>
+                    Claude Code
+                  </a>
+                  , Anthropic&apos;s AI coding tool for the terminal, desktop app, and IDE. The kits
+                  are agents, skills, and slash commands that live in your project&apos;s{" "}
+                  <code>.claude/</code> folder, which is a Claude Code format. It does not run inside
+                  Cursor, Copilot, or the ChatGPT app. Any Claude Code plan works — Pro, Max, Team,
+                  or API billing.
+                </div>
+              </details>
+              <details className="q fade">
                 <summary data-fast-goal="faq_what_do_i_get">
                   What exactly do I get? <span className="plus">+</span>
                 </summary>
@@ -972,7 +1001,7 @@ export default function Home() {
         <div className="final fade">
           <h2>Get your AI team. Ship faster today.</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
-            Code and growth, from one toolkit. One command away.
+            Code and growth, from one toolkit — installed into Claude Code with one command.
           </p>
           <div className="cta-row" style={{ marginTop: 30 }}>
             <a
