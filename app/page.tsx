@@ -364,7 +364,7 @@ export default function Home() {
               <div className="kit-head">
                 <span className="kit-emoji">🛠</span>
                 <div>
-                  <h3>Engineer</h3>
+                  <h3>Engineer Kit</h3>
                   <div className="role">the software team</div>
                 </div>
               </div>
@@ -426,7 +426,7 @@ export default function Home() {
               <div className="kit-head">
                 <span className="kit-emoji">📣</span>
                 <div>
-                  <h3>Marketing</h3>
+                  <h3>Marketing Kit</h3>
                   <div className="role">the growth team</div>
                 </div>
               </div>
@@ -729,7 +729,7 @@ export default function Home() {
             <div className="plan fade">
               <div className="plan-head">
                 <div>
-                  <h3>Engineer</h3>
+                  <h3>Engineer Kit</h3>
                   <div className="who">the software team</div>
                 </div>
               </div>
@@ -749,7 +749,7 @@ export default function Home() {
                   data-fast-goal-plan="engineer"
                   data-fast-goal-price="49"
                 >
-                  Get Engineer <span className="ar">↗</span>
+                  Get Engineer Kit <span className="ar">↗</span>
                 </a>
               </div>
               <ul>
@@ -827,7 +827,7 @@ export default function Home() {
             <div className="plan fade">
               <div className="plan-head">
                 <div>
-                  <h3>Marketing</h3>
+                  <h3>Marketing Kit</h3>
                   <div className="who">the growth team</div>
                 </div>
               </div>
@@ -847,7 +847,7 @@ export default function Home() {
                   data-fast-goal-plan="marketing"
                   data-fast-goal-price="49"
                 >
-                  Get Marketing <span className="ar">↗</span>
+                  Get Marketing Kit <span className="ar">↗</span>
                 </a>
               </div>
               <ul>
