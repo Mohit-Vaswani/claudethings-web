@@ -21,11 +21,19 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
   // Vercel sets x-vercel-ip-country on every edge request; it's absent in local
   // dev, where the cookie simply never gets written. `?country=XX` is a manual
   // override so the India pricing offer can be checked from anywhere.
-  const country =
-    request.nextUrl.searchParams.get("country") ??
-    request.headers.get("x-vercel-ip-country");
+  //
+  // The override has to be validated *before* it's preferred: a junk value like
+  // ?country=xyz is non-null, so falling back with ?? would let it shadow the
+  // real header and drop an Indian visitor's discount.
+  const isCountryCode = (v: string | null): v is string =>
+    v !== null && /^[A-Za-z]{2}$/.test(v);
 
-  if (country && /^[A-Za-z]{2}$/.test(country)) {
+  const override = request.nextUrl.searchParams.get("country");
+  const country = isCountryCode(override)
+    ? override
+    : request.headers.get("x-vercel-ip-country");
+
+  if (isCountryCode(country)) {
     response.cookies.set(COUNTRY_COOKIE, country.toUpperCase(), {
       path: "/",
       sameSite: "lax",
