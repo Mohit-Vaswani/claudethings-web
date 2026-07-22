@@ -360,6 +360,26 @@ h2{font-family:var(--font-display);font-weight:400;letter-spacing:-.01em;line-he
 .plan-foot{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone-faint);text-align:center;margin-top:26px;font-family:var(--font-mono)}
 .plan-foot::before{content:"[ "}.plan-foot::after{content:" ]"}
 
+/* ===================== GEO OFFER (India) ===================== */
+.geo-offer{
+  display:flex;align-items:center;gap:14px;
+  max-width:620px;margin:34px auto 0;padding:14px 18px;
+  border:1px solid rgba(224,78,27,.34);border-radius:14px;
+  background:linear-gradient(180deg,rgba(224,78,27,.10),rgba(224,78,27,.035));
+}
+.geo-offer .geo-flag{font-size:24px;line-height:1;flex:none}
+.geo-offer .geo-copy{font-size:14.5px;line-height:1.55;color:var(--bone-dim)}
+.geo-offer .geo-copy b{color:var(--bone);font-weight:600}
+.geo-offer code{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;
+  padding:2px 7px;border-radius:6px;background:var(--ink);color:var(--paper);
+  white-space:nowrap;
+}
+@media(max-width:560px){
+  .geo-offer{margin-top:26px;padding:12px 14px;gap:11px}
+  .geo-offer .geo-copy{font-size:13.5px}
+}
+
 /* ===================== PRICE LADDER ===================== */
 .ladder{
   position:relative;display:grid;grid-template-columns:repeat(3,1fr);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
 
 /**
  * AgentsKit landing page (Next.js App Router).
@@ -8,6 +9,9 @@ import { useEffect } from "react";
  * Replace the REPLACE_* checkout links below with your real Polar product links.
  */
 export default function Home() {
+  // India-only 30% offer. False everywhere else, and on the first paint.
+  const indiaOffer = useGeoDiscount();
+
   useEffect(() => {
     const cleanups: Array<() => void> = [];
 
@@ -702,6 +706,20 @@ export default function Home() {
             </p>
           </div>
 
+          {/* INDIA OFFER — rendered only for visitors geolocated to IN */}
+          {indiaOffer && (
+            <div className="geo-offer" role="note">
+              <span className="geo-flag" aria-hidden="true">
+                🇮🇳
+              </span>
+              <div className="geo-copy">
+                <b>{GEO_DISCOUNT.percent}% off for India.</b> Purchasing-power pricing — your code{" "}
+                <code>{GEO_DISCOUNT.code}</code> is waiting in the discount box at checkout. Hit{" "}
+                <b>Apply</b> to take {GEO_DISCOUNT.percent}% off.
+              </div>
+            </div>
+          )}
+
           {/* PRICE LADDER — bundle price rises as spots fill */}
           <div className="ladder fade" aria-label="Bundle pricing steps">
             <div className="ladder-track" aria-hidden="true" />
@@ -742,12 +760,16 @@ export default function Home() {
                 {/* POLAR: replace href with your Engineer product checkout link */}
                 <a
                   className="btn btn-ghost"
-                  href="https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa"
+                  href={withDiscount(
+                    "https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa",
+                    indiaOffer
+                  )}
                   data-polar-checkout=""
                   data-polar-checkout-theme="light"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="engineer"
                   data-fast-goal-price="49"
+                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
                   Get Engineer Kit <span className="ar">↗</span>
                 </a>
@@ -789,12 +811,16 @@ export default function Home() {
                 {/* POLAR: replace href with your Bundle product checkout link */}
                 <a
                   className="btn btn-primary"
-                  href="https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC"
+                  href={withDiscount(
+                    "https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC",
+                    indiaOffer
+                  )}
                   data-polar-checkout=""
                   data-polar-checkout-theme="light"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="bundle"
                   data-fast-goal-price="89"
+                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
                   Get the Bundle <span className="ar">↗</span>
                 </a>
@@ -840,12 +866,16 @@ export default function Home() {
                 {/* POLAR: replace href with your Marketing product checkout link */}
                 <a
                   className="btn btn-ghost"
-                  href="https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL"
+                  href={withDiscount(
+                    "https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL",
+                    indiaOffer
+                  )}
                   data-polar-checkout=""
                   data-polar-checkout-theme="light"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="marketing"
                   data-fast-goal-price="49"
+                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
                   Get Marketing Kit <span className="ar">↗</span>
                 </a>
