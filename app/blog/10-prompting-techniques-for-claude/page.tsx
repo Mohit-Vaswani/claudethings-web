@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("10-prompting-techniques-for-claude")!;
-const URL = `https://agentskit.co/blog/${post.slug}`;
+const URL = `https://www.agentary.dev/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — AgentsKit`,
+  title: `${post.title} — Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 function Example({ bad, good }: { bad: string; good: string }) {
@@ -180,7 +180,7 @@ export default function Page() {
       <p>
         Saved, refined prompts are how individuals build leverage — and packaged into slash
         commands and skills, they&apos;re how teams do. That&apos;s literally what the{" "}
-        <a href="/#pricing">AgentsKit kits</a> are: hundreds of prompts iterated to
+        <a href="/#pricing">Agentary kits</a> are: hundreds of prompts iterated to
         reliability, installed as one-word commands.
       </p>
 

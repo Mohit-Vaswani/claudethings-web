@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("claude-code-custom-slash-commands-examples")!;
-const URL = `https://agentskit.co/blog/${post.slug}`;
+const URL = `https://www.agentary.dev/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — AgentsKit`,
+  title: `${post.title} — Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -197,7 +197,7 @@ Fix GitHub issue #$ARGUMENTS.
 
       <div className="callout">
         <p>
-          <strong>These 15 are the free sample:</strong> the AgentsKit kits ship 181 slash
+          <strong>These 15 are the free sample:</strong> the Agentary kits ship 181 slash
           commands covering review, testing, security, refactoring, docs, marketing, and more —
           installed in one command. <a href="/#pricing">Browse the full library →</a>
         </p>

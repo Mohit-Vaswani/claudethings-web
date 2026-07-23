@@ -259,7 +259,7 @@ export default function TokenCounterPage() {
         heading="Spend those tokens on real work"
         lead={
           <>
-            The AgentsKit kits are token-efficient by design — tight skills, scoped agents, and
+            The Agentary kits are token-efficient by design — tight skills, scoped agents, and
             commands that get more done per call, for engineering and marketing.
           </>
         }

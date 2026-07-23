@@ -5,10 +5,10 @@ import ArticlePage from "../../components/ArticlePage";
 const TITLE = "The Best MCP Servers for Claude: A Curated Guide";
 const DESC =
   "What MCP actually is, the server categories that earn a permanent spot in your setup — GitHub, databases, browser automation, search, project tools — and how to install them without wrecking your security posture.";
-const URL = "https://agentskit.co/tools/claude-mcp-servers";
+const URL = "https://www.agentary.dev/tools/claude-mcp-servers";
 
 export const metadata: Metadata = {
-  title: `${TITLE} — AgentsKit`,
+  title: `${TITLE} — Agentary`,
   description: DESC,
   alternates: { canonical: "/tools/claude-mcp-servers" },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 export default function Page() {
@@ -189,7 +189,7 @@ claude mcp list`}</pre>
 
       <div className="callout">
         <p>
-          <strong>MCP gives Claude hands; skills give it expertise.</strong> The AgentsKit kits
+          <strong>MCP gives Claude hands; skills give it expertise.</strong> The Agentary kits
           ship 103 skills and 181 commands that put both to work — code review, security audits,
           SEO, email sequences — installed in one command.{" "}
           <a href="/#pricing">See what&apos;s inside →</a>

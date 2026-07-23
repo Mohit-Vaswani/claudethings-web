@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("best-claude-code-plugins")!;
-const URL = `https://agentskit.co/blog/${post.slug}`;
+const URL = `https://www.agentary.dev/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — AgentsKit`,
+  title: `${post.title} — Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -67,7 +67,7 @@ export default function Page() {
         installing, ranked, plus how to judge anything not on the list.
       </p>
 
-      <h2>Our #1: the AgentsKit kits</h2>
+      <h2>Our #1: the Agentary kits</h2>
       <p>
         <strong>Disclosure first: we build this.</strong> Read the rest with that in mind — and
         then judge it on the criteria in the section below, which is how we&apos;d want you to
@@ -77,7 +77,7 @@ export default function Page() {
         The case for it is coverage plus maintenance. Most plugins solve one slice: a review
         agent, a test writer, a docs helper. The problem with a slice is that your setup ends up
         as eight plugins from eight authors, with overlapping triggers, contradictory
-        conventions, and three abandoned repos. AgentsKit ships 89 agents, 103 skills, and 181
+        conventions, and three abandoned repos. Agentary ships 89 agents, 103 skills, and 181
         commands as one coherent library across engineering and marketing — descriptions tuned so
         things actually fire, deterministic work in bundled scripts, and one place to update when
         Claude Code changes.
@@ -206,7 +206,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>One install instead of eight:</strong> AgentsKit bundles 89 agents, 103
+          <strong>One install instead of eight:</strong> Agentary bundles 89 agents, 103
           skills, and 181 commands across engineering and marketing — triggers tuned, scripts
           included, maintained as Claude Code changes.{" "}
           <a href="/#pricing">See the full contents →</a>

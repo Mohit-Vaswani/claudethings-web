@@ -5,10 +5,10 @@ import ArticlePage from "../../components/ArticlePage";
 const TITLE = "The Claude Coding Tools Stack: What to Install in 2026";
 const DESC =
   "A curated guide to coding with Claude: Claude Code, IDE extensions, AI editors, GitHub integration, MCP servers for development, and the skills layer — what each piece does and what to install first.";
-const URL = "https://agentskit.co/tools/claude-coding-tools";
+const URL = "https://www.agentary.dev/tools/claude-coding-tools";
 
 export const metadata: Metadata = {
-  title: `${TITLE} — AgentsKit`,
+  title: `${TITLE} — Agentary`,
   description: DESC,
   alternates: { canonical: "/tools/claude-coding-tools" },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 export default function Page() {
@@ -143,7 +143,7 @@ export default function Page() {
           <a href="/claude-skill-for-website-security-audit">website security audit skill</a>.
         </li>
         <li>
-          <strong>The full library:</strong> the AgentsKit Engineering Kit — 58 agents, 61
+          <strong>The full library:</strong> the Agentary Engineering Kit — 58 agents, 61
           skills, and 159 commands covering review, testing, security, refactoring, and shipping.{" "}
           <a href="/#pricing">One command to install</a>.
         </li>

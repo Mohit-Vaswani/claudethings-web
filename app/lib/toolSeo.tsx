@@ -7,7 +7,7 @@ import { ogImage } from "@/app/lib/og";
  * SoftwareApplication + FAQPage + BreadcrumbList JSON-LD blocks.
  */
 
-const BASE = "https://agentskit.co";
+const BASE = "https://www.agentary.dev";
 
 export interface ToolSeoInput {
   /** Route path, e.g. "/claude-code-wrapped". */
@@ -61,7 +61,7 @@ export function ToolJsonLd(t: ToolSeoInput) {
     url,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     description: t.appDescription,
-    publisher: { "@type": "Organization", name: "AgentsKit", url: BASE },
+    publisher: { "@type": "Organization", name: "Agentary", url: BASE },
   };
 
   const faqLd = {
@@ -78,7 +78,7 @@ export function ToolJsonLd(t: ToolSeoInput) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "AgentsKit", item: BASE },
+      { "@type": "ListItem", position: 1, name: "Agentary", item: BASE },
       { "@type": "ListItem", position: 2, name: "Free Tools", item: `${BASE}/tools` },
       { "@type": "ListItem", position: 3, name: t.appName, item: url },
     ],

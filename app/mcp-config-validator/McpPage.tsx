@@ -389,7 +389,7 @@ export default function McpPage() {
         heading="MCP connects the tools. The kits do the work."
         lead={
           <>
-            Once your servers connect, the AgentsKit kits give Claude the playbooks — 103
+            Once your servers connect, the Agentary kits give Claude the playbooks — 103
             production-grade skills plus the agents and commands that use your MCP tools well.
           </>
         }

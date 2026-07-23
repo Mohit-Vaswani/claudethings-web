@@ -72,8 +72,8 @@ export function ToolNav({
   return (
     <nav id="nav">
       <div className="nav-inner">
-        <a className="logo" href="https://agentskit.co">
-          AgentsKit
+        <a className="logo" href="https://www.agentary.dev">
+          Agentary
         </a>
         <div className="nav-links">
           {links.map((l) => (
@@ -126,7 +126,7 @@ export function KitsUpsell({
               <li><span className="ck">✓</span> Lifetime updates</li>
             </ul>
             <a
-              href="https://agentskit.co/#pricing"
+              href="https://www.agentary.dev/#pricing"
               className="btn btn-primary"
               style={{ width: "100%", justifyContent: "center", marginTop: 22 }}
             >
@@ -152,7 +152,7 @@ export function KitsUpsell({
               <li><span className="ck">✓</span> Lifetime updates</li>
             </ul>
             <a
-              href="https://agentskit.co/#pricing"
+              href="https://www.agentary.dev/#pricing"
               className="btn btn-ghost"
               style={{ width: "100%", justifyContent: "center", marginTop: 22 }}
             >
@@ -161,7 +161,7 @@ export function KitsUpsell({
           </div>
         </div>
         <p className="fade" style={{ marginTop: 26 }}>
-          <a href="https://agentskit.co/#pricing" className="accent" style={{ fontWeight: 600 }}>
+          <a href="https://www.agentary.dev/#pricing" className="accent" style={{ fontWeight: 600 }}>
             Or grab all 89 agents, 103 skills &amp; 181 commands in the Complete Bundle →
           </a>
         </p>
@@ -211,8 +211,8 @@ export function ToolFooter({ disclaimer }: { disclaimer: ReactNode }) {
       <div className="wrap">
         <div className="foot-top">
           <div>
-            <a className="logo" href="https://agentskit.co">
-              AgentsKit
+            <a className="logo" href="https://www.agentary.dev">
+              Agentary
             </a>
             <p style={{ color: "var(--bone-faint)", fontSize: 14, marginTop: 12, maxWidth: "34ch" }}>
               Your AI engineering &amp; marketing team for Claude Code.
@@ -221,10 +221,10 @@ export function ToolFooter({ disclaimer }: { disclaimer: ReactNode }) {
           <div className="foot-links">
             <div className="foot-col">
               <h5>Product</h5>
-              <a href="https://agentskit.co/#whats-inside">What&apos;s inside</a>
-              <a href="https://agentskit.co/#kits">Kits</a>
-              <a href="https://agentskit.co/#pricing">Pricing</a>
-              <a href="https://agentskit.co/#faq">FAQ</a>
+              <a href="https://www.agentary.dev/#whats-inside">What&apos;s inside</a>
+              <a href="https://www.agentary.dev/#kits">Kits</a>
+              <a href="https://www.agentary.dev/#pricing">Pricing</a>
+              <a href="https://www.agentary.dev/#faq">FAQ</a>
             </div>
             <div className="foot-col">
               <h5>Free Tools</h5>
@@ -245,7 +245,7 @@ export function ToolFooter({ disclaimer }: { disclaimer: ReactNode }) {
             <div className="foot-col">
               <h5>Connect</h5>
               <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
-              <a href="https://agentskit.co">agentskit.co</a>
+              <a href="https://www.agentary.dev">agentary.dev</a>
             </div>
           </div>
         </div>
@@ -253,11 +253,11 @@ export function ToolFooter({ disclaimer }: { disclaimer: ReactNode }) {
           {disclaimer}
           <br />
           <br />
-          <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by, or
+          <b>Unofficial &amp; independent.</b> Agentary is not affiliated with, endorsed by, or
           sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
           &quot;Anthropic&quot; are trademarks of Anthropic.
           <br />
-          <br />© {year} AgentsKit. All rights reserved.
+          <br />© {year} Agentary. All rights reserved.
         </div>
       </div>
     </footer>

@@ -5,7 +5,7 @@ export const coding: PromptCollection = {
   label: "Coding",
   icon: "⌨️",
   title: "10 Claude Prompts for Coding, Debugging & Code Review",
-  metaTitle: "10 Claude Prompts for Coding (Copy & Paste) — AgentsKit",
+  metaTitle: "10 Claude Prompts for Coding (Copy & Paste) — Agentary",
   description:
     "Ten engineer-grade Claude prompts: debugging with hypotheses, adversarial code review, refactoring plans, test generation that finds real bugs, architecture decisions, and legacy code archaeology.",
   intro: [

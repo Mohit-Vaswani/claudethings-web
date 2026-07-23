@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("claude-skills-examples")!;
-const URL = `https://agentskit.co/blog/${post.slug}`;
+const URL = `https://www.agentary.dev/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — AgentsKit`,
+  title: `${post.title} — Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 const faqLd = {
@@ -204,7 +204,7 @@ description: Review a diff for correctness, security, and clarity.
 
       <div className="callout">
         <p>
-          <strong>Skip the copy-paste stage:</strong> the AgentsKit kits ship 103 production
+          <strong>Skip the copy-paste stage:</strong> the Agentary kits ship 103 production
           skills across code, documents, marketing, and ops — descriptions tuned to trigger,
           scripts bundled, kept current — plus 89 agents and 181 commands.{" "}
           <a href="/#pricing">Install the full library →</a>

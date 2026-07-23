@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("best-mcp-servers-for-claude-code")!;
-const URL = `https://agentskit.co/blog/${post.slug}`;
+const URL = `https://www.agentary.dev/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — AgentsKit`,
+  title: `${post.title} — Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -208,7 +208,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Access is the easy half.</strong> AgentsKit ships the other half as one
+          <strong>Access is the easy half.</strong> Agentary ships the other half as one
           install: 103 skills, 89 agents, and 181 commands that encode how the work should be
           done — review, testing, security, migrations, SEO, campaigns — tuned to trigger and kept
           current. <a href="/#pricing">See what&apos;s inside →</a>

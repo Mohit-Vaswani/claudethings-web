@@ -385,7 +385,7 @@ export default function HooksPage() {
         heading="Hooks are one piece of the setup"
         lead={
           <>
-            The AgentsKit kits ship complete Claude Code environments — agents, skills, and
+            The Agentary kits ship complete Claude Code environments — agents, skills, and
             commands engineered to work together, hooks-friendly out of the box.
           </>
         }

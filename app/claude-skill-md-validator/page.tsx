@@ -3,7 +3,7 @@ import { ogImage } from "@/app/lib/og";
 import ValidatorPage from "./ValidatorPage";
 
 const PATH = "/claude-skill-md-validator";
-const URL = `https://agentskit.co${PATH}`;
+const URL = `https://www.agentary.dev${PATH}`;
 
 export const metadata: Metadata = {
   title: "SKILL.md Validator — Free Claude Skill Format Checker & Linter",
@@ -47,7 +47,7 @@ const softwareLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   description:
     "A free, client-side validator and linter for Claude Code Agent Skill SKILL.md files. Checks YAML frontmatter, name and description rules, body length, and when-to-use structure.",
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 const faqLd = {
@@ -90,7 +90,7 @@ const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "AgentsKit", item: "https://agentskit.co" },
+    { "@type": "ListItem", position: 1, name: "Agentary", item: "https://www.agentary.dev" },
     { "@type": "ListItem", position: 2, name: "SKILL.md Validator", item: URL },
   ],
 };

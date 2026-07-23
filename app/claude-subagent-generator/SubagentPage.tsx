@@ -392,7 +392,7 @@ export default function SubagentPage() {
         heading="Want 89 subagents already engineered?"
         lead={
           <>
-            This generator gives you a great starting file. The AgentsKit kits give you the full
+            This generator gives you a great starting file. The Agentary kits give you the full
             bench — 89 production-grade agents plus the skills and commands they pair with.
           </>
         }

@@ -4,21 +4,21 @@ import SiteShell from "../components/SiteShell";
 import { POSTS } from "./blogData";
 
 export const metadata: Metadata = {
-  title: "Blog — Claude Code Guides, Agents & Prompting — AgentsKit",
+  title: "Blog — Claude Code Guides, Agents & Prompting — Agentary",
   description:
     "Practical guides for getting real work out of Claude: Claude Code walkthroughs, building AI agents, prompting techniques, and applied workflows. Written by builders, not content farms.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "AgentsKit Blog — Claude Code Guides, Agents & Prompting",
+    title: "Agentary Blog — Claude Code Guides, Agents & Prompting",
     description:
       "Practical guides for getting real work out of Claude — Claude Code, agents, prompting technique, applied workflows.",
     type: "website",
-    url: "https://agentskit.co/blog",
-    images: [{ url: ogImage("Blog — Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The AgentsKit blog." }],
+    url: "https://www.agentary.dev/blog",
+    images: [{ url: ogImage("Blog — Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The Agentary blog." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AgentsKit Blog — Claude Code Guides, Agents & Prompting",
+    title: "Agentary Blog — Claude Code Guides, Agents & Prompting",
     description:
       "Practical guides for getting real work out of Claude — Claude Code, agents, prompting technique, applied workflows.",
     images: [ogImage("Blog — Claude Code Guides, Agents & Prompting")],
@@ -38,7 +38,7 @@ export default function BlogIndex() {
           </h1>
           <p className="sub">
             Long-form, practical, and specific: <b>Claude Code workflows, agent architecture, and
-            prompting technique</b> — the write-ups we wished existed while building AgentsKit.
+            prompting technique</b> — the write-ups we wished existed while building Agentary.
           </p>
         </div>
       </header>

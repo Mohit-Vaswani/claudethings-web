@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import LegalLayout from "../components/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Terms of Service · AgentsKit",
-  description: "The terms that govern your purchase and use of AgentsKit.",
+  title: "Terms of Service · Agentary",
+  description: "The terms that govern your purchase and use of Agentary.",
 };
 
 export default function TermsPage() {
   return (
     <LegalLayout title="Terms of Service" updated="July 6, 2026">
       <p className="intro">
-        These Terms of Service (&quot;Terms&quot;) govern your access to and use of AgentsKit
+        These Terms of Service (&quot;Terms&quot;) govern your access to and use of Agentary
         (the &quot;Product&quot;), including all agents, skills, commands, templates, and
         documentation included with it. By purchasing, downloading, or using the Product, you agree
         to these Terms. If you do not agree, do not use the Product.
@@ -18,7 +18,7 @@ export default function TermsPage() {
 
       <h2>1. What you&apos;re buying</h2>
       <p>
-        AgentsKit is a curated distribution of AI engineering and marketing tooling for Claude
+        Agentary is a curated distribution of AI engineering and marketing tooling for Claude
         Code. Your purchase grants you a license to use the Product; it is not a subscription and
         does not transfer ownership of any underlying software.
       </p>
@@ -52,7 +52,7 @@ export default function TermsPage() {
       </p>
       <div className="callout">
         <p>
-          <strong>Unofficial &amp; independent.</strong> AgentsKit is not affiliated with,
+          <strong>Unofficial &amp; independent.</strong> Agentary is not affiliated with,
           endorsed by, or sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
           &quot;Anthropic&quot; are trademarks of Anthropic.
         </p>
@@ -60,14 +60,14 @@ export default function TermsPage() {
 
       <h2>4. Payment</h2>
       <p>
-        AgentsKit is sold as a one-time payment via our payment processor. Prices are shown at
+        Agentary is sold as a one-time payment via our payment processor. Prices are shown at
         checkout and may change over time; the price you pay is the price displayed at the time of
         purchase. Lifetime updates, where advertised, refer to the version line you purchased.
       </p>
 
       <h2>5. Refunds</h2>
       <p>
-        AgentsKit is a digital product delivered instantly, so all sales are final and
+        Agentary is a digital product delivered instantly, so all sales are final and
         purchases are non-refundable. See our <a href="/refund">Refund Policy</a> for full details.
       </p>
 
@@ -90,7 +90,7 @@ export default function TermsPage() {
 
       <h2>8. Limitation of liability</h2>
       <p>
-        To the maximum extent permitted by law, AgentsKit and its operators will not be liable for
+        To the maximum extent permitted by law, Agentary and its operators will not be liable for
         any indirect, incidental, special, or consequential damages, or for lost profits or data,
         arising from your use of the Product. Our total liability for any claim will not exceed the
         amount you paid for the Product.

@@ -17,7 +17,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
       <nav id="nav" className="scrolled">
         <div className="nav-inner">
           <a className="logo" href="/">
-            AgentsKit
+            Agentary
           </a>
           <div className="nav-links">
             <a href="/prompts">Prompts</a>
@@ -25,7 +25,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
             <a href="/use-cases">Use cases</a>
             <a href="/tools">Free tools</a>
             <a className="btn btn-primary nav-cta" href="/#pricing">
-              Get AgentsKit
+              Get Agentary
             </a>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           <div className="foot-top">
             <div>
               <a className="logo" href="/">
-                AgentsKit
+                Agentary
               </a>
               <p
                 style={{
@@ -79,17 +79,17 @@ export default function SiteShell({ children }: { children: ReactNode }) {
               <div className="foot-col">
                 <h5>Connect</h5>
                 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-                <a href="https://agentskit.co">agentskit.co</a>
+                <a href="https://www.agentary.dev">agentary.dev</a>
               </div>
             </div>
           </div>
           <div className="disclaimer">
-            <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by,
+            <b>Unofficial &amp; independent.</b> Agentary is not affiliated with, endorsed by,
             or sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
             &quot;Anthropic&quot; are trademarks of Anthropic. Content on this site is for
             educational purposes — see our <a href="/disclaimer" style={{ color: "var(--bone-dim)" }}>disclaimer</a>.
             <br />
-            <br />© {year} AgentsKit. All rights reserved.
+            <br />© {year} Agentary. All rights reserved.
           </div>
         </div>
       </footer>

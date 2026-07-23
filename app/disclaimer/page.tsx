@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import LegalLayout from "../components/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Disclaimer — AgentsKit",
+  title: "Disclaimer — Agentary",
   description:
-    "AgentsKit disclaimer: educational content, no affiliation with Anthropic, no professional or financial advice, and the limits of what our guides and tools promise.",
+    "Agentary disclaimer: educational content, no affiliation with Anthropic, no professional or financial advice, and the limits of what our guides and tools promise.",
   alternates: { canonical: "/disclaimer" },
   robots: { index: true, follow: true },
 };
@@ -14,12 +14,12 @@ export default function DisclaimerPage() {
     <LegalLayout title="Disclaimer" updated="July 12, 2026">
       <p className="intro">
         This page sets out the limits of what the content, tools, and products on
-        agentskit.co promise. It&apos;s written in plain English on purpose.
+        agentary.dev promise. It&apos;s written in plain English on purpose.
       </p>
 
       <h2>Independent &amp; unofficial</h2>
       <p>
-        AgentsKit is an independent product. We are <strong>not affiliated with, endorsed by,
+        Agentary is an independent product. We are <strong>not affiliated with, endorsed by,
         or sponsored by Anthropic</strong>. &quot;Claude,&quot; &quot;Claude Code,&quot; and
         &quot;Anthropic&quot; are trademarks of Anthropic, PBC, used here only to describe
         compatibility. Nothing on this site represents Anthropic&apos;s views, roadmap, or
@@ -50,7 +50,7 @@ export default function DisclaimerPage() {
 
       <h2>Product claims &amp; results</h2>
       <p>
-        The AgentsKit kits are prompts, skills, agents, and commands — how much value they
+        The Agentary kits are prompts, skills, agents, and commands — how much value they
         produce depends on your usage, your projects, and the underlying Claude models, which we
         don&apos;t control. Counts of included components (agents, skills, commands) reflect the
         current release and may change as the product evolves. We make no guarantee of specific
@@ -74,7 +74,7 @@ export default function DisclaimerPage() {
 
       <h2>Liability</h2>
       <p>
-        To the maximum extent permitted by law, AgentsKit and its operators are not liable for
+        To the maximum extent permitted by law, Agentary and its operators are not liable for
         any loss or damage arising from your use of this site, its content, or its tools. Our{" "}
         <a href="/terms">Terms of Service</a> govern purchases and use of the paid products.
       </p>

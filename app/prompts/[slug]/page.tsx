@@ -19,7 +19,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = getCollection(slug);
   if (!c) return {};
-  const url = `https://agentskit.co/prompts/${c.slug}`;
+  const url = `https://www.agentary.dev/prompts/${c.slug}`;
   return {
     title: c.metaTitle,
     description: c.description,
@@ -64,9 +64,9 @@ export default async function PromptCollectionPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://agentskit.co/" },
-      { "@type": "ListItem", position: 2, name: "Prompts", item: "https://agentskit.co/prompts" },
-      { "@type": "ListItem", position: 3, name: c.label, item: `https://agentskit.co/prompts/${c.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.agentary.dev/" },
+      { "@type": "ListItem", position: 2, name: "Prompts", item: "https://www.agentary.dev/prompts" },
+      { "@type": "ListItem", position: 3, name: c.label, item: `https://www.agentary.dev/prompts/${c.slug}` },
     ],
   };
 
@@ -131,7 +131,7 @@ export default async function PromptCollectionPage({
 
             <div className="callout">
               <p>
-                <strong>Want this expertise installed, not pasted?</strong> The AgentsKit kits
+                <strong>Want this expertise installed, not pasted?</strong> The Agentary kits
                 turn workflows like these into <strong>89 agents, 103 skills, and 181 slash
                 commands</strong> that live inside Claude Code — one command to install, any stack.{" "}
                 <a href="/#pricing">See the kits →</a>

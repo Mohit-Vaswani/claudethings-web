@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("claude-skills-github")!;
-const URL = `https://agentskit.co/blog/${post.slug}`;
+const URL = `https://www.agentary.dev/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — AgentsKit`,
+  title: `${post.title} — Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 const faqLd = {
@@ -205,7 +205,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Forty repos, already read:</strong> AgentsKit is a vetted, deduplicated library
+          <strong>Forty repos, already read:</strong> Agentary is a vetted, deduplicated library
           — 103 skills, 89 agents, 181 commands — installed with one command and kept current.{" "}
           <a href="/#pricing">See what is inside →</a>
         </p>

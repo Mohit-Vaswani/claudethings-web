@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("claude-code-subagents-not-working")!;
-const URL = `https://agentskit.co/blog/${post.slug}`;
+const URL = `https://www.agentary.dev/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — AgentsKit`,
+  title: `${post.title} — Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -187,7 +187,7 @@ description: Reviews code changes for bugs and design problems.
       <div className="callout">
         <p>
           <strong>Or start from agents that already work:</strong> the 89 subagents in the
-          AgentsKit kits ship with delegation-tuned descriptions, correct tool scoping, and
+          Agentary kits ship with delegation-tuned descriptions, correct tool scoping, and
           output contracts — the fixes in this article, pre-applied.{" "}
           <a href="/#pricing">See the kits →</a>
         </p>

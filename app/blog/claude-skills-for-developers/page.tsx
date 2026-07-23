@@ -4,10 +4,10 @@ import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
 
 const post = getPost("claude-skills-for-developers")!;
-const URL = `https://agentskit.co/blog/${post.slug}`;
+const URL = `https://www.agentary.dev/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — AgentsKit`,
+  title: `${post.title} — Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -26,8 +26,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "AgentsKit" },
-  publisher: { "@type": "Organization", name: "AgentsKit", url: "https://agentskit.co" },
+  author: { "@type": "Organization", name: "Agentary" },
+  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
 };
 
 const faqLd = {
@@ -197,7 +197,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Or start with a library:</strong> AgentsKit ships 103 skills, 89 agents, and 181
+          <strong>Or start with a library:</strong> Agentary ships 103 skills, 89 agents, and 181
           commands — trigger-tested, deduplicated, and installed with one command, so you can spend
           your time on the project-specific skills only you can write.{" "}
           <a href="/#pricing">See the kits →</a>

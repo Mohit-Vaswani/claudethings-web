@@ -318,7 +318,7 @@ export default function SlashCommandPage() {
         heading="181 commands, already written"
         lead={
           <>
-            This builder makes one great command. The AgentsKit kits ship 181 of them —
+            This builder makes one great command. The Agentary kits ship 181 of them —
             commit flows, review pipelines, deploy checks, content workflows — plus the agents and
             skills they orchestrate.
           </>

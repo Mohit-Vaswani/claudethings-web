@@ -438,7 +438,7 @@ export default function ConverterPage() {
         heading="Beyond the config file"
         lead={
           <>
-            A great AGENTS.md is step one. The AgentsKit kits add the agents, skills, and slash
+            A great AGENTS.md is step one. The Agentary kits add the agents, skills, and slash
             commands on top — the full working setup for engineering and marketing teams.
           </>
         }
