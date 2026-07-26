@@ -302,6 +302,7 @@ export default function SecurityAuditPage() {
                 <h5>Connect</h5>
                 <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
                 <a href="https://www.agentary.dev">agentary.dev</a>
+                <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>
           </div>

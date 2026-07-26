@@ -80,6 +80,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
                 <h5>Connect</h5>
                 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
                 <a href="https://www.agentary.dev">agentary.dev</a>
+                <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>
           </div>

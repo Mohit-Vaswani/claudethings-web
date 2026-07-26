@@ -1103,6 +1103,7 @@ export default function Home() {
                   epictools.io@gmail.com
                 </a>
                 <a href="https://www.agentary.dev">agentary.dev</a>
+                <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>
           </div>
