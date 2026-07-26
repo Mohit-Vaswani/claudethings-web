@@ -161,7 +161,7 @@ export default function Home() {
             <span className="ticks g"></span>
           </div>
           <h1 className="reveal-h d2">
-            Give <span className="grad">Claude Code</span> an entire AI team.
+            Your <span className="grad">AI engineering &amp; marketing team</span> in one command
           </h1>
           <p className="sub reveal-h d3">
             Agentary gives <b>Claude Code</b> an entire AI engineering and marketing team. Install{" "}
