@@ -3,9 +3,9 @@ import { toolMetadata, ToolJsonLd, type ToolSeoInput } from "@/app/lib/toolSeo";
 
 const seo: ToolSeoInput = {
   path: "/claude-hooks-builder",
-  title: "Claude Code Hooks Builder — Free Visual settings.json Generator",
+  title: "Claude Code Hooks Builder — Free settings.json Generator",
   description:
-    "Free visual builder for Claude Code hooks. Pick an event (PreToolUse, PostToolUse, Stop…), set a matcher and command, and get valid settings.json — no hand-written JSON, no syntax errors. Runs 100% in your browser.",
+    "Free visual builder for Claude Code hooks. Pick an event (PreToolUse, PostToolUse, Stop…), set a matcher and command, and get valid settings.json.",
   keywords: [
     "claude code hooks",
     "claude hooks builder",

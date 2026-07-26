@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import SiteShell from "../components/SiteShell";
 import { COMPARISONS } from "./comparisonsData";
+import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "AI Comparisons — Claude vs ChatGPT, Copilot & More — Agentary",
+  title: "AI Comparisons — Claude vs ChatGPT, Copilot & More",
   description:
-    "Honest, hype-free comparisons for choosing AI tools: Claude vs ChatGPT, Claude Sonnet vs Opus, Claude Code vs GitHub Copilot — written by people who use all of them daily.",
+    "Honest, hype-free comparisons for choosing AI tools: Claude vs ChatGPT, Sonnet vs Opus, and Claude Code vs GitHub Copilot — from people who use them all.",
   alternates: { canonical: "/comparisons" },
   openGraph: {
     title: "AI Comparisons — Claude vs ChatGPT, Copilot & More",
     description:
       "Honest, hype-free comparisons: Claude vs ChatGPT, Sonnet vs Opus, Claude Code vs GitHub Copilot.",
     type: "website",
-    url: "https://www.agentary.dev/comparisons",
+    url: `${SITE_URL}/comparisons`,
     images: [{ url: ogImage("AI Comparisons — Claude vs ChatGPT, Copilot & More"), width: 1200, height: 630, alt: "AI tool comparisons." }],
   },
   twitter: {
@@ -52,7 +53,7 @@ export default function ComparisonsIndex() {
                   <span className="tool-ic">{c.icon}</span>
                   <span className="tool-badge">{c.vs}</span>
                 </div>
-                <h3>{c.title}</h3>
+                <h2>{c.title}</h2>
                 <p className="tool-desc">{c.description}</p>
                 <span className="tool-arrow">Read the comparison →</span>
               </a>

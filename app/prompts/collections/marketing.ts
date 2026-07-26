@@ -7,7 +7,7 @@ export const marketing: PromptCollection = {
   title: "10 Claude Prompts for Marketing That Converts",
   metaTitle: "10 Claude Prompts for Marketing (Copy & Paste) — Agentary",
   description:
-    "Ten field-tested Claude prompts for marketers: positioning, landing pages that convert, email sequences, SEO content briefs, ad variants, and turning customer interviews into messaging. Copy and adapt.",
+    "Ten Claude prompts for marketers: positioning, landing pages, email sequences, SEO content briefs, ad variants, and turning customer interviews into messaging.",
   intro: [
     "Marketing is where AI output quality varies most wildly — because marketing prompts are usually missing the two things marketing actually runs on: a sharply defined customer and a reason to believe. Give Claude those, and it stops producing brochure-speak.",
     "These ten prompts are built around real marketing craft: positioning before copy, customer language before cleverness, one job per asset. They work for SaaS, e-commerce, services, and personal brands — swap the placeholders and go.",

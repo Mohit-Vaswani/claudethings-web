@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import ArticlePage from "../../components/ArticlePage";
+import { SITE_URL } from "@/app/lib/site";
 
 const TITLE = "Claude vs GitHub Copilot: Autocomplete vs Agent";
 const DESC =
   "Claude Code and GitHub Copilot solve different problems: inline completion vs delegated engineering. Where each wins, where they overlap in 2026, and why many developers run both.";
-const URL = "https://www.agentary.dev/comparisons/claude-vs-copilot";
+const URL = `${SITE_URL}/comparisons/claude-vs-copilot`;
 
 export const metadata: Metadata = {
   title: `${TITLE} — Agentary`,
@@ -28,7 +29,7 @@ const articleLd = {
   description: DESC,
   url: URL,
   author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
+  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
 };
 
 export default function Page() {

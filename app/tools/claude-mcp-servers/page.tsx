@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import ArticlePage from "../../components/ArticlePage";
+import { SITE_URL } from "@/app/lib/site";
 
 const TITLE = "The Best MCP Servers for Claude: A Curated Guide";
 const DESC =
-  "What MCP actually is, the server categories that earn a permanent spot in your setup — GitHub, databases, browser automation, search, project tools — and how to install them without wrecking your security posture.";
-const URL = "https://www.agentary.dev/tools/claude-mcp-servers";
+  "What MCP is, the server categories that earn a permanent spot — GitHub, databases, browser automation, search, project tools — and how to add them safely.";
+const URL = `${SITE_URL}/tools/claude-mcp-servers`;
 
 export const metadata: Metadata = {
   title: `${TITLE} — Agentary`,
@@ -28,7 +29,7 @@ const articleLd = {
   description: DESC,
   url: URL,
   author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
+  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
 };
 
 export default function Page() {

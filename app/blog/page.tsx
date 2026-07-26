@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import SiteShell from "../components/SiteShell";
 import { POSTS } from "./blogData";
+import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
   title: "Blog — Claude Code Guides, Agents & Prompting — Agentary",
   description:
-    "Practical guides for getting real work out of Claude: Claude Code walkthroughs, building AI agents, prompting techniques, and applied workflows. Written by builders, not content farms.",
+    "Practical guides for getting real work out of Claude: Claude Code walkthroughs, building AI agents, prompting techniques, and applied workflows.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Agentary Blog — Claude Code Guides, Agents & Prompting",
     description:
       "Practical guides for getting real work out of Claude — Claude Code, agents, prompting technique, applied workflows.",
     type: "website",
-    url: "https://www.agentary.dev/blog",
+    url: `${SITE_URL}/blog`,
     images: [{ url: ogImage("Blog — Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The Agentary blog." }],
   },
   twitter: {
@@ -52,7 +53,7 @@ export default function BlogIndex() {
                   <span className="tool-ic">{p.icon}</span>
                   <span className="tool-badge">{p.tag}</span>
                 </div>
-                <h3>{p.title}</h3>
+                <h2>{p.title}</h2>
                 <p className="tool-desc">{p.description}</p>
                 <span className="tool-arrow">
                   {p.readingTime} · Read →

@@ -3,9 +3,9 @@ import { toolMetadata, ToolJsonLd, type ToolSeoInput } from "@/app/lib/toolSeo";
 
 const seo: ToolSeoInput = {
   path: "/claude-slash-command-generator",
-  title: "Claude Code Slash Command Generator — Free .claude/commands Builder",
+  title: "Claude Code Slash Command Generator — Free Builder",
   description:
-    "Free slash command generator for Claude Code. Build a valid .claude/commands/*.md file with frontmatter, $ARGUMENTS, bash context lines, and file references — with live preview. Runs 100% in your browser.",
+    "Free slash command generator for Claude Code. Build a valid .claude/commands/*.md file with frontmatter, $ARGUMENTS, bash context, and file references.",
   keywords: [
     "claude code slash commands",
     "claude slash command generator",

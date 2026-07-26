@@ -5,7 +5,7 @@ const seo: ToolSeoInput = {
   path: "/mcp-config-validator",
   title: "MCP Config Validator — Free .mcp.json Checker & Fixer",
   description:
-    "Free MCP config validator. Paste your .mcp.json or claude_desktop_config.json and catch the errors that break MCP servers: wrong top-level key, missing command or url, bad env, trailing commas — with exact fixes. Runs 100% in your browser.",
+    "Free MCP config validator. Paste .mcp.json or claude_desktop_config.json to catch what breaks MCP servers — wrong keys, missing command/url, bad env.",
   keywords: [
     "mcp config validator",
     "mcp.json",

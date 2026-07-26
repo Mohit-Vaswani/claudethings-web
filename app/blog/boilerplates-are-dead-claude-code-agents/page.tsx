@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import ArticlePage from "../../components/ArticlePage";
 import { getPost } from "../blogData";
+import { SITE_URL } from "@/app/lib/site";
 
 const post = getPost("boilerplates-are-dead-claude-code-agents")!;
-const URL = `https://www.agentary.dev/blog/${post.slug}`;
+const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
   title: `${post.title} — Agentary`,
@@ -27,7 +28,7 @@ const articleLd = {
   description: post.description,
   url: URL,
   author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
+  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
 };
 
 export default function Page() {

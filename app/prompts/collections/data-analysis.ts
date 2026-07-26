@@ -5,9 +5,9 @@ export const dataAnalysis: PromptCollection = {
   label: "Data analysis",
   icon: "📊",
   title: "10 Claude Prompts for Data Analysis That Actually Work",
-  metaTitle: "10 Claude Prompts for Data Analysis (Copy & Paste) — Agentary",
+  metaTitle: "10 Claude Prompts for Data Analysis — Agentary",
   description:
-    "Ten battle-tested Claude prompts for data analysis: profiling messy datasets, writing SQL, statistical sanity checks, chart selection, and turning numbers into an executive narrative. Copy, paste, and adapt.",
+    "Ten Claude prompts for data analysis: profiling datasets, writing SQL, statistical sanity checks, chart selection, and turning numbers into a clear narrative.",
   intro: [
     "Claude is unusually good at data work — not because it can crunch a billion rows (it can't; your warehouse does that), but because it can reason about data: what to check first, which comparison actually answers the question, and what a number means for the person reading it.",
     "The prompts below are structured the way strong analysts think. Each one gives Claude a role, real context, a specific task, and a defined output format — the four ingredients that separate a vague answer from a useful one. Replace the [bracketed] placeholders with your own details, and paste your data (or schema) right after the prompt.",

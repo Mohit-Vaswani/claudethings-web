@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SITE_URL } from "@/app/lib/site";
 
 const CONTACT_EMAIL = "epictools.io@gmail.com";
 
@@ -54,14 +55,14 @@ export default function SiteShell({ children }: { children: ReactNode }) {
             </div>
             <div className="foot-links">
               <div className="foot-col">
-                <h5>Product</h5>
+                <h2>Product</h2>
                 <a href="/#whats-inside">What&apos;s inside</a>
                 <a href="/#kits">Kits</a>
                 <a href="/#pricing">Pricing</a>
                 <a href="/#faq">FAQ</a>
               </div>
               <div className="foot-col">
-                <h5>Resources</h5>
+                <h2>Resources</h2>
                 <a href="/prompts">Claude prompts</a>
                 <a href="/blog">Blog</a>
                 <a href="/use-cases">Use cases</a>
@@ -69,7 +70,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
                 <a href="/tools">Free tools</a>
               </div>
               <div className="foot-col">
-                <h5>Legal</h5>
+                <h2>Legal</h2>
                 <a href="/legal">Legal</a>
                 <a href="/terms">Terms</a>
                 <a href="/privacy">Privacy</a>
@@ -77,9 +78,9 @@ export default function SiteShell({ children }: { children: ReactNode }) {
                 <a href="/disclaimer">Disclaimer</a>
               </div>
               <div className="foot-col">
-                <h5>Connect</h5>
+                <h2>Connect</h2>
                 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-                <a href="https://www.agentary.dev">agentary.dev</a>
+                <a href={SITE_URL}>agentary.dev</a>
                 <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>

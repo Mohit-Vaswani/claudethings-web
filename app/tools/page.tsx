@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import ToolsIndex from "./ToolsIndex";
 import { TOOLS } from "./toolsData";
+import { SITE_URL } from "@/app/lib/site";
 
 const PATH = "/tools";
-const URL = `https://www.agentary.dev${PATH}`;
+const URL = `${SITE_URL}${PATH}`;
 
 export const metadata: Metadata = {
-  title: "Free Claude Code Tools — Validators, Auditors & Skills | Agentary",
+  title: "Free Claude Code Tools — Validators, Auditors & Skills",
   description:
     "A growing collection of free tools for Claude Code: a SKILL.md validator, a website security audit skill, and more. No signup, runs free. Built by Agentary.",
   keywords: [
@@ -41,13 +42,13 @@ const itemListLd = {
   "@type": "CollectionPage",
   name: "Free Claude Code Tools",
   url: URL,
-  isPartOf: { "@type": "WebSite", name: "Agentary", url: "https://www.agentary.dev" },
+  isPartOf: { "@type": "WebSite", name: "Agentary", url: SITE_URL },
   mainEntity: {
     "@type": "ItemList",
     itemListElement: TOOLS.filter((t) => t.status === "live").map((t, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `https://www.agentary.dev${t.slug}`,
+      url: `${SITE_URL}${t.slug}`,
       name: t.name,
       description: t.description,
     })),

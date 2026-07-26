@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { SITE_URL } from "@/app/lib/site";
 
 /**
  * Landing page for the free Website Security Audit Claude skill.
@@ -50,13 +51,13 @@ export default function SecurityAuditPage() {
       {/* NAV */}
       <nav id="nav">
         <div className="nav-inner">
-          <a className="logo" href="https://www.agentary.dev">
+          <a className="logo" href={SITE_URL}>
             Agentary
           </a>
           <div className="nav-links">
-            <a href="https://www.agentary.dev/#whats-inside">What&apos;s inside</a>
-            <a href="https://www.agentary.dev/#kits">Kits</a>
-            <a href="https://www.agentary.dev/#pricing">Pricing</a>
+            <a href={`${SITE_URL}/#whats-inside`}>What&apos;s inside</a>
+            <a href={`${SITE_URL}/#kits`}>Kits</a>
+            <a href={`${SITE_URL}/#pricing`}>Pricing</a>
             <a href="#download" className="btn btn-primary nav-cta">
               Get the free skill
             </a>
@@ -175,7 +176,7 @@ export default function SecurityAuditPage() {
             <div className="steps" style={{ position: "relative", textAlign: "left", maxWidth: 720, margin: "40px auto 0" }}>
               <div className="step">
                 <div className="n">STEP 1</div>
-                <h4>Unzip &amp; move the folder</h4>
+                <h3>Unzip &amp; move the folder</h3>
                 <p>Put the skill into your Claude skills directory:</p>
                 <p style={{ marginTop: 10 }}>
                   <code>mv website-security-audit ~/.claude/skills/</code>
@@ -183,7 +184,7 @@ export default function SecurityAuditPage() {
               </div>
               <div className="step">
                 <div className="n">STEP 2</div>
-                <h4>Ask Claude to audit</h4>
+                <h3>Ask Claude to audit</h3>
                 <p>Open Claude Code and just say:</p>
                 <p style={{ marginTop: 10 }}>
                   <code>Audit my website https://mysite.com</code>
@@ -222,7 +223,7 @@ export default function SecurityAuditPage() {
                 <li><span className="ck">✓</span> Lifetime updates</li>
               </ul>
               <a
-                href="https://www.agentary.dev/#pricing"
+                href={`${SITE_URL}/#pricing`}
                 className="btn btn-primary"
                 style={{ width: "100%", justifyContent: "center", marginTop: 22 }}
               >
@@ -248,7 +249,7 @@ export default function SecurityAuditPage() {
                 <li><span className="ck">✓</span> Lifetime updates</li>
               </ul>
               <a
-                href="https://www.agentary.dev/#pricing"
+                href={`${SITE_URL}/#pricing`}
                 className="btn btn-ghost"
                 style={{ width: "100%", justifyContent: "center", marginTop: 22 }}
               >
@@ -257,7 +258,7 @@ export default function SecurityAuditPage() {
             </div>
           </div>
           <p className="fade" style={{ marginTop: 26 }}>
-            <a href="https://www.agentary.dev/#pricing" className="accent" style={{ fontWeight: 600 }}>
+            <a href={`${SITE_URL}/#pricing`} className="accent" style={{ fontWeight: 600 }}>
               Or grab both in the Complete Bundle →
             </a>
           </p>
@@ -269,7 +270,7 @@ export default function SecurityAuditPage() {
         <div className="wrap">
           <div className="foot-top">
             <div>
-              <a className="logo" href="https://www.agentary.dev">
+              <a className="logo" href={SITE_URL}>
                 Agentary
               </a>
               <p style={{ color: "var(--bone-faint)", fontSize: 14, marginTop: 12, maxWidth: "34ch" }}>
@@ -278,30 +279,30 @@ export default function SecurityAuditPage() {
             </div>
             <div className="foot-links">
               <div className="foot-col">
-                <h5>Product</h5>
-                <a href="https://www.agentary.dev/#whats-inside">What&apos;s inside</a>
-                <a href="https://www.agentary.dev/#kits">Kits</a>
-                <a href="https://www.agentary.dev/#pricing">Pricing</a>
-                <a href="https://www.agentary.dev/#faq">FAQ</a>
+                <h2>Product</h2>
+                <a href={`${SITE_URL}/#whats-inside`}>What&apos;s inside</a>
+                <a href={`${SITE_URL}/#kits`}>Kits</a>
+                <a href={`${SITE_URL}/#pricing`}>Pricing</a>
+                <a href={`${SITE_URL}/#faq`}>FAQ</a>
               </div>
               <div className="foot-col">
-                <h5>Free Skills</h5>
+                <h2>Free Skills</h2>
                 <a href="/tools">All free tools</a>
                 <a href="/claude-skill-md-validator">SKILL.md Validator</a>
                 <a href="/claude-skill-for-website-security-audit">Website Security Audit</a>
-                <a href="https://www.agentary.dev">More skills</a>
+                <a href={SITE_URL}>More skills</a>
               </div>
               <div className="foot-col">
-                <h5>Legal</h5>
+                <h2>Legal</h2>
                 <a href="/legal">Legal</a>
                 <a href="/terms">Terms</a>
                 <a href="/privacy">Privacy</a>
                 <a href="/refund">Refunds</a>
               </div>
               <div className="foot-col">
-                <h5>Connect</h5>
+                <h2>Connect</h2>
                 <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
-                <a href="https://www.agentary.dev">agentary.dev</a>
+                <a href={SITE_URL}>agentary.dev</a>
                 <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>

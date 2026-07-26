@@ -17,22 +17,22 @@ export default function LegalPage() {
 
       <div className="legal-index">
         <a href="/terms">
-          <h3>Terms of Service</h3>
+          <h2>Terms of Service</h2>
           <p>The rules for buying, licensing, and using Agentary.</p>
           <span className="arrow">Read Terms →</span>
         </a>
         <a href="/privacy">
-          <h3>Privacy Policy</h3>
+          <h2>Privacy Policy</h2>
           <p>What data we collect, how we use it, and your choices.</p>
           <span className="arrow">Read Privacy →</span>
         </a>
         <a href="/refund">
-          <h3>Refund Policy</h3>
+          <h2>Refund Policy</h2>
           <p>Why Agentary sales are final, and how to reach us.</p>
           <span className="arrow">Read Refunds →</span>
         </a>
         <a href="/disclaimer">
-          <h3>Disclaimer</h3>
+          <h2>Disclaimer</h2>
           <p>Educational content, no professional advice, and the limits of what we promise.</p>
           <span className="arrow">Read Disclaimer →</span>
         </a>

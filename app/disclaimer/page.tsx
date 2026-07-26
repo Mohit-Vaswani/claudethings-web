@@ -4,7 +4,7 @@ import LegalLayout from "../components/LegalLayout";
 export const metadata: Metadata = {
   title: "Disclaimer — Agentary",
   description:
-    "Agentary disclaimer: educational content, no affiliation with Anthropic, no professional or financial advice, and the limits of what our guides and tools promise.",
+    "Agentary disclaimer: educational content, no affiliation with Anthropic, no professional or financial advice, and the limits of what our guides promise.",
   alternates: { canonical: "/disclaimer" },
   robots: { index: true, follow: true },
 };

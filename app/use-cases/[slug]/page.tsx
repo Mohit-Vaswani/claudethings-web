@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import SiteShell from "../../components/SiteShell";
 import PromptCard from "../../components/PromptCard";
 import { USE_CASES, getUseCase } from "../useCasesData";
+import { SITE_URL } from "@/app/lib/site";
 
 export const dynamicParams = false;
 
@@ -19,7 +20,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const u = getUseCase(slug);
   if (!u) return {};
-  const url = `https://www.agentary.dev/use-cases/${u.slug}`;
+  const url = `${SITE_URL}/use-cases/${u.slug}`;
   return {
     title: u.metaTitle,
     description: u.description,

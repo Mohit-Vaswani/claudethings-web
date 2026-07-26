@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import ArticlePage from "../../components/ArticlePage";
+import { SITE_URL } from "@/app/lib/site";
 
 const TITLE = "Claude vs ChatGPT (2026): An Honest Comparison for Real Work";
 const DESC =
   "Claude vs ChatGPT compared by workload: writing, coding, long documents, agents, research, and price. Where each genuinely wins, and a decision framework that isn't fandom.";
-const URL = "https://www.agentary.dev/comparisons/claude-vs-chatgpt";
+const URL = `${SITE_URL}/comparisons/claude-vs-chatgpt`;
 
 export const metadata: Metadata = {
   title: `${TITLE} — Agentary`,
@@ -28,7 +29,7 @@ const articleLd = {
   description: DESC,
   url: URL,
   author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
+  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
 };
 
 export default function Page() {

@@ -7,7 +7,7 @@ export const business: PromptCollection = {
   title: "10 Claude Prompts for Business Strategy & Operations",
   metaTitle: "10 Claude Prompts for Business (Copy & Paste) — Agentary",
   description:
-    "Ten practical Claude prompts for business: pressure-testing strategy, pricing decisions, meeting prep, competitive analysis, hiring scorecards, and hard emails. Built for founders, operators, and managers.",
+    "Ten practical Claude prompts for business: pressure-testing strategy, pricing, meeting prep, competitive analysis, hiring scorecards, and hard emails.",
   intro: [
     "The highest-value business use of Claude isn't writing emails faster — it's getting a tireless, well-read thinking partner for decisions you'd otherwise make alone. Strategy pressure-tests, pricing logic, negotiation prep: work that used to require a consultant, a board member, or a very patient friend.",
     "These ten prompts share one design principle: they force Claude to take a position and show its reasoning, instead of producing the balanced-but-useless summary that business questions usually get. Feed them real context — numbers, constraints, what you're actually afraid of — and they earn their place in your toolkit.",

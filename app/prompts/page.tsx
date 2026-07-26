@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import SiteShell from "../components/SiteShell";
 import { COLLECTIONS } from "./promptsData";
+import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "Claude Prompts Library — 50 Copy-Paste Prompts That Work — Agentary",
+  title: "Claude Prompts Library — 50 Copy-Paste Prompts That Work",
   description:
-    "A free library of 50 field-tested Claude prompts for coding, writing, data analysis, business, and marketing. Every prompt explains why it works. Copy, paste, adapt.",
+    "A free library of 50 field-tested Claude prompts for coding, writing, data analysis, business, and marketing — each explains why it works. Copy and adapt.",
   alternates: { canonical: "/prompts" },
   openGraph: {
     title: "Claude Prompts Library — 50 Copy-Paste Prompts That Work",
     description:
       "Field-tested Claude prompts for coding, writing, data analysis, business, and marketing — with the reasoning behind each one.",
     type: "website",
-    url: "https://www.agentary.dev/prompts",
+    url: `${SITE_URL}/prompts`,
     images: [{ url: ogImage("Claude Prompts Library — 50 Copy-Paste Prompts That Work"), width: 1200, height: 630, alt: "Claude prompts library by Agentary." }],
   },
   twitter: {
@@ -60,7 +61,7 @@ export default function PromptsIndex() {
                   <span className="tool-ic">{c.icon}</span>
                   <span className="tool-badge">{c.prompts.length} prompts</span>
                 </div>
-                <h3>{c.label}</h3>
+                <h2>{c.label}</h2>
                 <p className="tool-tag">{c.title}</p>
                 <p className="tool-desc">{c.description}</p>
                 <span className="tool-arrow">Browse prompts →</span>
@@ -70,7 +71,7 @@ export default function PromptsIndex() {
               <div className="tool-top">
                 <span className="tool-ic">🧠</span>
               </div>
-              <h3>Learn the technique</h3>
+              <h2>Learn the technique</h2>
               <p className="tool-desc">
                 Prompts are fish; technique is fishing. Read{" "}
                 <span className="accent">10 prompting techniques for Claude</span> to write your

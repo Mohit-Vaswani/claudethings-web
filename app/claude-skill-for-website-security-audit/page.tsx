@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import SecurityAuditPage from "./SecurityAuditPage";
+import { SITE_URL } from "@/app/lib/site";
 
 const PATH = "/claude-skill-for-website-security-audit";
 
 export const metadata: Metadata = {
-  title: "Free Claude Skill for Website Security Audit — Scan Your Site in Minutes",
+  title: "Free Claude Skill for Website Security Audit",
   description:
-    "Download a free Claude skill that audits your website for security issues — missing HTTPS, exposed .env/.git files, leaky headers, hardcoded secrets, and vulnerable dependencies. Get a prioritized fix-it report in minutes.",
+    "A free Claude skill that audits your site for security issues — missing HTTPS, exposed .env/.git files, leaky headers, hardcoded secrets, and vulnerable deps.",
   keywords: [
     "claude skill",
     "website security audit",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "Scan your own website for the security issues that actually get sites breached — and get a plain-English report with exact fixes. Free download.",
     type: "website",
-    url: `https://www.agentary.dev${PATH}`,
+    url: `${SITE_URL}${PATH}`,
     images: [{ url: ogImage("Free Claude Skill for Website Security Audit — Scan Your Site in Minutes"), width: 1200, height: 630, alt: "Free Website Security Audit Claude skill." }],
   },
   twitter: {
@@ -44,7 +45,7 @@ const jsonLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   description:
     "A free Claude skill that audits your own website or codebase for common security issues and produces a prioritized report with exact fixes.",
-  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
+  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
 };
 
 export default function Page() {

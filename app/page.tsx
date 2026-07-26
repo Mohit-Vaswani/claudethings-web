@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
+import { SITE_URL } from "@/app/lib/site";
 
 /**
  * Agentary landing page (Next.js App Router).
@@ -244,27 +245,27 @@ export default function Home() {
           </div>
           <div className="prob-grid">
             <div className="prob fade">
-              <h4>
+              <h3>
                 <span className="x">✕</span> Locked to their stack
-              </h4>
+              </h3>
               <p>Good luck migrating when Next.js 16 breaks everything. Their architecture, their rules.</p>
             </div>
             <div className="prob fade">
-              <h4>
+              <h3>
                 <span className="x">✕</span> Stale within weeks
-              </h4>
+              </h3>
               <p>Now you&apos;re maintaining THEIR code. CVEs pile up. Security becomes your problem.</p>
             </div>
             <div className="prob fade">
-              <h4>
+              <h3>
                 <span className="x">✕</span> Doesn&apos;t fit your case
-              </h4>
+              </h3>
               <p>Spend days ripping out features you don&apos;t need and fighting opinions you didn&apos;t ask for.</p>
             </div>
             <div className="prob fade">
-              <h4>
+              <h3>
                 <span className="x">✕</span> Zero support after purchase
-              </h4>
+              </h3>
               <p>&quot;Download and good luck&quot; isn&apos;t a business model. You&apos;re on your own.</p>
             </div>
           </div>
@@ -529,7 +530,7 @@ export default function Home() {
             <div className="steps">
               <div className="step fade">
                 <div className="n">01</div>
-                <h4>Install</h4>
+                <h3>Install</h3>
                 <p>
                   Run the <code>npx github:agentary-dev/…</code> one-liner from your private
                   repo&apos;s README. Pick engineer, marketing, or both. No global install.
@@ -537,7 +538,7 @@ export default function Home() {
               </div>
               <div className="step fade">
                 <div className="n">02</div>
-                <h4>Teach it your project</h4>
+                <h3>Teach it your project</h3>
                 <p>
                   Fill in the generated <code>CLAUDE.md</code> once — stack, conventions, brand
                   voice. Every agent reads it first.
@@ -545,7 +546,7 @@ export default function Home() {
               </div>
               <div className="step fade">
                 <div className="n">03</div>
-                <h4>Ship</h4>
+                <h3>Ship</h3>
                 <p>
                   Open Claude Code: <code>&quot;use tech-lead to build auth&quot;</code> or{" "}
                   <code>/blog-post our launch</code>. That&apos;s it.
@@ -566,7 +567,7 @@ export default function Home() {
           <div className="feat-grid">
             <div className="feat fade">
               <div className="fi">🧩</div>
-              <h4>Cherry-pick anything</h4>
+              <h3>Cherry-pick anything</h3>
               <p>
                 Want just the debugger?{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>
@@ -577,7 +578,7 @@ export default function Home() {
             </div>
             <div className="feat fade">
               <div className="fi">🛡️</div>
-              <h4>Safe installs</h4>
+              <h3>Safe installs</h3>
               <p>
                 Never overwrites your files. Your{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>CLAUDE.md</code>{" "}
@@ -586,7 +587,7 @@ export default function Home() {
             </div>
             <div className="feat fade">
               <div className="fi">🔄</div>
-              <h4>Lifetime updates</h4>
+              <h3>Lifetime updates</h3>
               <p>
                 Run{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>
@@ -597,17 +598,17 @@ export default function Home() {
             </div>
             <div className="feat fade">
               <div className="fi">🧠</div>
-              <h4>Context-engineered</h4>
+              <h3>Context-engineered</h3>
               <p>Agents learn YOUR codebase via CLAUDE.md — output matches your style, not a template&apos;s.</p>
             </div>
             <div className="feat fade">
               <div className="fi">🤝</div>
-              <h4>Agents that team up</h4>
+              <h3>Agents that team up</h3>
               <p>Sequential chains, parallel fan-out, or smart delegation — orchestrators pick the right one.</p>
             </div>
             <div className="feat fade">
               <div className="fi">⚖️</div>
-              <h4>Open-source honest</h4>
+              <h3>Open-source honest</h3>
               <p>Curated from MIT/Apache projects with full attribution &amp; license files. Built to be sold cleanly.</p>
             </div>
           </div>
@@ -1066,27 +1067,27 @@ export default function Home() {
             </div>
             <div className="foot-links">
               <div className="foot-col">
-                <h5>Product</h5>
+                <h2>Product</h2>
                 <a href="#whats-inside">What&apos;s inside</a>
                 <a href="#kits">Kits</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
               </div>
               <div className="foot-col">
-                <h5>Free Tools</h5>
+                <h2>Free Tools</h2>
                 <a href="/tools">All free tools</a>
                 <a href="/claude-skill-md-validator">SKILL.md Validator</a>
                 <a href="/claude-skill-for-website-security-audit">Website Security Audit</a>
               </div>
               <div className="foot-col">
-                <h5>Resources</h5>
+                <h2>Resources</h2>
                 <a href="/prompts">Claude prompts</a>
                 <a href="/blog">Blog</a>
                 <a href="/use-cases">Use cases</a>
                 <a href="/comparisons">Comparisons</a>
               </div>
               <div className="foot-col">
-                <h5>Legal</h5>
+                <h2>Legal</h2>
                 <a href="/legal">Legal</a>
                 <a href="/terms">Terms</a>
                 <a href="/privacy">Privacy</a>
@@ -1094,7 +1095,7 @@ export default function Home() {
                 <a href="/disclaimer">Disclaimer</a>
               </div>
               <div className="foot-col">
-                <h5>Connect</h5>
+                <h2>Connect</h2>
                 <a
                   href="mailto:epictools.io@gmail.com"
                   data-fast-goal="contact_email"
@@ -1102,7 +1103,7 @@ export default function Home() {
                 >
                   epictools.io@gmail.com
                 </a>
-                <a href="https://www.agentary.dev">agentary.dev</a>
+                <a href={SITE_URL}>agentary.dev</a>
                 <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>

@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import ValidatorPage from "./ValidatorPage";
+import { SITE_URL } from "@/app/lib/site";
 
 const PATH = "/claude-skill-md-validator";
-const URL = `https://www.agentary.dev${PATH}`;
+const URL = `${SITE_URL}${PATH}`;
 
 export const metadata: Metadata = {
-  title: "SKILL.md Validator — Free Claude Skill Format Checker & Linter",
+  title: "SKILL.md Validator — Free Claude Skill Format Checker",
   description:
-    "Free online SKILL.md validator for Claude Code Agent Skills. Paste your skill to check the YAML frontmatter, name and description rules, body length, and when-to-use structure — get exact fixes instantly. Runs 100% in your browser.",
+    "Free SKILL.md validator for Claude Agent Skills. Paste a skill to check the YAML frontmatter, name/description rules, body length, and structure — with fixes.",
   keywords: [
     "SKILL.md validator",
     "validate claude skill",
@@ -47,7 +48,7 @@ const softwareLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   description:
     "A free, client-side validator and linter for Claude Code Agent Skill SKILL.md files. Checks YAML frontmatter, name and description rules, body length, and when-to-use structure.",
-  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
+  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
 };
 
 const faqLd = {
@@ -90,7 +91,7 @@ const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Agentary", item: "https://www.agentary.dev" },
+    { "@type": "ListItem", position: 1, name: "Agentary", item: SITE_URL },
     { "@type": "ListItem", position: 2, name: "SKILL.md Validator", item: URL },
   ],
 };

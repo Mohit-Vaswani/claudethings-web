@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
+import { SITE_URL } from "@/app/lib/site";
 
 /**
  * SEO helpers for the free-tool pages: one call builds the full Metadata object
@@ -7,7 +8,7 @@ import { ogImage } from "@/app/lib/og";
  * SoftwareApplication + FAQPage + BreadcrumbList JSON-LD blocks.
  */
 
-const BASE = "https://www.agentary.dev";
+const BASE = SITE_URL;
 
 export interface ToolSeoInput {
   /** Route path, e.g. "/claude-code-wrapped". */

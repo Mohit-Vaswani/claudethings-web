@@ -7,9 +7,9 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Agentary — Your AI Engineering & Marketing Team for Claude Code",
+  title: "Agentary — AI Engineering & Marketing for Claude Code",
   description:
-    "Agentary is an add-on for Claude Code: 89 specialized agents, 103 skills, and 181 slash commands you install into any project with one command. Ship code and growth faster.",
+    "An add-on for Claude Code: 89 agents, 103 skills, and 181 slash commands you install into any project with one command. Ship code and growth faster.",
   openGraph: {
     title: "Agentary — Your AI Engineering & Marketing Team",
     description:

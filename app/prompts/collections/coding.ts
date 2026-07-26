@@ -7,7 +7,7 @@ export const coding: PromptCollection = {
   title: "10 Claude Prompts for Coding, Debugging & Code Review",
   metaTitle: "10 Claude Prompts for Coding (Copy & Paste) — Agentary",
   description:
-    "Ten engineer-grade Claude prompts: debugging with hypotheses, adversarial code review, refactoring plans, test generation that finds real bugs, architecture decisions, and legacy code archaeology.",
+    "Ten engineer-grade Claude prompts: debugging with hypotheses, adversarial code review, refactoring, test generation, architecture decisions, and legacy code.",
   intro: [
     "Claude writes good code from lazy prompts. It writes excellent code — and catches the bugs that matter — from prompts that work the way senior engineers think: hypotheses before fixes, constraints before designs, failure modes before shipping.",
     "These ten prompts encode that discipline. They're written for the chat interface and the API, and every one of them gets sharper inside Claude Code, where Claude can actually read your repo, run your tests, and verify its own claims instead of guessing at context.",

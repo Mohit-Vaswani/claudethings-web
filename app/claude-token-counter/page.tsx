@@ -5,7 +5,7 @@ const seo: ToolSeoInput = {
   path: "/claude-token-counter",
   title: "Claude Token Counter — Free Online Token & Cost Calculator",
   description:
-    "Free Claude token counter. Paste any text or code and instantly estimate tokens plus the exact API cost for Claude Opus, Sonnet, and Haiku — input and output, with cache pricing. No signup, runs 100% in your browser.",
+    "Free Claude token counter. Paste text or code to estimate tokens plus the API cost for Claude Opus, Sonnet, and Haiku — input and output, with cache pricing.",
   keywords: [
     "claude token counter",
     "claude tokenizer",

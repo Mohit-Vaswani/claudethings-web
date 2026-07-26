@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import ArticlePage from "../../components/ArticlePage";
+import { SITE_URL } from "@/app/lib/site";
 
 const TITLE = "Claude Sonnet vs Opus: Which Model Tier Should You Actually Use?";
 const DESC =
   "Sonnet vs Opus explained without the marketing: what the Opus tier actually buys you, when Sonnet is the smarter default, cost dynamics, and a decision framework by task type.";
-const URL = "https://www.agentary.dev/comparisons/claude-sonnet-vs-opus";
+const URL = `${SITE_URL}/comparisons/claude-sonnet-vs-opus`;
 
 export const metadata: Metadata = {
   title: `${TITLE} — Agentary`,
@@ -28,7 +29,7 @@ const articleLd = {
   description: DESC,
   url: URL,
   author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
+  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
 };
 
 export default function Page() {

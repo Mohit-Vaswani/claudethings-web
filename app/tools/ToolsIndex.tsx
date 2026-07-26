@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { TOOLS } from "./toolsData";
 import { TOOL_GUIDES } from "./guidesData";
+import { SITE_URL } from "@/app/lib/site";
 
 /**
  * /tools — index of free Agentary tools. Data-driven from toolsData.ts so
@@ -41,14 +42,14 @@ export default function ToolsIndex() {
       {/* NAV */}
       <nav id="nav">
         <div className="nav-inner">
-          <a className="logo" href="https://www.agentary.dev">
+          <a className="logo" href={SITE_URL}>
             Agentary
           </a>
           <div className="nav-links">
-            <a href="https://www.agentary.dev/#whats-inside">What&apos;s inside</a>
+            <a href={`${SITE_URL}/#whats-inside`}>What&apos;s inside</a>
             <a href="/tools">Tools</a>
-            <a href="https://www.agentary.dev/#pricing">Pricing</a>
-            <a href="https://www.agentary.dev/#pricing" className="btn btn-primary nav-cta">
+            <a href={`${SITE_URL}/#pricing`}>Pricing</a>
+            <a href={`${SITE_URL}/#pricing`} className="btn btn-primary nav-cta">
               Get the kits
             </a>
           </div>
@@ -83,7 +84,7 @@ export default function ToolsIndex() {
                     <span className="tool-ic">{t.icon}</span>
                     {t.badge && <span className="tool-badge">{t.badge}</span>}
                   </div>
-                  <h3>{t.name}</h3>
+                  <h2>{t.name}</h2>
                   <p className="tool-tag">{t.tagline}</p>
                   <p className="tool-desc">{t.description}</p>
                   <span className="tool-arrow">Open tool →</span>
@@ -94,7 +95,7 @@ export default function ToolsIndex() {
                     <span className="tool-ic">{t.icon}</span>
                     <span className="tool-badge soon">Soon</span>
                   </div>
-                  <h3>{t.name}</h3>
+                  <h2>{t.name}</h2>
                   <p className="tool-tag">{t.tagline}</p>
                   <p className="tool-desc">{t.description}</p>
                 </div>
@@ -106,7 +107,7 @@ export default function ToolsIndex() {
               <div className="tool-top">
                 <span className="tool-ic">✦</span>
               </div>
-              <h3>More tools on the way</h3>
+              <h2>More tools on the way</h2>
               <p className="tool-desc">
                 We ship new free tools regularly. Have one you&apos;d love to see?{" "}
                 <a href="mailto:epictools.io@gmail.com" className="accent">
@@ -135,7 +136,7 @@ export default function ToolsIndex() {
                   <span className="tool-ic">{g.icon}</span>
                   <span className="tool-badge">Guide</span>
                 </div>
-                <h3>{g.name}</h3>
+                <h2>{g.name}</h2>
                 <p className="tool-tag">{g.tagline}</p>
                 <p className="tool-desc">{g.description}</p>
                 <span className="tool-arrow">Read the guide →</span>
@@ -173,7 +174,7 @@ export default function ToolsIndex() {
                 <li><span className="ck">✓</span> Lifetime updates</li>
               </ul>
               <a
-                href="https://www.agentary.dev/#pricing"
+                href={`${SITE_URL}/#pricing`}
                 className="btn btn-primary"
                 style={{ width: "100%", justifyContent: "center", marginTop: 22 }}
               >
@@ -198,7 +199,7 @@ export default function ToolsIndex() {
                 <li><span className="ck">✓</span> Lifetime updates</li>
               </ul>
               <a
-                href="https://www.agentary.dev/#pricing"
+                href={`${SITE_URL}/#pricing`}
                 className="btn btn-ghost"
                 style={{ width: "100%", justifyContent: "center", marginTop: 22 }}
               >
@@ -207,7 +208,7 @@ export default function ToolsIndex() {
             </div>
           </div>
           <p className="fade" style={{ marginTop: 26 }}>
-            <a href="https://www.agentary.dev/#pricing" className="accent" style={{ fontWeight: 600 }}>
+            <a href={`${SITE_URL}/#pricing`} className="accent" style={{ fontWeight: 600 }}>
               Or grab both in the Complete Bundle →
             </a>
           </p>
@@ -219,7 +220,7 @@ export default function ToolsIndex() {
         <div className="wrap">
           <div className="foot-top">
             <div>
-              <a className="logo" href="https://www.agentary.dev">
+              <a className="logo" href={SITE_URL}>
                 Agentary
               </a>
               <p style={{ color: "var(--bone-faint)", fontSize: 14, marginTop: 12, maxWidth: "34ch" }}>
@@ -228,14 +229,14 @@ export default function ToolsIndex() {
             </div>
             <div className="foot-links">
               <div className="foot-col">
-                <h5>Product</h5>
-                <a href="https://www.agentary.dev/#whats-inside">What&apos;s inside</a>
-                <a href="https://www.agentary.dev/#kits">Kits</a>
-                <a href="https://www.agentary.dev/#pricing">Pricing</a>
-                <a href="https://www.agentary.dev/#faq">FAQ</a>
+                <h2>Product</h2>
+                <a href={`${SITE_URL}/#whats-inside`}>What&apos;s inside</a>
+                <a href={`${SITE_URL}/#kits`}>Kits</a>
+                <a href={`${SITE_URL}/#pricing`}>Pricing</a>
+                <a href={`${SITE_URL}/#faq`}>FAQ</a>
               </div>
               <div className="foot-col">
-                <h5>Free Tools</h5>
+                <h2>Free Tools</h2>
                 <a href="/tools">All free tools</a>
                 {TOOLS.filter((t) => t.status === "live").map((t) => (
                   <a href={t.slug} key={t.slug}>
@@ -244,14 +245,14 @@ export default function ToolsIndex() {
                 ))}
               </div>
               <div className="foot-col">
-                <h5>Resources</h5>
+                <h2>Resources</h2>
                 <a href="/prompts">Claude prompts</a>
                 <a href="/blog">Blog</a>
                 <a href="/use-cases">Use cases</a>
                 <a href="/comparisons">Comparisons</a>
               </div>
               <div className="foot-col">
-                <h5>Legal</h5>
+                <h2>Legal</h2>
                 <a href="/legal">Legal</a>
                 <a href="/terms">Terms</a>
                 <a href="/privacy">Privacy</a>
@@ -259,9 +260,9 @@ export default function ToolsIndex() {
                 <a href="/disclaimer">Disclaimer</a>
               </div>
               <div className="foot-col">
-                <h5>Connect</h5>
+                <h2>Connect</h2>
                 <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
-                <a href="https://www.agentary.dev">agentary.dev</a>
+                <a href={SITE_URL}>agentary.dev</a>
                 <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>

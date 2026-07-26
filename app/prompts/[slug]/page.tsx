@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import SiteShell from "../../components/SiteShell";
 import PromptCard from "../../components/PromptCard";
 import { COLLECTIONS, getCollection } from "../promptsData";
+import { SITE_URL } from "@/app/lib/site";
 
 export const dynamicParams = false;
 
@@ -19,7 +20,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = getCollection(slug);
   if (!c) return {};
-  const url = `https://www.agentary.dev/prompts/${c.slug}`;
+  const url = `${SITE_URL}/prompts/${c.slug}`;
   return {
     title: c.metaTitle,
     description: c.description,
@@ -64,9 +65,9 @@ export default async function PromptCollectionPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.agentary.dev/" },
-      { "@type": "ListItem", position: 2, name: "Prompts", item: "https://www.agentary.dev/prompts" },
-      { "@type": "ListItem", position: 3, name: c.label, item: `https://www.agentary.dev/prompts/${c.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Prompts", item: `${SITE_URL}/prompts` },
+      { "@type": "ListItem", position: 3, name: c.label, item: `${SITE_URL}/prompts/${c.slug}` },
     ],
   };
 

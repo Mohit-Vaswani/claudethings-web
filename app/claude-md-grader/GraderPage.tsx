@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { SITE_URL } from "@/app/lib/site";
 import {
   ToolNav,
   ToolFooter,
@@ -248,7 +249,7 @@ export default function GraderPage() {
           `${SEV_META[f.severity].icon} [${f.category}${f.points ? ` −${f.points}` : ""}] ${f.message.replace(/`/g, "")}`
       ),
       "",
-      "Graded free at https://www.agentary.dev/claude-md-grader",
+      `Graded free at ${SITE_URL}/claude-md-grader`,
     ];
     try {
       await navigator.clipboard.writeText(lines.join("\n"));
@@ -261,7 +262,7 @@ export default function GraderPage() {
     ? `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         `My CLAUDE.md scored ${result.score}/100 (${result.grade}) ${
           result.score >= 88 ? "😤" : "💀"
-        }\n\nGrade yours free:\nhttps://www.agentary.dev/claude-md-grader`
+        }\n\nGrade yours free:\n${SITE_URL}/claude-md-grader`
       )}`
     : "#";
 
@@ -431,7 +432,7 @@ export default function GraderPage() {
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
                 <div className="fi">▹</div>
-                <h4>{h}</h4>
+                <h3>{h}</h3>
                 <p>{renderInline(pt)}</p>
               </div>
             ))}

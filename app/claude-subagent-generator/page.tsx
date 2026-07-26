@@ -5,7 +5,7 @@ const seo: ToolSeoInput = {
   path: "/claude-subagent-generator",
   title: "Claude Code Subagent Generator — Free .claude/agents Builder",
   description:
-    "Free Claude Code subagent generator. Describe a role, pick tools and model, and get a valid .claude/agents/*.md file with correct frontmatter and a production-grade system prompt. Runs 100% in your browser.",
+    "Free Claude Code subagent generator. Describe a role, pick tools and a model, and get a valid .claude/agents/*.md file with frontmatter and a system prompt.",
   keywords: [
     "claude code subagent",
     "claude subagent generator",

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import ArticlePage from "../../components/ArticlePage";
+import { SITE_URL } from "@/app/lib/site";
 
-const TITLE = "Claude Productivity Tools: The Features Most People Never Find";
+const TITLE = "Claude Productivity Tools: The Hidden Features";
 const DESC =
-  "A guided tour of Claude's productivity layer: Projects, Artifacts, connectors, skills, file analysis, and the workflow setups that turn a chat window into a working system — plus the free tools we build.";
-const URL = "https://www.agentary.dev/tools/claude-productivity-tools";
+  "A guided tour of Claude's productivity layer: Projects, Artifacts, connectors, skills, file analysis, and the setups that turn a chat window into a system.";
+const URL = `${SITE_URL}/tools/claude-productivity-tools`;
 
 export const metadata: Metadata = {
   title: `${TITLE} — Agentary`,
@@ -28,7 +29,7 @@ const articleLd = {
   description: DESC,
   url: URL,
   author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: "https://www.agentary.dev" },
+  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
 };
 
 export default function Page() {

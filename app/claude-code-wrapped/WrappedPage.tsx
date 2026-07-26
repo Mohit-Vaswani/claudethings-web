@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { SITE_URL } from "@/app/lib/site";
 import {
   ToolNav,
   ToolFooter,
@@ -387,7 +388,7 @@ export default function WrappedPage() {
   const shareText = stats
     ? `I burned ${fmtCompact(stats.totalTokens)} tokens in Claude Code — ${
         stats.totalCost >= 100 ? fmtUsd(stats.totalCost, 0) : fmtUsd(stats.totalCost)
-      } at API prices ${stats.persona.emoji}\n\nGet your Claude Code Wrapped (free):\nhttps://www.agentary.dev/claude-code-wrapped`
+      } at API prices ${stats.persona.emoji}\n\nGet your Claude Code Wrapped (free):\n${SITE_URL}/claude-code-wrapped`
     : "";
 
   return (
@@ -543,7 +544,7 @@ export default function WrappedPage() {
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
                 <div className="fi">▹</div>
-                <h4>{h}</h4>
+                <h3>{h}</h3>
                 <p>{renderInline(pt)}</p>
               </div>
             ))}

@@ -7,7 +7,7 @@ export const writing: PromptCollection = {
   title: "10 Claude Prompts for Writing That Doesn't Sound Like AI",
   metaTitle: "10 Claude Prompts for Writing (Copy & Paste) — Agentary",
   description:
-    "Ten copy-paste Claude prompts for writers: first drafts with a real voice, ruthless editing, structure fixes, de-AI-ifying your text, and rewriting for a specific reader. Each prompt explains why it works.",
+    "Ten Claude prompts for writers: first drafts with real voice, ruthless editing, structure fixes, de-AI-ifying text, and rewriting for a specific reader.",
   intro: [
     "Claude is arguably the best writing model available — but only if you stop asking it to \"write a blog post about X.\" Generic asks produce generic prose: competent, forgettable, and instantly recognizable as AI.",
     "The prompts below treat Claude like a writing partner with a defined job: sometimes drafter, sometimes ruthless editor, sometimes the skeptical reader you don't have access to. The common thread is specificity — voice, audience, stakes, and constraints — because that's what generic AI writing lacks.",

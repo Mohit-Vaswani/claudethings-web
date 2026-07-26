@@ -213,8 +213,8 @@ h2{font-family:var(--font-display);font-weight:400;letter-spacing:-.01em;line-he
 /* ===================== PROBLEM CARDS ===================== */
 .prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:46px}
 .prob{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--card)}
-.prob h4{font-family:var(--font-display);font-weight:400;font-size:1.25rem;margin-bottom:8px;display:flex;gap:10px;align-items:baseline}
-.prob h4 .x{color:var(--coral);font-size:.85em}
+.prob h3{font-family:var(--font-display);font-weight:400;font-size:1.25rem;margin-bottom:8px;display:flex;gap:10px;align-items:baseline;max-width:none;letter-spacing:normal}
+.prob h3 .x{color:var(--coral);font-size:.85em}
 .prob p{color:var(--bone-dim);font-size:14px;line-height:1.55}
 
 /* ===================== SHOWCASE ROWS (what's inside) ===================== */
@@ -301,7 +301,7 @@ h2{font-family:var(--font-display);font-weight:400;letter-spacing:-.01em;line-he
   background:repeating-linear-gradient(90deg,var(--ember) 0 2px,transparent 2px 5px);
 }
 .step .n{font-family:var(--font-mono);color:var(--bone-faint);font-size:11px;letter-spacing:.1em;margin-bottom:36px;display:inline-grid;place-items:center;width:40px;height:40px;background:var(--white);border:1px solid var(--line);border-radius:11px;font-weight:500}
-.step h4{font-family:var(--font-display);font-weight:400;font-size:1.4rem;margin-bottom:8px}
+.step h3{font-family:var(--font-display);font-weight:400;font-size:1.4rem;margin-bottom:8px;max-width:none;letter-spacing:normal}
 .step p{color:var(--bone-dim);font-size:14px;line-height:1.6;max-width:46ch}
 .step code{font-family:var(--font-mono);font-size:12.5px;color:var(--ember)}
 
@@ -310,7 +310,7 @@ h2{font-family:var(--font-display);font-weight:400;letter-spacing:-.01em;line-he
 .feat{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--card);transition:transform .2s,box-shadow .2s;position:relative}
 .feat:hover{transform:translateY(-3px);box-shadow:0 22px 50px -30px rgba(30,25,18,.35)}
 .feat .fi{width:42px;height:42px;display:grid;place-items:center;font-size:19px;margin-bottom:16px;background:var(--white);border:1px solid var(--line);border-radius:11px}
-.feat h4{font-family:var(--font-display);font-weight:400;font-size:1.3rem;margin-bottom:7px}
+.feat h3{font-family:var(--font-display);font-weight:400;font-size:1.3rem;margin-bottom:7px;max-width:none;letter-spacing:normal}
 .feat p{color:var(--bone-dim);font-size:13.5px;line-height:1.58}
 
 /* ===================== COMPARISON ===================== */
@@ -483,7 +483,7 @@ h2{font-family:var(--font-display);font-weight:400;letter-spacing:-.01em;line-he
 .legal-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:32px}
 .legal-index a{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--card);transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit}
 .legal-index a:hover{transform:translateY(-3px);box-shadow:0 22px 50px -30px rgba(30,25,18,.3)}
-.legal-index a h3{font-family:var(--font-display);font-weight:400;font-size:1.3rem;margin-bottom:6px;color:var(--bone)}
+.legal-index a h3,.legal-index a h2{font-family:var(--font-display);font-weight:400;font-size:1.3rem;margin-bottom:6px;color:var(--bone);max-width:none;letter-spacing:normal}
 .legal-index a p{color:var(--bone-dim);font-size:14px;line-height:1.55;margin:0}
 .legal-index a .arrow{color:var(--ember);font-family:var(--font-mono);font-size:13px;margin-top:12px;display:inline-block}
 
@@ -596,14 +596,14 @@ a.tool-card:hover{transform:translateY(-4px);box-shadow:0 26px 60px -34px rgba(3
   padding:4px 11px;border-radius:100px;
 }
 .tool-badge.soon{color:var(--bone-faint);border-color:var(--line);background:transparent}
-.tool-card h3{font-family:var(--font-display);font-weight:400;font-size:1.5rem;letter-spacing:-.01em;margin-bottom:6px}
+.tool-card h2{font-family:var(--font-display);font-weight:400;font-size:1.5rem;letter-spacing:-.01em;margin-bottom:6px;max-width:none;line-height:1.15}
 .tool-tag{color:var(--ember);font-size:14px;font-weight:600;margin-bottom:12px}
 .tool-desc{color:var(--bone-dim);font-size:14px;line-height:1.6}
 .tool-arrow{margin-top:auto;padding-top:20px;color:var(--ember);font-family:var(--font-mono);font-size:13px;font-weight:500}
 .tool-card.soon{opacity:.72}
 .tool-card.ghost{border-style:dashed;background:transparent;justify-content:flex-start}
 .tool-card.ghost .tool-ic{background:transparent;border-style:dashed;color:var(--bone-faint)}
-.tool-card.ghost h3{font-size:1.3rem;color:var(--bone-dim)}
+.tool-card.ghost h2{font-size:1.3rem;color:var(--bone-dim)}
 .tool-card.ghost .accent{font-weight:600}
 
 /* ===================== CONTENT PAGES (/prompts /blog /use-cases /comparisons) ===================== */
@@ -646,7 +646,7 @@ footer{border-top:1px solid var(--line-2);padding:56px 0 36px;background:var(--p
 .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:38px}
 .foot-top .logo{font-size:19px}
 .foot-links{display:flex;gap:48px;flex-wrap:wrap}
-.foot-col h5{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-faint);margin-bottom:14px;font-weight:500}
+.foot-col h2{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-faint);margin-bottom:14px;font-weight:500;max-width:none;line-height:normal}
 .foot-col a{display:block;color:var(--bone-dim);font-size:14px;margin-bottom:9px;transition:color .2s}
 .foot-col a:hover{color:var(--bone)}
 .disclaimer{border-top:1px dashed var(--line);padding-top:24px;color:var(--bone-faint);font-size:12px;line-height:1.6;max-width:82ch}

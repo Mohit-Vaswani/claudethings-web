@@ -400,7 +400,7 @@ export default function ConverterPage() {
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
                 <div className="fi">▹</div>
-                <h4>{h}</h4>
+                <h3>{h}</h3>
                 <p>{renderInline(pt)}</p>
               </div>
             ))}

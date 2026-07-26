@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import SiteShell from "../components/SiteShell";
 import { USE_CASES } from "./useCasesData";
+import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
   title: "Claude Use Cases — Real Workflows by Role — Agentary",
   description:
-    "How developers, data scientists, product managers, and students actually use Claude — honest assessments of where it excels, realistic workflows, and starter prompts for each role.",
+    "How developers, data scientists, product managers, and students actually use Claude — where it excels, realistic workflows, and starter prompts per role.",
   alternates: { canonical: "/use-cases" },
   openGraph: {
     title: "Claude Use Cases — Real Workflows by Role",
     description:
       "How developers, data scientists, PMs, and students actually use Claude — with workflows and starter prompts.",
     type: "website",
-    url: "https://www.agentary.dev/use-cases",
+    url: `${SITE_URL}/use-cases`,
     images: [{ url: ogImage("Claude Use Cases — Real Workflows by Role"), width: 1200, height: 630, alt: "Claude use cases by role." }],
   },
   twitter: {
@@ -52,7 +53,7 @@ export default function UseCasesIndex() {
                   <span className="tool-ic">{u.icon}</span>
                   <span className="tool-badge">Guide</span>
                 </div>
-                <h3>Claude for {u.label}</h3>
+                <h2>Claude for {u.label}</h2>
                 <p className="tool-desc">{u.description}</p>
                 <span className="tool-arrow">Read the guide →</span>
               </a>
