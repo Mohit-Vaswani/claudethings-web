@@ -906,7 +906,7 @@ export default function Home() {
               <span className="node" />
               <div className="step-price">$89</div>
               <div className="step-note">
-                <b>1</b> spots left
+                <b>3</b> spots left
               </div>
             </div>
             <div className="nx-ladder-step is-next">
