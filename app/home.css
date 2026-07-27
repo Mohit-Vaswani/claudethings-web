@@ -110,6 +110,10 @@ body:has(.nx-page)::before{content:none}
   padding-bottom:64px;
 }
 @media(max-width:960px){.nx-hero-grid{grid-template-columns:1fr;gap:44px}}
+/* grid items default to min-width:auto — without this the dashboard mockup's
+   min-content width stretches the whole column past the viewport and .nx-page's
+   overflow-x:clip crops the hero copy/buttons instead of wrapping them */
+.nx-hero-grid > *{min-width:0}
 .nx-chip{
   display:inline-flex;align-items:center;gap:10px;margin-bottom:26px;
   font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
@@ -152,7 +156,7 @@ body:has(.nx-page)::before{content:none}
   font-size:10px;color:var(--nx-yellow);border:1px solid rgba(210,153,34,.35);
   background:rgba(210,153,34,.08);padding:3px 8px;border-radius:4px;white-space:nowrap;
 }
-.nx-dash-tabs{display:flex;gap:4px;padding:10px 12px;border-bottom:1px solid var(--nx-line2);font-size:11.5px;color:var(--nx-faint)}
+.nx-dash-tabs{display:flex;flex-wrap:wrap;gap:4px;padding:10px 12px;border-bottom:1px solid var(--nx-line2);font-size:11.5px;color:var(--nx-faint)}
 .nx-dash-tab{padding:6px 10px;border-radius:5px}
 .nx-dash-tab .n{color:var(--nx-faint);border:1px solid var(--nx-line);border-radius:3px;padding:0 5px;margin-left:6px;font-size:10px}
 .nx-dash-tab.on{color:var(--nx-text);background:rgba(255,255,255,.06)}
@@ -382,7 +386,29 @@ body:has(.nx-page)::before{content:none}
 }
 .nx-cmp-foot p{color:var(--nx-dim);font-size:13px;line-height:1.5;margin:0}
 .nx-cmp-foot b{color:var(--nx-text);font-weight:600;display:block;font-size:14.5px;margin-bottom:2px}
-@media(max-width:640px){.nx-cmp{overflow-x:auto}.nx-cmp table{min-width:540px}}
+/* phones: three columns can't fit, and side-scrolling hid the AgentsKit column
+   (the one that sells) off the right edge — stack each row into a labelled card.
+   The ::before labels mirror the <thead> cells; keep them in sync. */
+@media(max-width:640px){
+  .nx-cmp table,.nx-cmp tbody,.nx-cmp tr,.nx-cmp td{display:block;width:100%}
+  .nx-cmp thead{display:none}
+  .nx-cmp tr{border-bottom:1px solid var(--nx-line2);padding:6px 0}
+  .nx-cmp tbody tr:last-child{border-bottom:none}
+  .nx-cmp td{border-bottom:none;padding:7px 18px;text-align:left}
+  .nx-cmp td:first-child{color:var(--nx-text);font-weight:600;padding-top:14px}
+  .nx-cmp td:not(:first-child){
+    display:flex;align-items:baseline;gap:12px;
+    font-size:13px;padding-left:18px;
+  }
+  .nx-cmp td:not(:first-child)::before{
+    flex:none;width:88px;
+    font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--nx-faint);
+  }
+  .nx-cmp td:nth-child(2)::before{content:"Other kits"}
+  .nx-cmp td:nth-child(3)::before{content:"AgentsKit"}
+  .nx-cmp td:last-child{background:transparent;padding-bottom:14px}
+}
 
 /* ---------- pricing ---------- */
 .nx-ladder{
@@ -504,11 +530,30 @@ body:has(.nx-page)::before{content:none}
 .nx-foot-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;margin-bottom:40px}
 .nx-foot-top .desc{color:var(--nx-faint);font-size:13.5px;margin-top:14px;max-width:32ch;line-height:1.6}
 .nx-foot-links{display:flex;gap:52px;flex-wrap:wrap}
+/* wrapping four columns onto a phone left 52px chasms between the rows */
+@media(max-width:640px){.nx-foot-links{display:grid;grid-template-columns:1fr 1fr;gap:30px 18px;width:100%}}
 .nx-foot-col h2{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--nx-faint);margin:0 0 15px;font-weight:500}
 .nx-foot-col a{display:block;color:var(--nx-dim);font-size:13.5px;margin-bottom:10px;transition:color .2s}
 .nx-foot-col a:hover{color:var(--nx-text)}
 .nx-disclaimer{border-top:1px solid var(--nx-line2);padding-top:26px;color:var(--nx-faint);font-size:12px;line-height:1.65;max-width:84ch}
 .nx-disclaimer b{color:var(--nx-dim)}
+
+/* ---------- small-screen hardening ---------- */
+/* grid/flex items default to min-width:auto, so one long unbreakable token
+   (e.g. the npx install command) stretches its whole column past the viewport */
+.nx-hiw > *,.nx-faq-split > *,.nx-sec-split > *,.nx-row > *,.nx-kits > *,
+.nx-price-grid > *,.nx-prob-grid > *,.nx-feat-grid > *,.nx-numbers > *{min-width:0}
+.nx-page code{overflow-wrap:anywhere}
+@media(max-width:420px){
+  .nx-wrap{padding:0 18px}
+  .nx-step{padding:22px 20px;gap:16px}
+  .nx-step .n{width:32px;height:32px}
+  .nx-kit{padding:26px 22px}
+  .nx-kit-stats{gap:20px}
+  .nx-plan-head,.nx-plan-buy{padding-left:20px;padding-right:20px}
+  .nx-plan ul{padding-left:20px;padding-right:20px}
+  .nx-geo{gap:11px;padding:13px 14px}
+}
 
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce){
