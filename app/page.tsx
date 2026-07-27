@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
+import { GEO_DISCOUNT, useGeoDiscount } from "./lib/geoDiscount";
 import { SITE_URL } from "@/app/lib/site";
 
 /**
@@ -765,20 +765,8 @@ export default function Home() {
                   <span className="big">49</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
-                {/* POLAR: replace href with your Engineer product checkout link */}
-                <a
-                  className="btn btn-ghost"
-                  href={withDiscount(
-                    "https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa",
-                    indiaOffer
-                  )}
-                  data-polar-checkout=""
-                  data-polar-checkout-theme="light"
-                  data-fast-goal="initiate_checkout"
-                  data-fast-goal-plan="engineer"
-                  data-fast-goal-price="49"
-                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
-                >
+                {/* MAINTENANCE: checkout paused during rebrand — points to /maintenance. Restore Polar href + data-polar-checkout attrs when live. */}
+                <a className="btn btn-ghost" href="/maintenance">
                   Get Engineer Kit <span className="ar">↗</span>
                 </a>
               </div>
@@ -816,20 +804,8 @@ export default function Home() {
                   <span className="was">$129</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
-                {/* POLAR: replace href with your Bundle product checkout link */}
-                <a
-                  className="btn btn-primary"
-                  href={withDiscount(
-                    "https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC",
-                    indiaOffer
-                  )}
-                  data-polar-checkout=""
-                  data-polar-checkout-theme="light"
-                  data-fast-goal="initiate_checkout"
-                  data-fast-goal-plan="bundle"
-                  data-fast-goal-price="89"
-                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
-                >
+                {/* MAINTENANCE: checkout paused during rebrand — points to /maintenance. Restore Polar href + data-polar-checkout attrs when live. */}
+                <a className="btn btn-primary" href="/maintenance">
                   Get the Bundle <span className="ar">↗</span>
                 </a>
               </div>
@@ -871,20 +847,8 @@ export default function Home() {
                   <span className="big">49</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
-                {/* POLAR: replace href with your Marketing product checkout link */}
-                <a
-                  className="btn btn-ghost"
-                  href={withDiscount(
-                    "https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL",
-                    indiaOffer
-                  )}
-                  data-polar-checkout=""
-                  data-polar-checkout-theme="light"
-                  data-fast-goal="initiate_checkout"
-                  data-fast-goal-plan="marketing"
-                  data-fast-goal-price="49"
-                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
-                >
+                {/* MAINTENANCE: checkout paused during rebrand — points to /maintenance. Restore Polar href + data-polar-checkout attrs when live. */}
+                <a className="btn btn-ghost" href="/maintenance">
                   Get Marketing Kit <span className="ar">↗</span>
                 </a>
               </div>
