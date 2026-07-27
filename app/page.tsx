@@ -157,17 +157,17 @@ export default function Home() {
       <header id="top">
         <div className="wrap">
           <div className="eyebrow reveal-h d1">
-            <span className="ticks"></span> An add-on for Claude Code · Any stack · Zero lock-in{" "}
+            <span className="ticks"></span> The Claude Code upgrade for solo builders · Any stack · One command{" "}
             <span className="ticks g"></span>
           </div>
           <h1 className="reveal-h d2">
-            Your <span className="grad">AI engineering &amp; marketing team</span> in one command
+            Give Claude Code a <span className="grad">full engineering &amp; marketing team</span>
           </h1>
           <p className="sub reveal-h d3">
-            Agentary gives <b>Claude Code</b> an entire AI engineering and marketing team. Install{" "}
-            <b>89 specialized agents</b>, <b>103 pre-built skills</b>, and{" "}
-            <b>181 slash commands</b> with one command, so your AI can plan, build, test, ship, and
-            market your project from start to finish.
+            Out of the box, Claude Code is one brilliant generalist — and you&apos;re the bottleneck.
+            Agentary drops in <b>89 specialist agents</b>, <b>103 ready-to-use skills</b>, and{" "}
+            <b>181 slash commands</b> with a single command, so one person can plan, build, test,
+            ship <em>and</em> market a real product — without hiring, without context-switching.
           </p>
           <div className="cta-row reveal-h d4">
             <a
@@ -236,37 +236,37 @@ export default function Home() {
       <section id="problem">
         <div className="wrap">
           <div className="center fade">
-            <div className="tag">The boilerplate trap</div>
-            <h2>Boilerplates are dead the moment you download them.</h2>
+            <div className="tag">The solo-builder tax</div>
+            <h2>You&apos;re doing the job of an entire team — alone.</h2>
             <p className="lead">
-              You&apos;ve bought the $300 templates and the &quot;ship-fast&quot; kits. Every time,
-              you hit the same wall:
+              Claude Code is incredible. But by default it&apos;s one generalist taking orders from
+              you, one prompt at a time. So the whole product lands on your shoulders:
             </p>
           </div>
           <div className="prob-grid">
             <div className="prob fade">
               <h3>
-                <span className="x">✕</span> Locked to their stack
+                <span className="x">✕</span> You repeat yourself all day
               </h3>
-              <p>Good luck migrating when Next.js 16 breaks everything. Their architecture, their rules.</p>
+              <p>Every session you re-explain your stack, your conventions, your voice. Claude forgets — you retype.</p>
             </div>
             <div className="prob fade">
               <h3>
-                <span className="x">✕</span> Stale within weeks
+                <span className="x">✕</span> One generalist, not specialists
               </h3>
-              <p>Now you&apos;re maintaining THEIR code. CVEs pile up. Security becomes your problem.</p>
+              <p>One assistant guessing at backend, frontend, infra, security and copy. Jack of all trades, master of the average.</p>
             </div>
             <div className="prob fade">
               <h3>
-                <span className="x">✕</span> Doesn&apos;t fit your case
+                <span className="x">✕</span> Building isn&apos;t shipping
               </h3>
-              <p>Spend days ripping out features you don&apos;t need and fighting opinions you didn&apos;t ask for.</p>
+              <p>You can generate code all day — but positioning, launch copy, SEO and emails still pile up on you.</p>
             </div>
             <div className="prob fade">
               <h3>
-                <span className="x">✕</span> Zero support after purchase
+                <span className="x">✕</span> Nobody&apos;s checking your work
               </h3>
-              <p>&quot;Download and good luck&quot; isn&apos;t a business model. You&apos;re on your own.</p>
+              <p>No reviewer, no tester, no second pair of eyes. Bugs and security holes ship because no one caught them.</p>
             </div>
           </div>
         </div>
@@ -276,25 +276,27 @@ export default function Home() {
       <section id="whats-inside">
         <div className="wrap">
           <div className="center fade">
-            <div className="tag">A living team, not dead code</div>
-            <h2>Not a template. A team that works like real people.</h2>
+            <div className="tag">A team, not a tool</div>
+            <h2>Stop prompting a generalist. Start delegating to specialists.</h2>
             <p className="lead">
               Everything installs into your project&apos;s{" "}
               <code style={{ fontFamily: "var(--font-mono)", fontSize: ".85em" }}>.claude/</code>{" "}
-              folder, so Claude Code picks it up automatically. Agents read a{" "}
+              folder, so Claude Code picks it up automatically. Each agent reads a{" "}
               <code style={{ fontFamily: "var(--font-mono)", fontSize: ".85em" }}>CLAUDE.md</code>{" "}
-              you fill in once, then adapt to <em>your</em> stack and conventions and get smarter
-              every time Claude does.
+              you fill in <em>once</em>, then works in your stack, your conventions and your voice —
+              and gets sharper every time Claude does. No new tool to learn. It&apos;s the Claude
+              Code you already use, with a team behind it.
             </p>
           </div>
           <div className="sol-grid">
             <div className="show fade">
               <div className="show-text">
                 <div className="ic">01</div>
-                <h3>Works with ANY stack</h3>
+                <h3>Drops into the project you already have</h3>
                 <p>
-                  Next.js → Django → Rails → Go → Rust. No forced framework. Agents learn your
-                  patterns via context engineering, not template conventions.
+                  Next.js, Django, Rails, Go, Rust — no forced framework, no rewrite. Agents learn
+                  your actual codebase and match your patterns, instead of dumping someone
+                  else&apos;s architecture on top of yours.
                 </p>
               </div>
               <div className="show-vista vista">
@@ -313,10 +315,11 @@ export default function Home() {
             <div className="show fade">
               <div className="show-text">
                 <div className="ic">02</div>
-                <h3>Living, not frozen</h3>
+                <h3>Gets better while you sleep</h3>
                 <p>
-                  Traditional kits are frozen at purchase. When Anthropic ships a smarter Claude,
-                  your team levels up automatically. No upgrade fees.
+                  A template is frozen the day you buy it. Agentary isn&apos;t. When Anthropic ships
+                  a smarter Claude, your whole team levels up automatically — and every update we
+                  add is yours free, forever.
                 </p>
               </div>
               <div className="show-vista vista v2">
@@ -333,11 +336,12 @@ export default function Home() {
               <div className="show-text">
                 <div className="ic">03</div>
                 <h3>
-                  Code <em>and</em> growth
+                  From first commit <em>to</em> launch day
                 </h3>
                 <p>
-                  Two kits in one. An engineering team that ships features, and a marketing team
-                  that ships the launch. Most kits only do one.
+                  Two teams in one. Engineers who build and ship the feature, marketers who write
+                  the launch, the emails and the SEO. Most kits stop at the code — yours takes the
+                  product all the way to customers.
                 </p>
               </div>
               <div className="show-vista vista v3">
@@ -356,11 +360,12 @@ export default function Home() {
       <section id="kits">
         <div className="wrap">
           <div className="center fade">
-            <div className="tag">Two kits · install either or both</div>
+            <div className="tag">Two kits · take one or both</div>
             <h2>A full software team. A full growth team.</h2>
             <p className="lead">
-              Both are Claude Code kits — agents you call by name, skills Claude loads on its own,
-              and slash commands you type straight into the prompt.
+              Both are native Claude Code kits: agents you call by name, skills Claude loads on its
+              own exactly when they&apos;re needed, and slash commands you fire straight from the
+              prompt. Buy the one you need today — add the other whenever you&apos;re ready.
             </p>
           </div>
           <div className="kits">
@@ -514,8 +519,8 @@ export default function Home() {
         <div className="wrap">
           <div className="hiw">
             <div className="hiw-left fade">
-              <div className="tag">Get started in seconds</div>
-              <h2>One command. No copy-pasting.</h2>
+              <div className="tag">Live in under 2 minutes</div>
+              <h2>One command. No setup. No copy-pasting.</h2>
               <div style={{ marginTop: 28 }}>
                 <a
                   className="btn btn-primary"
@@ -532,24 +537,25 @@ export default function Home() {
                 <div className="n">01</div>
                 <h3>Install</h3>
                 <p>
-                  Run the <code>npx github:agentary-dev/…</code> one-liner from your private
-                  repo&apos;s README. Pick engineer, marketing, or both. No global install.
+                  Paste the <code>npx github:agentary-dev/…</code> one-liner from your private
+                  repo&apos;s README. Pick engineer, marketing, or both. No global install, nothing
+                  to configure.
                 </p>
               </div>
               <div className="step fade">
                 <div className="n">02</div>
-                <h3>Teach it your project</h3>
+                <h3>Teach it your project once</h3>
                 <p>
-                  Fill in the generated <code>CLAUDE.md</code> once — stack, conventions, brand
-                  voice. Every agent reads it first.
+                  Fill in the generated <code>CLAUDE.md</code> — stack, conventions, brand voice.
+                  Every agent reads it first, so you never re-explain your project again.
                 </p>
               </div>
               <div className="step fade">
                 <div className="n">03</div>
-                <h3>Ship</h3>
+                <h3>Delegate and ship</h3>
                 <p>
-                  Open Claude Code: <code>&quot;use tech-lead to build auth&quot;</code> or{" "}
-                  <code>/blog-post our launch</code>. That&apos;s it.
+                  In Claude Code, just ask: <code>&quot;use tech-lead to build auth&quot;</code> or{" "}
+                  <code>/blog-post our launch</code>. The right specialist takes it from there.
                 </p>
               </div>
             </div>
@@ -562,54 +568,54 @@ export default function Home() {
         <div className="wrap">
           <div className="center fade">
             <div className="tag">Built different</div>
-            <h2>Why builders pick Agentary.</h2>
+            <h2>Why builders keep it installed.</h2>
           </div>
           <div className="feat-grid">
             <div className="feat fade">
               <div className="fi">🧩</div>
-              <h3>Cherry-pick anything</h3>
+              <h3>Take only what you need</h3>
               <p>
-                Want just the debugger?{" "}
+                Just want the debugger?{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>
                   agentary add agent debugger
                 </code>
-                . No all-or-nothing.
+                . Pull in one agent or all 89 — never all-or-nothing.
               </p>
             </div>
             <div className="feat fade">
               <div className="fi">🛡️</div>
-              <h3>Safe installs</h3>
+              <h3>Can&apos;t break your project</h3>
               <p>
-                Never overwrites your files. Your{" "}
+                Installs are non-destructive by design. Your{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>CLAUDE.md</code>{" "}
-                and custom configs are always protected.
+                and custom configs are never touched or overwritten.
               </p>
             </div>
             <div className="feat fade">
               <div className="fi">🔄</div>
-              <h3>Lifetime updates</h3>
+              <h3>Pay once, own it forever</h3>
               <p>
-                Run{" "}
+                One payment, no subscription. Run{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>
                   agentary update
                 </code>{" "}
-                for the latest agents. Buy once, use forever.
+                any time to pull the newest agents — free, for life.
               </p>
             </div>
             <div className="feat fade">
               <div className="fi">🧠</div>
-              <h3>Context-engineered</h3>
-              <p>Agents learn YOUR codebase via CLAUDE.md — output matches your style, not a template&apos;s.</p>
+              <h3>Sounds like you, not a template</h3>
+              <p>Agents learn your codebase and voice from CLAUDE.md, so the output ships as if you wrote it.</p>
             </div>
             <div className="feat fade">
               <div className="fi">🤝</div>
               <h3>Agents that team up</h3>
-              <p>Sequential chains, parallel fan-out, or smart delegation — orchestrators pick the right one.</p>
+              <p>They chain, fan out in parallel, and delegate to each other — an orchestrator picks the right play so you don&apos;t have to.</p>
             </div>
             <div className="feat fade">
               <div className="fi">⚖️</div>
-              <h3>Open-source honest</h3>
-              <p>Curated from MIT/Apache projects with full attribution &amp; license files. Built to be sold cleanly.</p>
+              <h3>Clean and above-board</h3>
+              <p>Curated from MIT/Apache projects with full attribution and license files — no murky IP, nothing you have to worry about.</p>
             </div>
           </div>
         </div>
@@ -620,7 +626,7 @@ export default function Home() {
         <div className="wrap">
           <div className="center fade">
             <div className="tag">The honest comparison</div>
-            <h2>A different category.</h2>
+            <h2>Not a template. Not another single-purpose CLI.</h2>
           </div>
           <div className="cmp fade">
             <table>
@@ -700,10 +706,11 @@ export default function Home() {
         <div className="wrap">
           <div className="center fade">
             <div className="tag">Simple, one-time pricing</div>
-            <h2>Pay once. Use forever.</h2>
+            <h2>Less than an hour of a freelancer. Yours for good.</h2>
             <p className="lead">
-              Lifetime access &amp; all future updates. Private repo delivery. Instant access
-              after checkout. Works with any Claude Code plan — Pro, Max, Team, or API.
+              One payment, lifetime access, and every future update included. Delivered instantly
+              as private-repo access the moment you check out — no subscription, no seats. Works
+              with any Claude Code plan: Pro, Max, Team, or API.
             </p>
           </div>
 
@@ -922,7 +929,7 @@ export default function Home() {
           <div className="faq-split">
             <div className="faq-side fade">
               <div className="tag">Questions</div>
-              <h2>Everything you need to know.</h2>
+              <h2>Everything you need before you buy.</h2>
               <div className="faq-contact">
                 <div className="fc-ic">✉</div>
                 <p>More questions?</p>
@@ -1028,9 +1035,10 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="cta-sec">
         <div className="final fade">
-          <h2>Get your AI team. Ship faster today.</h2>
+          <h2>Stop being the bottleneck. Ship like a team.</h2>
           <p className="lead" style={{ margin: "0 auto" }}>
-            Code and growth, from one toolkit — installed into Claude Code with one command.
+            89 specialists for code and growth, installed into Claude Code with one command. One
+            payment, yours for life.
           </p>
           <div className="cta-row" style={{ marginTop: 30 }}>
             <a

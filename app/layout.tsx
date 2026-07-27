@@ -7,13 +7,13 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Agentary — AI Engineering & Marketing for Claude Code",
+  title: "Agentary — Give Claude Code a Full Engineering & Marketing Team",
   description:
-    "An add-on for Claude Code: 89 agents, 103 skills, and 181 slash commands you install into any project with one command. Ship code and growth faster.",
+    "Turn Claude Code from one generalist into a team of 89 specialist agents, 103 skills, and 181 slash commands — installed in one command. Build, ship and market a product solo. Pay once, updates for life.",
   openGraph: {
-    title: "Agentary — Your AI Engineering & Marketing Team",
+    title: "Agentary — Give Claude Code a Full Engineering & Marketing Team",
     description:
-      "89 agents · 103 skills · 181 slash commands. One command. Any stack. Built for Claude Code.",
+      "89 specialist agents · 103 skills · 181 slash commands. One command, any stack. Build, ship and market solo. Pay once, yours for life.",
     type: "website",
     url: SITE_URL,
     images: [
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agentary — Your AI Engineering & Marketing Team",
+    title: "Agentary — Give Claude Code a Full Engineering & Marketing Team",
     description:
-      "89 agents · 103 skills · 181 slash commands. One command. Any stack. Built for Claude Code.",
+      "89 specialist agents · 103 skills · 181 slash commands. One command, any stack. Build, ship and market solo. Pay once, yours for life.",
     images: [ogImage("Agentary — Your AI Engineering & Marketing Team for Claude Code")],
   },
   metadataBase: new URL(SITE_URL),
