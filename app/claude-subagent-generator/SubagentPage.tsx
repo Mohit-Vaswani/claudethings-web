@@ -11,7 +11,7 @@ import {
 } from "@/app/components/toolPage";
 
 /**
- * Claude Code subagent generator — form in, valid .claude/agents/*.md out.
+ * Claude Code subagent generator, form in, valid .claude/agents/*.md out.
  * 100% client-side.
  */
 
@@ -30,9 +30,9 @@ const ALL_TOOLS = [
 
 const MODELS = [
   ["", "Inherit (default)"],
-  ["sonnet", "Sonnet — balanced (recommended)"],
-  ["opus", "Opus — hardest problems"],
-  ["haiku", "Haiku — fast & cheap"],
+  ["sonnet", "Sonnet, balanced (recommended)"],
+  ["opus", "Opus, hardest problems"],
+  ["haiku", "Haiku, fast & cheap"],
 ] as const;
 
 const PRESETS: Record<
@@ -47,7 +47,7 @@ const PRESETS: Record<
     model: "sonnet",
     role: "You are a senior code reviewer with a bias for shipping: you flag what genuinely matters and skip nitpicks a formatter would catch.",
     process:
-      "Run git diff to see recent changes.\nRead each modified file fully — review in context, not just the diff.\nCheck: correctness, security (injection, secrets, authz), error handling, performance on hot paths, and test coverage for changed logic.",
+      "Run git diff to see recent changes.\nRead each modified file fully, review in context, not just the diff.\nCheck: correctness, security (injection, secrets, authz), error handling, performance on hot paths, and test coverage for changed logic.",
     output:
       "Report findings grouped by severity (critical / warning / suggestion). For each: file:line, the issue in one sentence, and a concrete fix. End with an overall verdict: approve or request changes.",
   },
@@ -71,7 +71,7 @@ const PRESETS: Record<
     model: "sonnet",
     role: "You are a test automation expert. You treat failing tests as specifications, never as obstacles.",
     process:
-      "Detect the project's test runner from package.json / pyproject / Makefile.\nRun the relevant test suite.\nFor each failure: read the test to understand intent, then fix the code (or the test, only if the test itself is wrong — say so explicitly).",
+      "Detect the project's test runner from package.json / pyproject / Makefile.\nRun the relevant test suite.\nFor each failure: read the test to understand intent, then fix the code (or the test, only if the test itself is wrong, say so explicitly).",
     output: "Summary: suites run, pass/fail counts, each failure's cause and fix, and remaining risks.",
   },
 };
@@ -199,7 +199,7 @@ export default function SubagentPage() {
           </h1>
           <p className="sub reveal-h d3">
             Describe the role, pick tools and model, and get a valid <b>.claude/agents/*.md</b>{" "}
-            file — correct frontmatter, scoped permissions, and a system prompt structured the way
+            file, correct frontmatter, scoped permissions, and a system prompt structured the way
             good subagents actually work.
           </p>
 
@@ -219,14 +219,14 @@ export default function SubagentPage() {
                   <input style={field} value={name} onChange={(e) => setName(e.target.value)} placeholder="code-reviewer" aria-label="Subagent name" />
                 </div>
                 <div>
-                  <label style={label}>Description — when should Claude delegate to it?</label>
+                  <label style={label}>Description, when should Claude delegate to it?</label>
                   <textarea style={{ ...field, minHeight: 64 }} value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Expert code review specialist. Use PROACTIVELY after writing or modifying code…" aria-label="Subagent description" />
                 </div>
                 <div>
                   <span style={label}>Tools</span>
                   <label style={{ display: "flex", gap: 8, alignItems: "center", fontSize: 13.5, color: "var(--bone-dim)", marginBottom: 8, cursor: "pointer" }}>
                     <input type="checkbox" checked={inheritAll} onChange={(e) => setInheritAll(e.target.checked)} style={{ accentColor: "var(--ember)" }} />
-                    Inherit all tools (omit the field — includes MCP tools)
+                    Inherit all tools (omit the field, includes MCP tools)
                   </label>
                   {!inheritAll && (
                     <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
@@ -267,7 +267,7 @@ export default function SubagentPage() {
                   <input style={field} value={role} onChange={(e) => setRole(e.target.value)} placeholder="You are a senior code reviewer…" aria-label="Role" />
                 </div>
                 <div>
-                  <label style={label}>Process — one step per line</label>
+                  <label style={label}>Process, one step per line</label>
                   <textarea style={{ ...field, minHeight: 84 }} value={process} onChange={(e) => setProcess(e.target.value)} placeholder={"Run git diff to see changes\nRead each modified file\nCheck correctness, security, tests"} aria-label="Process steps" />
                 </div>
                 <div>
@@ -321,10 +321,10 @@ export default function SubagentPage() {
           </p>
           <div className="sol-grid" style={{ textAlign: "left" }}>
             {[
-              ["🔑", "name", "Unique kebab-case identifier — it becomes how you invoke it (`use the code-reviewer subagent`) and the filename."],
+              ["🔑", "name", "Unique kebab-case identifier, it becomes how you invoke it (`use the code-reviewer subagent`) and the filename."],
               ["🎯", "description", "How Claude decides to delegate. Lead with the role, then the trigger: phrases like `Use PROACTIVELY after code changes` measurably increase automatic invocation."],
               ["🧰", "tools", "Optional allowlist. Omit to inherit everything (including MCP tools); list the minimum set for safety and predictability."],
-              ["🧠", "model + prompt", "Optional `model` (sonnet/opus/haiku/inherit) plus the body — the subagent's entire system prompt. It starts with zero context from your conversation, so the prompt must stand alone."],
+              ["🧠", "model + prompt", "Optional `model` (sonnet/opus/haiku/inherit) plus the body, the subagent's entire system prompt. It starts with zero context from your conversation, so the prompt must stand alone."],
             ].map(([ic, h, pt]) => (
               <div className="card fade" key={h}>
                 <div className="ic">{ic}</div>
@@ -349,7 +349,7 @@ export default function SubagentPage() {
             {[
               ["One job per agent", "A 'code-reviewer' outperforms a 'code-helper'. Narrow scope means a sharper prompt, fewer tools, and more reliable automatic delegation."],
               ["Write the trigger into the description", "Claude matches tasks against descriptions. 'Use PROACTIVELY when tests fail' fires; 'helps with testing' doesn't."],
-              ["Assume zero context", "Subagents don't see your conversation. The prompt must say how to gather context itself — which files to read, which commands to run first."],
+              ["Assume zero context", "Subagents don't see your conversation. The prompt must say how to gather context itself, which files to read, which commands to run first."],
               ["Version them with the repo", "Keep project subagents in `.claude/agents/` and commit them. Your whole team gets the same specialists, and improvements ship like code."],
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
@@ -379,7 +379,7 @@ export default function SubagentPage() {
           ],
           [
             "Do subagents share my conversation context?",
-            "No — each invocation starts with a clean context window containing only the subagent's system prompt and the task Claude hands it. That isolation is the point: research and noisy tool output stay out of your main thread.",
+            "No, each invocation starts with a clean context window containing only the subagent's system prompt and the task Claude hands it. That isolation is the point: research and noisy tool output stay out of your main thread.",
           ],
           [
             "Can a subagent use MCP tools?",
@@ -393,7 +393,7 @@ export default function SubagentPage() {
         lead={
           <>
             This generator gives you a great starting file. The Agentary kits give you the full
-            bench — 89 production-grade agents plus the skills and commands they pair with.
+            bench, 89 production-grade agents plus the skills and commands they pair with.
           </>
         }
       />
@@ -403,7 +403,7 @@ export default function SubagentPage() {
           <>
             <b>This generator produces files following the public Claude Code subagent format</b>{" "}
             (frontmatter fields, placement, and conventions as documented by Anthropic). Formats
-            evolve — check the official docs if something doesn&apos;t load. Everything runs in
+            evolve, check the official docs if something doesn&apos;t load. Everything runs in
             your browser; nothing you type is uploaded or stored.
           </>
         }

@@ -11,7 +11,7 @@ import {
 } from "@/app/components/toolPage";
 
 /**
- * Claude Code slash command generator — form in, valid .claude/commands/*.md
+ * Claude Code slash command generator, form in, valid .claude/commands/*.md
  * out. 100% client-side.
  */
 
@@ -44,7 +44,7 @@ const PRESETS: Record<
     allowedTools: "Read, Grep, Glob",
     context: "",
     prompt:
-      "Explain how $ARGUMENTS works in this codebase.\n\n1. Find the relevant files (search if a feature was named rather than a path).\n2. Explain the flow end-to-end for someone new to the repo — entry points, key functions, data flow.\n3. Include a small text/mermaid diagram of the flow.\n4. List the 3 files someone should read first, in order.",
+      "Explain how $ARGUMENTS works in this codebase.\n\n1. Find the relevant files (search if a feature was named rather than a path).\n2. Explain the flow end-to-end for someone new to the repo, entry points, key functions, data flow.\n3. Include a small text/mermaid diagram of the flow.\n4. List the 3 files someone should read first, in order.",
   },
 };
 
@@ -155,7 +155,7 @@ export default function SlashCommandPage() {
           </h1>
           <p className="sub reveal-h d3">
             Turn your most-repeated prompt into a proper command: frontmatter, <b>$ARGUMENTS</b>,
-            live <b>!`bash`</b> context, and the right file in <b>.claude/commands/</b> — with a
+            live <b>!`bash`</b> context, and the right file in <b>.claude/commands/</b>, with a
             live preview as you type.
           </p>
 
@@ -188,12 +188,12 @@ export default function SlashCommandPage() {
                   <input style={field} value={allowedTools} onChange={(e) => setAllowedTools(e.target.value)} placeholder="Bash(git status:*), Bash(git diff:*)" aria-label="Allowed tools" />
                 </div>
                 <div>
-                  <label style={label}>Bash context — one command per line (becomes !`cmd` lines)</label>
+                  <label style={label}>Bash context, one command per line (becomes !`cmd` lines)</label>
                   <textarea style={{ ...field, minHeight: 60 }} value={context} onChange={(e) => setContext(e.target.value)} placeholder={"git status\ngit diff HEAD"} aria-label="Context commands" />
                 </div>
                 <div>
                   <label style={label}>
-                    Prompt — use <code>$ARGUMENTS</code> or <code>$1</code>, <code>$2</code> for arguments
+                    Prompt, use <code>$ARGUMENTS</code> or <code>$1</code>, <code>$2</code> for arguments
                   </label>
                   <textarea style={{ ...field, minHeight: 120 }} value={prompt} onChange={(e) => setPrompt(e.target.value)} placeholder={"Based on the changes above, create a git commit…\n\nUser hint: $ARGUMENTS"} aria-label="Prompt body" />
                 </div>
@@ -213,7 +213,7 @@ export default function SlashCommandPage() {
                     <span className="v-ic">/</span>
                     <span>
                       .claude/commands/{cleanName}.md
-                      {argHint && !usesArgs ? " — hint set but prompt never uses $ARGUMENTS/$1" : ""}
+                      {argHint && !usesArgs ? ", hint set but prompt never uses $ARGUMENTS/$1" : ""}
                     </span>
                   </div>
                   <div className="val-counts">
@@ -248,8 +248,8 @@ export default function SlashCommandPage() {
           <div className="sol-grid" style={{ textAlign: "left" }}>
             {[
               ["📝", "Frontmatter", "`description` (shows in /help), `argument-hint` (autocomplete), `allowed-tools` (pre-approves the bash the command needs), and optional `model`."],
-              ["🧩", "Arguments", "`$ARGUMENTS` grabs everything after the command; `$1`, `$2`… grab positional args — so `/fix-issue 123 high` can slot values exactly where they belong."],
-              ["⚡", "Live bash context", "Lines like `!`git diff HEAD`` run before the prompt and inject real output — the command reasons about your actual repo state, not a guess."],
+              ["🧩", "Arguments", "`$ARGUMENTS` grabs everything after the command; `$1`, `$2`… grab positional args, so `/fix-issue 123 high` can slot values exactly where they belong."],
+              ["⚡", "Live bash context", "Lines like `!`git diff HEAD`` run before the prompt and inject real output, the command reasons about your actual repo state, not a guess."],
               ["📎", "File references", "`@src/utils/helpers.ts` inlines a file's contents into the prompt, so commands can review or compare specific files."],
             ].map(([ic, h, pt]) => (
               <div className="card fade" key={h}>
@@ -273,10 +273,10 @@ export default function SlashCommandPage() {
           </div>
           <div className="feat-grid" style={{ marginTop: 48 }}>
             {[
-              ["The context-first command", "Put `!`git status`` / `!`git diff`` under a `## Context` heading, your instructions under `## Task`. The model gets state before instructions — accuracy jumps."],
-              ["The scoped permissions trick", "`allowed-tools: Bash(git commit:*)` pre-approves exactly the commands your slash command needs and nothing else — no permission prompts, no over-granting."],
+              ["The context-first command", "Put `!`git status`` / `!`git diff`` under a `## Context` heading, your instructions under `## Task`. The model gets state before instructions, accuracy jumps."],
+              ["The scoped permissions trick", "`allowed-tools: Bash(git commit:*)` pre-approves exactly the commands your slash command needs and nothing else, no permission prompts, no over-granting."],
               ["Namespacing with folders", "`.claude/commands/frontend/component.md` becomes `/frontend:component`. Group your team's commands by domain instead of one flat pile."],
-              ["Commit them", "Project commands live in the repo, so `/commit`, `/review-pr`, and `/deploy-check` behave identically for every teammate — prompt engineering that ships like code."],
+              ["Commit them", "Project commands live in the repo, so `/commit`, `/review-pr`, and `/deploy-check` behave identically for every teammate, prompt engineering that ships like code."],
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
                 <div className="fi">▹</div>
@@ -301,15 +301,15 @@ export default function SlashCommandPage() {
           ],
           [
             "Can a slash command use a specific model?",
-            "Yes — add `model: haiku` (or sonnet/opus) to the frontmatter. Cheap models are great for mechanical commands like changelog formatting; keep your default model for judgment calls.",
+            "Yes, add `model: haiku` (or sonnet/opus) to the frontmatter. Cheap models are great for mechanical commands like changelog formatting; keep your default model for judgment calls.",
           ],
           [
             "How is this different from a skill?",
-            "Commands are single prompts you invoke explicitly. Skills are folders (SKILL.md + resources) that Claude loads automatically when relevant. If your command keeps growing sections, it probably wants to be a skill — try our SKILL.md validator next.",
+            "Commands are single prompts you invoke explicitly. Skills are folders (SKILL.md + resources) that Claude loads automatically when relevant. If your command keeps growing sections, it probably wants to be a skill, try our SKILL.md validator next.",
           ],
           [
             "Is anything uploaded when I use this generator?",
-            "No — it's entirely client-side. Your prompts never leave the browser.",
+            "No, it's entirely client-side. Your prompts never leave the browser.",
           ],
         ]}
       />
@@ -318,8 +318,8 @@ export default function SlashCommandPage() {
         heading="181 commands, already written"
         lead={
           <>
-            This builder makes one great command. The Agentary kits ship 181 of them —
-            commit flows, review pipelines, deploy checks, content workflows — plus the agents and
+            This builder makes one great command. The Agentary kits ship 181 of them, 
+            commit flows, review pipelines, deploy checks, content workflows, plus the agents and
             skills they orchestrate.
           </>
         }
@@ -330,7 +330,7 @@ export default function SlashCommandPage() {
           <>
             <b>This generator follows the public Claude Code slash-command format</b> (frontmatter
             fields, argument placeholders, bash-context syntax) as documented by Anthropic. The
-            format evolves — check the official docs if a feature doesn&apos;t work. Everything
+            format evolves, check the official docs if a feature doesn&apos;t work. Everything
             runs in your browser; nothing you type is uploaded or stored.
           </>
         }

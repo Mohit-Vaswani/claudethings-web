@@ -8,7 +8,7 @@ const post = getPost("claude-md-best-practices-template")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -45,7 +45,7 @@ export default function Page() {
         {
           href: "/blog/getting-started-with-claude-code",
           title: "Getting Started with Claude Code",
-          desc: "Install to first shipped feature — where CLAUDE.md fits in the bigger picture.",
+          desc: "Install to first shipped feature, where CLAUDE.md fits in the bigger picture.",
         },
         {
           href: "/blog/how-to-write-a-claude-code-skill-that-triggers",
@@ -60,7 +60,7 @@ export default function Page() {
       ]}
     >
       <p className="intro">
-        CLAUDE.md is the file Claude Code reads at the start of every session — the onboarding
+        CLAUDE.md is the file Claude Code reads at the start of every session, the onboarding
         document for an engineer who joins your project fresh each morning with no memory of
         yesterday. Everyone knows it matters. Almost nobody knows what to actually put in it, which
         is why most CLAUDE.md files are either three unhelpful lines or 800 lines of wishful
@@ -80,7 +80,7 @@ export default function Page() {
         </li>
         <li>
           <strong>Too long</strong>, and the instructions compete with each other for attention.
-          A 900-line CLAUDE.md doesn&apos;t give you 900 lines of obedience — it gives you a model
+          A 900-line CLAUDE.md doesn&apos;t give you 900 lines of obedience, it gives you a model
           that weighs your genuinely critical rule the same as your note about import ordering.
         </li>
       </ul>
@@ -94,7 +94,7 @@ export default function Page() {
       <h2>The template</h2>
       <div className="prompt-card">
         <div className="prompt-head">
-          <span className="p-title">CLAUDE.md — copy, then fill in</span>
+          <span className="p-title">CLAUDE.md, copy, then fill in</span>
         </div>
         <pre className="prompt-body">{`# <Project name>
 
@@ -102,8 +102,8 @@ export default function Page() {
 Stack: <framework + language + DB + anything unusual>.
 
 ## Commands
-- <dev server command> — <port / notes>
-- <test command> — run before claiming any change works
+- <dev server command>, <port / notes>
+- <test command>, run before claiming any change works
 - <lint / typecheck command>
 - <build or deploy command, if Claude may run it>
 
@@ -116,7 +116,7 @@ Stack: <framework + language + DB + anything unusual>.
 - <how code is organized: e.g. "all DB access via src/db/queries/">
 - <error handling rule>
 - <naming or style rule that lint doesn't enforce>
-- <what to do about types: e.g. "no any — fix the type">
+- <what to do about types: e.g. "no any, fix the type">
 
 ## Workflow
 - <branching / commit rules, e.g. "commit as you go, small diffs">
@@ -130,7 +130,7 @@ Stack: <framework + language + DB + anything unusual>.
       <p>
         That&apos;s the whole structure: identity, commands, architecture, conventions, workflow,
         gotchas. Run {code("/init")} to draft the mechanical parts from your codebase, then spend
-        your effort on the last three sections — they&apos;re the parts Claude can&apos;t figure
+        your effort on the last three sections, they&apos;re the parts Claude can&apos;t figure
         out by reading the code.
       </p>
 
@@ -142,7 +142,7 @@ Stack: <framework + language + DB + anything unusual>.
           need the DB container running: {code("docker compose up -d db")} first.&quot;
         </li>
         <li>
-          <strong>Non-obvious boundaries.</strong> &quot;The {code("legacy/")} folder is frozen —
+          <strong>Non-obvious boundaries.</strong> &quot;The {code("legacy/")} folder is frozen, 
           bugfix only, never refactor.&quot;
         </li>
         <li>
@@ -157,7 +157,7 @@ Stack: <framework + language + DB + anything unusual>.
       <h3>Leave out: everything Claude can see or doesn&apos;t need</h3>
       <ul>
         <li>
-          Directory listings and file inventories — Claude can list files. Explain{" "}
+          Directory listings and file inventories, Claude can list files. Explain{" "}
           <em>meaning</em>, not contents.
         </li>
         <li>
@@ -179,12 +179,12 @@ Stack: <framework + language + DB + anything unusual>.
       <ol>
         <li>
           <strong>Treat it as a living file.</strong> The best CLAUDE.md files are grown, not
-          written — every corrected mistake is a candidate line. In-session, the {code("#")}{" "}
+          written, every corrected mistake is a candidate line. In-session, the {code("#")}{" "}
           shortcut appends a memory to the file without breaking flow.
         </li>
         <li>
           <strong>Prune on a schedule.</strong> Rules outlive their reasons. When you touch the
-          file, delete lines about code that no longer exists — every dead line dilutes attention
+          file, delete lines about code that no longer exists, every dead line dilutes attention
           paid to live ones.
         </li>
         <li>
@@ -200,14 +200,14 @@ Stack: <framework + language + DB + anything unusual>.
         your personal preferences across all projects, the repo root for team-shared rules, and
         subdirectory CLAUDE.md files for area-specific guidance (a {code("frontend/CLAUDE.md")}{" "}
         with component conventions, an {code("infra/CLAUDE.md")} with deployment cautions).
-        Subdirectory files are pulled in when Claude works in those directories — a clean way to
+        Subdirectory files are pulled in when Claude works in those directories, a clean way to
         keep the root file lean on a large codebase.
       </p>
 
       <div className="callout">
         <p>
           <strong>This file is also how kits adapt:</strong> Agentary agents and skills read
-          your CLAUDE.md to match your stack and conventions — the same 89 agents behave like they
+          your CLAUDE.md to match your stack and conventions, the same 89 agents behave like they
           were written for your repo. <a href="/#pricing">See how the kits work →</a>
         </p>
       </div>
@@ -216,7 +216,7 @@ Stack: <framework + language + DB + anything unusual>.
       <div className="faq" style={{ marginTop: 22 }}>
         <details className="q">
           <summary>
-            CLAUDE.md vs .claude/settings.json — what goes where? <span className="plus">+</span>
+            CLAUDE.md vs .claude/settings.json, what goes where? <span className="plus">+</span>
           </summary>
           <div className="a">
             CLAUDE.md is prose instructions for the model; settings.json is machine configuration
@@ -240,7 +240,7 @@ Stack: <framework + language + DB + anything unusual>.
             Should CLAUDE.md be committed to git? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Yes — the project-root file is team infrastructure and belongs in version control. For
+            Yes, the project-root file is team infrastructure and belongs in version control. For
             personal, machine-local notes, use CLAUDE.local.md (gitignored) or your user-level
             file.
           </div>

@@ -3,7 +3,7 @@ import LegalLayout from "../components/LegalLayout";
 
 export const metadata: Metadata = {
   title: "Legal · Agentary",
-  description: "Legal information for Agentary — terms of service, privacy policy, and refund policy.",
+  description: "Legal information for Agentary, terms of service, privacy policy, and refund policy.",
 };
 
 export default function LegalPage() {

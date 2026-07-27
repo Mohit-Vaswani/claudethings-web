@@ -8,7 +8,7 @@ const post = getPost("claude-skills-for-developers")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -40,7 +40,7 @@ const faqLd = {
       name: "What are Claude skills?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Claude skills are folders containing a SKILL.md file: YAML frontmatter with a name and description, plus markdown instructions and optional scripts. Claude keeps every installed skill's description in context and loads the full instructions only when a task matches — a design called progressive disclosure.",
+        text: "Claude skills are folders containing a SKILL.md file: YAML frontmatter with a name and description, plus markdown instructions and optional scripts. Claude keeps every installed skill's description in context and loads the full instructions only when a task matches, a design called progressive disclosure.",
       },
     },
     {
@@ -108,7 +108,7 @@ export default function Page() {
       </p>
       <p>
         The important part is <strong>progressive disclosure</strong>. Claude does not load your
-        skills into context. It loads only their names and descriptions — roughly a sentence each.
+        skills into context. It loads only their names and descriptions, roughly a sentence each.
         When a task matches a description, the full body is pulled in and followed. This is why a
         library of a hundred skills costs almost nothing until one is needed, and why the
         description is the single most important line in the file: it is the only thing Claude sees
@@ -116,7 +116,7 @@ export default function Page() {
       </p>
       <p>
         The corollary catches everyone at least once. A skill with a vague description is not a
-        weak skill — it is an <em>invisible</em> one. It never loads, and because nothing errors,
+        weak skill, it is an <em>invisible</em> one. It never loads, and because nothing errors,
         you assume it is working. Descriptions must name situations: &quot;Use before opening a PR,
         when the user asks for a review, or after finishing a feature&quot; rather than &quot;code
         review expertise&quot;. Our{" "}
@@ -149,15 +149,15 @@ export default function Page() {
       <h2>The pattern that separates good skills from bad</h2>
       <p>
         <strong>Let the model decide; let the code execute.</strong> Anthropic&apos;s open-source
-        document skills demonstrate this: the markdown handles judgment — which branch applies, what
-        the user actually wants — and bundled scripts handle everything with a single correct
+        document skills demonstrate this: the markdown handles judgment, which branch applies, what
+        the user actually wants, and bundled scripts handle everything with a single correct
         answer, like extracting a table or filling a form. Deterministic work belongs in code.
         Asking a language model to do it in prose produces output that is usually right, which is
         the worst possible reliability profile.
       </p>
       <p>
         The second pattern: <strong>state the prohibitions</strong>. The most valuable lines in most
-        skills are negative — do not patch the symptom, do not refactor beyond the request, do not
+        skills are negative, do not patch the symptom, do not refactor beyond the request, do not
         invent findings when the diff is clean. Skills exist precisely because some default behavior
         was wrong, and naming it is the whole point.
       </p>
@@ -165,14 +165,14 @@ export default function Page() {
       <h2>Rolling skills out on a team</h2>
       <p>
         Commit them. A skill in {code(".claude/skills/")} arrives with the repository, so every
-        teammate — and every new hire on day one — gets the same review checklist, the same
+        teammate, and every new hire on day one, gets the same review checklist, the same
         migration rules, the same deployment process. Changes go through pull requests like any
         other code, which means your engineering standards become reviewable artifacts instead of
         folklore.
       </p>
       <p>
-        That reframes what a skill is for. The tempting first skills are generic ones — testing,
-        review, debugging — and those are worth having. But the highest-value skill on any team is
+        That reframes what a skill is for. The tempting first skills are generic ones, testing,
+        review, debugging, and those are worth having. But the highest-value skill on any team is
         the one nobody else could write: how <em>your</em> deployment works, why <em>your</em> team
         rejected a library, which directory owns what. That knowledge currently lives in senior
         engineers&apos; heads and gets rediscovered painfully. A skill is the place to put it.
@@ -181,7 +181,7 @@ export default function Page() {
       <h2>Where skills come from</h2>
       <p>
         Three routes. Write your own, which is the only way to capture project-specific knowledge.
-        Copy from GitHub, where the supply is enormous and unvetted — read our{" "}
+        Copy from GitHub, where the supply is enormous and unvetted, read our{" "}
         <a href="/blog/claude-skills-github">GitHub sourcing guide</a>, and read the skills
         themselves, because they run with your permissions. Or install a plugin from a marketplace,
         which bundles skills, agents, and commands together with updates; our{" "}
@@ -192,14 +192,14 @@ export default function Page() {
       <p>
         Write one skill for the thing you correct Claude about most often. Use it for a week, and
         every time you have to correct it again, add a line. That feedback loop is the entire method
-        — after a few rounds you have a document encoding your actual standards rather than someone
+, after a few rounds you have a document encoding your actual standards rather than someone
         else&apos;s idea of best practice. Then repeat for the next most annoying thing.
       </p>
 
       <div className="callout">
         <p>
           <strong>Or start with a library:</strong> Agentary ships 103 skills, 89 agents, and 181
-          commands — trigger-tested, deduplicated, and installed with one command, so you can spend
+          commands, trigger-tested, deduplicated, and installed with one command, so you can spend
           your time on the project-specific skills only you can write.{" "}
           <a href="/#pricing">See the kits →</a>
         </p>
@@ -212,7 +212,7 @@ export default function Page() {
             Do skills work outside Claude Code? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Yes — SKILL.md is a portable format used across Claude Code, the Claude apps, and agents
+            Yes, SKILL.md is a portable format used across Claude Code, the Claude apps, and agents
             built with the Agent SDK. A skill you write for the terminal travels with you.
           </div>
         </details>
@@ -222,13 +222,13 @@ export default function Page() {
           </summary>
           <div className="a">
             Barely. Only names and descriptions stay loaded until a skill triggers. The real cost of
-            a large library is overlapping descriptions competing for the same trigger — a curation
+            a large library is overlapping descriptions competing for the same trigger, a curation
             problem, not a context one.
           </div>
         </details>
         <details className="q">
           <summary>
-            Skills or MCP — which do I need? <span className="plus">+</span>
+            Skills or MCP, which do I need? <span className="plus">+</span>
           </summary>
           <div className="a">
             Skills if Claude needs to know <em>how</em>; MCP if Claude needs access to something it

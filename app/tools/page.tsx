@@ -8,7 +8,7 @@ const PATH = "/tools";
 const URL = `${SITE_URL}${PATH}`;
 
 export const metadata: Metadata = {
-  title: "Free Claude Code Tools — Validators, Auditors & Skills",
+  title: "Free Claude Code Tools, Validators, Auditors & Skills",
   description:
     "A growing collection of free tools for Claude Code: a SKILL.md validator, a website security audit skill, and more. No signup, runs free. Built by Agentary.",
   keywords: [
@@ -21,19 +21,19 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PATH },
   openGraph: {
-    title: "Free Claude Code Tools — Agentary",
+    title: "Free Claude Code Tools · Agentary",
     description:
       "Free validators, auditors, and skills for people building with Claude Code. No signup, no cost.",
     type: "website",
     url: URL,
-    images: [{ url: ogImage("Free Claude Code Tools — Validators, Auditors & Skills"), width: 1200, height: 630, alt: "Free Claude Code tools by Agentary." }],
+    images: [{ url: ogImage("Free Claude Code Tools, Validators, Auditors & Skills"), width: 1200, height: 630, alt: "Free Claude Code tools by Agentary." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Claude Code Tools — Agentary",
+    title: "Free Claude Code Tools · Agentary",
     description:
       "Free validators, auditors, and skills for people building with Claude Code. No signup, no cost.",
-    images: [ogImage("Free Claude Code Tools — Validators, Auditors & Skills")],
+    images: [ogImage("Free Claude Code Tools, Validators, Auditors & Skills")],
   },
 };
 

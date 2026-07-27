@@ -13,7 +13,7 @@ import {
 import { apiCost, fmtUsd, fmtCompact, priceForModel, PRICES_AS_OF } from "@/app/lib/claudePricing";
 
 /**
- * Claude Code Wrapped — paste `npx ccusage@latest --json` output, get a
+ * Claude Code Wrapped, paste `npx ccusage@latest --json` output, get a
  * shareable Wrapped card. 100% client-side: parsing, stats, and the PNG are
  * all done in the browser.
  */
@@ -101,7 +101,7 @@ function parseCcusage(src: string): { stats: WrappedStats | null; error: string 
     return {
       stats: null,
       error:
-        "That doesn't look like JSON. Run `npx ccusage@latest --json` and paste the whole output (the table view isn't parseable — add the `--json` flag).",
+        "That doesn't look like JSON. Run `npx ccusage@latest --json` and paste the whole output (the table view isn't parseable, add the `--json` flag).",
     };
   }
 
@@ -112,7 +112,7 @@ function parseCcusage(src: string): { stats: WrappedStats | null; error: string 
     return {
       stats: null,
       error:
-        "Couldn't parse that JSON — it may be truncated. Re-run `npx ccusage@latest --json` and copy the complete output.",
+        "Couldn't parse that JSON, it may be truncated. Re-run `npx ccusage@latest --json` and copy the complete output.",
     };
   }
 
@@ -143,7 +143,7 @@ function parseCcusage(src: string): { stats: WrappedStats | null; error: string 
   }
 
   if (entries.length === 0) {
-    return { stats: null, error: "ccusage returned no usage entries — nothing to wrap yet. Go burn some tokens!" };
+    return { stats: null, error: "ccusage returned no usage entries, nothing to wrap yet. Go burn some tokens!" };
   }
 
   // Totals: prefer ccusage's own totals block, fall back to summing entries.
@@ -204,7 +204,7 @@ function parseCcusage(src: string): { stats: WrappedStats | null; error: string 
       ? { name: "Power User", emoji: "⚡", line: "Claude Code is officially your co-founder." }
       : totalCost >= 50
       ? { name: "Daily Driver", emoji: "🚗", line: "A healthy habit. Your commits agree." }
-      : { name: "Casual Committer", emoji: "🌱", line: "Just getting started — the tokens will come." };
+      : { name: "Casual Committer", emoji: "🌱", line: "Just getting started, the tokens will come." };
 
   return {
     stats: {
@@ -292,7 +292,7 @@ function drawCard(canvas: HTMLCanvasElement, s: WrappedStats) {
   // persona
   ctx.fillStyle = boneDim;
   ctx.font = `500 20px ${sans}`;
-  ctx.fillText(`${s.persona.emoji}  ${s.persona.name} — ${s.persona.line}`, 64, 136);
+  ctx.fillText(`${s.persona.emoji}  ${s.persona.name}, ${s.persona.line}`, 64, 136);
 
   // hero number: total tokens
   ctx.fillStyle = bone;
@@ -362,7 +362,7 @@ const SAMPLE_HINT = `Run this in your terminal, then paste the output:
 
   npx ccusage@latest --json
 
-(reads Claude Code's local logs — nothing is installed permanently)`;
+(reads Claude Code's local logs, nothing is installed permanently)`;
 
 export default function WrappedPage() {
   useToolPageFx();
@@ -386,7 +386,7 @@ export default function WrappedPage() {
   };
 
   const shareText = stats
-    ? `I burned ${fmtCompact(stats.totalTokens)} tokens in Claude Code — ${
+    ? `I burned ${fmtCompact(stats.totalTokens)} tokens in Claude Code, ${
         stats.totalCost >= 100 ? fmtUsd(stats.totalCost, 0) : fmtUsd(stats.totalCost)
       } at API prices ${stats.persona.emoji}\n\nGet your Claude Code Wrapped (free):\n${SITE_URL}/claude-code-wrapped`
     : "";
@@ -456,7 +456,7 @@ export default function WrappedPage() {
                   <div className="val-verdict good">
                     <span className="v-ic">{stats.persona.emoji}</span>
                     <span>
-                      {stats.persona.name} — {fmtCompact(stats.totalTokens)} tokens ·{" "}
+                      {stats.persona.name}, {fmtCompact(stats.totalTokens)} tokens ·{" "}
                       {stats.totalCost >= 100 ? fmtUsd(stats.totalCost, 0) : fmtUsd(stats.totalCost)} at
                       API prices
                     </span>
@@ -486,7 +486,7 @@ export default function WrappedPage() {
                       </a>
                     </div>
                     <p style={{ color: "var(--bone-faint)", fontSize: 13, marginTop: 10 }}>
-                      Tip: download the PNG and attach it to the post — flex responsibly.
+                      Tip: download the PNG and attach it to the post, flex responsibly.
                     </p>
                   </div>
                 </>
@@ -512,9 +512,9 @@ export default function WrappedPage() {
           </p>
           <div className="sol-grid" style={{ textAlign: "left" }}>
             {[
-              ["⌨️", "1. Run ccusage", "In any terminal: `npx ccusage@latest --json`. No install, no login — it reads `~/.claude` logs locally and prints a JSON summary."],
-              ["📋", "2. Paste the output", "Copy the whole JSON blob into the box above. Parsing happens in your browser — your usage data never touches a server."],
-              ["🖼️", "3. Share the card", "Download the PNG and post it. Tokens burned, $ at API prices, favorite model, streak — the full flex."],
+              ["⌨️", "1. Run ccusage", "In any terminal: `npx ccusage@latest --json`. No install, no login, it reads `~/.claude` logs locally and prints a JSON summary."],
+              ["📋", "2. Paste the output", "Copy the whole JSON blob into the box above. Parsing happens in your browser, your usage data never touches a server."],
+              ["🖼️", "3. Share the card", "Download the PNG and post it. Tokens burned, $ at API prices, favorite model, streak, the full flex."],
             ].map(([ic, h, pt]) => (
               <div className="card fade" key={h}>
                 <div className="ic">{ic}</div>
@@ -537,10 +537,10 @@ export default function WrappedPage() {
           </div>
           <div className="feat-grid" style={{ marginTop: 48 }}>
             {[
-              ["Tokens burned", "Input + output + cache-write + cache-read tokens across every session ccusage found. Cache reads are usually 90%+ of the total — that's normal, it's how Claude Code keeps your codebase in context cheaply."],
-              ["$ at API prices", `What your usage would cost pay-as-you-go (prices as of ${PRICES_AS_OF}). On Pro or Max you didn't actually pay this — which is exactly the point of sharing it.`],
-              ["Favorite model", "The model that accounts for the biggest share of your usage cost — Opus, Sonnet, or Haiku — with its share of total spend."],
-              ["Streak & biggest day", "Longest run of consecutive active days, plus the single day (or session) where you burned the most — your personal token record."],
+              ["Tokens burned", "Input + output + cache-write + cache-read tokens across every session ccusage found. Cache reads are usually 90%+ of the total, that's normal, it's how Claude Code keeps your codebase in context cheaply."],
+              ["$ at API prices", `What your usage would cost pay-as-you-go (prices as of ${PRICES_AS_OF}). On Pro or Max you didn't actually pay this, which is exactly the point of sharing it.`],
+              ["Favorite model", "The model that accounts for the biggest share of your usage cost, Opus, Sonnet, or Haiku, with its share of total spend."],
+              ["Streak & biggest day", "Longest run of consecutive active days, plus the single day (or session) where you burned the most, your personal token record."],
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
                 <div className="fi">▹</div>
@@ -557,19 +557,19 @@ export default function WrappedPage() {
         items={[
           [
             "What is ccusage?",
-            "ccusage is a popular open-source CLI that analyzes the local JSONL logs Claude Code writes to your machine and reports token usage and estimated cost per day, month, or session. Run it with `npx ccusage@latest --json` — nothing is installed permanently.",
+            "ccusage is a popular open-source CLI that analyzes the local JSONL logs Claude Code writes to your machine and reports token usage and estimated cost per day, month, or session. Run it with `npx ccusage@latest --json`, nothing is installed permanently.",
           ],
           [
             "Which ccusage commands does this accept?",
-            "Any of the JSON reports: `ccusage --json` (daily), `ccusage monthly --json`, or `ccusage session --json`. The card adapts — daily data unlocks the streak stat, session data shows your biggest single session.",
+            "Any of the JSON reports: `ccusage --json` (daily), `ccusage monthly --json`, or `ccusage session --json`. The card adapts, daily data unlocks the streak stat, session data shows your biggest single session.",
           ],
           [
             "Is my usage data uploaded?",
-            "No. Everything — parsing, stats, and drawing the PNG — happens client-side in your browser. You can disconnect from the internet after the page loads and it still works.",
+            "No. Everything, parsing, stats, and drawing the PNG, happens client-side in your browser. You can disconnect from the internet after the page loads and it still works.",
           ],
           [
             "Why is the dollar number so high when I pay $20/month?",
-            "Because subscriptions bundle usage at a flat rate while the card prices your tokens at pay-as-you-go API rates. Heavy Claude Code users routinely 'burn' 10–50× their subscription price in API-equivalent value — that gap is the whole meme.",
+            "Because subscriptions bundle usage at a flat rate while the card prices your tokens at pay-as-you-go API rates. Heavy Claude Code users routinely 'burn' 10–50× their subscription price in API-equivalent value, that gap is the whole meme.",
           ],
           [
             "Why are cache reads most of my tokens?",
@@ -587,7 +587,7 @@ export default function WrappedPage() {
         lead={
           <>
             The Agentary kits are a library of production-grade agents, skills, and slash
-            commands that make every one of those tokens do more work — reviews, tests, security
+            commands that make every one of those tokens do more work, reviews, tests, security
             audits, marketing.
           </>
         }

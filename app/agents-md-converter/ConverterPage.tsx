@@ -11,7 +11,7 @@ import {
 } from "@/app/components/toolPage";
 
 /**
- * Agent config converter — AGENTS.md ⇄ CLAUDE.md ⇄ .cursorrules ⇄ .mdc ⇄
+ * Agent config converter, AGENTS.md ⇄ CLAUDE.md ⇄ .cursorrules ⇄ .mdc ⇄
  * copilot-instructions ⇄ .windsurfrules. 100% client-side.
  */
 
@@ -68,7 +68,7 @@ function convert(src: string, from: FormatId, to: FormatId, adaptNames: boolean)
     const s = stripMdcFrontmatter(body);
     body = s.body;
     if (s.hadFm && to !== "cursor-mdc") {
-      notes.push("Removed the `.mdc` YAML frontmatter (`description`, `globs`, `alwaysApply`) — other formats don't use it.");
+      notes.push("Removed the `.mdc` YAML frontmatter (`description`, `globs`, `alwaysApply`), other formats don't use it.");
     }
   }
 
@@ -77,7 +77,7 @@ function convert(src: string, from: FormatId, to: FormatId, adaptNames: boolean)
     const imports = body.match(/(^|\s)@([\w./-]+\.\w+)/gm);
     if (imports?.length) {
       body = body.replace(/(^|\s)@([\w./-]+\.\w+)/gm, (_, pre, path) => `${pre}[${path}](${path})`);
-      notes.push(`Rewrote ${imports.length} Claude-specific \`@import\` reference${imports.length > 1 ? "s" : ""} as plain markdown links — other tools don't auto-load \`@path\` imports.`);
+      notes.push(`Rewrote ${imports.length} Claude-specific \`@import\` reference${imports.length > 1 ? "s" : ""} as plain markdown links, other tools don't auto-load \`@path\` imports.`);
     }
   }
 
@@ -107,16 +107,16 @@ function convert(src: string, from: FormatId, to: FormatId, adaptNames: boolean)
   if (to === "cursor-mdc") {
     const desc = firstHeadingText(body) ?? "Project rules and conventions";
     body = `---\ndescription: ${desc}\nglobs:\nalwaysApply: true\n---\n\n${body.trimStart()}`;
-    notes.push("Added `.mdc` frontmatter with `alwaysApply: true` — edit `globs` (e.g. `src/**/*.ts`) to scope the rule to part of the codebase instead.");
+    notes.push("Added `.mdc` frontmatter with `alwaysApply: true`, edit `globs` (e.g. `src/**/*.ts`) to scope the rule to part of the codebase instead.");
   }
 
   // 6. Placement notes.
   const placement: Record<FormatId, string> = {
     claude: "Save as `CLAUDE.md` at the repo root. Tip: you can keep AGENTS.md as the source of truth and make CLAUDE.md a single line: `@AGENTS.md`.",
-    agents: "Save as `AGENTS.md` at the repo root — Codex, Cursor, Jules, and a growing list of tools read it automatically.",
-    cursorrules: "Save as `.cursorrules` at the repo root. Note: this format is deprecated by Cursor — prefer `.cursor/rules/*.mdc` for new setups.",
+    agents: "Save as `AGENTS.md` at the repo root, Codex, Cursor, Jules, and a growing list of tools read it automatically.",
+    cursorrules: "Save as `.cursorrules` at the repo root. Note: this format is deprecated by Cursor, prefer `.cursor/rules/*.mdc` for new setups.",
     "cursor-mdc": "Save as `.cursor/rules/project.mdc` (any name ending in `.mdc` inside `.cursor/rules/`).",
-    copilot: "Save as `.github/copilot-instructions.md` — Copilot Chat and coding agent read it for every request in the repo.",
+    copilot: "Save as `.github/copilot-instructions.md`, Copilot Chat and coding agent read it for every request in the repo.",
     windsurf: "Save as `.windsurfrules` at the repo root (Windsurf also supports global rules in its settings).",
   };
   notes.push(placement[to]);
@@ -148,8 +148,8 @@ function targetAgentShort(to: FormatId): string {
 const SAMPLE = `# CLAUDE.md
 
 ## Commands
-- \`pnpm dev\` — dev server on :3000
-- \`pnpm test\` — run vitest before committing
+- \`pnpm dev\`, dev server on :3000
+- \`pnpm test\`, run vitest before committing
 
 ## Architecture
 Next.js app router. See @docs/architecture.md for the service map.
@@ -227,7 +227,7 @@ export default function ConverterPage() {
           </h1>
           <p className="sub reveal-h d3">
             Switching between <b>Claude Code, Cursor, Codex, Copilot, or Windsurf</b>? Paste your
-            agent config and convert it in one click — correct filename, conventions, imports, and
+            agent config and convert it in one click, correct filename, conventions, imports, and
             frontmatter, with notes on exactly what changed.
           </p>
 
@@ -272,7 +272,7 @@ export default function ConverterPage() {
                 spellCheck={false}
                 value={src}
                 onChange={(e) => setSrc(e.target.value)}
-                placeholder={`Paste your ${fmt(from).label} here…\n\nConverted live. 100% client-side — nothing is uploaded.`}
+                placeholder={`Paste your ${fmt(from).label} here…\n\nConverted live. 100% client-side, nothing is uploaded.`}
                 aria-label="Source config contents"
               />
               <label
@@ -362,13 +362,13 @@ export default function ConverterPage() {
           <div className="tag fade">The formats</div>
           <h2 className="fade">One idea, six file names</h2>
           <p className="lead fade">
-            Every AI coding tool reads project instructions from a file — they just disagree on
+            Every AI coding tool reads project instructions from a file, they just disagree on
             what to call it. The content is ~95% identical, which is why conversion is one click.
           </p>
           <div className="sol-grid" style={{ textAlign: "left" }}>
             {[
               ["◆", "CLAUDE.md", "Claude Code's memory file, loaded every session. Unique power: `@path/to/file.md` imports that pull other docs in automatically."],
-              ["🤝", "AGENTS.md", "The emerging open standard — read by OpenAI Codex, Cursor, Google Jules, Zed, and more. If you pick one canonical file, pick this."],
+              ["🤝", "AGENTS.md", "The emerging open standard, read by OpenAI Codex, Cursor, Google Jules, Zed, and more. If you pick one canonical file, pick this."],
               ["📐", "Cursor rules", "Legacy `.cursorrules` (single file, deprecated) and modern `.cursor/rules/*.mdc` with frontmatter for glob-scoped, always-on, or agent-requested rules."],
               ["🐙", "Copilot & Windsurf", "`.github/copilot-instructions.md` for GitHub Copilot; `.windsurfrules` for Windsurf's Cascade agent. Same markdown, different mailbox."],
             ].map(([ic, h, pt]) => (
@@ -394,9 +394,9 @@ export default function ConverterPage() {
           <div className="feat-grid" style={{ marginTop: 48 }}>
             {[
               ["Make AGENTS.md canonical", "It's the format with the broadest native support, so write your real instructions there once. Every other file becomes a thin pointer."],
-              ["CLAUDE.md: one line", "Claude Code supports imports, so your whole CLAUDE.md can be `@AGENTS.md` — zero duplication, and Claude still gets its native file."],
+              ["CLAUDE.md: one line", "Claude Code supports imports, so your whole CLAUDE.md can be `@AGENTS.md`, zero duplication, and Claude still gets its native file."],
               ["Cursor: scope with .mdc", "Instead of one giant rules file, split Cursor rules into `.cursor/rules/*.mdc` files with `globs` so frontend rules only load for frontend files."],
-              ["Don't let them drift", "Duplicate files rot fast — a rule fixed in one file and not the others causes the exact inconsistent behavior these files exist to prevent. Convert, don't copy-paste."],
+              ["Don't let them drift", "Duplicate files rot fast, a rule fixed in one file and not the others causes the exact inconsistent behavior these files exist to prevent. Convert, don't copy-paste."],
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
                 <div className="fi">▹</div>
@@ -413,11 +413,11 @@ export default function ConverterPage() {
         items={[
           [
             "Does Claude Code read AGENTS.md?",
-            "Claude Code's native file is CLAUDE.md, but you don't need to duplicate anything: make CLAUDE.md a single line — `@AGENTS.md` — and Claude imports the standard file automatically.",
+            "Claude Code's native file is CLAUDE.md, but you don't need to duplicate anything: make CLAUDE.md a single line, `@AGENTS.md`, and Claude imports the standard file automatically.",
           ],
           [
             "Does Cursor read AGENTS.md?",
-            "Yes — modern Cursor versions read AGENTS.md alongside their own `.cursor/rules/*.mdc` system. Use .mdc when you want rules scoped to specific globs or triggered on request.",
+            "Yes, modern Cursor versions read AGENTS.md alongside their own `.cursor/rules/*.mdc` system. Use .mdc when you want rules scoped to specific globs or triggered on request.",
           ],
           [
             "What happens to my @imports when I convert away from CLAUDE.md?",
@@ -429,7 +429,7 @@ export default function ConverterPage() {
           ],
           [
             "Is anything uploaded when I convert?",
-            "No — the conversion is plain JavaScript running in your browser. Your config never leaves the page.",
+            "No, the conversion is plain JavaScript running in your browser. Your config never leaves the page.",
           ],
         ]}
       />
@@ -439,7 +439,7 @@ export default function ConverterPage() {
         lead={
           <>
             A great AGENTS.md is step one. The Agentary kits add the agents, skills, and slash
-            commands on top — the full working setup for engineering and marketing teams.
+            commands on top, the full working setup for engineering and marketing teams.
           </>
         }
       />
@@ -449,7 +449,7 @@ export default function ConverterPage() {
           <>
             <b>This converter handles the format-specific conventions</b> (filenames, imports,
             frontmatter, placement) between community and vendor formats as publicly documented.
-            Tool behaviors evolve — check your tool&apos;s docs for the latest. Everything runs in
+            Tool behaviors evolve, check your tool&apos;s docs for the latest. Everything runs in
             your browser; nothing you paste is uploaded or stored.
           </>
         }

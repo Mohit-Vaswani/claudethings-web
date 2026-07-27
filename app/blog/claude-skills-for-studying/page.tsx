@@ -8,7 +8,7 @@ const post = getPost("claude-skills-for-studying")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -40,7 +40,7 @@ const faqLd = {
       name: "How can Claude skills help me study?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A study skill encodes a learning method — active recall, spaced repetition, the Feynman technique, worked-example practice — so Claude quizzes you, grades you, and makes you explain things back, instead of handing over answers. The skill loads automatically whenever you start studying, so the method runs even when you would rather take the shortcut.",
+        text: "A study skill encodes a learning method, active recall, spaced repetition, the Feynman technique, worked-example practice, so Claude quizzes you, grades you, and makes you explain things back, instead of handing over answers. The skill loads automatically whenever you start studying, so the method runs even when you would rather take the shortcut.",
       },
     },
     {
@@ -93,8 +93,8 @@ export default function Page() {
       <p className="intro">
         The default way students use Claude is the least useful one: paste the question, read the
         answer, feel like you learned something, discover in the exam that you did not. Recognition
-        is not recall. A study skill fixes this by encoding a learning method — one that makes
-        Claude test you rather than tell you — and loading it automatically every time you sit down
+        is not recall. A study skill fixes this by encoding a learning method, one that makes
+        Claude test you rather than tell you, and loading it automatically every time you sit down
         to study.
       </p>
 
@@ -121,14 +121,13 @@ export default function Page() {
       </p>
       <p>
         You will hate it for about ten minutes and then it will be the only mode you want. The
-        description should trigger on studying, homework help, and &quot;explain this concept&quot;
-        — the exact moments the shortcut is most tempting.
+        description should trigger on studying, homework help, and &quot;explain this concept&quot;  the exact moments the shortcut is most tempting.
       </p>
 
       <h2>2. Active recall and quizzing</h2>
       <p>
         Given a chapter, a lecture transcript, or a set of notes, generate questions rather than a
-        summary — and crucially, do not show the answers up front. Ask one question at a time, wait
+        summary, and crucially, do not show the answers up front. Ask one question at a time, wait
         for the attempt, mark it, and explain what was missed. The skill should mix question types:
         recall, application, and &quot;why is the obvious answer wrong here&quot;.
       </p>
@@ -156,7 +155,7 @@ export default function Page() {
       <h2>5. Worked-example practice</h2>
       <p>
         For quantitative subjects. The skill generates a problem, waits, then critiques your{" "}
-        <em>method</em> rather than just checking your final number — because in maths, physics, and
+        <em>method</em> rather than just checking your final number, because in maths, physics, and
         statistics the number is rarely where the learning is. When you are stuck, it gives the next
         step only, never the full solution.
       </p>
@@ -172,7 +171,7 @@ export default function Page() {
       <h2>Getting your material in</h2>
       <p>
         Study material arrives as lecture slides, scanned handouts, and textbook PDFs. A document
-        skill handles extraction — including OCR when the handout is a photocopy of a photocopy — so
+        skill handles extraction, including OCR when the handout is a photocopy of a photocopy, so
         your actual course content becomes the source rather than the model&apos;s general knowledge
         of the subject. See{" "}
         <a href="/blog/claude-skills-for-pdf">Claude skills for PDF</a> for how that works. When
@@ -183,7 +182,7 @@ export default function Page() {
       <h2>Writing your own in five minutes</h2>
       <p>
         Make a folder at {code("~/.claude/skills/tutor/SKILL.md")}. Frontmatter: a name, and a
-        description saying when to use it — &quot;Use when the user is studying, revising, working
+        description saying when to use it, &quot;Use when the user is studying, revising, working
         through homework, or asking to be quizzed.&quot; Body: your rules. Never give the answer
         first. Ask before telling. One question at a time. Make the student explain their reasoning.
         Point out errors without correcting them outright.
@@ -215,7 +214,7 @@ export default function Page() {
           </summary>
           <div className="a">
             Submitting its work as your own is. Being quizzed, corrected, and forced to explain
-            things back is the opposite of cheating — it is what a good tutor does. The skill you
+            things back is the opposite of cheating, it is what a good tutor does. The skill you
             install decides which of the two you get.
           </div>
         </details>
@@ -224,7 +223,7 @@ export default function Page() {
             Which study skill should I write first? <span className="plus">+</span>
           </summary>
           <div className="a">
-            The Socratic tutor. One rule — ask, do not tell — changes Claude from an answer machine
+            The Socratic tutor. One rule, ask, do not tell, changes Claude from an answer machine
             into a study partner, and it takes five minutes to write.
           </div>
         </details>
@@ -234,7 +233,7 @@ export default function Page() {
           </summary>
           <div className="a">
             Yes. Pair a study skill with a document skill so your slides, handouts, and textbook
-            chapters become the source material — including scanned pages, which need OCR first.
+            chapters become the source material, including scanned pages, which need OCR first.
           </div>
         </details>
       </div>

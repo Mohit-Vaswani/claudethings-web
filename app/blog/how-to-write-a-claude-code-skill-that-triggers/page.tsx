@@ -8,7 +8,7 @@ const post = getPost("how-to-write-a-claude-code-skill-that-triggers")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -50,18 +50,18 @@ export default function Page() {
         {
           href: "/blog/best-claude-code-skills",
           title: "The Best Claude Code Skills to Install in 2026",
-          desc: "A curated shortlist of skills worth having — installable in one command.",
+          desc: "A curated shortlist of skills worth having, installable in one command.",
         },
         {
           href: "/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp",
           title: "Skills vs Subagents vs Slash Commands vs MCP",
-          desc: "When a skill is the right primitive — and when it isn't.",
+          desc: "When a skill is the right primitive, and when it isn't.",
         },
       ]}
     >
       <p className="intro">
         The most common complaint about Claude Code skills isn&apos;t that they&apos;re hard to
-        write — it&apos;s that they never fire. You write a careful SKILL.md, ask Claude to do
+        write, it&apos;s that they never fire. You write a careful SKILL.md, ask Claude to do
         exactly the thing it covers, and watch it improvise from scratch instead. Nine times out of
         ten the skill body is fine and the problem is one field: the description. This guide covers
         how triggering actually works, and how to write skills that reliably activate.
@@ -69,13 +69,13 @@ export default function Page() {
 
       <h2>How skill triggering actually works</h2>
       <p>
-        Skills use progressive disclosure. Claude does not read your whole skill library — at the
+        Skills use progressive disclosure. Claude does not read your whole skill library, at the
         start of a session it sees only each skill&apos;s {code("name")} and {code("description")}{" "}
         from the YAML frontmatter. When a request comes in, Claude compares the task against those
         descriptions and loads the full SKILL.md only when one matches.
       </p>
       <p>
-        This has a blunt implication: <strong>the description is not documentation — it is the
+        This has a blunt implication: <strong>the description is not documentation, it is the
         trigger.</strong> Claude decides whether to load your skill based on those one or two
         sentences alone. The 400 lines of expertise below the frontmatter play no part in the
         decision. A brilliant skill with a vague description is invisible.
@@ -90,7 +90,7 @@ export default function Page() {
 name: api-conventions
 description: REST API conventions for this codebase. Use when
   creating or modifying API endpoints, routes, controllers, or
-  request/response handling — covers validation, error format,
+  request/response handling, covers validation, error format,
   auth middleware, and naming.
 ---
 
@@ -98,12 +98,12 @@ description: REST API conventions for this codebase. Use when
 
 ## Endpoint checklist
 1. Validate input with zod schemas in src/schemas/
-2. Errors use the ApiError class — never raw strings
+2. Errors use the ApiError class, never raw strings
 ...`}</pre>
       </div>
       <p>
         The {code("name")} must be lowercase letters, numbers, and hyphens (max 64 characters).
-        The {code("description")} has a hard budget (around 1024 characters) — but the real budget
+        The {code("description")} has a hard budget (around 1024 characters), but the real budget
         is attention, so aim for one to three dense sentences.
       </p>
 
@@ -136,8 +136,8 @@ description: Extract text and tables from PDF files, fill
   mentions PDFs, forms, or document extraction.`}</pre>
       </div>
       <p>
-        The third version works because it contains the actual vocabulary of the task —
-        &quot;PDF&quot;, &quot;forms&quot;, &quot;merge&quot;, &quot;extract&quot;. Claude matches
+        The third version works because it contains the actual vocabulary of the task, 
+        &quot;PDF&quot;  &quot;forms&quot;  &quot;merge&quot;  &quot;extract&quot;. Claude matches
         your description against the user&apos;s request, so the description should sound like the
         requests it&apos;s meant to catch.
       </p>
@@ -150,7 +150,7 @@ description: Extract text and tables from PDF files, fill
         </li>
         <li>
           <strong>Missing &quot;use when&quot; clause.</strong> The skill says what it does but not
-          when to reach for it. Fix: add explicit trigger phrasing — &quot;Use when the user asks
+          when to reach for it. Fix: add explicit trigger phrasing, &quot;Use when the user asks
           to…&quot; followed by realistic requests.
         </li>
         <li>
@@ -160,12 +160,12 @@ description: Extract text and tables from PDF files, fill
         </li>
         <li>
           <strong>Overlapping skills.</strong> Two skills with similar descriptions compete, and
-          the wrong one wins — or neither does. Fix: give each skill a distinct territory and name
+          the wrong one wins, or neither does. Fix: give each skill a distinct territory and name
           the boundary in both descriptions (&quot;for Word documents, not PDFs&quot;).
         </li>
         <li>
           <strong>Broken frontmatter.</strong> Bad YAML (tabs, unquoted colons, missing{" "}
-          {code("---")} fences) means the skill silently fails to load at all. Fix: lint it — our
+          {code("---")} fences) means the skill silently fails to load at all. Fix: lint it, our
           free <a href="/claude-skill-md-validator">SKILL.md validator</a> catches exactly this.
         </li>
       </ol>
@@ -178,7 +178,7 @@ description: Extract text and tables from PDF files, fill
       <ul>
         <li>
           <strong>Keep SKILL.md under ~500 lines.</strong> Move deep reference material into
-          separate files in the skill folder and link them — Claude reads them on demand.
+          separate files in the skill folder and link them, Claude reads them on demand.
           Progressive disclosure applies inside the skill too.
         </li>
         <li>
@@ -191,7 +191,7 @@ description: Extract text and tables from PDF files, fill
         </li>
         <li>
           <strong>State what not to do.</strong> Skills exist because Claude&apos;s default
-          behavior wasn&apos;t what you wanted — say so explicitly. &quot;Never edit generated
+          behavior wasn&apos;t what you wanted, say so explicitly. &quot;Never edit generated
           files in dist/&quot; is a sentence; debugging its absence is an afternoon.
         </li>
         <li>
@@ -204,7 +204,7 @@ description: Extract text and tables from PDF files, fill
       <h2>Test it like code</h2>
       <p>
         Don&apos;t declare victory after writing the file. Open a fresh session and phrase your
-        request the way a teammate would — <em>without</em> naming the skill. If it fires, try two
+        request the way a teammate would, <em>without</em> naming the skill. If it fires, try two
         more phrasings. If it doesn&apos;t, ask Claude directly: &quot;Which of your available
         skills would you use for this request, and why?&quot; The answer usually points straight at
         the description flaw. Iterate on the description like you&apos;d iterate on a failing test.
@@ -213,7 +213,7 @@ description: Extract text and tables from PDF files, fill
       <div className="callout">
         <p>
           <strong>Prefer skills that already trigger?</strong> The 103 skills in the Agentary
-          kits ship with descriptions tuned exactly this way — installed in one command, firing on
+          kits ship with descriptions tuned exactly this way, installed in one command, firing on
           the first try. <a href="/#pricing">Browse the kits →</a>
         </p>
       </div>
@@ -225,17 +225,17 @@ description: Extract text and tables from PDF files, fill
             Can I force a skill to run? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Yes — name it in your request (&quot;use the api-conventions skill&quot;). That&apos;s
+            Yes, name it in your request (&quot;use the api-conventions skill&quot;). That&apos;s
             a good debugging step: if the skill works when named but not organically, the body is
             fine and the description is the problem.
           </div>
         </details>
         <details className="q">
           <summary>
-            Skill vs CLAUDE.md — where does an instruction belong? <span className="plus">+</span>
+            Skill vs CLAUDE.md, where does an instruction belong? <span className="plus">+</span>
           </summary>
           <div className="a">
-            CLAUDE.md is loaded every session, so it&apos;s for rules that apply to everything —
+            CLAUDE.md is loaded every session, so it&apos;s for rules that apply to everything, 
             and it should stay short. Skills load on demand, so anything task-specific (how to
             write migrations, how to do releases) belongs in a skill.
           </div>
@@ -246,7 +246,7 @@ description: Extract text and tables from PDF files, fill
           </summary>
           <div className="a">
             The same SKILL.md format powers skills across Claude Code, the Claude apps, and the
-            Agent SDK — one of the reasons it&apos;s worth learning to write them well.
+            Agent SDK, one of the reasons it&apos;s worth learning to write them well.
           </div>
         </details>
       </div>

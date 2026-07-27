@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { SITE_DOMAIN, SITE_NAME } from "@/app/lib/site";
 
 // Dynamic Open Graph image generator, branded to match the site (see globals.css tokens).
-// Usage: /og?title=<title>&label=<pill>  — wired up via app/lib/og.ts.
+// Usage: /og?title=<title>&label=<pill>, wired up via app/lib/og.ts.
 export const runtime = "nodejs";
 
 const PAPER = "#f6f2ea"; // page background

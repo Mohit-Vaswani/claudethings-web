@@ -6,7 +6,7 @@ import { TOOL_GUIDES } from "./guidesData";
 import { SITE_URL } from "@/app/lib/site";
 
 /**
- * /tools — index of free Agentary tools. Data-driven from toolsData.ts so
+ * /tools, index of free Agentary tools. Data-driven from toolsData.ts so
  * launching a new tool is a one-line addition. Reuses the global design system.
  */
 export default function ToolsIndex() {
@@ -67,7 +67,7 @@ export default function ToolsIndex() {
           </h1>
           <p className="sub reveal-h d3">
             A growing collection of <b>free tools and skills</b> for people building with Claude
-            Code — validators, auditors, and generators. No signup, no cost. Made by the team behind
+            Code, validators, auditors, and generators. No signup, no cost. Made by the team behind
             the Agentary kits.
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function ToolsIndex() {
           <div className="tag fade">Curated guides</div>
           <h2 className="fade">Know what to install before you install it</h2>
           <p className="lead fade">
-            Editorial roundups of the Claude ecosystem — the tools, connectors, and setups that
+            Editorial roundups of the Claude ecosystem, the tools, connectors, and setups that
             earn their place, and the ones to skip.
           </p>
           <div className="tools-grid" style={{ marginTop: 46 }}>
@@ -152,7 +152,7 @@ export default function ToolsIndex() {
           <div className="tag fade">Go further</div>
           <h2 className="fade">Loved the free tools? Get the full kits.</h2>
           <p className="lead fade">
-            The tools above are free forever. The Agentary kits give you a whole library —
+            The tools above are free forever. The Agentary kits give you a whole library, 
             89 agents, 103 skills, and 181 slash commands you drop into any project with one
             command.
           </p>

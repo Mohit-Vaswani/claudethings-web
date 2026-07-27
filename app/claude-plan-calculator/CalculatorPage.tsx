@@ -12,7 +12,7 @@ import {
 import { fmtUsd, PRICES_AS_OF } from "@/app/lib/claudePricing";
 
 /**
- * Claude Plan Calculator — Pro vs Max 5x vs Max 20x vs pay-as-you-go API.
+ * Claude Plan Calculator, Pro vs Max 5x vs Max 20x vs pay-as-you-go API.
  * Pure client-side arithmetic over published prices and Anthropic's published
  * expected-usage ranges. All figures are estimates; limits are dynamic.
  */
@@ -41,7 +41,7 @@ interface PlanSpec {
 const PLAN_SPECS: PlanSpec[] = [
   {
     id: "pro",
-    name: "Pro — $20/mo",
+    name: "Pro, $20/mo",
     monthly: 20,
     sonnetWeekly: [40, 80],
     opusWeekly: [0, 0],
@@ -49,7 +49,7 @@ const PLAN_SPECS: PlanSpec[] = [
   },
   {
     id: "max5",
-    name: "Max 5x — $100/mo",
+    name: "Max 5x, $100/mo",
     monthly: 100,
     sonnetWeekly: [140, 280],
     opusWeekly: [15, 35],
@@ -57,11 +57,11 @@ const PLAN_SPECS: PlanSpec[] = [
   },
   {
     id: "max20",
-    name: "Max 20x — $200/mo",
+    name: "Max 20x, $200/mo",
     monthly: 200,
     sonnetWeekly: [240, 480],
     opusWeekly: [24, 40],
-    blurb: "≈20× Pro limits — built for all-day agents.",
+    blurb: "≈20× Pro limits, built for all-day agents.",
   },
 ];
 
@@ -103,7 +103,7 @@ function calc(daysPerMonth: number, hoursPerDay: number, mix: ModelMix, intensit
       return {
         spec,
         fits: "no-opus" as const,
-        detail: `You want ${opusHours.toFixed(1)}h of Opus per week — Pro doesn't include meaningful Opus access. You'd be working Sonnet-only.`,
+        detail: `You want ${opusHours.toFixed(1)}h of Opus per week, Pro doesn't include meaningful Opus access. You'd be working Sonnet-only.`,
       };
     }
     const sonnetOk = sonnetHours <= spec.sonnetWeekly[0];
@@ -122,7 +122,7 @@ function calc(daysPerMonth: number, hoursPerDay: number, mix: ModelMix, intensit
       return {
         spec,
         fits: "tight" as const,
-        detail: `You're inside the expected range (${spec.sonnetWeekly[0]}–${spec.sonnetWeekly[1]}h Sonnet${spec.opusWeekly[1] ? `, ${spec.opusWeekly[0]}–${spec.opusWeekly[1]}h Opus` : ""}/week) but above the floor — expect to feel the cap on heavy weeks.`,
+        detail: `You're inside the expected range (${spec.sonnetWeekly[0]}–${spec.sonnetWeekly[1]}h Sonnet${spec.opusWeekly[1] ? `, ${spec.opusWeekly[0]}–${spec.opusWeekly[1]}h Opus` : ""}/week) but above the floor, expect to feel the cap on heavy weeks.`,
       };
     }
     const worstRatio = Math.max(
@@ -133,7 +133,7 @@ function calc(daysPerMonth: number, hoursPerDay: number, mix: ModelMix, intensit
       spec,
       fits: "over" as const,
       capDay: dayName(1 / worstRatio),
-      detail: `Your usage is ~${worstRatio.toFixed(1)}× this plan's expected weekly ceiling — at a steady pace you'd hit the cap around ${dayName(1 / worstRatio)} and wait for the reset.`,
+      detail: `Your usage is ~${worstRatio.toFixed(1)}× this plan's expected weekly ceiling, at a steady pace you'd hit the cap around ${dayName(1 / worstRatio)} and wait for the reset.`,
     };
   });
 
@@ -150,11 +150,11 @@ function calc(daysPerMonth: number, hoursPerDay: number, mix: ModelMix, intensit
     const saving = apiMonthly - best.spec.monthly;
     recommendedLine =
       saving > 0
-        ? `${best.spec.name.split(" — ")[0]} fits your usage and costs ${fmtUsd(best.spec.monthly, 0)}/mo vs ~${fmtUsd(apiMonthly, 0)}/mo at API prices — you'd be getting ~${(apiMonthly / best.spec.monthly).toFixed(1)}× the value.`
-        : `${best.spec.name.split(" — ")[0]} fits your usage. At ~${fmtUsd(apiMonthly, 0)}/mo API-equivalent you're paying for headroom and the apps rather than raw savings.`;
+        ? `${best.spec.name.split(", ")[0]} fits your usage and costs ${fmtUsd(best.spec.monthly, 0)}/mo vs ~${fmtUsd(apiMonthly, 0)}/mo at API prices, you'd be getting ~${(apiMonthly / best.spec.monthly).toFixed(1)}× the value.`
+        : `${best.spec.name.split(", ")[0]} fits your usage. At ~${fmtUsd(apiMonthly, 0)}/mo API-equivalent you're paying for headroom and the apps rather than raw savings.`;
   } else {
     recommended = "max20";
-    recommendedLine = `Your usage exceeds even Max 20x's expected ceiling. Take Max 20x and expect to top up via the API (or spread work across the weekly reset) — pure API would run ~${fmtUsd(apiMonthly, 0)}/mo.`;
+    recommendedLine = `Your usage exceeds even Max 20x's expected ceiling. Take Max 20x and expect to top up via the API (or spread work across the weekly reset), pure API would run ~${fmtUsd(apiMonthly, 0)}/mo.`;
   }
 
   return { weeklyHours, sonnetHours, opusHours, apiMonthly, verdicts, recommended, recommendedLine };
@@ -164,7 +164,7 @@ function calc(daysPerMonth: number, hoursPerDay: number, mix: ModelMix, intensit
 
 const FIT_META = {
   comfort: { label: "Fits comfortably", cls: "pass", icon: "✓" },
-  tight: { label: "Fits — expect throttling on heavy weeks", cls: "warn", icon: "!" },
+  tight: { label: "Fits, expect throttling on heavy weeks", cls: "warn", icon: "!" },
   over: { label: "You'll hit the cap", cls: "err", icon: "✕" },
   "no-opus": { label: "No Opus on this plan", cls: "err", icon: "✕" },
 } as const;
@@ -210,7 +210,7 @@ export default function CalculatorPage() {
             <span className="pulse" /> Free Claude plan calculator · No signup
           </span>
           <h1 className="reveal-h d2">
-            Pro, Max, or <span className="grad">API</span> — which pays off?
+            Pro, Max, or <span className="grad">API</span>, which pays off?
           </h1>
           <p className="sub reveal-h d3">
             Tell it how you actually use <b>Claude Code</b> and get a straight answer: the cheapest
@@ -305,10 +305,10 @@ export default function CalculatorPage() {
                 <li className={`val-finding ${r.apiMonthly < 20 ? "pass" : "warn"}`}>
                   <span className="f-chip">$</span>
                   <span className="f-body">
-                    <b className="f-rule">Pay-as-you-go API — ~{fmtUsd(r.apiMonthly, 0)}/mo</b>
+                    <b className="f-rule">Pay-as-you-go API, ~{fmtUsd(r.apiMonthly, 0)}/mo</b>
                     <span className="f-msg">
                       {r.apiMonthly < 20
-                        ? "At your volume the API is the cheapest option — no subscription needed."
+                        ? "At your volume the API is the cheapest option, no subscription needed."
                         : `Your usage priced at API rates. Every subscription below that number is a discount.`}
                     </span>
                   </span>
@@ -332,7 +332,7 @@ export default function CalculatorPage() {
                 })}
               </ul>
               <p style={{ padding: "12px 16px", color: "var(--bone-faint)", fontSize: 13 }}>
-                Estimates only — limits are dynamic and vary with codebase size, caching, and
+                Estimates only, limits are dynamic and vary with codebase size, caching, and
                 demand. Prices as of {PRICES_AS_OF}.
               </p>
             </div>
@@ -350,15 +350,15 @@ export default function CalculatorPage() {
           <div className="tag fade">The plans</div>
           <h2 className="fade">Claude Pro vs Max 5x vs Max 20x vs API</h2>
           <p className="lead fade">
-            All four buy the same models — what changes is how much usage is bundled, and whether
+            All four buy the same models, what changes is how much usage is bundled, and whether
             Opus is realistically available.
           </p>
           <div className="sol-grid" style={{ textAlign: "left" }}>
             {[
-              ["🟢", "Pro — $20/mo", "Everyday tier: Claude apps + Claude Code with ~40–80 Sonnet hours/week expected. The default for most developers; no meaningful Opus."],
-              ["🔵", "Max 5x — $100/mo", "≈5× Pro's limits plus real Opus access (~15–35 h/week). The sweet spot for daily multi-hour Claude Code work."],
-              ["🟣", "Max 20x — $200/mo", "≈20× Pro. For people running Claude Code (and subagents) most of the day, every day. Heavy users extract thousands of $ in API-equivalent value."],
-              ["⚙️", "API — pay-as-you-go", "No caps, no monthly fee — you pay per token. Cheapest for light/bursty use, most expensive for daily grinding. Also what teams use for CI and automation."],
+              ["🟢", "Pro, $20/mo", "Everyday tier: Claude apps + Claude Code with ~40–80 Sonnet hours/week expected. The default for most developers; no meaningful Opus."],
+              ["🔵", "Max 5x, $100/mo", "≈5× Pro's limits plus real Opus access (~15–35 h/week). The sweet spot for daily multi-hour Claude Code work."],
+              ["🟣", "Max 20x, $200/mo", "≈20× Pro. For people running Claude Code (and subagents) most of the day, every day. Heavy users extract thousands of $ in API-equivalent value."],
+              ["⚙️", "API, pay-as-you-go", "No caps, no monthly fee, you pay per token. Cheapest for light/bursty use, most expensive for daily grinding. Also what teams use for CI and automation."],
             ].map(([ic, h, pt]) => (
               <div className="card fade" key={h}>
                 <div className="ic">{ic}</div>
@@ -381,10 +381,10 @@ export default function CalculatorPage() {
           </div>
           <div className="feat-grid" style={{ marginTop: 48 }}>
             {[
-              ["The 5-hour session window", "Usage is tracked in rolling 5-hour windows that start with your first message. Hit the window cap and you wait for it to reset — this is the limit casual users feel."],
-              ["The weekly cap", "On top of session windows there's an overall weekly ceiling (resets every 7 days). This is the one heavy Claude Code users hit — it's why the calculator reports usage per week."],
+              ["The 5-hour session window", "Usage is tracked in rolling 5-hour windows that start with your first message. Hit the window cap and you wait for it to reset, this is the limit casual users feel."],
+              ["The weekly cap", "On top of session windows there's an overall weekly ceiling (resets every 7 days). This is the one heavy Claude Code users hit, it's why the calculator reports usage per week."],
               ["Why 'expected ranges', not numbers", "Anthropic publishes ranges (like 40–80 Sonnet hours/week on Pro) because actual consumption depends on codebase size, conversation length, caching, and current demand. Big monorepo + long sessions = the low end."],
-              ["Opus burns ~5× faster", "Opus tokens cost about five times Sonnet's, and plans meter them accordingly. If you default to Opus, expect your effective hours to shrink dramatically — the mix selector above models exactly this."],
+              ["Opus burns ~5× faster", "Opus tokens cost about five times Sonnet's, and plans meter them accordingly. If you default to Opus, expect your effective hours to shrink dramatically, the mix selector above models exactly this."],
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
                 <div className="fi">▹</div>
@@ -401,11 +401,11 @@ export default function CalculatorPage() {
         items={[
           [
             "Is Claude Max worth it?",
-            "If you use Claude Code more than ~2 hours a day, almost certainly. At moderate intensity that's ~$300+/month of API-equivalent usage — 3× the price of Max 5x. Run your numbers above; the multiple is usually the convincing part.",
+            "If you use Claude Code more than ~2 hours a day, almost certainly. At moderate intensity that's ~$300+/month of API-equivalent usage, 3× the price of Max 5x. Run your numbers above; the multiple is usually the convincing part.",
           ],
           [
             "Can I use Claude Code on the Pro plan?",
-            "Yes — Pro includes Claude Code with Sonnet. What Pro doesn't give you is meaningful Opus access or the headroom for long agentic sessions; that's what the Max tiers add.",
+            "Yes, Pro includes Claude Code with Sonnet. What Pro doesn't give you is meaningful Opus access or the headroom for long agentic sessions; that's what the Max tiers add.",
           ],
           [
             "What happens when I hit my limit?",
@@ -413,7 +413,7 @@ export default function CalculatorPage() {
           ],
           [
             "Should I just use an API key instead?",
-            "Only if your usage is light, bursty, or automated (CI pipelines, scripts). For steady interactive coding, subscriptions bundle tokens at a steep effective discount — the calculator shows the exact multiple for your pattern.",
+            "Only if your usage is light, bursty, or automated (CI pipelines, scripts). For steady interactive coding, subscriptions bundle tokens at a steep effective discount, the calculator shows the exact multiple for your pattern.",
           ],
           [
             "Do these numbers include Claude.ai chat usage?",
@@ -421,7 +421,7 @@ export default function CalculatorPage() {
           ],
           [
             "How do I see my real usage?",
-            "Run `npx ccusage@latest` for API-equivalent spend from Claude Code's local logs, or `/usage` inside Claude Code for your live plan meters. Then feed the reality back into this calculator — and turn it into a shareable card with our Claude Code Wrapped tool.",
+            "Run `npx ccusage@latest` for API-equivalent spend from Claude Code's local logs, or `/usage` inside Claude Code for your live plan meters. Then feed the reality back into this calculator, and turn it into a shareable card with our Claude Code Wrapped tool.",
           ],
         ]}
       />

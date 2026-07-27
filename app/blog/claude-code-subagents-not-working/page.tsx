@@ -8,7 +8,7 @@ const post = getPost("claude-code-subagents-not-working")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -60,7 +60,7 @@ export default function Page() {
       ]}
     >
       <p className="intro">
-        You set up subagents, gave them careful prompts — and now either Claude never delegates to
+        You set up subagents, gave them careful prompts, and now either Claude never delegates to
         them, or it does and the results come back worse than doing it yourself. Both failure
         modes have specific, fixable causes. This guide walks through them in the order you should
         check.
@@ -90,14 +90,14 @@ export default function Page() {
 
       <h2>Problem 1: Claude never uses the agent</h2>
       <p>
-        Delegation is a decision the main session makes by reading agent <em>descriptions</em> —
+        Delegation is a decision the main session makes by reading agent <em>descriptions</em>, 
         not your system prompts. If your description says &quot;An expert code reviewer with deep
         knowledge of best practices,&quot; Claude has no idea <em>when</em> to use it. Descriptions
         need trigger conditions, written like instructions to the delegator:
       </p>
       <div className="prompt-card">
         <div className="prompt-head">
-          <span className="p-title">description — before → after</span>
+          <span className="p-title">description, before → after</span>
         </div>
         <pre className="prompt-body">{`# ❌ A résumé
 description: Expert code reviewer with 10+ years of experience
@@ -113,7 +113,7 @@ description: Reviews code changes for bugs and design problems.
         Phrases like &quot;use proactively&quot; and &quot;must be used when…&quot; measurably
         increase delegation, because they speak to the exact moment the main session is deciding.
         If Claude still under-delegates, add a standing rule to CLAUDE.md (&quot;always run the
-        code-reviewer agent before committing&quot;) — or invoke the agent explicitly by name,
+        code-reviewer agent before committing&quot;), or invoke the agent explicitly by name,
         which always works and confirms the agent itself is fine.
       </p>
 
@@ -126,7 +126,7 @@ description: Reviews code changes for bugs and design problems.
         A subagent starts with a <em>clean context window</em>. It has not read your conversation.
         It doesn&apos;t know what you and the main session decided twenty minutes ago, which files
         matter, or what &quot;the bug&quot; refers to. When the main session hands over a vague
-        task — &quot;fix the validation issue&quot; — the subagent rediscovers everything from
+        task, &quot;fix the validation issue&quot;  the subagent rediscovers everything from
         scratch, sometimes wrongly. Fixes:
       </p>
       <ul>
@@ -140,14 +140,14 @@ description: Reviews code changes for bugs and design problems.
           made, the constraint that matters.
         </li>
         <li>
-          Put durable project facts in CLAUDE.md — subagents working in the project can read it,
+          Put durable project facts in CLAUDE.md, subagents working in the project can read it,
           and it&apos;s the one context channel that doesn&apos;t depend on the handoff.
         </li>
       </ul>
-      <h3>The agent returns too much — context bleed in reverse</h3>
+      <h3>The agent returns too much, context bleed in reverse</h3>
       <p>
-        The opposite failure: the subagent dumps its entire investigation — every file read, every
-        dead end — back into your main session, defeating the isolation that justified the agent.
+        The opposite failure: the subagent dumps its entire investigation, every file read, every
+        dead end, back into your main session, defeating the isolation that justified the agent.
         The fix is an <strong>output contract</strong> in the system prompt: &quot;Return only: a
         verdict, the evidence for it, and recommended next steps. Do not include file contents or
         a narration of your process.&quot; The difference between an agent that protects your
@@ -159,8 +159,8 @@ description: Reviews code changes for bugs and design problems.
         If the frontmatter&apos;s {code("tools")} field is set, the agent gets only those tools.
         Two ways this goes wrong: the reviewer that can&apos;t read files because someone
         over-restricted it, and the &quot;read-only&quot; auditor that was never restricted at all
-        and edits files mid-review. Match tools to the job — searchers and reviewers get
-        read/grep, implementers add edit and bash — and remember that MCP tools need to be granted
+        and edits files mid-review. Match tools to the job, searchers and reviewers get
+        read/grep, implementers add edit and bash, and remember that MCP tools need to be granted
         too if the agent depends on them. When an agent errors mysteriously, read the transcript:
         tool-permission failures are usually stated plainly there.
       </p>
@@ -172,7 +172,7 @@ description: Reviews code changes for bugs and design problems.
         the task is <em>research-heavy</em> (the agent absorbs forty files so your session
         doesn&apos;t), <em>specialized</em> (the checklist matters), or <em>parallel</em>{" "}
         (independent tasks at once). If your agents feel slow, check you aren&apos;t delegating
-        work the main session would finish in one step — and if costs surprise you, read our{" "}
+        work the main session would finish in one step, and if costs surprise you, read our{" "}
         <a href="/blog/run-claude-code-agents-in-parallel">token-economics guide</a>.
       </p>
 
@@ -189,7 +189,7 @@ description: Reviews code changes for bugs and design problems.
         <p>
           <strong>Or start from agents that already work:</strong> the 89 subagents in the
           Agentary kits ship with delegation-tuned descriptions, correct tool scoping, and
-          output contracts — the fixes in this article, pre-applied.{" "}
+          output contracts, the fixes in this article, pre-applied.{" "}
           <a href="/#pricing">See the kits →</a>
         </p>
       </div>
@@ -211,7 +211,7 @@ description: Reviews code changes for bugs and design problems.
             Can subagents talk to each other? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Not directly — results flow back through the main session (or an orchestrator agent),
+            Not directly, results flow back through the main session (or an orchestrator agent),
             which decides what the next agent sees. That&apos;s a feature: the handoff point is
             where you control context quality.
           </div>
@@ -221,7 +221,7 @@ description: Reviews code changes for bugs and design problems.
             Do subagents share my session&apos;s conversation history? <span className="plus">+</span>
           </summary>
           <div className="a">
-            No — each starts clean. They receive the task description the main session writes for
+            No, each starts clean. They receive the task description the main session writes for
             them, plus whatever they read themselves (including CLAUDE.md). Design your agents
             assuming exactly that and the quality problems mostly disappear.
           </div>

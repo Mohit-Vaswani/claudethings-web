@@ -95,7 +95,7 @@ export default async function PromptCollectionPage({
                 <b>{c.prompts.length}</b> prompts
               </span>
               <span>
-                Free to copy — <b>no signup</b>
+                Free to copy, <b>no signup</b>
               </span>
             </div>
 
@@ -118,7 +118,7 @@ export default async function PromptCollectionPage({
                 <h3>
                   {i + 1}. {p.title}
                 </h3>
-                <PromptCard title={`prompt ${String(i + 1).padStart(2, "0")} — ${p.title}`} prompt={p.prompt} note={p.note} />
+                <PromptCard title={`prompt ${String(i + 1).padStart(2, "0")}, ${p.title}`} prompt={p.prompt} note={p.note} />
               </div>
             ))}
 
@@ -134,7 +134,7 @@ export default async function PromptCollectionPage({
               <p>
                 <strong>Want this expertise installed, not pasted?</strong> The Agentary kits
                 turn workflows like these into <strong>89 agents, 103 skills, and 181 slash
-                commands</strong> that live inside Claude Code — one command to install, any stack.{" "}
+                commands</strong> that live inside Claude Code, one command to install, any stack.{" "}
                 <a href="/#pricing">See the kits →</a>
               </p>
             </div>

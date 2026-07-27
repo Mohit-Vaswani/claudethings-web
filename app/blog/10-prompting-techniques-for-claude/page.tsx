@@ -8,7 +8,7 @@ const post = getPost("10-prompting-techniques-for-claude")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -56,7 +56,7 @@ export default function Page() {
         {
           href: "/prompts",
           title: "The Claude Prompt Library",
-          desc: "50 ready-made prompts that apply these techniques — copy and adapt.",
+          desc: "50 ready-made prompts that apply these techniques, copy and adapt.",
         },
         {
           href: "/blog/how-to-build-ai-agents-with-claude",
@@ -66,12 +66,12 @@ export default function Page() {
         {
           href: "/comparisons/claude-vs-chatgpt",
           title: "Claude vs ChatGPT",
-          desc: "How the two assistants differ — and when each wins.",
+          desc: "How the two assistants differ, and when each wins.",
         },
       ]}
     >
       <p className="intro">
-        Prompting isn&apos;t magic words — it&apos;s interface design. Claude does exactly what a
+        Prompting isn&apos;t magic words, it&apos;s interface design. Claude does exactly what a
         brilliant, extremely literal new colleague would do with your request: everything you
         specified, and a guess at everything you didn&apos;t. These ten techniques, distilled from
         Anthropic&apos;s own prompt engineering documentation and thousands of hours of daily use,
@@ -84,7 +84,7 @@ export default function Page() {
       <h2>1. Front-load context: who, what for, what done looks like</h2>
       <p>
         The single biggest quality lever. Claude calibrates depth, tone, and assumptions from
-        context you provide — without it, you get the average answer to the average version of
+        context you provide, without it, you get the average answer to the average version of
         your question.
       </p>
       <Example
@@ -94,7 +94,7 @@ export default function Page() {
 
       <h2>2. Show examples instead of describing preferences</h2>
       <p>
-        Multishot prompting — two or three examples of input → desired output — beats paragraphs of
+        Multishot prompting, two or three examples of input → desired output, beats paragraphs of
         description for anything with a format or a voice. Claude is a world-class pattern matcher;
         feed it patterns.
       </p>
@@ -107,7 +107,7 @@ export default function Page() {
       <p>
         When a prompt mixes instructions, data, and examples, wrap each in tags like{" "}
         <code>&lt;instructions&gt;</code>, <code>&lt;document&gt;</code>,{" "}
-        <code>&lt;example&gt;</code>. Claude is specifically trained to respect this structure —
+        <code>&lt;example&gt;</code>. Claude is specifically trained to respect this structure, 
         it stops confusing your content with your commands, and you can reference sections by name
         (&quot;quote from &lt;document&gt; before answering&quot;).
       </p>
@@ -115,7 +115,7 @@ export default function Page() {
       <h2>4. Ask for reasoning before conclusions</h2>
       <p>
         For analysis, math, or judgment calls, instruct Claude to think through the problem before
-        answering — or use extended thinking where available. Order matters: reasoning-then-answer
+        answering, or use extended thinking where available. Order matters: reasoning-then-answer
         genuinely computes; answer-then-justification rationalizes.
       </p>
       <Example
@@ -126,24 +126,24 @@ export default function Page() {
       <h2>5. Give it a role with stakes</h2>
       <p>
         A system prompt like &quot;you are a security engineer reviewing code before a release&quot;
-        measurably shifts what Claude attends to. The trick is specificity plus stakes — a role
+        measurably shifts what Claude attends to. The trick is specificity plus stakes, a role
         with something to lose beats a costume.
       </p>
       <Example
         bad="Review this code."
-        good="You are the on-call engineer who gets paged if this ships broken. Review the diff for what will actually wake you up at 3am — not style. [diff]"
+        good="You are the on-call engineer who gets paged if this ships broken. Review the diff for what will actually wake you up at 3am, not style. [diff]"
       />
 
       <h2>6. Constrain the output format explicitly</h2>
       <p>
-        If you need JSON, a table, exactly five bullets, or 'under 200 words' — say so, and show
+        If you need JSON, a table, exactly five bullets, or 'under 200 words', say so, and show
         the shape. For the API, prefilling the start of Claude&apos;s response (e.g. an opening{" "}
         <code>{"{"}</code>) locks the format harder than any instruction.
       </p>
 
       <h2>7. Tell it what to do, not what to avoid</h2>
       <p>
-        Negative instructions (&quot;don&apos;t be verbose&quot;) under-specify — the space of
+        Negative instructions (&quot;don&apos;t be verbose&quot;) under-specify, the space of
         not-verbose is huge. Positive constraints aim the output.
       </p>
       <Example
@@ -158,14 +158,14 @@ export default function Page() {
       </p>
       <Example
         bad="What does clause 14.3 of this agreement say about termination?"
-        good="Answer only from the attached agreement. Quote the relevant text for every claim. If it isn't covered, say 'not in the document' — that answer is more valuable to me than a guess."
+        good="Answer only from the attached agreement. Quote the relevant text for every claim. If it isn't covered, say 'not in the document', that answer is more valuable to me than a guess."
       />
 
       <h2>9. Chain instead of cramming</h2>
       <p>
         One prompt asking for research + outline + draft + edit gets you a mediocre average of four
         tasks. Four prompts, each consuming the last one&apos;s output, get you four focused
-        performances — and a chance to steer between steps. This is also the core design idea
+        performances, and a chance to steer between steps. This is also the core design idea
         behind agent workflows.
       </p>
 
@@ -179,7 +179,7 @@ export default function Page() {
         good="This output was too long and too formal. Rewrite MY PROMPT so that a fresh session would produce the right thing first try. Then I'll save that prompt."
       />
       <p>
-        Saved, refined prompts are how individuals build leverage — and packaged into slash
+        Saved, refined prompts are how individuals build leverage, and packaged into slash
         commands and skills, they&apos;re how teams do. That&apos;s literally what the{" "}
         <a href="/#pricing">Agentary kits</a> are: hundreds of prompts iterated to
         reliability, installed as one-word commands.
@@ -189,7 +189,7 @@ export default function Page() {
       <p>
         All ten reduce to one principle: <strong>Claude's output quality mirrors your input
         specificity.</strong> Vague in, average out. The good news is that specificity is a
-        writing skill, not a secret — and every prompt in our{" "}
+        writing skill, not a secret, and every prompt in our{" "}
         <a href="/prompts">free prompt library</a> is a worked example of these techniques applied
         to a real job.
       </p>
@@ -201,7 +201,7 @@ export default function Page() {
             Do these techniques work on other models? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Mostly, yes — context, examples, and chaining are universal. XML tags and response
+            Mostly, yes, context, examples, and chaining are universal. XML tags and response
             prefilling are Claude-specific strengths (Anthropic trains for them), so those two
             transfer least.
           </div>
@@ -212,7 +212,7 @@ export default function Page() {
           </summary>
           <div className="a">
             The gimmicks died; the interface design didn&apos;t. Better models need less
-            hand-holding but still can&apos;t read minds — context, constraints, and examples are
+            hand-holding but still can&apos;t read minds, context, constraints, and examples are
             information the model cannot invent. Specificity will outlive every model generation.
           </div>
         </details>

@@ -76,7 +76,7 @@ export default async function UseCasePage({
               <span>
                 Updated <b>July 2026</b>
               </span>
-              <span>Honest assessment — strengths and limits</span>
+              <span>Honest assessment, strengths and limits</span>
             </div>
 
             {u.intro.map((p, i) => (
@@ -105,7 +105,7 @@ export default async function UseCasePage({
             {u.prompts.map((p, i) => (
               <div key={i}>
                 <h3>{p.title}</h3>
-                <PromptCard title={`starter — ${p.title}`} prompt={p.prompt} note={p.note} />
+                <PromptCard title={`starter, ${p.title}`} prompt={p.prompt} note={p.note} />
               </div>
             ))}
 
@@ -120,7 +120,7 @@ export default async function UseCasePage({
               <p>
                 <strong>Skip the blank-slate setup:</strong> the Agentary kits install 89
                 specialized agents, 103 skills, and 181 slash commands into Claude Code with one
-                command — engineering and marketing workflows included.{" "}
+                command, engineering and marketing workflows included.{" "}
                 <a href="/#pricing">See the kits →</a>
               </p>
             </div>

@@ -7,30 +7,30 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Agentary — Give Claude Code a Full Engineering & Marketing Team",
+  title: "Agentary · Give Claude Code a Full Engineering & Marketing Team",
   description:
-    "Turn Claude Code from one generalist into a team of 89 specialist agents, 103 skills, and 181 slash commands — installed in one command. Build, ship and market a product solo. Pay once, updates for life.",
+    "Turn Claude Code from one generalist into a team of 89 specialist agents, 103 skills, and 181 slash commands, installed in one command. Build, ship and market a product solo. Pay once, updates for life.",
   openGraph: {
-    title: "Agentary — Give Claude Code a Full Engineering & Marketing Team",
+    title: "Agentary · Give Claude Code a Full Engineering & Marketing Team",
     description:
       "89 specialist agents · 103 skills · 181 slash commands. One command, any stack. Build, ship and market solo. Pay once, yours for life.",
     type: "website",
     url: SITE_URL,
     images: [
       {
-        url: ogImage("Agentary — Your AI Engineering & Marketing Team for Claude Code"),
+        url: ogImage("Agentary · Your AI Engineering & Marketing Team for Claude Code"),
         width: 1200,
         height: 630,
-        alt: "Agentary — Your AI Engineering & Marketing Team in one command.",
+        alt: "Agentary · Your AI Engineering & Marketing Team in one command.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agentary — Give Claude Code a Full Engineering & Marketing Team",
+    title: "Agentary · Give Claude Code a Full Engineering & Marketing Team",
     description:
       "89 specialist agents · 103 skills · 181 slash commands. One command, any stack. Build, ship and market solo. Pay once, yours for life.",
-    images: [ogImage("Agentary — Your AI Engineering & Marketing Team for Claude Code")],
+    images: [ogImage("Agentary · Your AI Engineering & Marketing Team for Claude Code")],
   },
   metadataBase: new URL(SITE_URL),
   icons: {
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* DataFast goal queue — buffers window.datafast() calls made before the script loads */}
+        {/* DataFast goal queue, buffers window.datafast() calls made before the script loads */}
         <Script id="datafast-queue" strategy="beforeInteractive">
           {`window.datafast = window.datafast || function() {
             window.datafast.q = window.datafast.q || [];
@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             gtag('config', 'G-KNHJ5C1QYJ');
           `}
         </Script>
-        {/* Polar checkout embed — powers the data-polar-checkout buttons */}
+        {/* Polar checkout embed, powers the data-polar-checkout buttons */}
         <Script
           src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js"
           strategy="afterInteractive"

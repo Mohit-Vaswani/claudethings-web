@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalLayout from "../components/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Disclaimer — Agentary",
+  title: "Disclaimer · Agentary",
   description:
     "Agentary disclaimer: educational content, no affiliation with Anthropic, no professional or financial advice, and the limits of what our guides promise.",
   alternates: { canonical: "/disclaimer" },
@@ -29,7 +29,7 @@ export default function DisclaimerPage() {
       <h2>Educational content, not professional advice</h2>
       <p>
         Our guides, prompt collections, comparisons, and blog posts are educational material based
-        on our own experience. They are <strong>not professional advice</strong> of any kind — not
+        on our own experience. They are <strong>not professional advice</strong> of any kind, not
         legal, financial, investment, tax, medical, or security advice. In particular:
       </p>
       <ul>
@@ -50,7 +50,7 @@ export default function DisclaimerPage() {
 
       <h2>Product claims &amp; results</h2>
       <p>
-        The Agentary kits are prompts, skills, agents, and commands — how much value they
+        The Agentary kits are prompts, skills, agents, and commands, how much value they
         produce depends on your usage, your projects, and the underlying Claude models, which we
         don&apos;t control. Counts of included components (agents, skills, commands) reflect the
         current release and may change as the product evolves. We make no guarantee of specific
@@ -68,7 +68,7 @@ export default function DisclaimerPage() {
       <h2>Free tools</h2>
       <p>
         Our free tools (like the SKILL.md validator and the security audit skill) are provided{" "}
-        <strong>&quot;as is&quot;, without warranty of any kind</strong>. They run in your browser
+        <strong>&quot;as is&quot;  without warranty of any kind</strong>. They run in your browser
         or your own environment; you are responsible for what you do with their output.
       </p>
 
@@ -81,7 +81,7 @@ export default function DisclaimerPage() {
 
       <h2>Questions</h2>
       <p>
-        Email <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a> — we read
+        Email <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>, we read
         everything.
       </p>
     </LegalLayout>

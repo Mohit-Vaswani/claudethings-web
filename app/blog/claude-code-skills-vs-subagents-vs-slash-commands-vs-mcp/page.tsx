@@ -8,7 +8,7 @@ const post = getPost("claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp")
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -55,13 +55,13 @@ export default function Page() {
         {
           href: "/blog/getting-started-with-claude-code",
           title: "Getting Started with Claude Code",
-          desc: "From install to first shipped feature — setup, CLAUDE.md, and workflow habits.",
+          desc: "From install to first shipped feature, setup, CLAUDE.md, and workflow habits.",
         },
       ]}
     >
       <p className="intro">
         Claude Code gives you four ways to extend it: skills, subagents, slash commands, and MCP
-        servers. They overlap just enough to be confusing — all four &quot;add capabilities&quot;,
+        servers. They overlap just enough to be confusing, all four &quot;add capabilities&quot; 
         all four live in config files, and every tutorial explains one of them in isolation. This
         guide explains all four side by side, so you know exactly which one to reach for.
       </p>
@@ -71,7 +71,7 @@ export default function Page() {
         <strong>Slash commands</strong> are prompts you trigger manually. <strong>Skills</strong>{" "}
         are instructions Claude pulls in automatically when a task matches. <strong>Subagents</strong>{" "}
         are separate Claude instances with their own context window that the main session delegates
-        work to. <strong>MCP servers</strong> connect Claude to external systems — databases, APIs,
+        work to. <strong>MCP servers</strong> connect Claude to external systems, databases, APIs,
         browsers, SaaS tools. Everything else is detail.
       </p>
 
@@ -104,7 +104,7 @@ export default function Page() {
         fires because its description matched. Skills are the right tool for expertise you want
         applied consistently without remembering to ask: how your team writes migrations, how to
         process PDFs, what a proper security review covers. They also support progressive
-        disclosure — Claude reads only the description until the skill is needed, so a large skill
+        disclosure, Claude reads only the description until the skill is needed, so a large skill
         library costs almost nothing in context.
       </p>
       <p>
@@ -118,15 +118,15 @@ export default function Page() {
       <p>
         A subagent is a markdown file in {code(".claude/agents/")} defining a name, a description,
         a system prompt, and optionally a restricted tool list and model. When the main Claude
-        session hits a task matching a subagent&apos;s description — or when you ask it to
-        delegate — it spins up that subagent as a <em>separate Claude instance</em> with its own
+        session hits a task matching a subagent&apos;s description, or when you ask it to
+        delegate, it spins up that subagent as a <em>separate Claude instance</em> with its own
         clean context window, waits for it to finish, and gets back only the result.
       </p>
       <p>Two properties make subagents different from everything else on this list:</p>
       <ul>
         <li>
           <strong>Context isolation.</strong> A subagent can read forty files while researching a
-          question, and none of those forty files land in your main conversation — just the answer.
+          question, and none of those forty files land in your main conversation, just the answer.
           This is how long sessions stay coherent.
         </li>
         <li>
@@ -138,14 +138,14 @@ export default function Page() {
       <p>
         Use subagents for work that is voluminous (research, codebase exploration), specialized
         (security review, database migrations), or parallelizable (several independent tasks at
-        once). Don&apos;t use them for small edits — the handoff overhead beats the benefit.
+        once). Don&apos;t use them for small edits, the handoff overhead beats the benefit.
       </p>
 
       <h2>MCP: the plug for external systems</h2>
       <p>
         The Model Context Protocol is an open standard for connecting AI tools to outside systems.
-        An MCP server exposes tools — &quot;query Postgres&quot;, &quot;search Slack&quot;,
-        &quot;create a Linear issue&quot; — and Claude Code can call them like built-in tools.
+        An MCP server exposes tools, &quot;query Postgres&quot;  &quot;search Slack&quot; 
+        &quot;create a Linear issue&quot;  and Claude Code can call them like built-in tools.
         Skills, commands, and subagents change how Claude <em>thinks</em>; MCP changes what Claude
         can <em>touch</em>. If the capability you want requires data or actions outside your repo,
         it&apos;s MCP. If it requires knowledge or process, it&apos;s one of the other three.
@@ -178,7 +178,7 @@ export default function Page() {
         The primitives are designed to stack. A {code("/deploy-check")} slash command can invoke a
         subagent; that subagent can have a skill loaded that documents your deployment process; the
         skill can instruct it to check your monitoring dashboard through an MCP server. Mature
-        Claude Code setups aren&apos;t &quot;skills people&quot; or &quot;agents people&quot; —
+        Claude Code setups aren&apos;t &quot;skills people&quot; or &quot;agents people&quot;  
         they use commands as entry points, skills as knowledge, subagents as workers, and MCP as
         wiring.
       </p>
@@ -190,7 +190,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Skip the assembly:</strong> Agentary kits ship 89 subagents, 103 skills, and
-          181 slash commands — pre-built, pre-tuned, and installed into Claude Code with one
+          181 slash commands, pre-built, pre-tuned, and installed into Claude Code with one
           command. <a href="/#pricing">See what&apos;s inside →</a>
         </p>
       </div>
@@ -202,7 +202,7 @@ export default function Page() {
             Can a skill and a slash command do the same thing? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Often, yes — the same instructions work in either. The difference is invocation: a
+            Often, yes, the same instructions work in either. The difference is invocation: a
             command runs when you type it, a skill runs when Claude matches the task. If forgetting
             to invoke it would be a problem, make it a skill.
           </div>
@@ -220,7 +220,7 @@ export default function Page() {
         </details>
         <details className="q">
           <summary>
-            Where do these files live — project or user level? <span className="plus">+</span>
+            Where do these files live, project or user level? <span className="plus">+</span>
           </summary>
           <div className="a">
             Both. Project-level ({code(".claude/")} in the repo) is shared with your team via git;

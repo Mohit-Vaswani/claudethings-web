@@ -8,7 +8,7 @@ const post = getPost("claude-skills-github")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -40,7 +40,7 @@ const faqLd = {
       name: "How do I install a Claude skill from GitHub?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Clone or download the repository, then copy the skill folder — the directory containing SKILL.md — into .claude/skills/ in your project or ~/.claude/skills/ for every project. There is no build step and no package manager; the folder is the install.",
+        text: "Clone or download the repository, then copy the skill folder, the directory containing SKILL.md, into .claude/skills/ in your project or ~/.claude/skills/ for every project. There is no build step and no package manager; the folder is the install.",
       },
     },
     {
@@ -76,7 +76,7 @@ export default function Page() {
         {
           href: "/blog/claude-skills-marketplace",
           title: "Claude Skills Marketplace",
-          desc: "How plugins and marketplaces work — the one-command alternative.",
+          desc: "How plugins and marketplaces work, the one-command alternative.",
         },
         {
           href: "/blog/best-claude-code-skills",
@@ -93,7 +93,7 @@ export default function Page() {
       <p className="intro">
         Almost every Claude skill in existence lives on GitHub. That is the good news and the
         problem: the supply is enormous, entirely unreviewed, and sorted by nothing more useful than
-        star count. This is a practical guide to sourcing skills from GitHub — what is worth
+        star count. This is a practical guide to sourcing skills from GitHub, what is worth
         looking at, how to install a folder, how to tell a good skill from an abandoned one, and the
         safety rules that matter more than people admit.
       </p>
@@ -102,7 +102,7 @@ export default function Page() {
       <p>
         A skill has no registry, no versioning, and no build artifact. It is a directory containing
         a {code("SKILL.md")} file and, optionally, scripts and reference documents. Distributing one
-        means distributing a folder — and the place the world keeps folders is git. So there is no
+        means distributing a folder, and the place the world keeps folders is git. So there is no
         npm-for-skills, and there does not need to be.
       </p>
       <p>
@@ -113,8 +113,8 @@ export default function Page() {
 
       <h2>What is actually on GitHub</h2>
       <p>
-        <strong>Anthropic&apos;s open-source skills.</strong> The document skills — PDF, Word,
-        Excel, PowerPoint — are published by Anthropic and are the best-written examples of the
+        <strong>Anthropic&apos;s open-source skills.</strong> The document skills, PDF, Word,
+        Excel, PowerPoint, are published by Anthropic and are the best-written examples of the
         format available anywhere. Even if you never install them, read one: they demonstrate the
         core pattern of routing logic in markdown and mechanical work in bundled scripts.
       </p>
@@ -126,7 +126,7 @@ export default function Page() {
       <p>
         <strong>Individual developers&apos; dotfiles.</strong> An underrated source. When an engineer
         publishes their {code(".claude/")} directory, you get skills written for real daily work
-        rather than for an audience — and those are frequently the sharpest ones.
+        rather than for an audience, and those are frequently the sharpest ones.
       </p>
       <p>
         <strong>Plugin marketplace repositories.</strong> Repos structured as installable
@@ -146,7 +146,7 @@ export default function Page() {
       <p>
         Then confirm it <em>fires</em>. Being listed is not the same as being used. Phrase a request
         the way you naturally would and see whether the skill loads. When it does not, the
-        description is nearly always at fault — it names a topic instead of the situations that
+        description is nearly always at fault, it names a topic instead of the situations that
         should trigger it. The{" "}
         <a href="/claude-skill-md-validator">free SKILL.md validator</a> catches malformed
         frontmatter, and{" "}
@@ -180,7 +180,7 @@ export default function Page() {
       <h2>The safety part people skip</h2>
       <p>
         A skill is not data. It is a set of instructions Claude will follow, inside your repository,
-        with your permissions — and it can bundle scripts that execute as you. Treat every skill
+        with your permissions, and it can bundle scripts that execute as you. Treat every skill
         from GitHub the way you would treat an unfamiliar dependency:
       </p>
       <ul>
@@ -191,7 +191,7 @@ export default function Page() {
       </ul>
       <p>
         None of this is exotic paranoia. It is the same hygiene you already apply to a package with
-        eleven weekly downloads — the only difference is that skills feel like documentation, which
+        eleven weekly downloads, the only difference is that skills feel like documentation, which
         makes people skip the step.
       </p>
 
@@ -200,14 +200,14 @@ export default function Page() {
         GitHub gives you infinite skills for free, and charges you in time: browsing, reading,
         vetting, deduplicating, and re-checking when things break. That is a completely reasonable
         trade if you enjoy it. If you do not, the alternative is a curated bundle where the reading
-        has already been done — which is the entire argument for a paid kit, and we would rather
+        has already been done, which is the entire argument for a paid kit, and we would rather
         state it plainly than pretend the free path does not exist.
       </p>
 
       <div className="callout">
         <p>
           <strong>Forty repos, already read:</strong> Agentary is a vetted, deduplicated library
-          — 103 skills, 89 agents, 181 commands — installed with one command and kept current.{" "}
+, 103 skills, 89 agents, 181 commands, installed with one command and kept current.{" "}
           <a href="/#pricing">See what is inside →</a>
         </p>
       </div>
@@ -220,7 +220,7 @@ export default function Page() {
           </summary>
           <div className="a">
             Copy the folder containing SKILL.md into {code(".claude/skills/")} (project) or{" "}
-            {code("~/.claude/skills/")} (global). No build, no registry — the folder is the install.
+            {code("~/.claude/skills/")} (global). No build, no registry, the folder is the install.
           </div>
         </details>
         <details className="q">
@@ -228,7 +228,7 @@ export default function Page() {
             Can I install a whole repo of skills at once? <span className="plus">+</span>
           </summary>
           <div className="a">
-            If it is structured as a plugin marketplace, yes — add the marketplace and install the
+            If it is structured as a plugin marketplace, yes, add the marketplace and install the
             plugin, and you get skills, agents, and commands together with updates. Otherwise you
             are copying folders one at a time.
           </div>

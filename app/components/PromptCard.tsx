@@ -2,7 +2,7 @@ import CopyPrompt from "./CopyPrompt";
 
 /**
  * A copy-paste prompt block: mono prompt text with a copy button and an
- * optional "why it works" note underneath. Server component — only the
+ * optional "why it works" note underneath. Server component, only the
  * copy button hydrates.
  */
 export default function PromptCard({

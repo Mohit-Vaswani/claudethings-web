@@ -3,7 +3,7 @@ import { toolMetadata, ToolJsonLd, type ToolSeoInput } from "@/app/lib/toolSeo";
 
 const seo: ToolSeoInput = {
   path: "/claude-code-wrapped",
-  title: "Claude Code Wrapped — Your ccusage Stats as a Shareable Card",
+  title: "Claude Code Wrapped, Your ccusage Stats as a Shareable Card",
   description:
     "Free Claude Code Wrapped generator. Paste your ccusage output and get a shareable card with total tokens burned, the $ equivalent at API prices, your favorite model, longest streak, and busiest day. Runs 100% in your browser.",
   keywords: [
@@ -17,7 +17,7 @@ const seo: ToolSeoInput = {
     "claude api cost",
     "claude code spending",
   ],
-  ogTitle: "Claude Code Wrapped — How Many Tokens Did You Burn?",
+  ogTitle: "Claude Code Wrapped, How Many Tokens Did You Burn?",
   ogDescription:
     "Paste your ccusage output, get a shareable Wrapped card: tokens burned, $ value at API prices, favorite model, streak, busiest day. Free, client-side.",
   appName: "Claude Code Wrapped",
@@ -47,7 +47,7 @@ const seo: ToolSeoInput = {
     {
       question: "Does this show what I actually paid?",
       answer:
-        "Not if you're on a Pro or Max subscription — then it shows what your usage would have cost at API prices, which is exactly why the number is fun to share. If you use Claude Code with an API key, it approximates your real spend.",
+        "Not if you're on a Pro or Max subscription, then it shows what your usage would have cost at API prices, which is exactly why the number is fun to share. If you use Claude Code with an API key, it approximates your real spend.",
     },
   ],
 };

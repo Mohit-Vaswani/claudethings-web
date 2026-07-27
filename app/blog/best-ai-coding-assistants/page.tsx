@@ -8,7 +8,7 @@ const post = getPost("best-ai-coding-assistants")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -62,7 +62,7 @@ export default function Page() {
         autocomplete-and-chat assistants that suggest code while you type. On the other are agents
         that take a task, read the codebase, edit files, run the tests, and come back when
         it&apos;s done. They&apos;re priced similarly and marketed identically, but they do
-        different jobs — and only one of them changes how much you ship. Here&apos;s the ranking,
+        different jobs, and only one of them changes how much you ship. Here&apos;s the ranking,
         judged on completed work rather than demo quality.
       </p>
 
@@ -75,7 +75,7 @@ export default function Page() {
       </p>
       <p>
         Three things earn it the top spot. It runs in your terminal, so it composes with
-        everything you already have — git, your test runner, your deploy script, your CI — instead
+        everything you already have, git, your test runner, your deploy script, your CI, instead
         of only what an editor extension exposes. It&apos;s genuinely extensible: skills,
         subagents, hooks, and MCP let you encode <em>your</em> conventions once and have every
         session follow them, which is the difference between a clever assistant and a teammate who
@@ -84,7 +84,7 @@ export default function Page() {
       </p>
       <p>
         The honest costs: it&apos;s a terminal tool, so it&apos;s less comfortable if you want AI
-        living inside your editor UI, and agentic runs consume far more tokens than autocomplete —
+        living inside your editor UI, and agentic runs consume far more tokens than autocomplete, 
         budget accordingly (our{" "}
         <a href="/claude-plan-calculator">plan calculator</a> exists because that surprise is
         common). It is also as good as its configuration; an unconfigured install is a fraction of
@@ -102,7 +102,7 @@ export default function Page() {
 
       <h2>3. OpenAI Codex</h2>
       <p>
-        The closest direct competitor to Claude Code&apos;s CLI model, and strong — particularly
+        The closest direct competitor to Claude Code&apos;s CLI model, and strong, particularly
         on Python and data-heavy work. Worth trying if you&apos;re already deep in the OpenAI
         ecosystem. The ecosystem around it is younger, which shows most when you want to customize
         behavior rather than just use it.
@@ -113,26 +113,26 @@ export default function Page() {
         Still the safest enterprise default: broad IDE support, procurement paperwork already
         done, and a completion experience nobody complains about. Its agent capabilities have
         grown, but it remains strongest as an assistant rather than a delegate. If your company
-        has already bought it, use it — and add an agent alongside for the big tasks. Full
+        has already bought it, use it, and add an agent alongside for the big tasks. Full
         breakdown in <a href="/comparisons/claude-vs-copilot">Claude Code vs Copilot</a>.
       </p>
 
       <h2>5–8. The rest, briefly</h2>
       <ul>
         <li>
-          <strong>Windsurf</strong> — agentic IDE, smoother onboarding than most, good middle
+          <strong>Windsurf</strong>, agentic IDE, smoother onboarding than most, good middle
           ground for teams moving off pure autocomplete.
         </li>
         <li>
-          <strong>Cline</strong> — open-source agent in VS Code, bring-your-own key. Excellent if
+          <strong>Cline</strong>, open-source agent in VS Code, bring-your-own key. Excellent if
           you want the agent loop visible and controllable.
         </li>
         <li>
-          <strong>Aider</strong> — lightweight terminal agent with tight git integration. Small,
+          <strong>Aider</strong>, lightweight terminal agent with tight git integration. Small,
           fast, and pleasant for focused edits.
         </li>
         <li>
-          <strong>Zed</strong> — a fast editor with AI built in rather than bolted on. Choose it
+          <strong>Zed</strong>, a fast editor with AI built in rather than bolted on. Choose it
           for the editor; the AI is a bonus.
         </li>
       </ul>
@@ -172,7 +172,7 @@ export default function Page() {
       </div>
       <p>
         Benchmarks are a poor guide here because they measure isolated problems, and your job
-        isn&apos;t isolated problems — it&apos;s a specific codebase with conventions, a test
+        isn&apos;t isolated problems, it&apos;s a specific codebase with conventions, a test
         suite, and a deploy process. The tool that wins is the one you can teach those things to.
       </p>
 
@@ -191,7 +191,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Skip the hour.</strong> Agentary turns a stock Claude Code install into a
-          configured one in a single command — 89 agents, 103 skills, and 181 commands covering
+          configured one in a single command, 89 agents, 103 skills, and 181 commands covering
           review, testing, debugging, security, migrations, and shipping.{" "}
           <a href="/#pricing">Set it up in a minute →</a>
         </p>
@@ -206,7 +206,7 @@ export default function Page() {
           <div className="a">
             Most heavy users do, and the split is natural: an agent in the terminal for tasks you
             delegate, an editor assistant for the code you&apos;re typing yourself. They
-            don&apos;t conflict — they&apos;re answering different questions.
+            don&apos;t conflict, they&apos;re answering different questions.
           </div>
         </details>
         <details className="q">
@@ -214,7 +214,7 @@ export default function Page() {
             Which is best for beginners? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Cursor, usually — the feedback loop is visual and the learning curve is gentle. Move to
+            Cursor, usually, the feedback loop is visual and the learning curve is gentle. Move to
             an agent once you can review a diff critically, because the value of delegation
             depends entirely on your ability to judge what came back.
           </div>

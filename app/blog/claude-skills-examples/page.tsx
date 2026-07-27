@@ -8,7 +8,7 @@ const post = getPost("claude-skills-examples")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -40,7 +40,7 @@ const faqLd = {
       name: "What is a Claude skill?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A Claude skill is a folder containing a SKILL.md file — a markdown document with YAML frontmatter (a name and a description) plus instructions in the body. Claude reads the description of every installed skill, and when a task matches, it loads the full instructions and follows them. Skills can also bundle scripts and reference files.",
+        text: "A Claude skill is a folder containing a SKILL.md file, a markdown document with YAML frontmatter (a name and a description) plus instructions in the body. Claude reads the description of every installed skill, and when a task matches, it loads the full instructions and follows them. Skills can also bundle scripts and reference files.",
       },
     },
     {
@@ -92,7 +92,7 @@ export default function Page() {
     >
       <p className="intro">
         The fastest way to understand Claude skills is to read a few real ones. A skill is not a
-        framework or a plugin API — it is a folder with a markdown file in it. Claude reads the
+        framework or a plugin API, it is a folder with a markdown file in it. Claude reads the
         file&apos;s description, decides whether the current task matches, and if it does, follows
         the instructions inside. That is the whole mechanism. Below are worked examples across the
         categories people actually use, each showing what makes it fire and what makes it useful.
@@ -121,7 +121,7 @@ description: Review a diff for correctness, security, and clarity.
       </pre>
       <p>
         Two rules explain most of the difference between a skill that works and one that never
-        loads. First, <strong>the description is the trigger</strong> — it is the only part Claude
+        loads. First, <strong>the description is the trigger</strong>, it is the only part Claude
         sees before deciding to use the skill, so it must name the situations, not just the topic.
         Second, <strong>the body is a procedure</strong>, not a personality. &quot;You are a
         world-class reviewer&quot; changes nothing. A numbered checklist changes everything.
@@ -142,7 +142,7 @@ description: Review a diff for correctness, security, and clarity.
         This is where skills beat prompting. The body states the framework, the file naming
         convention, and the non-negotiables: test behavior rather than implementation, cover the
         failure path, never assert on internal state, run the suite before claiming it passes. The
-        description triggers on &quot;write tests&quot;, &quot;add coverage&quot;, and &quot;after
+        description triggers on &quot;write tests&quot;  &quot;add coverage&quot;  and &quot;after
         implementing a new function&quot;. Now Claude writes tests in your idiom instead of a
         generic tutorial style.
       </p>
@@ -153,7 +153,7 @@ description: Review a diff for correctness, security, and clarity.
         from a PDF, filling a form, or merging files is mechanical work that a script does perfectly
         and a language model does approximately. So the skill ships a Python script alongside the
         markdown and the instructions say &quot;run this script&quot; instead of &quot;figure it out
-        each time&quot;. Anthropic&apos;s own open-source document skills work exactly this way —
+        each time&quot;. Anthropic&apos;s own open-source document skills work exactly this way, 
         see our{" "}
         <a href="/blog/claude-skills-for-pdf">guide to Claude skills for PDF</a> for the full
         breakdown.
@@ -172,7 +172,7 @@ description: Review a diff for correctness, security, and clarity.
       <p>
         The body is a loop: reproduce the bug, form a hypothesis, add instrumentation, confirm or
         discard the hypothesis, fix the root cause, remove the instrumentation. The value is not the
-        knowledge — Claude knows how to debug — it is the <em>discipline</em>. Without the skill,
+        knowledge, Claude knows how to debug, it is the <em>discipline</em>. Without the skill,
         the default behavior under time pressure is to patch the symptom. With it, the process runs
         the same way every time.
       </p>
@@ -182,7 +182,7 @@ description: Review a diff for correctness, security, and clarity.
         The highest-value skill on most teams is the one nobody else could write: how your
         deployment works, which environment variables matter, what the staging URL is, why the
         migration script must run before the build. It is boring, unglamorous institutional
-        knowledge, and encoding it once saves every future session — and every future teammate —
+        knowledge, and encoding it once saves every future session, and every future teammate, 
         from rediscovering it.
       </p>
 
@@ -196,7 +196,7 @@ description: Review a diff for correctness, security, and clarity.
       <p>
         Before you rely on a skill, verify it loads. Ask Claude which skills it has available, then
         phrase a request naturally and see whether the right one fires. If it does not, the
-        description is almost always the problem — our{" "}
+        description is almost always the problem, our{" "}
         <a href="/claude-skill-md-validator">free SKILL.md validator</a> catches the frontmatter
         mistakes that make a skill invisible, and{" "}
         <a href="/blog/how-to-write-a-claude-code-skill-that-triggers">this guide</a> explains the
@@ -206,8 +206,8 @@ description: Review a diff for correctness, security, and clarity.
       <div className="callout">
         <p>
           <strong>Skip the copy-paste stage:</strong> the Agentary kits ship 103 production
-          skills across code, documents, marketing, and ops — descriptions tuned to trigger,
-          scripts bundled, kept current — plus 89 agents and 181 commands.{" "}
+          skills across code, documents, marketing, and ops, descriptions tuned to trigger,
+          scripts bundled, kept current, plus 89 agents and 181 commands.{" "}
           <a href="/#pricing">Install the full library →</a>
         </p>
       </div>
@@ -221,7 +221,7 @@ description: Review a diff for correctness, security, and clarity.
           <div className="a">
             A folder containing a SKILL.md file: YAML frontmatter with a name and description, then
             markdown instructions in the body. Claude keeps every skill&apos;s description in
-            context, and loads the full body only when a task matches — so a large library stays
+            context, and loads the full body only when a task matches, so a large library stays
             cheap.
           </div>
         </details>

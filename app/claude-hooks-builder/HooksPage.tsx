@@ -11,7 +11,7 @@ import {
 } from "@/app/components/toolPage";
 
 /**
- * Claude Code hooks builder — visual rules in, valid settings.json out.
+ * Claude Code hooks builder, visual rules in, valid settings.json out.
  * 100% client-side.
  */
 
@@ -74,7 +74,7 @@ const PRESETS: Record<string, () => HookRule> = {
     newRule({
       event: "PreToolUse",
       matcher: "Bash",
-      command: "jq -r '\"\\(.tool_input.command) — \\(.tool_input.description // \"no description\")\"' >> ~/.claude/bash-log.txt",
+      command: "jq -r '\"\\(.tool_input.command), \\(.tool_input.description // \"no description\")\"' >> ~/.claude/bash-log.txt",
     }),
   protect: () =>
     newRule({
@@ -112,7 +112,7 @@ function buildSettings(rules: HookRule[]): { json: string; warnings: string[] } 
     if (kind !== "none") {
       entry.matcher = r.matcher.trim() || "*";
     } else if (r.matcher.trim()) {
-      warnings.push(`${r.event} hooks don't use a matcher — it was omitted from the JSON.`);
+      warnings.push(`${r.event} hooks don't use a matcher, it was omitted from the JSON.`);
     }
     hooks[r.event] = hooks[r.event] ?? [];
     hooks[r.event].push(entry);
@@ -186,7 +186,7 @@ export default function HooksPage() {
           </h1>
           <p className="sub reveal-h d3">
             Hooks are the most powerful (and most mistyped) feature in Claude Code. Pick an event,
-            set a matcher and command, and get a <b>valid settings.json</b> — auto-format on save,
+            set a matcher and command, and get a <b>valid settings.json</b>, auto-format on save,
             block dangerous edits, log every command, get notified.
           </p>
 
@@ -226,7 +226,7 @@ export default function HooksPage() {
                         >
                           {EVENTS.map(([e, hint]) => (
                             <option key={e} value={e}>
-                              {e} — {hint}
+                              {e}, {hint}
                             </option>
                           ))}
                         </select>
@@ -243,7 +243,7 @@ export default function HooksPage() {
                           style={{ ...field, minHeight: 64, fontFamily: "var(--font-mono)", fontSize: 12.5 }}
                           value={r.command}
                           onChange={(e) => update(r.id, { command: e.target.value })}
-                          placeholder="Shell command — receives the event JSON on stdin"
+                          placeholder="Shell command, receives the event JSON on stdin"
                           aria-label="Hook command"
                         />
                         <input
@@ -271,7 +271,7 @@ export default function HooksPage() {
                 <>
                   <div className="val-verdict good">
                     <span className="v-ic">✓</span>
-                    <span>Valid hooks config — paste into .claude/settings.json</span>
+                    <span>Valid hooks config, paste into .claude/settings.json</span>
                   </div>
                   <div className="val-counts">
                     <button className="val-mini" onClick={copy}>{copied ? "Copied ✓" : "Copy JSON"}</button>
@@ -298,7 +298,7 @@ export default function HooksPage() {
           </div>
 
           <p className="micro reveal-h d5">
-            100% client-side · hooks run shell commands — only use commands you understand
+            100% client-side · hooks run shell commands, only use commands you understand
           </p>
         </div>
       </header>
@@ -310,11 +310,11 @@ export default function HooksPage() {
           <h2 className="fade">Nine places to intercept Claude Code</h2>
           <p className="lead fade">
             Hooks turn &quot;please always run prettier&quot; from a hope in CLAUDE.md into a
-            guarantee — the app runs your command every time, deterministically.
+            guarantee, the app runs your command every time, deterministically.
           </p>
           <div className="sol-grid" style={{ textAlign: "left" }}>
             {[
-              ["🛡️", "PreToolUse", "Runs before a tool call and can block it: exit code 2 stops the action and sends stderr back to Claude. The place for guardrails — protect `.env`, block `rm -rf`, enforce your deploy process."],
+              ["🛡️", "PreToolUse", "Runs before a tool call and can block it: exit code 2 stops the action and sends stderr back to Claude. The place for guardrails, protect `.env`, block `rm -rf`, enforce your deploy process."],
               ["🪄", "PostToolUse", "Runs after a tool succeeds. The classic: match `Edit|Write` and auto-format the touched file. Also great for type-checking, test-triggering, and change logs."],
               ["💬", "UserPromptSubmit & Stop", "Inject context or validation when you submit a prompt; run cleanup, linters, or notifications when Claude finishes a response (or a subagent does)."],
               ["🔄", "Session & compaction", "SessionStart loads context when you begin or resume; PreCompact fires before Claude compresses history; SessionEnd is your teardown hook."],
@@ -360,11 +360,11 @@ export default function HooksPage() {
         items={[
           [
             "What data does my hook command receive?",
-            "The event payload as JSON on stdin — session id, tool name, and `tool_input` (for tool events the exact arguments, like `.tool_input.file_path` or `.tool_input.command`). `jq` is the standard way to pull fields out.",
+            "The event payload as JSON on stdin, session id, tool name, and `tool_input` (for tool events the exact arguments, like `.tool_input.file_path` or `.tool_input.command`). `jq` is the standard way to pull fields out.",
           ],
           [
             "What's the difference between exit codes 0, 2, and others?",
-            "0 = success (stdout shown in transcript; for UserPromptSubmit it's added as context). 2 = blocking error — stops the action and feeds stderr to Claude. Anything else = non-blocking error shown to you.",
+            "0 = success (stdout shown in transcript; for UserPromptSubmit it's added as context). 2 = blocking error, stops the action and feeds stderr to Claude. Anything else = non-blocking error shown to you.",
           ],
           [
             "Which settings file should I use?",
@@ -372,7 +372,7 @@ export default function HooksPage() {
           ],
           [
             "Why isn't my hook firing?",
-            "Check: the JSON is under a top-level `hooks` key, the event name is exact (case-sensitive), the matcher matches the real tool name, and you restarted Claude Code — hooks are snapshotted at startup, so run `/hooks` to verify what's loaded.",
+            "Check: the JSON is under a top-level `hooks` key, the event name is exact (case-sensitive), the matcher matches the real tool name, and you restarted Claude Code, hooks are snapshotted at startup, so run `/hooks` to verify what's loaded.",
           ],
           [
             "Can hooks run scripts instead of inline commands?",
@@ -385,7 +385,7 @@ export default function HooksPage() {
         heading="Hooks are one piece of the setup"
         lead={
           <>
-            The Agentary kits ship complete Claude Code environments — agents, skills, and
+            The Agentary kits ship complete Claude Code environments, agents, skills, and
             commands engineered to work together, hooks-friendly out of the box.
           </>
         }
@@ -395,7 +395,7 @@ export default function HooksPage() {
         disclaimer={
           <>
             <b>Hooks execute arbitrary shell commands with your user&apos;s permissions.</b> The
-            presets here are common community patterns — review and test any command before adding
+            presets here are common community patterns, review and test any command before adding
             it to your settings, and prefer scripts checked into your repo. This builder follows
             the public Claude Code hooks format; everything runs in your browser and nothing is
             uploaded.

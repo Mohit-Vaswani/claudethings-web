@@ -8,7 +8,7 @@ const post = getPost("getting-started-with-claude-code")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -45,7 +45,7 @@ export default function Page() {
         {
           href: "/blog/how-to-build-ai-agents-with-claude",
           title: "How to Build AI Agents with Claude",
-          desc: "The agent loop, tool use, and MCP — from first principles to a working agent.",
+          desc: "The agent loop, tool use, and MCP, from first principles to a working agent.",
         },
         {
           href: "/prompts/claude-prompts-for-coding",
@@ -62,7 +62,7 @@ export default function Page() {
       <p className="intro">
         Claude Code is Anthropic&apos;s agentic coding tool: Claude, running in your terminal (or
         IDE, or browser), with permission to read your files, run your commands, and edit your
-        code. The pitch is simple — instead of copy-pasting snippets into a chat window, you give
+        code. The pitch is simple, instead of copy-pasting snippets into a chat window, you give
         Claude the same access a new teammate would get, and it does the work where the work lives.
       </p>
       <p className="intro">
@@ -83,7 +83,7 @@ cd your-project
 claude`}</pre>
       </div>
       <p>
-        On first run you&apos;ll authenticate with your Anthropic account — Claude Code works with
+        On first run you&apos;ll authenticate with your Anthropic account, Claude Code works with
         Claude Pro/Max subscriptions or with an API key. Once you&apos;re in, you get a chat prompt
         that lives in your project directory. That directory scoping matters: Claude can see and
         touch this project, not your whole machine.
@@ -97,17 +97,17 @@ claude`}</pre>
       <ul>
         <li>&quot;Explain this codebase: what are the main modules and how do they fit together?&quot;</li>
         <li>&quot;Find where user authentication happens and walk me through the flow.&quot;</li>
-        <li>&quot;This test is failing — figure out why and fix it.&quot; (paste nothing; it will find it)</li>
+        <li>&quot;This test is failing, figure out why and fix it.&quot; (paste nothing; it will find it)</li>
         <li>&quot;Add input validation to the signup endpoint, following the patterns this repo already uses.&quot;</li>
       </ul>
       <p>
         Notice what happens: Claude searches the repo, reads only the files it needs, proposes
         changes, and asks permission before running anything with side effects. You approve or
-        reject each action — or grant standing permissions as trust builds. That permission system
+        reject each action, or grant standing permissions as trust builds. That permission system
         is the core of the tool. You can be as paranoid or as hands-off as your project deserves.
       </p>
 
-      <h2>3. Create a CLAUDE.md — the five minutes with the highest ROI</h2>
+      <h2>3. Create a CLAUDE.md, the five minutes with the highest ROI</h2>
       <p>
         {code("CLAUDE.md")} is a markdown file at your project root that Claude reads at the start
         of every session. It&apos;s where you write down what you&apos;d tell a new hire on day
@@ -116,20 +116,20 @@ claude`}</pre>
       </p>
       <div className="prompt-card">
         <div className="prompt-head">
-          <span className="p-title">CLAUDE.md — example</span>
+          <span className="p-title">CLAUDE.md, example</span>
         </div>
         <pre className="prompt-body">{`# MyApp
 
 Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
 
 ## Commands
-- npm run dev — dev server (port 3000)
-- npm run test — vitest; run before claiming anything works
-- npm run db:migrate — apply migrations
+- npm run dev, dev server (port 3000)
+- npm run test, vitest; run before claiming anything works
+- npm run db:migrate, apply migrations
 
 ## Conventions
 - Server components by default; "use client" only when interactive
-- All DB access goes through src/db/queries/ — never inline SQL in routes
+- All DB access goes through src/db/queries/, never inline SQL in routes
 - Error messages are user-facing: no stack traces in responses
 
 ## Gotchas
@@ -138,7 +138,7 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
       </div>
       <p>
         Every instruction in this file is an instruction you never type again. When Claude does
-        something wrong, don&apos;t just correct it in chat — ask yourself if the correction
+        something wrong, don&apos;t just correct it in chat, ask yourself if the correction
         belongs in CLAUDE.md. Teams that treat this file like real documentation compound their
         setup; teams that skip it re-explain their stack every session.
       </p>
@@ -146,18 +146,18 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
       <h2>4. Learn the four commands that matter</h2>
       <ul>
         <li>
-          {code("/init")} — generates a CLAUDE.md from your codebase. Run it once per project.
+          {code("/init")}, generates a CLAUDE.md from your codebase. Run it once per project.
         </li>
         <li>
-          {code("/clear")} — wipes the conversation. Use it between unrelated tasks; a context
+          {code("/clear")}, wipes the conversation. Use it between unrelated tasks; a context
           window full of the last task&apos;s details makes the next task worse.
         </li>
         <li>
-          {code("Esc")} — interrupts Claude mid-action. You&apos;re never a passenger; steer the
+          {code("Esc")}, interrupts Claude mid-action. You&apos;re never a passenger; steer the
           moment it heads somewhere wrong.
         </li>
         <li>
-          {code("/help")} — everything else, discoverable when you need it.
+          {code("/help")}, everything else, discoverable when you need it.
         </li>
       </ul>
 
@@ -165,13 +165,13 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
       <p>
         This is where Claude Code stops being a chat tool and starts being a platform.{" "}
         <strong>Skills</strong> are folders of instructions (a {code("SKILL.md")} plus optional
-        scripts) that teach Claude a repeatable capability — &quot;how we do code reviews&quot;,
-        &quot;how to audit a site&apos;s security&quot;, &quot;how we write commit messages&quot;.{" "}
+        scripts) that teach Claude a repeatable capability, &quot;how we do code reviews&quot; 
+        &quot;how to audit a site&apos;s security&quot;  &quot;how we write commit messages&quot;.{" "}
         <strong>Slash commands</strong> are reusable prompts you invoke by name:{" "}
         {code("/review")}, {code("/test")}, {code("/security-review")}.
       </p>
       <p>
-        You can write your own — or install a library of them. Our{" "}
+        You can write your own, or install a library of them. Our{" "}
         <a href="/#pricing">Agentary kits</a> package 89 agents, 103 skills, and 181 slash
         commands built exactly this way (and the free{" "}
         <a href="/claude-skill-md-validator">SKILL.md validator</a> lints the ones you write
@@ -189,7 +189,7 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
       <p>
         End feature requests with &quot;run the tests and fix whatever breaks&quot; or &quot;start
         the dev server and confirm the page renders.&quot; Claude Code can execute the feedback
-        loop itself — that&apos;s the difference between code that <em>looks</em> right and code
+        loop itself, that&apos;s the difference between code that <em>looks</em> right and code
         that <em>is</em> right.
       </p>
       <h3>Commit early, keep diffs reviewable</h3>
@@ -201,7 +201,7 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
       <h3>Scope your asks</h3>
       <p>
         &quot;Fix the validation bug in signup&quot; beats &quot;improve the auth code.&quot;
-        Claude treats vague scope as permission to be ambitious — which is occasionally wonderful
+        Claude treats vague scope as permission to be ambitious, which is occasionally wonderful
         and usually a bigger diff than you wanted.
       </p>
 
@@ -229,8 +229,8 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
       <div className="callout">
         <p>
           <strong>Shortcut the setup:</strong> the Agentary Engineering Kit ships 58 agents,
-          61 skills, and 159 slash commands — code review, testing, security audits, refactoring
-          workflows — installed into Claude Code with one command.{" "}
+          61 skills, and 159 slash commands, code review, testing, security audits, refactoring
+          workflows, installed into Claude Code with one command.{" "}
           <a href="/#pricing">See what&apos;s inside →</a>
         </p>
       </div>
@@ -242,7 +242,7 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
             Do I need to be a senior engineer to use Claude Code? <span className="plus">+</span>
           </summary>
           <div className="a">
-            No — but the tool amplifies judgment. Beginners get the most value using it to
+            No, but the tool amplifies judgment. Beginners get the most value using it to
             understand codebases and learn patterns; experienced engineers get the most value
             delegating implementation. Either way, the skill that matters is describing what you
             want precisely.
@@ -250,10 +250,10 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
         </details>
         <details className="q">
           <summary>
-            Claude Code vs. the Claude chat app — when do I use which? <span className="plus">+</span>
+            Claude Code vs. the Claude chat app, when do I use which? <span className="plus">+</span>
           </summary>
           <div className="a">
-            If the task involves your files, your tests, or more than one edit — Claude Code. The
+            If the task involves your files, your tests, or more than one edit, Claude Code. The
             chat app is for questions, thinking, and work that doesn&apos;t live in a repo. The
             dividing line is whether the work needs hands, not just a brain.
           </div>
@@ -264,7 +264,7 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
           </summary>
           <div className="a">
             Anthropic&apos;s commercial products don&apos;t train on your data by default. Review
-            the current data-usage policy for your plan tier at anthropic.com — and if you work
+            the current data-usage policy for your plan tier at anthropic.com, and if you work
             somewhere with a security team, loop them in like you would for any dev tool.
           </div>
         </details>

@@ -5,11 +5,11 @@ import { SITE_URL } from "@/app/lib/site";
 
 const TITLE = "The Best MCP Servers for Claude: A Curated Guide";
 const DESC =
-  "What MCP is, the server categories that earn a permanent spot — GitHub, databases, browser automation, search, project tools — and how to add them safely.";
+  "What MCP is, the server categories that earn a permanent spot, GitHub, databases, browser automation, search, project tools, and how to add them safely.";
 const URL = `${SITE_URL}/tools/claude-mcp-servers`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} — Agentary`,
+  title: `${TITLE} · Agentary`,
   description: DESC,
   alternates: { canonical: "/tools/claude-mcp-servers" },
   openGraph: {
@@ -53,7 +53,7 @@ export default function Page() {
         {
           href: "/tools/claude-coding-tools",
           title: "The Claude Coding Tools Stack",
-          desc: "MCP is layer three — here's the whole map.",
+          desc: "MCP is layer three, here's the whole map.",
         },
         {
           href: "/blog/getting-started-with-claude-code",
@@ -64,14 +64,14 @@ export default function Page() {
     >
       <p className="intro">
         The Model Context Protocol (MCP) is the USB standard of the Claude ecosystem: an open
-        protocol that lets any tool expose capabilities — query this database, drive this browser,
-        search these docs — to any AI client that speaks it. Claude Code, the Claude apps, and
+        protocol that lets any tool expose capabilities, query this database, drive this browser,
+        search these docs, to any AI client that speaks it. Claude Code, the Claude apps, and
         most AI-native editors all do. Anthropic open-sourced it; the ecosystem now spans
         thousands of servers.
       </p>
       <p className="intro">
         Which creates the actual problem: thousands of servers, most of them abandoned weekend
-        projects. This guide organizes by <em>category of capability</em> — install one good
+        projects. This guide organizes by <em>category of capability</em>, install one good
         server per category you need, and skip the rest. Server names churn; the categories are
         stable.
       </p>
@@ -93,7 +93,7 @@ claude mcp list`}</pre>
       </div>
       <p>
         In the Claude desktop and web apps, servers are added as &quot;connectors&quot; from
-        settings — same protocol, friendlier packaging.
+        settings, same protocol, friendlier packaging.
       </p>
 
       <h2>The categories that earn their keep</h2>
@@ -101,14 +101,14 @@ claude mcp list`}</pre>
       <h3>1. Version control: GitHub / GitLab</h3>
       <p>
         The official GitHub MCP server gives Claude real access to issues, PRs, reviews, and CI
-        status — so &quot;look at the failing checks on my PR and fix them&quot; becomes one
+        status, so &quot;look at the failing checks on my PR and fix them&quot; becomes one
         request instead of five copy-pastes. If your work lives in GitHub, this is the first
         install.
       </p>
 
       <h3>2. Browser automation: Playwright-based servers</h3>
       <p>
-        A browser server lets Claude open pages, click, fill forms, and read the DOM — which means
+        A browser server lets Claude open pages, click, fill forms, and read the DOM, which means
         it can <em>verify its own frontend work</em> end-to-end instead of declaring victory from
         the code. Microsoft&apos;s Playwright MCP server is the reference choice. For web
         developers this is arguably the highest-value connector on the page.
@@ -116,7 +116,7 @@ claude mcp list`}</pre>
 
       <h3>3. Databases: Postgres and friends</h3>
       <p>
-        Database servers let Claude inspect schemas and run queries — real ones, against your dev
+        Database servers let Claude inspect schemas and run queries, real ones, against your dev
         or read-replica instance. Debugging &quot;why is this query slow&quot; or &quot;what does
         this data actually look like&quot; stops being a copy-paste relay.{" "}
         <strong>Safety rule:</strong> point it at development or read-only credentials, never
@@ -126,7 +126,7 @@ claude mcp list`}</pre>
       <h3>4. Documentation and search</h3>
       <p>
         Two flavors: web search servers (current information from the live web) and documentation
-        servers like Context7 that feed Claude version-accurate library docs — which noticeably
+        servers like Context7 that feed Claude version-accurate library docs, which noticeably
         cuts &quot;that API doesn&apos;t exist anymore&quot; errors in generated code.
       </p>
 
@@ -146,7 +146,7 @@ claude mcp list`}</pre>
 
       <h3>7. Design: Figma</h3>
       <p>
-        Design-context servers let Claude read component structure and styles from Figma files —
+        Design-context servers let Claude read component structure and styles from Figma files, 
         the difference between &quot;build something like this screenshot&quot; and &quot;build
         this design, with its actual spacing and tokens.&quot;
       </p>
@@ -163,7 +163,7 @@ claude mcp list`}</pre>
         </li>
         <li>
           <strong>Provenance:</strong> prefer official vendor servers and widely-used open-source
-          ones you can read. A random server from a listing site gets your GitHub token — act
+          ones you can read. A random server from a listing site gets your GitHub token, act
           accordingly.
         </li>
         <li>
@@ -176,23 +176,23 @@ claude mcp list`}</pre>
 
       <h2>A sane starter set</h2>
       <ol>
-        <li><strong>GitHub</strong> — if your code lives there.</li>
-        <li><strong>Playwright</strong> — if you build anything with a UI.</li>
-        <li><strong>Your database</strong> — read-only, dev instance.</li>
+        <li><strong>GitHub</strong>, if your code lives there.</li>
+        <li><strong>Playwright</strong>, if you build anything with a UI.</li>
+        <li><strong>Your database</strong>, read-only, dev instance.</li>
         <li>
-          <strong>One docs/search server</strong> — if you work across many libraries.
+          <strong>One docs/search server</strong>, if you work across many libraries.
         </li>
       </ol>
       <p>
-        Then stop until a real task wants more. Every server adds tools to Claude&apos;s context —
+        Then stop until a real task wants more. Every server adds tools to Claude&apos;s context, 
         a lean set it uses well beats an arsenal it fumbles.
       </p>
 
       <div className="callout">
         <p>
           <strong>MCP gives Claude hands; skills give it expertise.</strong> The Agentary kits
-          ship 103 skills and 181 commands that put both to work — code review, security audits,
-          SEO, email sequences — installed in one command.{" "}
+          ship 103 skills and 181 commands that put both to work, code review, security audits,
+          SEO, email sequences, installed in one command.{" "}
           <a href="/#pricing">See what&apos;s inside →</a>
         </p>
       </div>
@@ -201,12 +201,12 @@ claude mcp list`}</pre>
       <div className="faq" style={{ marginTop: 22 }}>
         <details className="q">
           <summary>
-            MCP servers vs. skills — what&apos;s the difference? <span className="plus">+</span>
+            MCP servers vs. skills, what&apos;s the difference? <span className="plus">+</span>
           </summary>
           <div className="a">
             Servers are <em>capabilities</em> (query the DB, drive the browser); skills are{" "}
             <em>knowledge</em> (how to do a security audit, how your team writes tests). Skills
-            frequently use servers — an audit skill might drive the Playwright server. You want
+            frequently use servers, an audit skill might drive the Playwright server. You want
             both layers.
           </div>
         </details>
@@ -217,7 +217,7 @@ claude mcp list`}</pre>
           <div className="a">
             Start with official sources: Anthropic&apos;s MCP registry and vendors&apos; own
             servers (GitHub&apos;s, Microsoft&apos;s Playwright, Sentry&apos;s). Community
-            directories are useful for discovery but curate nothing — apply the provenance rule
+            directories are useful for discovery but curate nothing, apply the provenance rule
             above.
           </div>
         </details>
@@ -226,7 +226,7 @@ claude mcp list`}</pre>
             Do MCP servers work outside Claude? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Yes — that&apos;s the point of an open protocol. The same server plugs into any
+            Yes, that&apos;s the point of an open protocol. The same server plugs into any
             MCP-capable client, which is why building on MCP beats building one-off integrations.
           </div>
         </details>

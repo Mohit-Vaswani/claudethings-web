@@ -13,7 +13,7 @@ const BASE = SITE_URL;
 export interface ToolSeoInput {
   /** Route path, e.g. "/claude-code-wrapped". */
   path: string;
-  /** <title> — keep the primary keyword up front. */
+  /** <title>, keep the primary keyword up front. */
   title: string;
   /** Meta description. */
   description: string;

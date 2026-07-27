@@ -8,7 +8,7 @@ const post = getPost("claude-skills-for-research")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -76,7 +76,7 @@ export default function Page() {
         {
           href: "/blog/claude-skills-for-pdf",
           title: "Claude Skills for PDF",
-          desc: "Papers and reports arrive as PDFs — this is how you process them.",
+          desc: "Papers and reports arrive as PDFs, this is how you process them.",
         },
         {
           href: "/blog/claude-skills-for-studying",
@@ -94,7 +94,7 @@ export default function Page() {
         Ask Claude to &quot;research&quot; something and you get an answer shaped like research:
         confident, structured, plausible. Whether it is <em>grounded</em> depends entirely on how
         carefully you phrased the request that day. A research skill removes that dependency by
-        encoding the method — how to search, how to source, when to admit uncertainty — so the
+        encoding the method, how to search, how to source, when to admit uncertainty, so the
         procedure runs the same way every time.
       </p>
 
@@ -106,7 +106,7 @@ export default function Page() {
         consensus, and a conclusion that quietly matches whatever the question implied.
       </p>
       <p>
-        None of these are fixed by asking nicer. They are fixed by a <em>process</em> — and a skill
+        None of these are fixed by asking nicer. They are fixed by a <em>process</em>, and a skill
         is where a process lives. A skill is a folder at {code(".claude/skills/<name>/SKILL.md")}{" "}
         whose description tells Claude when to load it and whose body tells Claude how to work.
       </p>
@@ -121,7 +121,7 @@ export default function Page() {
         <strong>A sourcing rule with teeth.</strong> Every factual claim carries a link or a document
         reference. Anything that cannot be sourced is labelled explicitly as unverified rather than
         quietly folded into the prose. A citation may only be written from a source actually
-        retrieved — never reconstructed from memory, which is exactly how fabricated references get
+        retrieved, never reconstructed from memory, which is exactly how fabricated references get
         born.
       </p>
       <p>
@@ -142,7 +142,7 @@ export default function Page() {
       <h2>Skills worth having in a research setup</h2>
       <p>
         <strong>Literature review.</strong> Search, screen by relevance, extract method and finding
-        and limitation from each paper, then synthesize — noting where the field agrees and where it
+        and limitation from each paper, then synthesize, noting where the field agrees and where it
         does not. The extraction step matters: a table of methods and findings is auditable, whereas
         a flowing summary is not.
       </p>
@@ -153,7 +153,7 @@ export default function Page() {
       </p>
       <p>
         <strong>Document processing.</strong> Research arrives as PDFs. Extracting text, tables, and
-        figures reliably — including from scans that need OCR — is a solved problem if you have the
+        figures reliably, including from scans that need OCR, is a solved problem if you have the
         right skill. See our{" "}
         <a href="/blog/claude-skills-for-pdf">guide to Claude skills for PDF</a>.
       </p>
@@ -188,7 +188,7 @@ export default function Page() {
         hallucination.
       </p>
       <p>
-        Verify the skill loads before you rely on it — ask Claude which skills are available, then
+        Verify the skill loads before you rely on it, ask Claude which skills are available, then
         make a normal research request and watch for it. The{" "}
         <a href="/claude-skill-md-validator">free SKILL.md validator</a> catches the frontmatter
         errors that make skills silently invisible.
@@ -197,7 +197,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Research, documents, and analysis in one library:</strong> Agentary ships 103
-          skills — including document processing, source evaluation, and analysis workflows — with 89
+          skills, including document processing, source evaluation, and analysis workflows, with 89
           agents and 181 commands. <a href="/#pricing">See the kits →</a>
         </p>
       </div>
@@ -219,7 +219,7 @@ export default function Page() {
             Do I need web access for research skills to work? <span className="plus">+</span>
           </summary>
           <div className="a">
-            For anything current, yes — a skill is a method, not a knowledge source. Pair it with
+            For anything current, yes, a skill is a method, not a knowledge source. Pair it with
             search or with local documents so there is something real to read.
           </div>
         </details>

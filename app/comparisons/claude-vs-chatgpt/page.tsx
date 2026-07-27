@@ -9,7 +9,7 @@ const DESC =
 const URL = `${SITE_URL}/comparisons/claude-vs-chatgpt`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} — Agentary`,
+  title: `${TITLE} · Agentary`,
   description: DESC,
   alternates: { canonical: "/comparisons/claude-vs-chatgpt" },
   openGraph: {
@@ -64,13 +64,13 @@ export default function Page() {
     >
       <p className="intro">
         <strong>Bias disclosure first:</strong> we build products for Claude Code, so we&apos;re
-        not neutral — but we use both assistants daily, and this comparison argues from workloads,
+        not neutral, but we use both assistants daily, and this comparison argues from workloads,
         not team colors. Where ChatGPT is the better pick, we say so plainly.
       </p>
       <p className="intro">
         The honest headline for 2026: both are excellent general assistants, the gap on everyday
         questions has nearly closed, and the differences that remain are <em>differences of
-        character</em> — most visible at the edges: long documents, serious writing, agentic
+        character</em>, most visible at the edges: long documents, serious writing, agentic
         coding, and ecosystem breadth.
       </p>
 
@@ -88,36 +88,36 @@ export default function Page() {
             <tr>
               <td>Prose quality &amp; voice control</td>
               <td>Strong</td>
-              <td className="us">Edge to Claude — less &quot;AI accent&quot;, holds voice samples better</td>
+              <td className="us">Edge to Claude, less &quot;AI accent&quot;  holds voice samples better</td>
             </tr>
             <tr>
               <td>Long documents &amp; codebases</td>
               <td>Good</td>
-              <td className="us">Edge to Claude — long context is a core strength</td>
+              <td className="us">Edge to Claude, long context is a core strength</td>
             </tr>
             <tr>
               <td>Agentic coding</td>
               <td>Capable</td>
-              <td className="us">Edge to Claude — Claude Code is the reference tool</td>
+              <td className="us">Edge to Claude, Claude Code is the reference tool</td>
             </tr>
             <tr>
               <td>Image generation</td>
               <td className="us" style={{ background: "transparent", color: "var(--bone)" }}>
-                ChatGPT — Claude doesn&apos;t generate images
+                ChatGPT, Claude doesn&apos;t generate images
               </td>
               <td className="no">Not offered</td>
             </tr>
             <tr>
               <td>Voice mode &amp; consumer features</td>
               <td className="us" style={{ background: "transparent", color: "var(--bone)" }}>
-                Edge to ChatGPT — broader consumer surface
+                Edge to ChatGPT, broader consumer surface
               </td>
               <td>Focused on text, code &amp; agents</td>
             </tr>
             <tr>
               <td>Following complex instructions</td>
               <td>Good</td>
-              <td className="us">Edge to Claude — respects constraints &amp; structure</td>
+              <td className="us">Edge to Claude, respects constraints &amp; structure</td>
             </tr>
             <tr>
               <td>Ecosystem &amp; integrations</td>
@@ -133,22 +133,22 @@ export default function Page() {
       <h2>Where Claude genuinely wins</h2>
       <h3>Writing that doesn&apos;t sound generated</h3>
       <p>
-        Ask both for the same essay and read them cold: Claude&apos;s prose runs less on formula —
+        Ask both for the same essay and read them cold: Claude&apos;s prose runs less on formula, 
         fewer &quot;it&apos;s not just X, it&apos;s Y&quot; constructions, better sentence rhythm,
         and noticeably better adherence to a voice sample you provide. Professional writers who
-        use AI tend to land on Claude, and it&apos;s not tribal — it&apos;s the drafts.
+        use AI tend to land on Claude, and it&apos;s not tribal, it&apos;s the drafts.
       </p>
       <h3>Long-context work</h3>
       <p>
         Feeding in a 200-page contract, a research corpus, or a large codebase and getting
-        coherent, specific answers — with quotes — is Claude&apos;s home turf. ChatGPT has closed
+        coherent, specific answers, with quotes, is Claude&apos;s home turf. ChatGPT has closed
         much of the raw context gap on paper; in practice, Claude&apos;s recall and willingness to
         ground claims in the provided text remain the differentiator for document-heavy work.
       </p>
       <h3>Agentic coding</h3>
       <p>
-        This is the least close category. Claude Code — the terminal/IDE agent that reads your
-        repo, runs your tests, and iterates — has become the reference tool for AI-assisted
+        This is the least close category. Claude Code, the terminal/IDE agent that reads your
+        repo, runs your tests, and iterates, has become the reference tool for AI-assisted
         engineering, and Anthropic&apos;s models are tuned hard for exactly this loop. OpenAI
         competes here, but developer mindshare and the tooling ecosystem (skills, MCP servers,
         subagents) currently favor Claude. Our{" "}
@@ -158,7 +158,7 @@ export default function Page() {
       <p>
         Give both a prompt with six constraints (&quot;under 200 words, no bullet points, quote
         the source, flag uncertainty...&quot;). Claude&apos;s compliance rate on multi-constraint
-        instructions is the quiet superpower that makes it feel senior — you spend fewer turns
+        instructions is the quiet superpower that makes it feel senior, you spend fewer turns
         re-asking.
       </p>
 
@@ -166,8 +166,8 @@ export default function Page() {
       <h3>Multimodal breadth</h3>
       <p>
         ChatGPT generates images; Claude doesn&apos;t. Its voice mode is more polished, and the
-        consumer feature surface — memory across chats for casual use, plugins-descendant
-        integrations, mobile experience — is broader. If your use is personal-assistant-shaped
+        consumer feature surface, memory across chats for casual use, plugins-descendant
+        integrations, mobile experience, is broader. If your use is personal-assistant-shaped
         rather than work-artifact-shaped, ChatGPT&apos;s ecosystem is real value.
       </p>
       <h3>Ubiquity and team familiarity</h3>
@@ -186,7 +186,7 @@ export default function Page() {
       <h2>Pricing</h2>
       <p>
         Consumer tiers are effectively mirror images (free tiers with limits; ~$20/month Pro
-        tiers; premium tiers above that), and both move too often to quote here — check each
+        tiers; premium tiers above that), and both move too often to quote here, check each
         vendor&apos;s pricing page. The real cost decision is API-side, where the calculus is
         workload-specific: benchmark your actual prompts on both before committing volume. For
         Claude&apos;s internal tiers, see{" "}
@@ -199,7 +199,7 @@ export default function Page() {
           <strong>You write for a living, or read long documents for a living</strong> → Claude.
         </li>
         <li>
-          <strong>You build software</strong> → Claude, specifically Claude Code — this one
+          <strong>You build software</strong> → Claude, specifically Claude Code, this one
           isn&apos;t close right now.
         </li>
         <li>
@@ -217,7 +217,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Trying Claude seriously?</strong> Don&apos;t evaluate it with lazy prompts — that
+          <strong>Trying Claude seriously?</strong> Don&apos;t evaluate it with lazy prompts, that
           tests nothing. Run it against the{" "}
           <a href="/prompts">50 prompts in our free library</a> on your real work, then read{" "}
           <a href="/blog/getting-started-with-claude-code">the Claude Code guide</a> if you build
@@ -234,7 +234,7 @@ export default function Page() {
           <div className="a">
             The frontier flips with every release cycle, and both vendors&apos; flagships cluster
             within noise of each other on most public benchmarks. Benchmark deltas of a few points
-            predict almost nothing about your workload — task-fit differences like the ones above
+            predict almost nothing about your workload, task-fit differences like the ones above
             predict a lot.
           </div>
         </details>

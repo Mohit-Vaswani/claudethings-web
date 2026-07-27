@@ -8,7 +8,7 @@ const post = getPost("best-claude-code-plugins")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -63,14 +63,14 @@ export default function Page() {
         A plugin is the packaging format Claude Code was missing: one install that carries skills,
         subagents, slash commands, hooks, and MCP servers together, versioned and updatable,
         instead of fifteen folders you copied from GitHub in March and never touched again. The
-        catch is that plugins are also the easiest thing in the ecosystem to publish badly — a
+        catch is that plugins are also the easiest thing in the ecosystem to publish badly, a
         README, four thin prompts, and a marketplace listing. Here is what&apos;s actually worth
         installing, ranked, plus how to judge anything not on the list.
       </p>
 
       <h2>Our #1: the Agentary kits</h2>
       <p>
-        <strong>Disclosure first: we build this.</strong> Read the rest with that in mind — and
+        <strong>Disclosure first: we build this.</strong> Read the rest with that in mind, and
         then judge it on the criteria in the section below, which is how we&apos;d want you to
         judge ours.
       </p>
@@ -79,13 +79,13 @@ export default function Page() {
         agent, a test writer, a docs helper. The problem with a slice is that your setup ends up
         as eight plugins from eight authors, with overlapping triggers, contradictory
         conventions, and three abandoned repos. Agentary ships 89 agents, 103 skills, and 181
-        commands as one coherent library across engineering and marketing — descriptions tuned so
+        commands as one coherent library across engineering and marketing, descriptions tuned so
         things actually fire, deterministic work in bundled scripts, and one place to update when
         Claude Code changes.
       </p>
       <p>
-        If you want the honest disqualifier: it&apos;s paid, and if your needs are narrow — you
-        want a review skill and nothing else — a free single-purpose plugin is the better buy. The
+        If you want the honest disqualifier: it&apos;s paid, and if your needs are narrow, you
+        want a review skill and nothing else, a free single-purpose plugin is the better buy. The
         kits earn their place when you&apos;re running Claude Code daily across a real codebase or
         a real content operation. <a href="/#pricing">See the full contents →</a>
       </p>
@@ -94,7 +94,7 @@ export default function Page() {
       <p>
         The first-party ones set the standard, particularly for documents: PDF, Word, and
         spreadsheet handling that produces real files instead of markdown pretending to be a
-        deliverable. They&apos;re free, well-built, and demonstrate the pattern worth copying —
+        deliverable. They&apos;re free, well-built, and demonstrate the pattern worth copying, 
         the model decides, bundled scripts execute the mechanical parts. Install these before
         anything from a stranger.
       </p>
@@ -103,7 +103,7 @@ export default function Page() {
       <p>
         The good ones encode idiom, not syntax. A strong Next.js or Rails or Django plugin knows
         your framework&apos;s file conventions, its testing idiom, and the six things people get
-        wrong in it — so Claude stops writing generically correct code that looks foreign in your
+        wrong in it, so Claude stops writing generically correct code that looks foreign in your
         repo. Install the one matching your primary stack; skip the rest, since inactive plugins
         still occupy description space.
       </p>
@@ -175,7 +175,7 @@ export default function Page() {
       <h2>Installing and managing them</h2>
       <p>
         Plugins come from marketplaces, which are just git repos with a manifest. You add a
-        marketplace, then install from it — {code("/plugin marketplace add owner/repo")} followed
+        marketplace, then install from it, {code("/plugin marketplace add owner/repo")} followed
         by {code("/plugin install name@marketplace")} inside Claude Code. Project-level plugin
         config lives in your repo, so a teammate cloning it gets the same setup rather than a
         message from you explaining the setup.
@@ -183,7 +183,7 @@ export default function Page() {
       <p>
         Then actually verify. Ask Claude which skills and agents it has available, phrase a request
         that should trigger one naturally, and watch whether it fires. Half of &quot;this plugin
-        doesn&apos;t work&quot; is a description problem, not an install problem — our free{" "}
+        doesn&apos;t work&quot; is a description problem, not an install problem, our free{" "}
         <a href="/claude-skill-md-validator">SKILL.md validator</a> and{" "}
         <a href="/blog/how-to-write-a-claude-code-skill-that-triggers">the triggering guide</a>{" "}
         cover the fix.
@@ -196,7 +196,7 @@ export default function Page() {
           a <a href="/prompts">library you copy from</a>, not in your trigger space.
         </li>
         <li>
-          <strong>Anything duplicating built-ins.</strong> File reading, git, running commands —
+          <strong>Anything duplicating built-ins.</strong> File reading, git, running commands, 
           Claude Code already does these natively.
         </li>
         <li>
@@ -208,7 +208,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>One install instead of eight:</strong> Agentary bundles 89 agents, 103
-          skills, and 181 commands across engineering and marketing — triggers tuned, scripts
+          skills, and 181 commands across engineering and marketing, triggers tuned, scripts
           included, maintained as Claude Code changes.{" "}
           <a href="/#pricing">See the full contents →</a>
         </p>
@@ -218,7 +218,7 @@ export default function Page() {
       <div className="faq" style={{ marginTop: 22 }}>
         <details className="q">
           <summary>
-            Plugin, skill, or subagent — what&apos;s the difference? <span className="plus">+</span>
+            Plugin, skill, or subagent, what&apos;s the difference? <span className="plus">+</span>
           </summary>
           <div className="a">
             A skill teaches a capability, a subagent does work in its own context, a slash command
@@ -233,7 +233,7 @@ export default function Page() {
             Do installed plugins slow Claude down? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Not meaningfully, thanks to progressive disclosure — only names and descriptions stay
+            Not meaningfully, thanks to progressive disclosure, only names and descriptions stay
             loaded until something triggers. The real cost of a bloated setup is wrong triggering,
             not latency. Vague, overlapping descriptions are what hurt.
           </div>
@@ -244,7 +244,7 @@ export default function Page() {
           </summary>
           <div className="a">
             Only for breadth and upkeep. Any single skill in any kit is something you could write
-            yourself in an afternoon — a hundred of them, tuned to trigger and maintained across
+            yourself in an afternoon, a hundred of them, tuned to trigger and maintained across
             Claude Code releases, is the part nobody has an afternoon for. If you need one narrow
             capability, write it yourself and skip the purchase.
           </div>

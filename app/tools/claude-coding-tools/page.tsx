@@ -5,11 +5,11 @@ import { SITE_URL } from "@/app/lib/site";
 
 const TITLE = "Claude Coding Tools: What to Install in 2026";
 const DESC =
-  "A curated guide to coding with Claude: Claude Code, IDE extensions, AI editors, GitHub, MCP servers, and the skills layer — and what to install first.";
+  "A curated guide to coding with Claude: Claude Code, IDE extensions, AI editors, GitHub, MCP servers, and the skills layer, and what to install first.";
 const URL = `${SITE_URL}/tools/claude-coding-tools`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} — Agentary`,
+  title: `${TITLE} · Agentary`,
   description: DESC,
   alternates: { canonical: "/tools/claude-coding-tools" },
   openGraph: {
@@ -58,21 +58,21 @@ export default function Page() {
         {
           href: "/prompts/claude-prompts-for-coding",
           title: "10 Claude Prompts for Coding",
-          desc: "The technique layer — free and copy-paste.",
+          desc: "The technique layer, free and copy-paste.",
         },
       ]}
     >
       <p className="intro">
-        &quot;Coding with Claude&quot; in 2026 isn&apos;t one tool — it&apos;s a stack with four
+        &quot;Coding with Claude&quot; in 2026 isn&apos;t one tool, it&apos;s a stack with four
         layers: the agent, the editor surface, the connectors, and the expertise layer on top.
         Most developers install layer one, skim layer two, and never discover that layers three
         and four are where the compounding happens. Here&apos;s the whole map.
       </p>
 
-      <h2>Layer 1: The agent — Claude Code</h2>
+      <h2>Layer 1: The agent, Claude Code</h2>
       <p>
         The foundation. Claude Code is Anthropic&apos;s agentic coding tool: it reads your repo,
-        edits files, runs commands and tests, and iterates until the task is done — under a
+        edits files, runs commands and tests, and iterates until the task is done, under a
         permission system you control. It runs in the terminal, inside VS Code and JetBrains
         IDEs, on the web, and headlessly in CI.
       </p>
@@ -82,7 +82,7 @@ export default function Page() {
           <code>claude</code> in any project.
         </li>
         <li>
-          <strong>Best for:</strong> everything with a definition of done — features, bugs,
+          <strong>Best for:</strong> everything with a definition of done, features, bugs,
           refactors, migrations, code review, test coverage.
         </li>
         <li>
@@ -102,24 +102,24 @@ export default function Page() {
       <h3>AI-native editors (Cursor and friends)</h3>
       <p>
         Editors like Cursor blend completion with an agent and let you choose Claude as the model.
-        A reasonable choice if you want one app — but note the division of labor: editor agents
+        A reasonable choice if you want one app, but note the division of labor: editor agents
         are strongest at editor-scoped work, while Claude Code&apos;s loop (run, verify, iterate)
         and extensibility go deeper for repo-scale tasks.
       </p>
       <h3>GitHub Copilot with Claude models</h3>
       <p>
-        Copilot can run Claude models as its backend — Claude-quality completions inside the tool
+        Copilot can run Claude models as its backend, Claude-quality completions inside the tool
         your company may already license. For how completion and delegation actually divide the
         work, see <a href="/comparisons/claude-vs-copilot">Claude vs Copilot</a>.
       </p>
       <h3>Claude on the web and GitHub app</h3>
       <p>
         Claude Code&apos;s web/cloud sessions handle work when you&apos;re away from your machine,
-        and the GitHub integration reviews PRs and responds to issues — useful as the team-wide
+        and the GitHub integration reviews PRs and responds to issues, useful as the team-wide
         surface that doesn&apos;t require every member to change tools.
       </p>
 
-      <h2>Layer 3: The connectors — MCP servers</h2>
+      <h2>Layer 3: The connectors, MCP servers</h2>
       <p>
         The Model Context Protocol gives Claude tools beyond your filesystem: query the database,
         drive a browser for end-to-end verification, read Sentry errors, search your issue
@@ -128,12 +128,12 @@ export default function Page() {
         Full breakdown with setup notes: <a href="/tools/claude-mcp-servers">our MCP server guide</a>.
       </p>
 
-      <h2>Layer 4: The expertise — skills and commands</h2>
+      <h2>Layer 4: The expertise, skills and commands</h2>
       <p>
         The layer most developers never install. Claude Code is extensible with{" "}
         <strong>skills</strong> (folders that teach it repeatable capabilities) and{" "}
         <strong>slash commands</strong> (reusable prompts invoked by name). This is how a generic
-        agent becomes <em>your</em> agent — one that reviews code against your standards, writes
+        agent becomes <em>your</em> agent, one that reviews code against your standards, writes
         tests your way, and audits security like a specialist.
       </p>
       <ul>
@@ -144,7 +144,7 @@ export default function Page() {
           <a href="/claude-skill-for-website-security-audit">website security audit skill</a>.
         </li>
         <li>
-          <strong>The full library:</strong> the Agentary Engineering Kit — 58 agents, 61
+          <strong>The full library:</strong> the Agentary Engineering Kit, 58 agents, 61
           skills, and 159 commands covering review, testing, security, refactoring, and shipping.{" "}
           <a href="/#pricing">One command to install</a>.
         </li>
@@ -153,9 +153,9 @@ export default function Page() {
       <h2>What to install first: the minimal path</h2>
       <ol>
         <li>Claude Code (terminal or IDE extension) + a CLAUDE.md in your main repo.</li>
-        <li>One MCP server you&apos;ll actually use — browser automation or your database.</li>
+        <li>One MCP server you&apos;ll actually use, browser automation or your database.</li>
         <li>
-          One skills library — write your own starting from our validator, or install a kit.
+          One skills library, write your own starting from our validator, or install a kit.
         </li>
         <li>
           Stop. Add more only when a real task demands it; tool-collecting is procrastination
@@ -181,7 +181,7 @@ export default function Page() {
           </summary>
           <div className="a">
             Same agent, different ergonomics. IDE extensions add inline diff review; the terminal
-            is leaner and scripts better. Most people settle where they already live — there&apos;s
+            is leaner and scripts better. Most people settle where they already live, there&apos;s
             no wrong answer, and sessions are compatible.
           </div>
         </details>

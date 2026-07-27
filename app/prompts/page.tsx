@@ -5,24 +5,24 @@ import { COLLECTIONS } from "./promptsData";
 import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "Claude Prompts Library — 50 Copy-Paste Prompts That Work",
+  title: "Claude Prompts Library, 50 Copy-Paste Prompts That Work",
   description:
-    "A free library of 50 field-tested Claude prompts for coding, writing, data analysis, business, and marketing — each explains why it works. Copy and adapt.",
+    "A free library of 50 field-tested Claude prompts for coding, writing, data analysis, business, and marketing, each explains why it works. Copy and adapt.",
   alternates: { canonical: "/prompts" },
   openGraph: {
-    title: "Claude Prompts Library — 50 Copy-Paste Prompts That Work",
+    title: "Claude Prompts Library, 50 Copy-Paste Prompts That Work",
     description:
-      "Field-tested Claude prompts for coding, writing, data analysis, business, and marketing — with the reasoning behind each one.",
+      "Field-tested Claude prompts for coding, writing, data analysis, business, and marketing, with the reasoning behind each one.",
     type: "website",
     url: `${SITE_URL}/prompts`,
-    images: [{ url: ogImage("Claude Prompts Library — 50 Copy-Paste Prompts That Work"), width: 1200, height: 630, alt: "Claude prompts library by Agentary." }],
+    images: [{ url: ogImage("Claude Prompts Library, 50 Copy-Paste Prompts That Work"), width: 1200, height: 630, alt: "Claude prompts library by Agentary." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Claude Prompts Library — 50 Copy-Paste Prompts That Work",
+    title: "Claude Prompts Library, 50 Copy-Paste Prompts That Work",
     description:
       "Field-tested Claude prompts for coding, writing, data analysis, business, and marketing.",
-    images: [ogImage("Claude Prompts Library — 50 Copy-Paste Prompts That Work")],
+    images: [ogImage("Claude Prompts Library, 50 Copy-Paste Prompts That Work")],
   },
 };
 
@@ -41,7 +41,7 @@ export default function PromptsIndex() {
             Claude prompts that <span className="grad">actually work</span>
           </h1>
           <p className="sub">
-            {total} field-tested prompts across five disciplines — each with the{" "}
+            {total} field-tested prompts across five disciplines, each with the{" "}
             <b>reasoning for why it works</b>, so you can adapt it instead of cargo-culting it.
             No signup. Copy and go.
           </p>
@@ -90,7 +90,7 @@ export default function PromptsIndex() {
           <h2>Prompts are the manual way. Kits are the installed way.</h2>
           <p className="lead">
             The Agentary kits package this kind of expertise as 89 agents, 103 skills, and 181
-            slash commands that live inside Claude Code — so instead of pasting a code-review
+            slash commands that live inside Claude Code, so instead of pasting a code-review
             prompt, you type <code style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}>/review</code>.
           </p>
           <p style={{ marginTop: 26 }}>

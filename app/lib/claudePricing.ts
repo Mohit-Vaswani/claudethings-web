@@ -3,7 +3,7 @@
  * (Claude Code Wrapped, Plan Calculator, Token Counter).
  *
  * Prices are per million tokens (MTok), in USD, and mirror Anthropic's public
- * price list. Update here when Anthropic changes pricing — every tool that
+ * price list. Update here when Anthropic changes pricing, every tool that
  * shows a $ figure reads from this file and shows a "prices as of" note.
  */
 
@@ -19,7 +19,7 @@ export interface ModelPrice {
   cacheRead: number; // $ / MTok
 }
 
-/** Ordered — first substring match wins. */
+/** Ordered, first substring match wins. */
 export const MODEL_PRICES: ModelPrice[] = [
   { match: "opus", label: "Claude Opus", input: 15, output: 75, cacheWrite: 18.75, cacheRead: 1.5 },
   { match: "sonnet", label: "Claude Sonnet", input: 3, output: 15, cacheWrite: 3.75, cacheRead: 0.3 },
@@ -66,7 +66,7 @@ export interface Plan {
   /**
    * Rough included usage expressed as estimated Claude Code $-equivalent per
    * 5-hour session window, based on Anthropic's published "expected usage"
-   * guidance and community measurements. These are ESTIMATES — limits are
+   * guidance and community measurements. These are ESTIMATES, limits are
    * dynamic and vary with model mix and demand.
    */
   estSessionValue: number;
@@ -82,7 +82,7 @@ export const PLANS: Plan[] = [
     annualMonthly: 17,
     estSessionValue: 10,
     sessionsPerMonth: 45,
-    blurb: "Everyday use — Sonnet in Claude Code, ~45 messages / 5-hour window.",
+    blurb: "Everyday use, Sonnet in Claude Code, ~45 messages / 5-hour window.",
   },
   {
     id: "max5",
@@ -91,7 +91,7 @@ export const PLANS: Plan[] = [
     annualMonthly: 100,
     estSessionValue: 50,
     sessionsPerMonth: 45,
-    blurb: "5× Pro limits, Opus access — for daily multi-hour Claude Code sessions.",
+    blurb: "5× Pro limits, Opus access, for daily multi-hour Claude Code sessions.",
   },
   {
     id: "max20",
@@ -100,7 +100,7 @@ export const PLANS: Plan[] = [
     annualMonthly: 200,
     estSessionValue: 200,
     sessionsPerMonth: 45,
-    blurb: "20× Pro limits — for running Claude Code (and subagents) all day.",
+    blurb: "20× Pro limits, for running Claude Code (and subagents) all day.",
   },
 ];
 

@@ -5,7 +5,7 @@ import { SITE_URL } from "@/app/lib/site";
 
 /**
  * Free SKILL.md validator / linter for Claude Code Agent Skills.
- * 100% client-side — the pasted skill never leaves the browser.
+ * 100% client-side, the pasted skill never leaves the browser.
  * Reuses the global design system in app/globals.css so it matches the main site.
  */
 
@@ -82,7 +82,7 @@ function parseSkill(src: string): Parsed {
     }
   }
   if (closeIdx === -1) {
-    parsed.yamlErrors.push("The frontmatter is never closed — add a matching `---` line.");
+    parsed.yamlErrors.push("The frontmatter is never closed, add a matching `---` line.");
     parsed.frontmatterRaw = lines.slice(openIdx + 1).join("\n");
     parsed.body = "";
     return parsed;
@@ -119,7 +119,7 @@ function parseSkill(src: string): Parsed {
       val = val.replace(/^(['"])(.*)\1$/s, "$2");
       currentVal = val ? [val] : [];
     } else if (indented && currentKey) {
-      // continuation / nested (list item, folded value, nested map) — for scalar
+      // continuation / nested (list item, folded value, nested map), for scalar
       // keys like description we treat a plain indented line as folded text.
       const t = raw.trim();
       if (!t.startsWith("-") && !/^[A-Za-z0-9_-]+:/.test(t)) {
@@ -127,7 +127,7 @@ function parseSkill(src: string): Parsed {
       }
     } else if (!indented && !kv) {
       parsed.yamlErrors.push(
-        `Line \`${raw.trim().slice(0, 48)}\` isn't valid YAML — expected \`key: value\`.`
+        `Line \`${raw.trim().slice(0, 48)}\` isn't valid YAML, expected \`key: value\`.`
       );
     }
   }
@@ -176,11 +176,11 @@ export function validateSkill(src: string): ValidationResult {
   if (name === undefined) {
     add("error", "name", "Missing required `name` field.");
   } else if (name === "") {
-    add("error", "name", "`name` is empty — give the skill a kebab-case name.");
+    add("error", "name", "`name` is empty, give the skill a kebab-case name.");
   } else {
     let nameOk = true;
     if (name.length > MAX_NAME) {
-      add("error", "name", `\`name\` is ${name.length} characters — the limit is ${MAX_NAME}.`);
+      add("error", "name", `\`name\` is ${name.length} characters, the limit is ${MAX_NAME}.`);
       nameOk = false;
     }
     if (/[A-Z]/.test(name)) {
@@ -188,7 +188,7 @@ export function validateSkill(src: string): ValidationResult {
       nameOk = false;
     }
     if (/[_\s]/.test(name)) {
-      add("error", "name", "`name` can't contain spaces or underscores — use hyphens (e.g. `pdf-form-filler`).");
+      add("error", "name", "`name` can't contain spaces or underscores, use hyphens (e.g. `pdf-form-filler`).");
       nameOk = false;
     }
     if (!NAME_RE.test(name)) {
@@ -209,11 +209,11 @@ export function validateSkill(src: string): ValidationResult {
   if (desc === undefined) {
     add("error", "description", "Missing required `description` field. This is what Claude reads to decide when to load the skill.");
   } else if (desc === "") {
-    add("error", "description", "`description` is empty — describe what the skill does and when to use it.");
+    add("error", "description", "`description` is empty, describe what the skill does and when to use it.");
   } else {
     let descPass = true;
     if (desc.length > MAX_DESC) {
-      add("error", "description", `\`description\` is ${desc.length} characters — the limit is ${MAX_DESC}. Trim it.`);
+      add("error", "description", `\`description\` is ${desc.length} characters, the limit is ${MAX_DESC}. Trim it.`);
       descPass = false;
     }
     if (desc.length < 40) {
@@ -224,7 +224,7 @@ export function validateSkill(src: string): ValidationResult {
     const hasTrigger = /\bwhen\b|\btrigger|\buse (this|when|for)\b/.test(lower);
     if (!/^use\s+when\b/.test(lower)) {
       if (hasTrigger) {
-        add("warn", "description", 'Consider starting the description with "Use when…" — it makes the triggering condition the first thing Claude reads.');
+        add("warn", "description", 'Consider starting the description with "Use when…", it makes the triggering condition the first thing Claude reads.');
       } else {
         add("warn", "description", 'No triggering condition found. Add "Use when…" so Claude knows when to activate the skill, not just what it does.');
         descPass = false;
@@ -261,10 +261,10 @@ export function validateSkill(src: string): ValidationResult {
         add(
           "warn",
           "body length",
-          `The body is ${bodyLines} lines. Keep SKILL.md under ${MAX_BODY_LINES} lines — move long detail into linked reference files and point to them.`
+          `The body is ${bodyLines} lines. Keep SKILL.md under ${MAX_BODY_LINES} lines, move long detail into linked reference files and point to them.`
         );
       } else {
-        add("pass", "body length", `Body is ${bodyLines} lines — comfortably under the ${MAX_BODY_LINES}-line guideline.`);
+        add("pass", "body length", `Body is ${bodyLines} lines, comfortably under the ${MAX_BODY_LINES}-line guideline.`);
       }
 
       if (!/^#\s+\S/m.test(p.body)) {
@@ -278,7 +278,7 @@ export function validateSkill(src: string): ValidationResult {
         add("warn", "structure", 'Consider adding a "When to use this skill" section so the boundaries are explicit.');
       }
       if (!hasWhenNot) {
-        add("warn", "structure", 'Consider adding a "When NOT to use this skill" section — it sharply reduces false triggering.');
+        add("warn", "structure", 'Consider adding a "When NOT to use this skill" section, it sharply reduces false triggering.');
       }
       if (hasWhenToUse && hasWhenNot) {
         add("pass", "structure", "Includes both when-to-use and when-not-to-use guidance.");
@@ -367,10 +367,10 @@ export default function ValidatorPage() {
 
   const verdict = result
     ? result.errors > 0
-      ? { cls: "bad", text: `Not valid yet — ${result.errors} error${result.errors > 1 ? "s" : ""} to fix`, icon: "✕" }
+      ? { cls: "bad", text: `Not valid yet, ${result.errors} error${result.errors > 1 ? "s" : ""} to fix`, icon: "✕" }
       : result.warnings > 0
-      ? { cls: "okish", text: `Valid — ${result.warnings} suggestion${result.warnings > 1 ? "s" : ""} to level it up`, icon: "!" }
-      : { cls: "good", text: "Looks great — no issues found", icon: "✓" }
+      ? { cls: "okish", text: `Valid, ${result.warnings} suggestion${result.warnings > 1 ? "s" : ""} to level it up`, icon: "!" }
+      : { cls: "good", text: "Looks great, no issues found", icon: "✓" }
     : null;
 
   // nav scrolled state + scroll reveal (mirrors the home page)
@@ -416,7 +416,7 @@ export default function ValidatorPage() {
     try {
       await navigator.clipboard.writeText(lines.join("\n"));
     } catch {
-      /* clipboard blocked — ignore */
+      /* clipboard blocked, ignore */
     }
   };
 
@@ -451,7 +451,7 @@ export default function ValidatorPage() {
           <p className="sub reveal-h d3">
             Paste a Claude Code skill and this <b>free linter</b> checks the YAML frontmatter,
             the <b>name</b> and <b>description</b> rules, body length, and the when-to-use
-            structure — then tells you <b>exactly what to fix</b>. Nothing leaves your browser.
+            structure, then tells you <b>exactly what to fix</b>. Nothing leaves your browser.
           </p>
 
           {/* the tool */}
@@ -539,7 +539,7 @@ export default function ValidatorPage() {
               ["🧾", "Valid YAML frontmatter", "Confirms the file opens with a fenced `---` block, the block closes, and every top-level line is parseable key: value YAML."],
               ["🔑", "name rules", "Required, kebab-case only (lowercase, numbers, hyphens), max 64 characters, and a reminder to match the skill's folder name."],
               ["📝", "description rules", "Required, under 1024 characters, third-person, and starting with a clear “Use when…” trigger so Claude loads it at the right moment."],
-              ["📏", "Body under 500 lines", "Flags bloated skills and nudges you to move long detail into linked reference files — the pattern Anthropic recommends."],
+              ["📏", "Body under 500 lines", "Flags bloated skills and nudges you to move long detail into linked reference files, the pattern Anthropic recommends."],
               ["🧭", "When-to-use / when-not", "Checks for explicit boundaries so the skill triggers on the right tasks and stays quiet on the wrong ones."],
               ["🚦", "Unknown keys & structure", "Warns on unrecognised frontmatter keys, missing H1 titles, and empty bodies before they cost you a broken skill."],
             ].map(([ic, h, pt]) => (
@@ -572,7 +572,7 @@ export default function ValidatorPage() {
               <span className="dot r" />
               <span className="dot y" />
               <span className="dot g" />
-              <span className="term-title">SKILL.md — annotated</span>
+              <span className="term-title">SKILL.md, annotated</span>
             </div>
             <div className="term-body" style={{ fontSize: 13.5 }}>
               <div className="dim">--- &nbsp;# frontmatter must be first</div>
@@ -599,8 +599,8 @@ export default function ValidatorPage() {
 
           <div className="feat-grid" style={{ marginTop: 48 }}>
             {[
-              ["name", 'Lowercase letters, numbers and hyphens only — like `web-security-audit`. No spaces, capitals, or underscores. Maximum 64 characters, and it should match the name of the folder the SKILL.md lives in.'],
-              ["description", 'The single most important field: it is all Claude sees when deciding whether to load your skill. Write it in the third person, keep it under 1024 characters, and start with the trigger — "Use when…" — followed by what the skill does.'],
+              ["name", 'Lowercase letters, numbers and hyphens only, like `web-security-audit`. No spaces, capitals, or underscores. Maximum 64 characters, and it should match the name of the folder the SKILL.md lives in.'],
+              ["description", 'The single most important field: it is all Claude sees when deciding whether to load your skill. Write it in the third person, keep it under 1024 characters, and start with the trigger, "Use when…", followed by what the skill does.'],
               ["Body length", "Keep SKILL.md under ~500 lines. If you need more, split reference material (schemas, long examples, checklists) into separate files in the skill folder and link to them from the body."],
               ["When-to-use / when-not", "Explicit boundaries are what stop a skill from firing on the wrong task. Add a short “When to use” and “When NOT to use” section so the model has crisp guardrails."],
             ].map(([h, pt]) => (
@@ -640,7 +640,7 @@ export default function ValidatorPage() {
           <h2 className="fade">Want 103 skills that already pass?</h2>
           <p className="lead fade">
             This validator is free. The Agentary kits give you a whole library of
-            production-grade agents, skills, and slash commands — every one written to the exact
+            production-grade agents, skills, and slash commands, every one written to the exact
             bar this linter enforces.
           </p>
           <div className="kits" style={{ textAlign: "left" }}>
@@ -776,11 +776,11 @@ const FAQ: Array<[string, string]> = [
   ],
   [
     'Why should the description start with "Use when…"?',
-    'The description is the only thing Claude sees when deciding whether to activate a skill. Leading with the trigger condition — "Use when the user needs to…" — makes the activation criteria unambiguous and dramatically improves how reliably the skill fires at the right time.',
+    'The description is the only thing Claude sees when deciding whether to activate a skill. Leading with the trigger condition, "Use when the user needs to…", makes the activation criteria unambiguous and dramatically improves how reliably the skill fires at the right time.',
   ],
   [
     "How long should a SKILL.md be?",
-    "Keep the body under about 500 lines. Skills are loaded into context, so a bloated SKILL.md wastes tokens and dilutes the instructions. Move long reference material — schemas, examples, checklists — into separate files in the skill folder and link to them.",
+    "Keep the body under about 500 lines. Skills are loaded into context, so a bloated SKILL.md wastes tokens and dilutes the instructions. Move long reference material, schemas, examples, checklists, into separate files in the skill folder and link to them.",
   ],
   [
     "Is my skill uploaded when I validate it?",
@@ -788,6 +788,6 @@ const FAQ: Array<[string, string]> = [
   ],
   [
     "Does passing this validator guarantee my skill works?",
-    "It guarantees your SKILL.md meets the common formatting rules and conventions, which is where most broken skills fail. It doesn't test your instructions' quality or run the skill — treat it as a fast linting loop: validate, fix, repeat, then test the skill in Claude Code.",
+    "It guarantees your SKILL.md meets the common formatting rules and conventions, which is where most broken skills fail. It doesn't test your instructions' quality or run the skill, treat it as a fast linting loop: validate, fix, repeat, then test the skill in Claude Code.",
   ],
 ];

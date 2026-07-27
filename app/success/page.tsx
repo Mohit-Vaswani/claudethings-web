@@ -5,7 +5,7 @@ const CONTACT_EMAIL = "epictools.io@gmail.com";
 export const metadata: Metadata = {
   title: "Purchase complete · Agentary",
   description: "Thanks for purchasing Agentary. Here's what happens next.",
-  // Post-checkout landing page — not for search engines.
+  // Post-checkout landing page, not for search engines.
   robots: { index: false, follow: false },
 };
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
  * Polar checkout success page. Each Checkout Link in the Polar Dashboard
  * redirects here with ?checkout_id={CHECKOUT_ID}; the DataFast script in
  * layout.tsx reads that param to attribute revenue to the visitor's
- * marketing channel. Keep the query string intact — no redirects here.
+ * marketing channel. Keep the query string intact, no redirects here.
  */
 export default function SuccessPage() {
   const year = new Date().getFullYear();
@@ -56,7 +56,7 @@ export default function SuccessPage() {
               </li>
               <li>
                 <strong>Accept the GitHub invite.</strong> That unlocks the private repo with your
-                agents, skills, and slash commands — plus lifetime updates.
+                agents, skills, and slash commands, plus lifetime updates.
               </li>
               <li>
                 <strong>Install with one command.</strong> Setup instructions are in the repo

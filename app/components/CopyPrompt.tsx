@@ -17,10 +17,10 @@ export default function CopyPrompt({ text, title }: { text: string; title?: stri
       await navigator.clipboard.writeText(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
-      // DataFast goal — param values are capped at 255 chars
+      // DataFast goal, param values are capped at 255 chars
       window.datafast?.("copy_prompt", title ? { prompt: title.slice(0, 255) } : undefined);
     } catch {
-      /* clipboard unavailable (e.g. non-secure context) — ignore */
+      /* clipboard unavailable (e.g. non-secure context), ignore */
     }
   };
 

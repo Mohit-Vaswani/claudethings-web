@@ -5,24 +5,24 @@ import { POSTS } from "./blogData";
 import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "Blog — Claude Code Guides, Agents & Prompting — Agentary",
+  title: "Blog, Claude Code Guides, Agents & Prompting · Agentary",
   description:
     "Practical guides for getting real work out of Claude: Claude Code walkthroughs, building AI agents, prompting techniques, and applied workflows.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Agentary Blog — Claude Code Guides, Agents & Prompting",
+    title: "Agentary Blog, Claude Code Guides, Agents & Prompting",
     description:
-      "Practical guides for getting real work out of Claude — Claude Code, agents, prompting technique, applied workflows.",
+      "Practical guides for getting real work out of Claude, Claude Code, agents, prompting technique, applied workflows.",
     type: "website",
     url: `${SITE_URL}/blog`,
-    images: [{ url: ogImage("Blog — Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The Agentary blog." }],
+    images: [{ url: ogImage("Blog, Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The Agentary blog." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agentary Blog — Claude Code Guides, Agents & Prompting",
+    title: "Agentary Blog, Claude Code Guides, Agents & Prompting",
     description:
-      "Practical guides for getting real work out of Claude — Claude Code, agents, prompting technique, applied workflows.",
-    images: [ogImage("Blog — Claude Code Guides, Agents & Prompting")],
+      "Practical guides for getting real work out of Claude, Claude Code, agents, prompting technique, applied workflows.",
+    images: [ogImage("Blog, Claude Code Guides, Agents & Prompting")],
   },
 };
 
@@ -39,7 +39,7 @@ export default function BlogIndex() {
           </h1>
           <p className="sub">
             Long-form, practical, and specific: <b>Claude Code workflows, agent architecture, and
-            prompting technique</b> — the write-ups we wished existed while building Agentary.
+            prompting technique</b>, the write-ups we wished existed while building Agentary.
           </p>
         </div>
       </header>
@@ -70,7 +70,7 @@ export default function BlogIndex() {
           <h2>Prefer copy-paste over theory?</h2>
           <p className="lead">
             The <a href="/prompts" className="accent">prompt library</a> has 50 field-tested Claude
-            prompts across coding, writing, data, business, and marketing — each with the reasoning
+            prompts across coding, writing, data, business, and marketing, each with the reasoning
             behind it.
           </p>
           <p style={{ marginTop: 26 }}>

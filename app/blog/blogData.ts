@@ -1,6 +1,6 @@
 /**
  * Registry of blog posts. Each post is a static folder at app/blog/<slug>/.
- * The /blog index and the sitemap read from this list — add an entry here
+ * The /blog index and the sitemap read from this list, add an entry here
  * when you publish a new post.
  */
 
@@ -20,7 +20,7 @@ export const POSTS: BlogPost[] = [
     slug: "best-mcp-servers-for-claude-code",
     title: "The 12 Best MCP Servers for Claude Code",
     description:
-      "A ranked shortlist of the MCP servers worth connecting — why Context7 comes first, which ones just duplicate Claude Code, and why four to six beats forty.",
+      "A ranked shortlist of the MCP servers worth connecting, why Context7 comes first, which ones just duplicate Claude Code, and why four to six beats forty.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "MCP",
@@ -40,7 +40,7 @@ export const POSTS: BlogPost[] = [
     slug: "best-ai-coding-assistants",
     title: "The Best AI Coding Assistants in 2026",
     description:
-      "Claude Code, Cursor, Codex, Copilot, Cline and more — ranked on shipped work, not demos, with a pick-by-job table and the setting that matters most.",
+      "Claude Code, Cursor, Codex, Copilot, Cline and more, ranked on shipped work, not demos, with a pick-by-job table and the setting that matters most.",
     date: "July 2026",
     readingTime: "10 min read",
     tag: "Tools",
@@ -50,7 +50,7 @@ export const POSTS: BlogPost[] = [
     slug: "best-claude-code-hooks",
     title: "The 9 Best Claude Code Hooks to Set Up First",
     description:
-      "The nine hooks worth having — auto-format, dangerous-command blocking, secret guards, test runs, and notifications — plus which event to use for each.",
+      "The nine hooks worth having, auto-format, dangerous-command blocking, secret guards, test runs, and notifications, plus which event to use for each.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "Hooks",
@@ -60,7 +60,7 @@ export const POSTS: BlogPost[] = [
     slug: "best-ai-tools-for-marketers",
     title: "The Best AI Tools for Marketers in 2026",
     description:
-      "Seven tools that cover the whole job, not fifty that overlap: content, keyword data, research, design, video, lifecycle, and automation — with a clear #1.",
+      "Seven tools that cover the whole job, not fifty that overlap: content, keyword data, research, design, video, lifecycle, and automation, with a clear #1.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "Marketing",
@@ -70,7 +70,7 @@ export const POSTS: BlogPost[] = [
     slug: "claude-skills-examples",
     title: "Claude Skills Examples: 6 Real SKILL.md Files",
     description:
-      "Six worked Claude skills — commit messages, tests, PDFs, brand voice, debugging, and conventions — plus the anatomy of a SKILL.md and why skills fire.",
+      "Six worked Claude skills, commit messages, tests, PDFs, brand voice, debugging, and conventions, plus the anatomy of a SKILL.md and why skills fire.",
     date: "July 2026",
     readingTime: "8 min read",
     tag: "Skills",
@@ -80,7 +80,7 @@ export const POSTS: BlogPost[] = [
     slug: "claude-skills-for-coding",
     title: "Claude Skills for Coding: 8 That Improve Code",
     description:
-      "Code review, tests, debugging, refactoring, security, migrations, and git hygiene — what goes in each coding skill, and when to use one over CLAUDE.md.",
+      "Code review, tests, debugging, refactoring, security, migrations, and git hygiene, what goes in each coding skill, and when to use one over CLAUDE.md.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "Coding",
@@ -100,7 +100,7 @@ export const POSTS: BlogPost[] = [
     slug: "claude-skills-for-pdf",
     title: "Claude Skills for PDF: Extract, Fill, Merge, OCR",
     description:
-      "How a PDF skill bundles scripts to extract tables, fill forms, merge, split, OCR scans, and generate documents — and the pattern worth stealing.",
+      "How a PDF skill bundles scripts to extract tables, fill forms, merge, split, OCR scans, and generate documents, and the pattern worth stealing.",
     date: "July 2026",
     readingTime: "8 min read",
     tag: "Documents",
@@ -120,7 +120,7 @@ export const POSTS: BlogPost[] = [
     slug: "claude-skills-for-research",
     title: "Claude Skills for Research: Method, Not Guessing",
     description:
-      "How a research skill encodes a search protocol, a sourcing rule with teeth, and permission to find nothing — plus five research skills worth having.",
+      "How a research skill encodes a search protocol, a sourcing rule with teeth, and permission to find nothing, plus five research skills worth having.",
     date: "July 2026",
     readingTime: "8 min read",
     tag: "Research",
@@ -140,7 +140,7 @@ export const POSTS: BlogPost[] = [
     slug: "claude-skills-for-studying",
     title: "Claude Skills for Studying: A Tutor, Not Answers",
     description:
-      "Six study skills — Socratic tutoring, active recall, the Feynman technique, spaced repetition, worked examples, and exam simulation — and how to write one.",
+      "Six study skills, Socratic tutoring, active recall, the Feynman technique, spaced repetition, worked examples, and exam simulation, and how to write one.",
     date: "July 2026",
     readingTime: "8 min read",
     tag: "Learning",
@@ -150,7 +150,7 @@ export const POSTS: BlogPost[] = [
     slug: "mention-your-product-on-reddit-without-getting-banned",
     title: "Mention Your Product on Reddit Without a Ban",
     description:
-      "Why most product posts get removed on Reddit — plus a copy-paste Claude prompt that interviews you, then writes a post that reads like a person, not an ad.",
+      "Why most product posts get removed on Reddit, plus a copy-paste Claude prompt that interviews you, then writes a post that reads like a person, not an ad.",
     date: "July 2026",
     readingTime: "8 min read",
     tag: "Marketing",
@@ -170,7 +170,7 @@ export const POSTS: BlogPost[] = [
     slug: "best-claude-code-subagents",
     title: "The 12 Best Claude Code Subagents",
     description:
-      "A curated starter set of Claude Code subagents — code reviewer, debugger, security auditor, orchestrator, and more — and what makes a subagent actually good.",
+      "A curated starter set of Claude Code subagents, code reviewer, debugger, security auditor, orchestrator, and more, and what makes a subagent actually good.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "Subagents",
@@ -180,7 +180,7 @@ export const POSTS: BlogPost[] = [
     slug: "how-to-write-a-claude-code-skill-that-triggers",
     title: "Write a Claude Code Skill That Triggers",
     description:
-      "Why most Claude Code skills never fire — and how to fix it: how triggering works, the description formula, five common failure causes, and testing skills.",
+      "Why most Claude Code skills never fire, and how to fix it: how triggering works, the description formula, five common failure causes, and testing skills.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "Skills",
@@ -200,7 +200,7 @@ export const POSTS: BlogPost[] = [
     slug: "claude-code-custom-slash-commands-examples",
     title: "15 Claude Code Slash Command Examples",
     description:
-      "Fifteen ready-to-use custom slash commands for Claude Code — review, commit, debug, changelog, dependency audits — plus a 60-second syntax primer.",
+      "Fifteen ready-to-use custom slash commands for Claude Code, review, commit, debug, changelog, dependency audits, plus a 60-second syntax primer.",
     date: "July 2026",
     readingTime: "10 min read",
     tag: "Slash commands",
@@ -220,7 +220,7 @@ export const POSTS: BlogPost[] = [
     slug: "run-claude-code-agents-in-parallel",
     title: "Run Claude Code Agents in Parallel",
     description:
-      "Sequential, parallel, and fan-out orchestration for Claude Code agents — when each earns its cost, seven rules to keep token spend sane, and an example.",
+      "Sequential, parallel, and fan-out orchestration for Claude Code agents, when each earns its cost, seven rules to keep token spend sane, and an example.",
     date: "July 2026",
     readingTime: "10 min read",
     tag: "Orchestration",
@@ -230,7 +230,7 @@ export const POSTS: BlogPost[] = [
     slug: "claude-code-for-marketers",
     title: "Claude Code for Marketers",
     description:
-      "Claude Code isn't just for developers. How marketers use it for SEO content pipelines, campaign assets, and reporting — on real files, no code required.",
+      "Claude Code isn't just for developers. How marketers use it for SEO content pipelines, campaign assets, and reporting, on real files, no code required.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "Marketing",
@@ -240,7 +240,7 @@ export const POSTS: BlogPost[] = [
     slug: "boilerplates-are-dead-claude-code-agents",
     title: "Boilerplates Are Dead: Ship SaaS with Agents",
     description:
-      "Why $300 SaaS boilerplates stopped making sense — locked stacks, dead code, and rot — and the agent-first build sequence that replaces them.",
+      "Why $300 SaaS boilerplates stopped making sense, locked stacks, dead code, and rot, and the agent-first build sequence that replaces them.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "Shipping",
@@ -250,7 +250,7 @@ export const POSTS: BlogPost[] = [
     slug: "best-claude-code-skills",
     title: "The Best Claude Code Skills to Install in 2026",
     description:
-      "An opinionated shortlist of Claude Code skills worth installing — code review, security, documents, SEO, and more — plus how to vet any skill in 30 seconds.",
+      "An opinionated shortlist of Claude Code skills worth installing, code review, security, documents, SEO, and more, plus how to vet any skill in 30 seconds.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "Skills",
@@ -260,7 +260,7 @@ export const POSTS: BlogPost[] = [
     slug: "getting-started-with-claude-code",
     title: "Getting Started with Claude Code",
     description:
-      "A no-fluff guide to Claude Code: install, your first session, CLAUDE.md, permissions, skills — and the habits that separate power users from tourists.",
+      "A no-fluff guide to Claude Code: install, your first session, CLAUDE.md, permissions, skills, and the habits that separate power users from tourists.",
     date: "July 2026",
     readingTime: "9 min read",
     tag: "Claude Code",

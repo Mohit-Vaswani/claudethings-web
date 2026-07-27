@@ -5,18 +5,18 @@ export const dataAnalysis: PromptCollection = {
   label: "Data analysis",
   icon: "📊",
   title: "10 Claude Prompts for Data Analysis That Actually Work",
-  metaTitle: "10 Claude Prompts for Data Analysis — Agentary",
+  metaTitle: "10 Claude Prompts for Data Analysis · Agentary",
   description:
     "Ten Claude prompts for data analysis: profiling datasets, writing SQL, statistical sanity checks, chart selection, and turning numbers into a clear narrative.",
   intro: [
-    "Claude is unusually good at data work — not because it can crunch a billion rows (it can't; your warehouse does that), but because it can reason about data: what to check first, which comparison actually answers the question, and what a number means for the person reading it.",
-    "The prompts below are structured the way strong analysts think. Each one gives Claude a role, real context, a specific task, and a defined output format — the four ingredients that separate a vague answer from a useful one. Replace the [bracketed] placeholders with your own details, and paste your data (or schema) right after the prompt.",
+    "Claude is unusually good at data work, not because it can crunch a billion rows (it can't; your warehouse does that), but because it can reason about data: what to check first, which comparison actually answers the question, and what a number means for the person reading it.",
+    "The prompts below are structured the way strong analysts think. Each one gives Claude a role, real context, a specific task, and a defined output format, the four ingredients that separate a vague answer from a useful one. Replace the [bracketed] placeholders with your own details, and paste your data (or schema) right after the prompt.",
   ],
   howToUse: [
-    "Paste the actual data, schema, or query results below the prompt — Claude reasons far better over concrete rows than over descriptions of rows.",
+    "Paste the actual data, schema, or query results below the prompt, Claude reasons far better over concrete rows than over descriptions of rows.",
     "If your dataset is large, paste a representative sample plus the column list. Claude can write code (Python/SQL) for the full dataset.",
     "Chain the prompts: profile first, then analyze, then visualize, then narrate. Each output feeds the next.",
-    "In Claude Code or the API, these work even better with file access — point Claude at the CSV instead of pasting it.",
+    "In Claude Code or the API, these work even better with file access, point Claude at the CSV instead of pasting it.",
   ],
   prompts: [
     {
@@ -30,7 +30,7 @@ Profile it before any analysis:
 1. What does each column appear to represent? Flag ambiguous ones.
 2. Data quality issues: nulls, duplicates, impossible values, mixed types, suspicious outliers.
 3. Which columns are dimensions vs. metrics?
-4. What questions could this dataset credibly answer — and which questions would it NOT support?
+4. What questions could this dataset credibly answer, and which questions would it NOT support?
 5. The three checks you'd run before trusting any conclusion from this data.
 
 Be specific: reference actual column names and example values.`,
@@ -48,7 +48,7 @@ Work like an analyst, not a search engine:
 3. Specify the queries/cuts needed to test each one (write them if you have the schema).
 4. State what result would make you say "we don't have the data to know."
 
-Do not conclude anything yet — this is the analysis plan.`,
+Do not conclude anything yet, this is the analysis plan.`,
       note: "Asking for hypotheses and disconfirming evidence before conclusions prevents the classic failure mode: Claude (or any analyst) rationalizing the first pattern it sees.",
     },
     {
@@ -81,8 +81,8 @@ Attack it like a skeptical reviewer:
 2. Correlation vs. causation: what confounders could produce this pattern?
 3. Survivorship, selection, or seasonality effects that could explain it?
 4. Would this survive a segment split (by cohort, geography, plan tier)?
-5. Verdict: "solid", "directionally useful", or "not supported" — and the one test that would upgrade it.`,
-      note: "Inviting Claude to attack your conclusion flips it from agreeable assistant to adversarial reviewer — you get the criticism before your stakeholders deliver it.",
+5. Verdict: "solid", "directionally useful", or "not supported", and the one test that would upgrade it.`,
+      note: "Inviting Claude to attack your conclusion flips it from agreeable assistant to adversarial reviewer, you get the criticism before your stakeholders deliver it.",
     },
     {
       title: "The chart chooser",
@@ -97,11 +97,11 @@ Recommend:
 4. Two mistakes people typically make with this chart type.
 
 Then generate the chart code in [Python/matplotlib, plotly, or React/Recharts].`,
-      note: "Anchoring the chart to a takeaway and an audience — not just data shape — is what produces charts that persuade rather than decorate.",
+      note: "Anchoring the chart to a takeaway and an audience, not just data shape, is what produces charts that persuade rather than decorate.",
     },
     {
       title: "The anomaly investigator",
-      prompt: `This metric moved and I need to know why: [metric, direction, magnitude, when — e.g. "checkout conversion fell from 3.1% to 2.4% starting May 14"].
+      prompt: `This metric moved and I need to know why: [metric, direction, magnitude, when, e.g. "checkout conversion fell from 3.1% to 2.4% starting May 14"].
 
 Context: [product, recent changes, seasonality you know about]
 Data I can pull: [tables/dimensions available]
@@ -120,8 +120,8 @@ Run a structured root-cause investigation:
 Product context: [what the product is, what 'active' means, when the change shipped]
 
 Specify precisely:
-1. Cohort definition (what event, what grain — day/week/month).
-2. The activity metric and its exact definition (avoid vanity definitions — justify your choice).
+1. Cohort definition (what event, what grain, day/week/month).
+2. The activity metric and its exact definition (avoid vanity definitions, justify your choice).
 3. The comparison that isolates the change (pre/post cohorts, and what contaminates them).
 4. How many periods until the answer is trustworthy.
 5. A mock table of what the output should look like, with realistic fake numbers so I can sense-check the shape.`,
@@ -149,13 +149,13 @@ Style: prefer readable over clever. No functions longer than a screen. If a step
 
 [paste your analysis, tables, or notebook conclusions]
 
-Audience: [e.g. "CFO — numerate, skeptical, 90 seconds of attention"]
+Audience: [e.g. "CFO, numerate, skeptical, 90 seconds of attention"]
 Decision at stake: [what will be decided based on this]
 
 Produce:
 1. A one-sentence headline stating the finding (not the topic).
 2. Three supporting bullets, each with a number.
-3. The caveat that matters (just one — the one that could change the decision).
+3. The caveat that matters (just one, the one that could change the decision).
 4. The recommendation, phrased as an action with an owner and a timeframe.
 
 Cut everything that doesn't serve the decision. No methodology unless it changes the conclusion.`,
@@ -168,7 +168,7 @@ Cut everything that doesn't serve the decision. No methodology unless it changes
 Positions:
 [summarize each camp's definition and reasoning]
 
-Business context: [what the metric drives — goals, comp, board reporting]
+Business context: [what the metric drives, goals, comp, board reporting]
 
 Arbitrate:
 1. What behavior does each definition actually incentivize? Where would each be gamed?
@@ -185,11 +185,11 @@ Arbitrate:
     },
     {
       title: "Make Claude show its checks",
-      body: "Every prompt above asks for assumptions, sanity checks, or disconfirming evidence. That's not decoration — it's how you catch the 5% of answers that would otherwise mislead you.",
+      body: "Every prompt above asks for assumptions, sanity checks, or disconfirming evidence. That's not decoration, it's how you catch the 5% of answers that would otherwise mislead you.",
     },
     {
       title: "Use Claude Code for real datasets",
-      body: "For files too big to paste, run Claude Code in the folder with your CSVs. It reads the files, writes and executes the pandas/SQL itself, and iterates on errors — the analysis loop closes without you copy-pasting.",
+      body: "For files too big to paste, run Claude Code in the folder with your CSVs. It reads the files, writes and executes the pandas/SQL itself, and iterates on errors, the analysis loop closes without you copy-pasting.",
     },
     {
       title: "Keep a prompt notebook",
@@ -199,11 +199,11 @@ Arbitrate:
   faq: [
     {
       q: "Can Claude analyze a full CSV file?",
-      a: "In the Claude apps you can upload files directly, and Claude's analysis tool can run code over them. For bigger or private datasets, use Claude Code locally — it reads files from disk and executes real Python/SQL, so nothing is size-limited by the chat window.",
+      a: "In the Claude apps you can upload files directly, and Claude's analysis tool can run code over them. For bigger or private datasets, use Claude Code locally, it reads files from disk and executes real Python/SQL, so nothing is size-limited by the chat window.",
     },
     {
       q: "Is Claude accurate enough for statistics?",
-      a: "Claude is strong at statistical reasoning — choosing tests, spotting confounders, interpreting results. For actual computation, have it write code and run the code. The prompts above are built around that split: Claude reasons, code computes.",
+      a: "Claude is strong at statistical reasoning, choosing tests, spotting confounders, interpreting results. For actual computation, have it write code and run the code. The prompts above are built around that split: Claude reasons, code computes.",
     },
     {
       q: "Which Claude model should I use for data analysis?",
@@ -211,7 +211,7 @@ Arbitrate:
     },
     {
       q: "How is this different from just asking 'analyze my data'?",
-      a: "'Analyze my data' makes Claude guess your intent, your standards, and your output format all at once — so it hedges. These prompts pin down role, context, task, and format, which is why the answers come back specific and decision-ready.",
+      a: "'Analyze my data' makes Claude guess your intent, your standards, and your output format all at once, so it hedges. These prompts pin down role, context, task, and format, which is why the answers come back specific and decision-ready.",
     },
   ],
 };

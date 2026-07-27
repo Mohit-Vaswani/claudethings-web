@@ -8,7 +8,7 @@ const post = getPost("claude-skills-marketplace")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -56,7 +56,7 @@ const faqLd = {
       name: "Do Claude skills cost money?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The skill format is open and most community skills are free on GitHub. Paid offerings exist and generally sell curation and maintenance — a vetted, tested bundle installed in one command — rather than access to the format itself.",
+        text: "The skill format is open and most community skills are free on GitHub. Paid offerings exist and generally sell curation and maintenance, a vetted, tested bundle installed in one command, rather than access to the format itself.",
       },
     },
   ],
@@ -91,7 +91,7 @@ export default function Page() {
       ]}
     >
       <p className="intro">
-        &quot;Claude skills marketplace&quot; is a search people make expecting an app store — a
+        &quot;Claude skills marketplace&quot; is a search people make expecting an app store, a
         browsable catalog with ratings and one-click installs. The reality is both simpler and more
         open, and once you understand how distribution actually works, finding good skills gets much
         easier. Here is the real map of the ecosystem: where skills live, how marketplaces work, how
@@ -116,8 +116,8 @@ export default function Page() {
 
       <h2>The four places skills come from</h2>
       <p>
-        <strong>1. Anthropic&apos;s own skills.</strong> The document skills — PDF, Word,
-        PowerPoint, Excel — are open source and are the reference implementation of the format. If
+        <strong>1. Anthropic&apos;s own skills.</strong> The document skills, PDF, Word,
+        PowerPoint, Excel, are open source and are the reference implementation of the format. If
         you want to see how a skill should be structured, read these first.
       </p>
       <p>
@@ -134,7 +134,7 @@ export default function Page() {
       </p>
       <p>
         <strong>4. Curated paid kits.</strong> Bundles where someone has already done the reading,
-        testing, and deduplication. What you buy is not the format — it is the filtering and the
+        testing, and deduplication. What you buy is not the format, it is the filtering and the
         upkeep.
       </p>
 
@@ -143,7 +143,7 @@ export default function Page() {
       <ul>
         <li>
           <strong>The description names its triggers.</strong> If it does not say <em>when</em> to
-          use the skill, Claude will not know when to load it — and it will sit installed and inert.
+          use the skill, Claude will not know when to load it, and it will sit installed and inert.
         </li>
         <li>
           <strong>The body is a procedure.</strong> Steps, checklists, worked examples. If it opens
@@ -170,7 +170,7 @@ export default function Page() {
       <p>
         From a marketplace, installation is a command and updates come with it. From GitHub, you
         copy the folder into {code(".claude/skills/")} for one project or {code("~/.claude/skills/")}{" "}
-        for all of them — no build step, no registry, no package manager.
+        for all of them, no build step, no registry, no package manager.
       </p>
       <p>
         Either way, <strong>verify it loads</strong>. Ask Claude which skills are available, then
@@ -185,7 +185,7 @@ export default function Page() {
       <h2>What is worth paying for</h2>
       <p>
         Nothing about the format is paywalled, so anyone selling &quot;access to skills&quot; is
-        selling you air. What genuinely costs time — and is therefore worth buying — is curation and
+        selling you air. What genuinely costs time, and is therefore worth buying, is curation and
         maintenance: someone reading forty repositories so you read none, deduplicating overlapping
         skills so they stop competing for triggers, testing that each one fires, and keeping the set
         current as Claude Code changes. That is the honest value proposition of a paid kit, and it
@@ -194,7 +194,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>The curated option:</strong> Agentary is a vetted library — 103 skills, 89
+          <strong>The curated option:</strong> Agentary is a vetted library, 103 skills, 89
           agents, and 181 commands, deduplicated, trigger-tested, and installed with one command
           instead of forty folder copies.{" "}
           <a href="/#pricing">See what is inside →</a>
@@ -208,7 +208,7 @@ export default function Page() {
             Is there one official Claude skills marketplace? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Not in the app-store sense. Claude Code supports <em>many</em> marketplaces — each is a
+            Not in the app-store sense. Claude Code supports <em>many</em> marketplaces, each is a
             git repository with a plugin manifest. Anthropic runs one; anyone can host another. Open
             by design, unreviewed as a consequence.
           </div>
@@ -227,7 +227,7 @@ export default function Page() {
             Will installing many skills slow Claude down? <span className="plus">+</span>
           </summary>
           <div className="a">
-            No — only names and descriptions stay in context until a skill triggers. The real cost
+            No, only names and descriptions stay in context until a skill triggers. The real cost
             of a big library is overlapping descriptions causing the wrong skill to fire, which is a
             curation problem, not a performance one.
           </div>

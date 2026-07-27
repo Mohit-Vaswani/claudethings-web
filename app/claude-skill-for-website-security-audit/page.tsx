@@ -8,7 +8,7 @@ const PATH = "/claude-skill-for-website-security-audit";
 export const metadata: Metadata = {
   title: "Free Claude Skill for Website Security Audit",
   description:
-    "A free Claude skill that audits your site for security issues — missing HTTPS, exposed .env/.git files, leaky headers, hardcoded secrets, and vulnerable deps.",
+    "A free Claude skill that audits your site for security issues, missing HTTPS, exposed .env/.git files, leaky headers, hardcoded secrets, and vulnerable deps.",
   keywords: [
     "claude skill",
     "website security audit",
@@ -22,24 +22,24 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free Claude Skill for Website Security Audit",
     description:
-      "Scan your own website for the security issues that actually get sites breached — and get a plain-English report with exact fixes. Free download.",
+      "Scan your own website for the security issues that actually get sites breached, and get a plain-English report with exact fixes. Free download.",
     type: "website",
     url: `${SITE_URL}${PATH}`,
-    images: [{ url: ogImage("Free Claude Skill for Website Security Audit — Scan Your Site in Minutes"), width: 1200, height: 630, alt: "Free Website Security Audit Claude skill." }],
+    images: [{ url: ogImage("Free Claude Skill for Website Security Audit, Scan Your Site in Minutes"), width: 1200, height: 630, alt: "Free Website Security Audit Claude skill." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free Claude Skill for Website Security Audit",
     description:
-      "Scan your own website for the security issues that actually get sites breached — free Claude skill with a prioritized fix-it report.",
-    images: [ogImage("Free Claude Skill for Website Security Audit — Scan Your Site in Minutes")],
+      "Scan your own website for the security issues that actually get sites breached, free Claude skill with a prioritized fix-it report.",
+    images: [ogImage("Free Claude Skill for Website Security Audit, Scan Your Site in Minutes")],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Website Security Audit — Claude Skill",
+  name: "Website Security Audit, Claude Skill",
   applicationCategory: "SecurityApplication",
   operatingSystem: "Claude Code (macOS, Windows, Linux)",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

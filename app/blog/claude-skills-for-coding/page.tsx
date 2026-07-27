@@ -8,7 +8,7 @@ const post = getPost("claude-skills-for-coding")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -56,7 +56,7 @@ const faqLd = {
       name: "Do coding skills work outside Claude Code?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Skills are a portable format — the same folder of markdown and scripts works across Claude Code, the Claude apps, and agents built with the Claude Agent SDK, as long as the environment supports loading skills.",
+        text: "Yes. Skills are a portable format, the same folder of markdown and scripts works across Claude Code, the Claude apps, and agents built with the Claude Agent SDK, as long as the environment supports loading skills.",
       },
     },
   ],
@@ -108,7 +108,7 @@ export default function Page() {
       </p>
       <p>
         Because skills use progressive disclosure, only the description sits in context until
-        something matches — roughly a sentence per skill. That means you can have twenty coding
+        something matches, roughly a sentence per skill. That means you can have twenty coding
         skills installed without paying for nineteen of them on any given turn.
       </p>
 
@@ -127,13 +127,13 @@ export default function Page() {
         Encode the framework, the file layout, and the standards: behavior over implementation, at
         least one failure path, no assertions on private state, and the suite actually run before
         anything is declared passing. That last rule turns &quot;I wrote tests&quot; into &quot;the
-        tests are green&quot;, which is a different claim entirely.
+        tests are green&quot;  which is a different claim entirely.
       </p>
 
       <h2>3. Debugging methodology</h2>
       <p>
         Reproduce, hypothesize, instrument, confirm, fix the root cause, clean up. Every experienced
-        engineer knows this loop and abandons it under pressure — models do too, defaulting to
+        engineer knows this loop and abandons it under pressure, models do too, defaulting to
         patching the symptom that makes the error message go away. A debugging skill is
         pure discipline enforcement, and it pays for itself the first time it prevents a fix that
         hides a bug instead of removing it.
@@ -164,7 +164,7 @@ export default function Page() {
 
       <h2>7. Git and PR hygiene</h2>
       <p>
-        Commit message format, branch naming, and how to write a PR description from a diff —
+        Commit message format, branch naming, and how to write a PR description from a diff, 
         what changed, why, what to look at first, how it was tested. Small skill, constant use, and
         it makes an entire repo&apos;s history readable by one convention instead of five.
       </p>
@@ -180,11 +180,11 @@ export default function Page() {
       <h2>Skills, CLAUDE.md, subagents: which goes where</h2>
       <p>
         A quick rule. <strong>CLAUDE.md</strong> is always in context, so it should hold short facts
-        that apply to every task — the stack, the commands, the hard prohibitions. See our{" "}
+        that apply to every task, the stack, the commands, the hard prohibitions. See our{" "}
         <a href="/blog/claude-md-best-practices-template">CLAUDE.md guide</a> for a template.{" "}
         <strong>Skills</strong> hold procedures that only matter sometimes, and load on demand.{" "}
         <strong>Subagents</strong> do work in a separate context window when a task is big enough to
-        pollute your main one. The three are complements, not alternatives — we compare them
+        pollute your main one. The three are complements, not alternatives, we compare them
         directly in{" "}
         <a href="/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp">
           skills vs subagents vs slash commands vs MCP
@@ -197,7 +197,7 @@ export default function Page() {
         A coding skill that never triggers is worse than no skill, because you assume it is working.
         Write descriptions that name situations, not topics: &quot;Use before opening a pull
         request, when the user asks for a review, or after finishing a feature&quot; beats
-        &quot;code review expertise&quot;. Then test it — ask Claude to list its available skills,
+        &quot;code review expertise&quot;. Then test it, ask Claude to list its available skills,
         phrase a normal request, and check that the right one loads. The{" "}
         <a href="/claude-skill-md-validator">free SKILL.md validator</a> catches the frontmatter
         errors that silently prevent loading.
@@ -206,7 +206,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>All eight, already written:</strong> the Agentary engineer kit ships review,
-          testing, debugging, security, migration, and release skills tuned to trigger — part of 103
+          testing, debugging, security, migration, and release skills tuned to trigger, part of 103
           skills, 89 agents, and 181 commands installed with one command.{" "}
           <a href="/#pricing">See the kits →</a>
         </p>
@@ -220,7 +220,7 @@ export default function Page() {
           </summary>
           <div className="a">
             Short rules that apply to every single task go in CLAUDE.md. Long procedures that apply
-            only to specific tasks — a review checklist, a migration process — go in a skill, so
+            only to specific tasks, a review checklist, a migration process, go in a skill, so
             they cost nothing when irrelevant.
           </div>
         </details>
@@ -239,7 +239,7 @@ export default function Page() {
             Do skills work with other Claude products? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Yes — the SKILL.md format is portable across Claude Code, the Claude apps, and agents
+            Yes, the SKILL.md format is portable across Claude Code, the Claude apps, and agents
             built with the Agent SDK, so a skill you write for your terminal can travel with you.
           </div>
         </details>

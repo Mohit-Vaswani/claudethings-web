@@ -8,7 +8,7 @@ const post = getPost("best-claude-code-skills")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -45,7 +45,7 @@ export default function Page() {
         {
           href: "/blog/best-claude-code-subagents",
           title: "The 12 Subagents Worth Setting Up First",
-          desc: "The matching shortlist for agents — skills teach, agents do.",
+          desc: "The matching shortlist for agents, skills teach, agents do.",
         },
         {
           href: "/blog/how-to-write-a-claude-code-skill-that-triggers",
@@ -62,7 +62,7 @@ export default function Page() {
       <p className="intro">
         Skills are the highest-leverage extension in Claude Code: documents that teach Claude a
         capability once, then load automatically whenever a task matches. The ecosystem&apos;s
-        problem is the same one subagents have — giant unsorted repos where a brilliant skill sits
+        problem is the same one subagents have, giant unsorted repos where a brilliant skill sits
         next to an abandoned one and nothing tells you which is which. Here is an opinionated
         shortlist for 2026: the skills worth installing, grouped by the job they do.
       </p>
@@ -85,13 +85,13 @@ export default function Page() {
         </li>
         <li>
           <strong>It states what not to do.</strong> The best skills exist precisely because the
-          default behavior was wrong — and say so.
+          default behavior was wrong, and say so.
         </li>
       </ul>
 
       <h2>Code quality: the daily drivers</h2>
       <p>
-        <strong>1. Code review.</strong> A severity-ranked review checklist — correctness first,
+        <strong>1. Code review.</strong> A severity-ranked review checklist, correctness first,
         style last, no invented findings. The single most-used skill in most setups.
       </p>
       <p>
@@ -111,7 +111,7 @@ export default function Page() {
       <h2>Shipping safely</h2>
       <p>
         <strong>5. Security review.</strong> Injection, authz gaps, secrets, unsafe input
-        handling — applied as a consistent checklist on anything touching auth, payments, or user
+        handling, applied as a consistent checklist on anything touching auth, payments, or user
         data.
       </p>
       <p>
@@ -120,8 +120,8 @@ export default function Page() {
         point.
       </p>
       <p>
-        <strong>7. Release/deploy process.</strong> Your actual release ritual — version bumps,
-        changelog, smoke checks — encoded so it runs identically whether you ship or your newest
+        <strong>7. Release/deploy process.</strong> Your actual release ritual, version bumps,
+        changelog, smoke checks, encoded so it runs identically whether you ship or your newest
         teammate does.
       </p>
       <p>
@@ -132,20 +132,20 @@ export default function Page() {
       <h2>Documents and data: the underrated workhorses</h2>
       <p>
         <strong>9–11. PDF, Word, and spreadsheet handling.</strong> Anthropic&apos;s own
-        open-source document skills set the standard here: extract, create, and edit real files —
+        open-source document skills set the standard here: extract, create, and edit real files, 
         with the mechanical parts done by bundled scripts. If your work involves documents at all,
         these three are automatic installs.
       </p>
       <p>
         <strong>12. Data analysis and visualization.</strong> Chart-type selection, sane
-        defaults, honest axes — a skill that stops the default instinct to produce a rainbow pie
+        defaults, honest axes, a skill that stops the default instinct to produce a rainbow pie
         chart for everything.
       </p>
 
       <h2>Content and growth</h2>
       <p>
         <strong>13. SEO writing.</strong> Search-intent matching, heading structure, metadata
-        limits, internal linking — applied automatically whenever you draft site content.
+        limits, internal linking, applied automatically whenever you draft site content.
       </p>
       <p>
         <strong>14. Brand voice review.</strong> Your tone-of-voice guide as an enforcement pass:
@@ -153,7 +153,7 @@ export default function Page() {
       </p>
       <p>
         <strong>15. Skill-writing itself.</strong> The meta-skill: teaches Claude to write and
-        critique new SKILL.md files properly. Install this early — it makes every skill you author
+        critique new SKILL.md files properly. Install this early, it makes every skill you author
         afterward better.
       </p>
 
@@ -161,23 +161,23 @@ export default function Page() {
       <p>
         A skill is just a folder: drop it in {code(".claude/skills/")} in a project (shared with
         your team via git) or {code("~/.claude/skills/")} for every project. Community skills from
-        GitHub work by copying the folder — read them first, since skills are instructions Claude
+        GitHub work by copying the folder, read them first, since skills are instructions Claude
         will follow with your permissions. Then verify each one loads and fires: ask Claude
-        &quot;which skills do you have available?&quot;, then phrase a matching request naturally
+        &quot;which skills do you have available?&quot;  then phrase a matching request naturally
         and watch whether it triggers. Our free{" "}
         <a href="/claude-skill-md-validator">SKILL.md validator</a> catches the frontmatter
         problems that make skills silently invisible.
       </p>
       <p>
         The one-command version: skills increasingly ship in plugins and kits, installed as a
-        bundle instead of folder-by-folder — which is exactly how Agentary works.
+        bundle instead of folder-by-folder, which is exactly how Agentary works.
       </p>
 
       <div className="callout">
         <p>
           <strong>Everything on this list, one command:</strong> the Agentary kits include all
-          fifteen categories above among 103 skills — descriptions tuned to trigger, scripts
-          bundled, kept current — plus the 89 agents and 181 commands they pair with.{" "}
+          fifteen categories above among 103 skills, descriptions tuned to trigger, scripts
+          bundled, kept current, plus the 89 agents and 181 commands they pair with.{" "}
           <a href="/#pricing">Install the full library →</a>
         </p>
       </div>
@@ -189,7 +189,7 @@ export default function Page() {
             Do many installed skills slow Claude down or bloat context? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Barely — skills use progressive disclosure. Until one triggers, only its name and
+            Barely, skills use progressive disclosure. Until one triggers, only its name and
             description are in context, roughly a sentence per skill. A large, well-described
             library is cheap; a library of vague descriptions is the real cost, because it causes
             wrong or missed triggering.
@@ -197,7 +197,7 @@ export default function Page() {
         </details>
         <details className="q">
           <summary>
-            Skills vs subagents — which list do I set up first? <span className="plus">+</span>
+            Skills vs subagents, which list do I set up first? <span className="plus">+</span>
           </summary>
           <div className="a">
             Skills first: they&apos;re simpler, they improve every session immediately, and

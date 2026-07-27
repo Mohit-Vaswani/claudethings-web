@@ -9,7 +9,7 @@ const DESC =
 const URL = `${SITE_URL}/comparisons/claude-sonnet-vs-opus`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} — Agentary`,
+  title: `${TITLE} · Agentary`,
   description: DESC,
   alternates: { canonical: "/comparisons/claude-sonnet-vs-opus" },
   openGraph: {
@@ -63,11 +63,11 @@ export default function Page() {
       ]}
     >
       <p className="intro">
-        Anthropic ships Claude in tiers — historically <strong>Haiku</strong> (fast and cheap),{" "}
+        Anthropic ships Claude in tiers, historically <strong>Haiku</strong> (fast and cheap),{" "}
         <strong>Sonnet</strong> (the balanced workhorse), and <strong>Opus</strong> (maximum
         capability). Specific version numbers change several times a year; the <em>shape</em> of
         the decision doesn&apos;t. This guide is about that shape, so it stays useful after the
-        next release — always check anthropic.com for current models and prices.
+        next release, always check anthropic.com for current models and prices.
       </p>
       <p className="intro">
         The one-sentence answer: <strong>Sonnet is the right default; Opus is the right
@@ -88,7 +88,7 @@ export default function Page() {
           <tbody>
             <tr>
               <td>Cost per token</td>
-              <td className="us">Meaningfully cheaper — viable for high-volume work</td>
+              <td className="us">Meaningfully cheaper, viable for high-volume work</td>
               <td>Premium pricing</td>
             </tr>
             <tr>
@@ -98,13 +98,13 @@ export default function Page() {
             </tr>
             <tr>
               <td>Everyday tasks (drafts, summaries, standard code)</td>
-              <td className="us">Effectively equivalent — you won&apos;t tell the difference</td>
+              <td className="us">Effectively equivalent, you won&apos;t tell the difference</td>
               <td>Equivalent, at a premium</td>
             </tr>
             <tr>
               <td>Hard reasoning, ambiguity, novel problems</td>
               <td>Good</td>
-              <td className="us">The gap appears here — fewer subtle mistakes</td>
+              <td className="us">The gap appears here, fewer subtle mistakes</td>
             </tr>
             <tr>
               <td>Long agentic sessions (many-step tasks)</td>
@@ -122,7 +122,7 @@ export default function Page() {
 
       <h2>The honest truth about the gap</h2>
       <p>
-        On the majority of everyday work — routine code, summaries, emails, standard analysis —
+        On the majority of everyday work, routine code, summaries, emails, standard analysis, 
         blind-testing Sonnet against Opus produces a shrug. Each new Sonnet generation absorbs
         most of what made the previous Opus special. If your workload is 90% everyday tasks,
         defaulting to Opus is buying a truck to commute.
@@ -133,7 +133,7 @@ export default function Page() {
       <ul>
         <li>
           <strong>Depth under ambiguity.</strong> Vague requirements, conflicting constraints,
-          problems with no template — Opus-tier models make fewer subtle reasoning errors and
+          problems with no template, Opus-tier models make fewer subtle reasoning errors and
           notice more of what you didn&apos;t say.
         </li>
         <li>
@@ -143,7 +143,7 @@ export default function Page() {
         </li>
         <li>
           <strong>The last 10% of hard output.</strong> Complex refactors, nuanced strategy
-          memos, subtle bug diagnosis — where Sonnet gives a good answer and Opus gives the
+          memos, subtle bug diagnosis, where Sonnet gives a good answer and Opus gives the
           answer a senior specialist would.
         </li>
       </ul>
@@ -171,7 +171,7 @@ export default function Page() {
       <h2>Practical setups</h2>
       <h3>In Claude Code</h3>
       <p>
-        Model switching is a command away — the effective pattern is Opus-tier for planning,
+        Model switching is a command away, the effective pattern is Opus-tier for planning,
         architecture, and gnarly debugging; Sonnet for the implementation grind once the plan is
         solid. Subscribers on higher tiers get Opus access within their plan limits, which makes
         the escalation nearly frictionless.
@@ -180,7 +180,7 @@ export default function Page() {
       <p>
         Route by task type, not by loyalty: Sonnet as default, Opus behind a flag for the requests
         your own evals show it earning. A 20-case eval on your real workload answers this question
-        better than any comparison page — including this one.
+        better than any comparison page, including this one.
       </p>
       <h3>In the chat apps</h3>
       <p>
@@ -192,7 +192,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Model choice is the smaller half.</strong> A well-prompted Sonnet beats a lazily
-          prompted Opus on almost anything — see{" "}
+          prompted Opus on almost anything, see{" "}
           <a href="/blog/10-prompting-techniques-for-claude">the ten techniques</a> that matter
           more than the tier, or install them pre-packaged via the{" "}
           <a href="/#pricing">Agentary kits</a>.
@@ -208,7 +208,7 @@ export default function Page() {
           <div className="a">
             Haiku is the high-volume tier: classification, extraction, simple transforms, latency-
             sensitive UX. It&apos;s startlingly capable for its price, but it&apos;s a different
-            question — Sonnet vs Opus is about capability ceilings; Haiku is about unit economics.
+            question, Sonnet vs Opus is about capability ceilings; Haiku is about unit economics.
           </div>
         </details>
         <details className="q">
@@ -217,8 +217,8 @@ export default function Page() {
           </summary>
           <div className="a">
             The specific gap narrows and re-opens with each generation (a new Sonnet often
-            matches the previous Opus), but the tier logic — cheap default, expensive escalation,
-            route by cost-of-error — has survived every release so far.
+            matches the previous Opus), but the tier logic, cheap default, expensive escalation,
+            route by cost-of-error, has survived every release so far.
           </div>
         </details>
         <details className="q">
@@ -226,7 +226,7 @@ export default function Page() {
             Is Opus worth it for coding specifically? <span className="plus">+</span>
           </summary>
           <div className="a">
-            For long agentic sessions and architecture decisions, usually yes — reliability
+            For long agentic sessions and architecture decisions, usually yes, reliability
             compounds. For autocomplete-adjacent work and well-specified functions, no. The
             per-task switch in Claude Code exists precisely because one answer doesn&apos;t fit.
           </div>

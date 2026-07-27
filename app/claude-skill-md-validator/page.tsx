@@ -7,9 +7,9 @@ const PATH = "/claude-skill-md-validator";
 const URL = `${SITE_URL}${PATH}`;
 
 export const metadata: Metadata = {
-  title: "SKILL.md Validator — Free Claude Skill Format Checker",
+  title: "SKILL.md Validator, Free Claude Skill Format Checker",
   description:
-    "Free SKILL.md validator for Claude Agent Skills. Paste a skill to check the YAML frontmatter, name/description rules, body length, and structure — with fixes.",
+    "Free SKILL.md validator for Claude Agent Skills. Paste a skill to check the YAML frontmatter, name/description rules, body length, and structure, with fixes.",
   keywords: [
     "SKILL.md validator",
     "validate claude skill",
@@ -22,26 +22,26 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PATH },
   openGraph: {
-    title: "Free SKILL.md Validator — Claude Skill Format Checker",
+    title: "Free SKILL.md Validator, Claude Skill Format Checker",
     description:
-      "Paste your Claude Code skill and instantly lint the YAML frontmatter, name/description rules, and structure — with exact fixes. Free and fully client-side.",
+      "Paste your Claude Code skill and instantly lint the YAML frontmatter, name/description rules, and structure, with exact fixes. Free and fully client-side.",
     type: "website",
     url: URL,
-    images: [{ url: ogImage("SKILL.md Validator — Free Claude Skill Format Checker & Linter"), width: 1200, height: 630, alt: "Free SKILL.md validator for Claude Code skills." }],
+    images: [{ url: ogImage("SKILL.md Validator, Free Claude Skill Format Checker & Linter"), width: 1200, height: 630, alt: "Free SKILL.md validator for Claude Code skills." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free SKILL.md Validator — Claude Skill Format Checker",
+    title: "Free SKILL.md Validator, Claude Skill Format Checker",
     description:
       "Lint your Claude Code SKILL.md in seconds: frontmatter, name, description, body length, and when-to-use structure. Free, runs in your browser.",
-    images: [ogImage("SKILL.md Validator — Free Claude Skill Format Checker & Linter")],
+    images: [ogImage("SKILL.md Validator, Free Claude Skill Format Checker & Linter")],
   },
 };
 
 const softwareLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "SKILL.md Validator — Claude Skill Format Checker",
+  name: "SKILL.md Validator, Claude Skill Format Checker",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any (web browser)",
   url: URL,
@@ -58,7 +58,7 @@ const faqLd = {
     {
       question: "What is a SKILL.md file?",
       answer:
-        "A SKILL.md is the entry point of a Claude Code Agent Skill — a Markdown file with YAML frontmatter (at minimum a name and a description) followed by instructions. Claude reads the description to decide when to load the skill.",
+        "A SKILL.md is the entry point of a Claude Code Agent Skill, a Markdown file with YAML frontmatter (at minimum a name and a description) followed by instructions. Claude reads the description to decide when to load the skill.",
     },
     {
       question: "What makes a SKILL.md invalid?",

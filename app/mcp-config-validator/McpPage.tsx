@@ -11,8 +11,8 @@ import {
 } from "@/app/components/toolPage";
 
 /**
- * MCP config validator — paste .mcp.json / claude_desktop_config.json, get the
- * exact errors and fixes. 100% client-side (configs often contain API keys —
+ * MCP config validator, paste .mcp.json / claude_desktop_config.json, get the
+ * exact errors and fixes. 100% client-side (configs often contain API keys, 
  * they never leave the browser).
  */
 
@@ -42,11 +42,11 @@ export function validateMcp(src: string): { findings: Finding[]; serverCount: nu
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
     if (/,\s*[}\]]/.test(trimmed)) {
-      add("error", "JSON syntax", "Trailing comma detected — JSON doesn't allow a comma before a closing `}` or `]`. Remove it. (This is the #1 MCP config error.)");
+      add("error", "JSON syntax", "Trailing comma detected, JSON doesn't allow a comma before a closing `}` or `]`. Remove it. (This is the #1 MCP config error.)");
     } else if (/\/\/|\/\*/.test(trimmed)) {
-      add("error", "JSON syntax", "Comments detected — JSON doesn't support `//` or `/* */` comments. Remove them.");
+      add("error", "JSON syntax", "Comments detected, JSON doesn't support `//` or `/* */` comments. Remove them.");
     } else if (/'\w/.test(trimmed)) {
-      add("error", "JSON syntax", "Single quotes detected — JSON requires double quotes around keys and strings.");
+      add("error", "JSON syntax", "Single quotes detected, JSON requires double quotes around keys and strings.");
     } else {
       add("error", "JSON syntax", `Not valid JSON: ${msg.slice(0, 120)}`);
     }
@@ -79,7 +79,7 @@ export function validateMcp(src: string): { findings: Finding[]; serverCount: nu
 
   const names = Object.keys(servers);
   if (names.length === 0) {
-    add("warn", "mcpServers", "`mcpServers` is empty — no servers configured.");
+    add("warn", "mcpServers", "`mcpServers` is empty, no servers configured.");
   }
 
   /* ---- each server ---- */
@@ -87,7 +87,7 @@ export function validateMcp(src: string): { findings: Finding[]; serverCount: nu
     const s = servers[name];
     const label = `server \`${name}\``;
     if (/\s/.test(name)) {
-      add("warn", "naming", `${label}: the name contains spaces — use kebab-case (\`${name.trim().toLowerCase().replace(/\s+/g, "-")}\`) to keep tool names clean.`);
+      add("warn", "naming", `${label}: the name contains spaces, use kebab-case (\`${name.trim().toLowerCase().replace(/\s+/g, "-")}\`) to keep tool names clean.`);
     }
     if (typeof s !== "object" || s === null || Array.isArray(s)) {
       add("error", "server shape", `${label} must be an object with \`command\` (stdio) or \`url\` (http/sse).`);
@@ -96,7 +96,7 @@ export function validateMcp(src: string): { findings: Finding[]; serverCount: nu
     const srv = s as Record<string, unknown>;
     const declaredType = typeof srv.type === "string" ? srv.type : undefined;
     if (declaredType && !VALID_TYPES.has(declaredType)) {
-      add("error", "type", `${label}: \`type: "${declaredType}"\` isn't valid — use \`stdio\`, \`http\`, or \`sse\`.`);
+      add("error", "type", `${label}: \`type: "${declaredType}"\` isn't valid, use \`stdio\`, \`http\`, or \`sse\`.`);
     }
     const isRemote = declaredType === "http" || declaredType === "sse" || (!declaredType && typeof srv.url === "string");
 
@@ -109,14 +109,14 @@ export function validateMcp(src: string): { findings: Finding[]; serverCount: nu
         add("pass", "url", `${label}: valid ${declaredType ?? "http"} endpoint.`);
       }
       if (srv.command || srv.args) {
-        add("warn", "fields", `${label}: has both \`url\` and \`command\`/\`args\` — remote servers ignore command fields. Remove them.`);
+        add("warn", "fields", `${label}: has both \`url\` and \`command\`/\`args\`, remote servers ignore command fields. Remove them.`);
       }
       if (srv.headers && (typeof srv.headers !== "object" || Array.isArray(srv.headers))) {
         add("error", "headers", `${label}: \`headers\` must be an object of string values.`);
       }
     } else {
       if (typeof srv.command !== "string" || !srv.command) {
-        const hint = typeof srv.path === "string" ? " (found `path` — the field is called `command`)" : "";
+        const hint = typeof srv.path === "string" ? " (found `path`, the field is called `command`)" : "";
         add("error", "command", `${label}: stdio servers need a \`command\` string${hint}.`);
       } else {
         add("pass", "command", `${label}: launches \`${srv.command}\`.`);
@@ -125,7 +125,7 @@ export function validateMcp(src: string): { findings: Finding[]; serverCount: nu
         }
       }
       if (srv.args !== undefined && (!Array.isArray(srv.args) || (srv.args as unknown[]).some((a) => typeof a !== "string"))) {
-        add("error", "args", `${label}: \`args\` must be an array of strings — split \`"run server --port 3000"\` into separate items.`);
+        add("error", "args", `${label}: \`args\` must be an array of strings, split \`"run server --port 3000"\` into separate items.`);
       }
     }
 
@@ -135,13 +135,13 @@ export function validateMcp(src: string): { findings: Finding[]; serverCount: nu
       } else {
         const bad = Object.entries(srv.env as Record<string, unknown>).filter(([, v]) => typeof v !== "string");
         if (bad.length) {
-          add("error", "env", `${label}: env values must be strings — quote ${bad.map(([k]) => `\`${k}\``).join(", ")}.`);
+          add("error", "env", `${label}: env values must be strings, quote ${bad.map(([k]) => `\`${k}\``).join(", ")}.`);
         }
         const placeholder = Object.entries(srv.env as Record<string, unknown>).filter(
           ([, v]) => typeof v === "string" && /^(<|YOUR_|your-|xxx|\.\.\.|\$\{)/i.test(v as string)
         );
         if (placeholder.length) {
-          add("warn", "env", `${label}: ${placeholder.map(([k]) => `\`${k}\``).join(", ")} look${placeholder.length === 1 ? "s" : ""} like placeholder value${placeholder.length === 1 ? "" : "s"} — the server will fail to authenticate until you set real values.`);
+          add("warn", "env", `${label}: ${placeholder.map(([k]) => `\`${k}\``).join(", ")} look${placeholder.length === 1 ? "s" : ""} like placeholder value${placeholder.length === 1 ? "" : "s"}, the server will fail to authenticate until you set real values.`);
         }
       }
     }
@@ -231,8 +231,8 @@ export default function McpPage() {
           </h1>
           <p className="sub reveal-h d3">
             MCP server &quot;not showing up&quot;? It&apos;s almost always the config. Paste your{" "}
-            <b>.mcp.json</b> or <b>claude_desktop_config.json</b> and get the exact errors — wrong
-            keys, missing fields, trailing commas — with fixes. API keys never leave your browser.
+            <b>.mcp.json</b> or <b>claude_desktop_config.json</b> and get the exact errors, wrong
+            keys, missing fields, trailing commas, with fixes. API keys never leave your browser.
           </p>
 
           <div id="validator" className="val-tool reveal-h d4">
@@ -261,7 +261,7 @@ export default function McpPage() {
                 <div className="val-empty">
                   <div className="val-empty-ic">◆</div>
                   <p>
-                    Paste your config to validate it live, or load an example — including a broken
+                    Paste your config to validate it live, or load an example, including a broken
                     one showing the five classic mistakes.
                   </p>
                 </div>
@@ -273,8 +273,8 @@ export default function McpPage() {
                       {errors
                         ? `${errors} error${errors > 1 ? "s" : ""} breaking your config`
                         : warns
-                        ? `Valid — ${warns} thing${warns > 1 ? "s" : ""} worth fixing`
-                        : `Valid — ${result.serverCount} server${result.serverCount === 1 ? "" : "s"} configured correctly`}
+                        ? `Valid, ${warns} thing${warns > 1 ? "s" : ""} worth fixing`
+                        : `Valid, ${result.serverCount} server${result.serverCount === 1 ? "" : "s"} configured correctly`}
                     </span>
                   </div>
                   <div className="val-counts">
@@ -316,11 +316,11 @@ export default function McpPage() {
           </p>
           <div className="sol-grid" style={{ textAlign: "left" }}>
             {[
-              ["🧾", "JSON syntax", "Trailing commas, comments, single quotes — the classics. Each gets a specific message, not just 'parse error'."],
+              ["🧾", "JSON syntax", "Trailing commas, comments, single quotes, the classics. Each gets a specific message, not just 'parse error'."],
               ["🔑", "The mcpServers key", "Must be exactly `mcpServers`. Catches `mcp_servers`, `servers`, and servers accidentally placed at the top level."],
               ["⚙️", "stdio fields", "`command` present and a string, `args` an array of separate strings (not one long string), `npx` with `-y` so installs don't hang."],
               ["🌐", "Remote fields", "`url` present and http(s) for `http`/`sse` servers, `headers` well-formed, and no leftover `command` fields being silently ignored."],
-              ["🔐", "env blocks", "Object shape, string values, and placeholder detection — `<your password>` and `YOUR_API_KEY` get flagged before you spend an hour debugging auth."],
+              ["🔐", "env blocks", "Object shape, string values, and placeholder detection, `<your password>` and `YOUR_API_KEY` get flagged before you spend an hour debugging auth."],
               ["🏷️", "Names & types", "Valid `type` values (stdio / http / sse) and kebab-case server names so your tool names stay clean."],
             ].map(([ic, h, pt]) => (
               <div className="card fade" key={h}>
@@ -346,7 +346,7 @@ export default function McpPage() {
             {[
               ["Restart the app", "Both Claude Code and Claude Desktop read MCP configs at startup. Edits while running do nothing until you restart (or run `claude mcp list` to check status)."],
               ["Check the right file", "Claude Code: `.mcp.json` at the project root (or `claude mcp add`). Claude Desktop: `claude_desktop_config.json` in Application Support (macOS) / AppData (Windows). Same shape, different files."],
-              ["Node not found", "stdio servers need their runtime on PATH — GUI apps don't always inherit your shell's PATH. Use absolute paths (`/usr/local/bin/npx`) if servers die instantly."],
+              ["Node not found", "stdio servers need their runtime on PATH, GUI apps don't always inherit your shell's PATH. Use absolute paths (`/usr/local/bin/npx`) if servers die instantly."],
               ["Scope confusion", "Claude Code has three scopes: local (just you, this repo), project (.mcp.json, committed), user (all projects). `claude mcp add --scope project` writes the shareable one."],
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
@@ -372,7 +372,7 @@ export default function McpPage() {
           ],
           [
             "Is it safe to paste a config with API keys here?",
-            "The validation is pure client-side JavaScript — nothing is transmitted. Still, hygiene matters: prefer env-var expansion (`${API_KEY}`) over hardcoding secrets in committed configs.",
+            "The validation is pure client-side JavaScript, nothing is transmitted. Still, hygiene matters: prefer env-var expansion (`${API_KEY}`) over hardcoding secrets in committed configs.",
           ],
           [
             "Why does my npx server hang forever?",
@@ -380,7 +380,7 @@ export default function McpPage() {
           ],
           [
             "Can I use environment variables in the config?",
-            "Claude Code supports `${VAR}` expansion in command, args, env, url, and headers — ideal for keeping tokens out of the committed .mcp.json. Claude Desktop is more limited; there you typically hardcode values in the env block.",
+            "Claude Code supports `${VAR}` expansion in command, args, env, url, and headers, ideal for keeping tokens out of the committed .mcp.json. Claude Desktop is more limited; there you typically hardcode values in the env block.",
           ],
         ]}
       />
@@ -389,7 +389,7 @@ export default function McpPage() {
         heading="MCP connects the tools. The kits do the work."
         lead={
           <>
-            Once your servers connect, the Agentary kits give Claude the playbooks — 103
+            Once your servers connect, the Agentary kits give Claude the playbooks, 103
             production-grade skills plus the agents and commands that use your MCP tools well.
           </>
         }
@@ -400,8 +400,8 @@ export default function McpPage() {
           <>
             <b>This validator checks config structure against the publicly documented MCP formats</b>{" "}
             for Claude Code and Claude Desktop. It cannot launch servers or test connections, and
-            formats evolve. Everything runs in your browser; nothing you paste — including API
-            keys — is uploaded or stored.
+            formats evolve. Everything runs in your browser; nothing you paste, including API
+            keys, is uploaded or stored.
           </>
         }
       />

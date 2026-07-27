@@ -1,10 +1,10 @@
 /**
- * Canonical site identity — single source of truth for the origin and brand name.
+ * Canonical site identity, single source of truth for the origin and brand name.
  *
  * www is canonical; the apex agentary.dev 308s to it, as do the legacy
  * agentskit.co and claudethings.com domains. Anything needing an absolute URL
  * (metadataBase, sitemap, robots, canonicals, OG images) should read from here
- * rather than hardcoding the domain — page-level canonicals are relative and
+ * rather than hardcoding the domain, page-level canonicals are relative and
  * resolve against metadataBase, so they need no changes on a rename.
  */
 export const SITE_URL = "https://www.agentary.dev";

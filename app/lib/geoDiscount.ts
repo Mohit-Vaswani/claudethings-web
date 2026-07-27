@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
  * rendered and CDN-cached, so per-visitor country can't be baked into the HTML
  * without opting the whole page out of the cache.
  *
- * Nothing here enforces the discount — the code below must exist in the Polar
+ * Nothing here enforces the discount, the code below must exist in the Polar
  * dashboard, and it ships in the client bundle, so treat it as public.
  */
 export const GEO_DISCOUNT = {
@@ -49,7 +49,7 @@ export function useGeoDiscount(): boolean {
 /**
  * Appends the discount code to a Polar checkout link for eligible visitors.
  *
- * Note: `discount_code` only *prefills* Polar's discount box — the customer
+ * Note: `discount_code` only *prefills* Polar's discount box, the customer
  * still has to press Apply, which is why the banner copy says so. True
  * auto-apply requires separate India-only Checkout Links with the discount
  * preset on the link in the Polar dashboard; if those get made, swap the base

@@ -8,7 +8,7 @@ const post = getPost("best-claude-code-hooks")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -61,10 +61,10 @@ export default function Page() {
     >
       <p className="intro">
         Everything else in your Claude Code setup is a request. CLAUDE.md asks, skills teach,
-        commands prompt — and a model can decide, reasonably or not, to do something else. Hooks
+        commands prompt, and a model can decide, reasonably or not, to do something else. Hooks
         are the one layer that doesn&apos;t negotiate: shell commands the harness runs at fixed
         points in the loop, whose exit code can block a tool call outright. That makes them the
-        right tool for a narrow, important set of jobs — and the wrong tool for most of what
+        right tool for a narrow, important set of jobs, and the wrong tool for most of what
         people try to use them for. Here are the nine worth having, ranked.
       </p>
 
@@ -78,7 +78,7 @@ export default function Page() {
         It wins because it converts an instruction that gets ignored into a property that&apos;s
         always true. &quot;Follow our formatting&quot; in CLAUDE.md costs context on every request
         and still produces drift. A hook makes formatting non-negotiable, cleans up the diff noise
-        that makes AI-written PRs annoying to review, and — the underrated part — feeds lint
+        that makes AI-written PRs annoying to review, and, the underrated part, feeds lint
         errors straight back to Claude, which then fixes them in the same turn instead of leaving
         them for CI. One line of config, immediate payoff, no downside.
       </p>
@@ -97,7 +97,7 @@ export default function Page() {
       <p>
         A {code("PreToolUse")} guard on file reads that denies {code(".env")}, credential files,
         and key material, plus a {code("PostToolUse")} scan that flags anything looking like a
-        live key in a file Claude just wrote. Instructions are the wrong mechanism here — this is
+        live key in a file Claude just wrote. Instructions are the wrong mechanism here, this is
         exactly the case where you want a guarantee rather than a strong preference.
       </p>
 
@@ -105,7 +105,7 @@ export default function Page() {
       <p>
         A {code("Stop")} hook that runs your test suite, or the targeted subset, at the end of a
         session. It closes the most common gap between &quot;Claude said it was done&quot; and
-        &quot;it was done.&quot; Keep it fast — a suite that takes four minutes turns into a hook
+        &quot;it was done.&quot; Keep it fast, a suite that takes four minutes turns into a hook
         you disable by Thursday. Point it at the affected package, not the monorepo.
       </p>
 
@@ -134,7 +134,7 @@ export default function Page() {
 
       <h2>8. Enrich prompts automatically</h2>
       <p>
-        A {code("UserPromptSubmit")} hook can append context to what you type — the ticket
+        A {code("UserPromptSubmit")} hook can append context to what you type, the ticket
         referenced in your message, the current test failures, today&apos;s date. Use sparingly.
         Appending too much to every prompt is how a clever hook becomes a context tax you pay on
         every request.
@@ -161,7 +161,7 @@ export default function Page() {
             <tr>
               <td>Stop an action happening</td>
               <td>PreToolUse</td>
-              <td>Yes — exit 2</td>
+              <td>Yes, exit 2</td>
             </tr>
             <tr>
               <td>React to a change</td>
@@ -176,7 +176,7 @@ export default function Page() {
             <tr>
               <td>Verify before finishing</td>
               <td>Stop / SubagentStop</td>
-              <td>Yes — can force continuation</td>
+              <td>Yes, can force continuation</td>
             </tr>
             <tr>
               <td>Get alerted</td>
@@ -215,7 +215,7 @@ export default function Page() {
       </ul>
 
       <p>
-        Hooks live in {code("settings.json")} — project-level for team-wide rules committed to git,
+        Hooks live in {code("settings.json")}, project-level for team-wide rules committed to git,
         user-level for personal ones. The JSON shape is fiddly enough that a bad matcher fails
         silently, which is why we built a free{" "}
         <a href="/claude-hooks-builder">hooks builder</a> that generates valid config for exactly
@@ -235,12 +235,12 @@ export default function Page() {
       <div className="faq" style={{ marginTop: 22 }}>
         <details className="q">
           <summary>
-            Hooks or CLAUDE.md — where does a rule belong? <span className="plus">+</span>
+            Hooks or CLAUDE.md, where does a rule belong? <span className="plus">+</span>
           </summary>
           <div className="a">
             If a violation is merely undesirable, CLAUDE.md. If a violation is unacceptable, a
             hook. Instructions are probabilistic; hooks are deterministic. Most people over-use
-            CLAUDE.md for things that were always really hook material — formatting being the
+            CLAUDE.md for things that were always really hook material, formatting being the
             classic example.
           </div>
         </details>
@@ -259,7 +259,7 @@ export default function Page() {
             Can hooks see what Claude is doing? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Yes — hooks receive structured JSON on stdin describing the event, including the tool
+            Yes, hooks receive structured JSON on stdin describing the event, including the tool
             and its inputs. That&apos;s what makes conditional logic possible: inspect the payload,
             decide, exit with the code that expresses your decision.
           </div>

@@ -5,24 +5,24 @@ import { USE_CASES } from "./useCasesData";
 import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "Claude Use Cases — Real Workflows by Role — Agentary",
+  title: "Claude Use Cases, Real Workflows by Role · Agentary",
   description:
-    "How developers, data scientists, product managers, and students actually use Claude — where it excels, realistic workflows, and starter prompts per role.",
+    "How developers, data scientists, product managers, and students actually use Claude, where it excels, realistic workflows, and starter prompts per role.",
   alternates: { canonical: "/use-cases" },
   openGraph: {
-    title: "Claude Use Cases — Real Workflows by Role",
+    title: "Claude Use Cases, Real Workflows by Role",
     description:
-      "How developers, data scientists, PMs, and students actually use Claude — with workflows and starter prompts.",
+      "How developers, data scientists, PMs, and students actually use Claude, with workflows and starter prompts.",
     type: "website",
     url: `${SITE_URL}/use-cases`,
-    images: [{ url: ogImage("Claude Use Cases — Real Workflows by Role"), width: 1200, height: 630, alt: "Claude use cases by role." }],
+    images: [{ url: ogImage("Claude Use Cases, Real Workflows by Role"), width: 1200, height: 630, alt: "Claude use cases by role." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Claude Use Cases — Real Workflows by Role",
+    title: "Claude Use Cases, Real Workflows by Role",
     description:
-      "How developers, data scientists, PMs, and students actually use Claude — with workflows and starter prompts.",
-    images: [ogImage("Claude Use Cases — Real Workflows by Role")],
+      "How developers, data scientists, PMs, and students actually use Claude, with workflows and starter prompts.",
+    images: [ogImage("Claude Use Cases, Real Workflows by Role")],
   },
 };
 
@@ -38,7 +38,7 @@ export default function UseCasesIndex() {
             What Claude is <span className="grad">actually good for</span>
           </h1>
           <p className="sub">
-            No demos, no hype — <b>honest maps of where Claude changes real work</b>, role by
+            No demos, no hype, <b>honest maps of where Claude changes real work</b>, role by
             role: the workflows, the starter prompts, and the limits worth knowing about.
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function UseCasesIndex() {
             Whatever your role, the pattern repeats: prompts get you started,{" "}
             <a href="/blog/getting-started-with-claude-code" className="accent">Claude Code</a>{" "}
             closes the loop, and the{" "}
-            <a href="/#pricing" className="accent">Agentary kits</a> install the expertise —
+            <a href="/#pricing" className="accent">Agentary kits</a> install the expertise, 
             89 agents, 103 skills, 181 commands.
           </p>
           <p style={{ marginTop: 26 }}>

@@ -13,7 +13,7 @@ export interface ToolEntry {
   name: string;
   /** One-line hook under the name. */
   tagline: string;
-  /** Card body — what it does and who it's for. */
+  /** Card body, what it does and who it's for. */
   description: string;
   /** Emoji icon. */
   icon: string;
@@ -51,7 +51,7 @@ export const TOOLS: ToolEntry[] = [
   {
     slug: "/claude-plan-calculator",
     name: "Claude Plan Calculator",
-    tagline: "Pro vs Max vs API — which actually pays off?",
+    tagline: "Pro vs Max vs API, which actually pays off?",
     description:
       "Enter your daily Claude Code usage and instantly see the cheapest plan that fits, what your usage is worth at API prices, and when you'd hit each plan's limits.",
     icon: "🧮",
@@ -64,7 +64,7 @@ export const TOOLS: ToolEntry[] = [
     name: "Agent Config Converter",
     tagline: "AGENTS.md ⇄ CLAUDE.md ⇄ .cursorrules in one click",
     description:
-      "Convert between AGENTS.md, CLAUDE.md, .cursorrules, Cursor .mdc rules, Copilot instructions, and .windsurfrules — correct conventions, imports, and placement notes included.",
+      "Convert between AGENTS.md, CLAUDE.md, .cursorrules, Cursor .mdc rules, Copilot instructions, and .windsurfrules, correct conventions, imports, and placement notes included.",
     icon: "⇄",
     badge: "New",
     status: "live",
@@ -75,7 +75,7 @@ export const TOOLS: ToolEntry[] = [
     name: "Subagent Generator",
     tagline: "Describe a role, get a valid .claude/agents file",
     description:
-      "Build a Claude Code subagent in a minute: name, trigger-focused description, scoped tools, model, and a structured system prompt — with presets for reviewer, debugger, and test runner.",
+      "Build a Claude Code subagent in a minute: name, trigger-focused description, scoped tools, model, and a structured system prompt, with presets for reviewer, debugger, and test runner.",
     icon: "🤖",
     badge: "New",
     status: "live",
@@ -86,7 +86,7 @@ export const TOOLS: ToolEntry[] = [
     name: "Slash Command Generator",
     tagline: "Turn your most-repeated prompt into a /command",
     description:
-      "Build valid .claude/commands files with frontmatter, $ARGUMENTS, live bash context lines, and allowed-tools — with /commit, /review-pr, and /explain presets and a live preview.",
+      "Build valid .claude/commands files with frontmatter, $ARGUMENTS, live bash context lines, and allowed-tools, with /commit, /review-pr, and /explain presets and a live preview.",
     icon: "⌨️",
     badge: "New",
     status: "live",
@@ -97,7 +97,7 @@ export const TOOLS: ToolEntry[] = [
     name: "Hooks Builder",
     tagline: "Valid Claude Code hooks without hand-writing JSON",
     description:
-      "Visual builder for Claude Code hooks: pick an event, matcher, and command and get valid settings.json — with presets for auto-format, file protection, bash logging, and notifications.",
+      "Visual builder for Claude Code hooks: pick an event, matcher, and command and get valid settings.json, with presets for auto-format, file protection, bash logging, and notifications.",
     icon: "🪝",
     badge: "New",
     status: "live",
@@ -108,7 +108,7 @@ export const TOOLS: ToolEntry[] = [
     name: "MCP Config Validator",
     tagline: "Fix your .mcp.json in seconds",
     description:
-      "Paste your .mcp.json or claude_desktop_config.json and catch the exact errors that make MCP servers silently vanish — wrong keys, missing fields, trailing commas, placeholder env values.",
+      "Paste your .mcp.json or claude_desktop_config.json and catch the exact errors that make MCP servers silently vanish, wrong keys, missing fields, trailing commas, placeholder env values.",
     icon: "🔌",
     badge: "New",
     status: "live",
@@ -119,7 +119,7 @@ export const TOOLS: ToolEntry[] = [
     name: "Claude Token Counter",
     tagline: "Tokens and cost for any text, instantly",
     description:
-      "Paste text or code and get a calibrated token estimate plus the price on Claude Opus, Sonnet, and Haiku — input, output, and cache rates, scaled to any number of calls.",
+      "Paste text or code and get a calibrated token estimate plus the price on Claude Opus, Sonnet, and Haiku, input, output, and cache rates, scaled to any number of calls.",
     icon: "🔢",
     badge: "New",
     status: "live",
@@ -130,7 +130,7 @@ export const TOOLS: ToolEntry[] = [
     name: "SKILL.md Validator",
     tagline: "Lint a Claude skill's format in seconds",
     description:
-      "Paste a SKILL.md and instantly check the YAML frontmatter, name and description rules, body length, and when-to-use structure — with the exact fixes. Runs 100% in your browser.",
+      "Paste a SKILL.md and instantly check the YAML frontmatter, name and description rules, body length, and when-to-use structure, with the exact fixes. Runs 100% in your browser.",
     icon: "🧾",
     badge: "New",
     status: "live",
@@ -141,7 +141,7 @@ export const TOOLS: ToolEntry[] = [
     name: "Website Security Audit",
     tagline: "Scan your site for the holes that get sites breached",
     description:
-      "A free Claude skill that audits your own website or codebase for missing HTTPS, exposed files, hardcoded secrets, and vulnerable dependencies — then hands you a prioritized, plain-English fix-it report.",
+      "A free Claude skill that audits your own website or codebase for missing HTTPS, exposed files, hardcoded secrets, and vulnerable dependencies, then hands you a prioritized, plain-English fix-it report.",
     icon: "🛡️",
     badge: "Free",
     status: "live",

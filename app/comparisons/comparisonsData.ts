@@ -33,7 +33,7 @@ export const COMPARISONS: Comparison[] = [
     title: "Claude vs GitHub Copilot",
     vs: "Claude Code · Copilot",
     description:
-      "Autocomplete vs agent: how Claude Code and GitHub Copilot differ in kind, not just quality — and why many developers run both.",
+      "Autocomplete vs agent: how Claude Code and GitHub Copilot differ in kind, not just quality, and why many developers run both.",
     icon: "🛠️",
   },
 ];

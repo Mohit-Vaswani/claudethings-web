@@ -9,7 +9,7 @@ const DESC =
 const URL = `${SITE_URL}/comparisons/claude-vs-copilot`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} — Agentary`,
+  title: `${TITLE} · Agentary`,
   description: DESC,
   alternates: { canonical: "/comparisons/claude-vs-copilot" },
   openGraph: {
@@ -63,24 +63,24 @@ export default function Page() {
       ]}
     >
       <p className="intro">
-        <strong>Bias disclosure:</strong> we sell kits for Claude Code, so read accordingly — but
+        <strong>Bias disclosure:</strong> we sell kits for Claude Code, so read accordingly, but
         the core claim here isn&apos;t controversial: Claude Code and GitHub Copilot were built to
         answer different questions. Copilot asks &quot;what are you typing?&quot;; Claude Code
         asks &quot;what do you want done?&quot; Comparing them as rivals misses how they&apos;re
-        actually used — often by the same developer, in the same hour.
+        actually used, often by the same developer, in the same hour.
       </p>
 
       <h2>Two different products (with a growing overlap)</h2>
       <p>
         <strong>GitHub Copilot</strong> is completion-first: it lives in your editor, watches you
         type, and suggests the next lines. Its unit of work is the keystroke saved. Over time
-        it&apos;s grown chat, multi-file edits, and its own agent mode — and notably, GitHub lets
+        it&apos;s grown chat, multi-file edits, and its own agent mode, and notably, GitHub lets
         you run Claude models inside it.
       </p>
       <p>
         <strong>Claude Code</strong> is delegation-first: a terminal/IDE agent that takes a task
-        (&quot;add rate limiting to the API&quot;, &quot;find and fix this race condition&quot;),
-        explores the repo, edits files, runs tests, and iterates until done — under a permission
+        (&quot;add rate limiting to the API&quot;  &quot;find and fix this race condition&quot;),
+        explores the repo, edits files, runs tests, and iterates until done, under a permission
         system you control. Its unit of work is the task completed.
       </p>
       <div className="cmp">
@@ -100,13 +100,13 @@ export default function Page() {
             </tr>
             <tr>
               <td>Flow state</td>
-              <td className="us">Zero-friction — never asks you to leave the editor</td>
+              <td className="us">Zero-friction, never asks you to leave the editor</td>
               <td>Conversational; you review diffs instead of typing</td>
             </tr>
             <tr>
               <td>Multi-file work &amp; refactors</td>
               <td>Improving via agent mode</td>
-              <td className="us">Core strength — repo-wide changes with test verification</td>
+              <td className="us">Core strength, repo-wide changes with test verification</td>
             </tr>
             <tr>
               <td>Debugging &amp; codebase questions</td>
@@ -115,7 +115,7 @@ export default function Page() {
             </tr>
             <tr>
               <td>Boilerplate &amp; line-level speed</td>
-              <td className="us">The category king — this is what completion is for</td>
+              <td className="us">The category king, this is what completion is for</td>
               <td>Overkill for single lines</td>
             </tr>
             <tr>
@@ -126,7 +126,7 @@ export default function Page() {
             <tr>
               <td>Where it runs</td>
               <td>Editor + github.com surfaces</td>
-              <td>Terminal, IDEs, web, CI — anywhere a shell runs</td>
+              <td>Terminal, IDEs, web, CI, anywhere a shell runs</td>
             </tr>
           </tbody>
         </table>
@@ -135,8 +135,8 @@ export default function Page() {
       <h2>Where Copilot wins</h2>
       <p>
         <strong>The inner loop.</strong> When you know exactly what you&apos;re writing and just
-        want it written faster — boilerplate, tests you&apos;ve mentally drafted, API calls whose
-        shape you know — completion is the right interface, and Copilot&apos;s is mature,
+        want it written faster, boilerplate, tests you&apos;ve mentally drafted, API calls whose
+        shape you know, completion is the right interface, and Copilot&apos;s is mature,
         fast, and everywhere. It also wins on friction: it&apos;s already in your editor, your
         company probably already licenses it, and it never asks for a workflow change. And
         because Copilot can run Claude models under the hood, &quot;Copilot vs Claude&quot; at
@@ -146,12 +146,12 @@ export default function Page() {
       <h2>Where Claude Code wins</h2>
       <p>
         <strong>Everything bigger than a completion.</strong> The tasks that consume real
-        engineering days — tracing a bug across services, refactoring with the tests green at
-        every step, understanding an inherited codebase, upgrading a framework — aren&apos;t
+        engineering days, tracing a bug across services, refactoring with the tests green at
+        every step, understanding an inherited codebase, upgrading a framework, aren&apos;t
         typing problems, so completion can&apos;t address them. An agent that explores, edits,
         executes, and verifies can. This is also where the extensibility gap shows: teams encode
         their conventions in CLAUDE.md, package their workflows as skills and slash commands, and
-        wire in their tools via MCP — the agent gets <em>institutionally</em> smarter over time.
+        wire in their tools via MCP, the agent gets <em>institutionally</em> smarter over time.
         (That layer is exactly what our <a href="/#pricing">Engineering Kit</a> ships pre-built.)
       </p>
 
@@ -159,11 +159,11 @@ export default function Page() {
       <p>The stable pattern we see across teams in 2026:</p>
       <ul>
         <li>
-          <strong>Copilot for the keystrokes</strong> — inline completion stays on; it&apos;s
+          <strong>Copilot for the keystrokes</strong>, inline completion stays on; it&apos;s
           nearly free attention-wise and pays for itself in typing saved.
         </li>
         <li>
-          <strong>Claude Code for the tasks</strong> — anything with a definition of done:
+          <strong>Claude Code for the tasks</strong>, anything with a definition of done:
           features, bugs, refactors, migrations, reviews, test coverage.
         </li>
         <li>
@@ -175,7 +175,7 @@ export default function Page() {
       <p>
         If budget forces a choice: junior-heavy teams doing well-specified work get more from
         Copilot&apos;s ubiquity; senior-heavy teams drowning in maintenance and complexity get
-        more from delegation. But the combined cost is small against an engineering salary — most
+        more from delegation. But the combined cost is small against an engineering salary, most
         teams shouldn&apos;t be choosing.
       </p>
 
@@ -192,12 +192,12 @@ export default function Page() {
       <div className="faq" style={{ marginTop: 22 }}>
         <details className="q">
           <summary>
-            Copilot has an agent mode now — doesn&apos;t that close the gap? <span className="plus">+</span>
+            Copilot has an agent mode now, doesn&apos;t that close the gap? <span className="plus">+</span>
           </summary>
           <div className="a">
             It narrows it, and it&apos;s improving fast. The differences that remain are depth of
             the agent loop (verification habits, permission model, long-session reliability) and
-            the extensibility layer — skills, CLAUDE.md, MCP, subagents. Try both on a gnarly
+            the extensibility layer, skills, CLAUDE.md, MCP, subagents. Try both on a gnarly
             multi-file task in your own repo; that experiment settles it in an afternoon.
           </div>
         </details>
@@ -206,7 +206,7 @@ export default function Page() {
             Can I use Claude&apos;s models inside Copilot? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Yes — GitHub offers Claude models as a backend option in Copilot. You get Claude&apos;s
+            Yes, GitHub offers Claude models as a backend option in Copilot. You get Claude&apos;s
             code quality in the completion interface, though not Claude Code&apos;s agent loop,
             permissions, or extensibility. Model and product are separate choices.
           </div>
@@ -216,7 +216,7 @@ export default function Page() {
             What about Cursor and the other AI editors? <span className="plus">+</span>
           </summary>
           <div className="a">
-            AI-native editors sit between the two poles — completion plus a built-in agent, and
+            AI-native editors sit between the two poles, completion plus a built-in agent, and
             most let you pick Claude models. The taxonomy that matters is completion vs.
             delegation, not brand: whichever products you pick, you&apos;ll want one of each.
           </div>

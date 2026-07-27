@@ -8,7 +8,7 @@ const post = getPost("how-to-build-ai-agents-with-claude")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -43,7 +43,7 @@ export default function Page() {
         {
           href: "/blog/getting-started-with-claude-code",
           title: "Getting Started with Claude Code",
-          desc: "The agentic coding tool — install to first shipped feature.",
+          desc: "The agentic coding tool, install to first shipped feature.",
         },
         {
           href: "/blog/10-prompting-techniques-for-claude",
@@ -58,7 +58,7 @@ export default function Page() {
       ]}
     >
       <p className="intro">
-        &quot;AI agent&quot; is the most inflated term in software right now — it gets applied to
+        &quot;AI agent&quot; is the most inflated term in software right now, it gets applied to
         everything from a cron job that calls an LLM to systems that genuinely plan, act, and
         correct themselves. This guide uses the working definition Anthropic uses: an agent is{" "}
         <strong>a model using tools in a loop</strong>, where the model itself decides what to do
@@ -75,7 +75,7 @@ export default function Page() {
       <p>
         The most useful advice in Anthropic&apos;s agent-building guidance is negative: don&apos;t
         build an agent where a workflow will do. If your task has a <em>known</em> sequence of
-        steps — summarize, then classify, then route — hard-code the sequence and make one LLM
+        steps, summarize, then classify, then route, hard-code the sequence and make one LLM
         call per step. That&apos;s a <strong>workflow</strong>: cheaper, faster, testable, and
         predictable.
       </p>
@@ -88,7 +88,7 @@ export default function Page() {
       </p>
 
       <h2>The agent loop</h2>
-      <p>Every agent — Claude Code included — is architecturally this:</p>
+      <p>Every agent, Claude Code included, is architecturally this:</p>
       <div className="prompt-card">
         <div className="prompt-head">
           <span className="p-title">the loop, in pseudocode</span>
@@ -102,25 +102,25 @@ while true:
         results = execute(tool_calls)   # your code runs here
         messages += [response, results] # feed back what happened
     else:
-        return response                 # done — Claude answered`}</pre>
+        return response                 # done, Claude answered`}</pre>
       </div>
       <p>
         Claude sees the task, decides whether it needs a tool, your code executes the tool and
         returns the result, and Claude decides what that result means for the next step. All the
         intelligence lives in the model; all the <em>capability</em> lives in the tools you hand
-        it. The loop is dumb glue — and it should stay that way.
+        it. The loop is dumb glue, and it should stay that way.
       </p>
 
       <h2>Tools: the part you actually design</h2>
       <p>
         A tool is a function you describe to Claude in JSON Schema: name, description, parameters.
-        Claude never executes anything itself — it emits a structured request, your code runs the
+        Claude never executes anything itself, it emits a structured request, your code runs the
         function, and returns the result. Here&apos;s the minimal real thing with the Anthropic
         SDK:
       </p>
       <div className="prompt-card">
         <div className="prompt-head">
-          <span className="p-title">agent.ts — a minimal working agent</span>
+          <span className="p-title">agent.ts, a minimal working agent</span>
         </div>
         <pre className="prompt-body">{`import Anthropic from "@anthropic-ai/sdk";
 
@@ -172,8 +172,8 @@ async function runAgent(task: string) {
 }`}</pre>
       </div>
       <p>
-        That&apos;s a complete agent. Everything else — memory, planning, multi-agent
-        orchestration — is elaboration on this loop. Three design rules that matter more than any
+        That&apos;s a complete agent. Everything else, memory, planning, multi-agent
+        orchestration, is elaboration on this loop. Three design rules that matter more than any
         framework:
       </p>
       <ul>
@@ -184,7 +184,7 @@ async function runAgent(task: string) {
         </li>
         <li>
           <strong>Return errors as information, not exceptions.</strong> When a tool fails, send
-          the error text back into the loop — a good agent reads &quot;404: order not found&quot;
+          the error text back into the loop, a good agent reads &quot;404: order not found&quot;
           and changes strategy. That self-correction is the whole point of the architecture.
         </li>
         <li>
@@ -195,7 +195,7 @@ async function runAgent(task: string) {
 
       <h2>MCP: tools you don&apos;t have to build</h2>
       <p>
-        The Model Context Protocol (MCP) is an open standard for exactly the interface above — a
+        The Model Context Protocol (MCP) is an open standard for exactly the interface above, a
         server exposes tools, any MCP-capable client (Claude Code, the Claude apps, your own agent)
         can use them. Before writing a custom tool for GitHub, Postgres, Slack, or a headless
         browser, check whether an MCP server already exists; hundreds do. We keep a curated list
@@ -211,19 +211,19 @@ async function runAgent(task: string) {
       </p>
       <ul>
         <li>
-          <strong>CLAUDE.md</strong> — persistent instructions the agent reads every session (your
+          <strong>CLAUDE.md</strong>, persistent instructions the agent reads every session (your
           domain knowledge, conventions, guardrails).
         </li>
         <li>
-          <strong>Skills</strong> — folders teaching repeatable capabilities, loaded on demand.
+          <strong>Skills</strong>, folders teaching repeatable capabilities, loaded on demand.
         </li>
         <li>
-          <strong>Subagents</strong> — scoped workers with their own context windows and tool
+          <strong>Subagents</strong>, scoped workers with their own context windows and tool
           allowlists, for fan-out work like &quot;review these 12 files in parallel.&quot;
         </li>
       </ul>
       <p>
-        The same machinery is available programmatically as the Claude Agent SDK — the engine of
+        The same machinery is available programmatically as the Claude Agent SDK, the engine of
         Claude Code as a library, loop and permissions included, for agents that need to run
         headless or inside your product.
       </p>
@@ -251,8 +251,8 @@ async function runAgent(task: string) {
           debug what you didn&apos;t record.
         </li>
         <li>
-          <strong>Prompt injection is real.</strong> Anything your agent reads — web pages, emails,
-          file contents — can contain instructions aimed at it. Treat retrieved content as data,
+          <strong>Prompt injection is real.</strong> Anything your agent reads, web pages, emails,
+          file contents, can contain instructions aimed at it. Treat retrieved content as data,
           never as commands, and gate side effects accordingly.
         </li>
       </ol>
@@ -286,7 +286,7 @@ async function runAgent(task: string) {
           <div className="a">
             No. The loop is ~40 lines, and owning it means you understand every failure. Frameworks
             earn their place when you need their specific infrastructure (tracing, deployment,
-            team conventions) — adopt one for those reasons, not because agents seem hard.
+            team conventions), adopt one for those reasons, not because agents seem hard.
           </div>
         </details>
         <details className="q">
@@ -304,7 +304,7 @@ async function runAgent(task: string) {
             How do agents remember things between sessions? <span className="plus">+</span>
           </summary>
           <div className="a">
-            The model doesn&apos;t — your system does. Give the agent a memory tool (a file or
+            The model doesn&apos;t, your system does. Give the agent a memory tool (a file or
             database it reads and writes), or persist notes like Claude Code&apos;s CLAUDE.md.
             Design what gets remembered deliberately; append-only memory dumps degrade fast.
           </div>

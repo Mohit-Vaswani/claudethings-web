@@ -3,7 +3,7 @@ import { toolMetadata, ToolJsonLd, type ToolSeoInput } from "@/app/lib/toolSeo";
 
 const seo: ToolSeoInput = {
   path: "/claude-subagent-generator",
-  title: "Claude Code Subagent Generator — Free .claude/agents Builder",
+  title: "Claude Code Subagent Generator, Free .claude/agents Builder",
   description:
     "Free Claude Code subagent generator. Describe a role, pick tools and a model, and get a valid .claude/agents/*.md file with frontmatter and a system prompt.",
   keywords: [
@@ -16,9 +16,9 @@ const seo: ToolSeoInput = {
     "claude code agent examples",
     "create claude subagent",
   ],
-  ogTitle: "Claude Code Subagent Generator — Free",
+  ogTitle: "Claude Code Subagent Generator, Free",
   ogDescription:
-    "Describe a role, get a valid .claude/agents/*.md file — correct frontmatter, scoped tools, and a real system prompt. Free & client-side.",
+    "Describe a role, get a valid .claude/agents/*.md file, correct frontmatter, scoped tools, and a real system prompt. Free & client-side.",
   appName: "Claude Subagent Generator",
   appDescription:
     "A free, client-side generator for Claude Code subagents. Produces valid .claude/agents/*.md files with correct YAML frontmatter (name, description, tools, model) and a structured system prompt.",
@@ -41,11 +41,11 @@ const seo: ToolSeoInput = {
     {
       question: "How does Claude decide when to use my subagent?",
       answer:
-        "It reads the description field. Make it action-oriented and trigger-focused ('Use PROACTIVELY after any code change…') — vague descriptions mean the subagent never fires.",
+        "It reads the description field. Make it action-oriented and trigger-focused ('Use PROACTIVELY after any code change…'), vague descriptions mean the subagent never fires.",
     },
     {
       question: "Is anything I type uploaded?",
-      answer: "No — the generator is pure client-side JavaScript. Nothing leaves your browser.",
+      answer: "No, the generator is pure client-side JavaScript. Nothing leaves your browser.",
     },
   ],
 };

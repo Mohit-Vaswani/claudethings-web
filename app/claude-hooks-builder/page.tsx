@@ -3,7 +3,7 @@ import { toolMetadata, ToolJsonLd, type ToolSeoInput } from "@/app/lib/toolSeo";
 
 const seo: ToolSeoInput = {
   path: "/claude-hooks-builder",
-  title: "Claude Code Hooks Builder — Free settings.json Generator",
+  title: "Claude Code Hooks Builder, Free settings.json Generator",
   description:
     "Free visual builder for Claude Code hooks. Pick an event (PreToolUse, PostToolUse, Stop…), set a matcher and command, and get valid settings.json.",
   keywords: [
@@ -16,7 +16,7 @@ const seo: ToolSeoInput = {
     "claude code automation",
     "claude code hooks matcher",
   ],
-  ogTitle: "Claude Code Hooks Builder — Visual settings.json Generator",
+  ogTitle: "Claude Code Hooks Builder, Visual settings.json Generator",
   ogDescription:
     "Everyone gets the hooks JSON wrong. Build it visually: event, matcher, command → valid settings.json with copy & download. Free, client-side.",
   appName: "Claude Hooks Builder",
@@ -26,7 +26,7 @@ const seo: ToolSeoInput = {
     {
       question: "What are Claude Code hooks?",
       answer:
-        "Hooks are shell commands that Claude Code runs automatically at lifecycle events — before a tool call (PreToolUse), after one (PostToolUse), when you submit a prompt, when Claude finishes, and more. Unlike instructions in CLAUDE.md, hooks are guaranteed to run: they're app-level automation, not suggestions the model might skip.",
+        "Hooks are shell commands that Claude Code runs automatically at lifecycle events, before a tool call (PreToolUse), after one (PostToolUse), when you submit a prompt, when Claude finishes, and more. Unlike instructions in CLAUDE.md, hooks are guaranteed to run: they're app-level automation, not suggestions the model might skip.",
     },
     {
       question: "Where does the hooks JSON go?",

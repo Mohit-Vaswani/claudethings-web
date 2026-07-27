@@ -89,7 +89,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
             <b>Unofficial &amp; independent.</b> Agentary is not affiliated with, endorsed by,
             or sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
             &quot;Anthropic&quot; are trademarks of Anthropic. Content on this site is for
-            educational purposes — see our <a href="/disclaimer" style={{ color: "var(--bone-dim)" }}>disclaimer</a>.
+            educational purposes, see our <a href="/disclaimer" style={{ color: "var(--bone-dim)" }}>disclaimer</a>.
             <br />
             <br />© {year} Agentary. All rights reserved.
           </div>

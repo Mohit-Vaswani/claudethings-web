@@ -8,7 +8,7 @@ const post = getPost("claude-skills-for-pdf")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -40,7 +40,7 @@ const faqLd = {
       name: "Can Claude edit a PDF?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, with a PDF skill. The skill bundles Python scripts that manipulate the file directly, so Claude can merge, split, rotate, watermark, fill forms, extract text and images, and encrypt or decrypt PDFs — producing a real .pdf file rather than a description of one.",
+        text: "Yes, with a PDF skill. The skill bundles Python scripts that manipulate the file directly, so Claude can merge, split, rotate, watermark, fill forms, extract text and images, and encrypt or decrypt PDFs, producing a real .pdf file rather than a description of one.",
       },
     },
     {
@@ -92,7 +92,7 @@ export default function Page() {
     >
       <p className="intro">
         PDF is the format everyone has to deal with and nobody enjoys: invoices, contracts,
-        statements, scanned forms, hundred-page reports. Claude can read a PDF you upload — but
+        statements, scanned forms, hundred-page reports. Claude can read a PDF you upload, but
         reading is only half the job. A PDF <em>skill</em> lets Claude operate on the file: merge,
         split, fill, extract, OCR, and generate real documents. Here is how that works, and why the
         skill approach is dramatically more reliable than prompting.
@@ -107,7 +107,7 @@ export default function Page() {
       <p>
         What comprehension cannot do is give you a file back. Merging six PDFs into one, filling a
         form with three hundred rows of data, splitting a report by chapter, stamping a watermark
-        on every page, OCR-ing a stack of scans so they become searchable — these are file
+        on every page, OCR-ing a stack of scans so they become searchable, these are file
         operations. They are deterministic, they have exactly one correct answer, and a language
         model approximating them is the wrong tool. So a well-built PDF skill does not ask Claude to
         approximate: it ships the code.
@@ -115,14 +115,14 @@ export default function Page() {
 
       <h2>What a PDF skill actually contains</h2>
       <p>
-        A skill is a folder — {code(".claude/skills/pdf/SKILL.md")} plus whatever it bundles. The
+        A skill is a folder, {code(".claude/skills/pdf/SKILL.md")} plus whatever it bundles. The
         markdown holds the routing logic and the scripts do the work. Anthropic&apos;s open-source
         document skills are the reference implementation of this pattern, and it looks roughly like
         this:
       </p>
       <ul>
         <li>
-          <strong>A description that triggers on real situations</strong> — anything involving a
+          <strong>A description that triggers on real situations</strong>, anything involving a
           .pdf file, extracting text or tables, merging, splitting, filling a form, or producing a
           PDF as the deliverable.
         </li>
@@ -132,7 +132,7 @@ export default function Page() {
           transformation, or creation? Each branch points at a different tool.
         </li>
         <li>
-          <strong>Bundled Python scripts</strong> using the standard libraries — pypdf and friends
+          <strong>Bundled Python scripts</strong> using the standard libraries, pypdf and friends
           for structure, an OCR engine for scans, a rendering library for generation.
         </li>
         <li>
@@ -145,7 +145,7 @@ export default function Page() {
       <h2>The jobs a PDF skill does well</h2>
       <p>
         <strong>Extraction.</strong> Text, tables, and images out of a document and into something
-        usable — CSV, JSON, markdown. Tables are the hard part, and a script that understands page
+        usable, CSV, JSON, markdown. Tables are the hard part, and a script that understands page
         structure beats a model reading a wall of characters.
       </p>
       <p>
@@ -158,8 +158,8 @@ export default function Page() {
         a scanned batch into individual invoices, fix pages someone scanned upside down.
       </p>
       <p>
-        <strong>OCR.</strong> Turn scans into searchable documents, so everything downstream — grep,
-        extraction, analysis — starts working.
+        <strong>OCR.</strong> Turn scans into searchable documents, so everything downstream, grep,
+        extraction, analysis, starts working.
       </p>
       <p>
         <strong>Generation.</strong> Produce a properly typeset PDF report, invoice, or one-pager
@@ -175,7 +175,7 @@ export default function Page() {
       <h2>Installing a PDF skill</h2>
       <p>
         Copy the skill folder into {code(".claude/skills/")} in a project, or{" "}
-        {code("~/.claude/skills/")} to have it everywhere — document skills are the classic case for
+        {code("~/.claude/skills/")} to have it everywhere, document skills are the classic case for
         installing globally, since PDFs show up in every kind of work. Then check that the
         dependencies the scripts need are installed, and confirm the skill fires by asking for
         something ordinary like &quot;pull the tables out of this statement&quot;.
@@ -191,7 +191,7 @@ export default function Page() {
       <h2>The pattern worth stealing</h2>
       <p>
         PDF skills teach a lesson that applies far beyond documents: <strong>let the model decide,
-        let the code execute.</strong> The markdown handles judgment — which branch applies, what
+        let the code execute.</strong> The markdown handles judgment, which branch applies, what
         the user actually wants, when to ask. The scripts handle everything with a single correct
         answer. Skills that follow this split are reliable. Skills that ask a model to do
         arithmetic-grade work in prose are the ones that quietly produce wrong output and sound
@@ -201,7 +201,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Document skills, pre-installed:</strong> Agentary bundles PDF, Word, Excel,
-          and PowerPoint skills — scripts included, triggers tuned — among 103 skills, 89 agents,
+          and PowerPoint skills, scripts included, triggers tuned, among 103 skills, 89 agents,
           and 181 commands. <a href="/#pricing">See the kits →</a>
         </p>
       </div>
@@ -213,8 +213,8 @@ export default function Page() {
             Can Claude actually edit a PDF, or just describe changes? <span className="plus">+</span>
           </summary>
           <div className="a">
-            With a PDF skill it edits the real file — merging, splitting, filling, watermarking,
-            encrypting — because the skill bundles scripts that manipulate the document directly.
+            With a PDF skill it edits the real file, merging, splitting, filling, watermarking,
+            encrypting, because the skill bundles scripts that manipulate the document directly.
             Without one, you get a description of what should change.
           </div>
         </details>
@@ -224,7 +224,7 @@ export default function Page() {
           </summary>
           <div className="a">
             A scan is a picture of text, so extraction returns nothing. A good skill detects the
-            empty result and runs OCR to add a text layer first — a branch that is written into the
+            empty result and runs OCR to add a text layer first, a branch that is written into the
             skill rather than remembered by you.
           </div>
         </details>
@@ -234,7 +234,7 @@ export default function Page() {
           </summary>
           <div className="a">
             Yes. The same pattern covers .docx, .xlsx, and .pptx, and the skills are usually
-            installed as a set — most real document work crosses formats anyway.
+            installed as a set, most real document work crosses formats anyway.
           </div>
         </details>
       </div>

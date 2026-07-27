@@ -18,7 +18,7 @@ export const TOOL_GUIDES: ToolGuide[] = [
     name: "Claude Coding Tools",
     tagline: "The 2026 stack for coding with Claude",
     description:
-      "Claude Code, IDE integrations, AI editors, and the extensions that matter — how the pieces fit and what to install first.",
+      "Claude Code, IDE integrations, AI editors, and the extensions that matter, how the pieces fit and what to install first.",
     icon: "⌨️",
   },
   {

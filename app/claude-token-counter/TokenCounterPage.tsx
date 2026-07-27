@@ -12,7 +12,7 @@ import {
 import { MODEL_PRICES, fmtCompact, PRICES_AS_OF } from "@/app/lib/claudePricing";
 
 /**
- * Claude token counter — instant token estimate + cost across Claude models.
+ * Claude token counter, instant token estimate + cost across Claude models.
  * 100% client-side. The estimator blends character- and word-based heuristics,
  * with a density bump for code (symbols and identifiers tokenize smaller).
  */
@@ -50,7 +50,7 @@ function fmtMoney(n: number): string {
 
 /* ----------------------------------- UI ----------------------------------- */
 
-const SAMPLE_PROSE = `Claude is a family of large language models developed by Anthropic. The models are used for everything from everyday chat to agentic coding workflows, where tools like Claude Code read entire repositories into context. Because API pricing is per token, understanding how text converts to tokens — and how input, output, and cached tokens are billed differently — is the difference between a $5 experiment and a $500 surprise.`;
+const SAMPLE_PROSE = `Claude is a family of large language models developed by Anthropic. The models are used for everything from everyday chat to agentic coding workflows, where tools like Claude Code read entire repositories into context. Because API pricing is per token, understanding how text converts to tokens, and how input, output, and cached tokens are billed differently, is the difference between a $5 experiment and a $500 surprise.`;
 
 export default function TokenCounterPage() {
   useToolPageFx();
@@ -79,11 +79,11 @@ export default function TokenCounterPage() {
             <span className="pulse" /> Free Claude token counter · Runs in your browser
           </span>
           <h1 className="reveal-h d2">
-            Count <span className="grad">Claude tokens</span> — and what they cost
+            Count <span className="grad">Claude tokens</span>, and what they cost
           </h1>
           <p className="sub reveal-h d3">
             Paste any text or code and instantly see the <b>token estimate</b> plus the price on{" "}
-            <b>Opus, Sonnet, and Haiku</b> — as input and as output, including cache rates. No
+            <b>Opus, Sonnet, and Haiku</b>, as input and as output, including cache rates. No
             signup, nothing uploaded.
           </p>
 
@@ -179,7 +179,7 @@ export default function TokenCounterPage() {
           <h2 className="fade">The full price table, one place</h2>
           <p className="lead fade">
             Per million tokens, {PRICES_AS_OF}. Output always costs ~5× input; cache reads cost
-            90% less than fresh input — the two facts that explain most Claude bills.
+            90% less than fresh input, the two facts that explain most Claude bills.
           </p>
           <div className="sol-grid" style={{ textAlign: "left" }}>
             {MODEL_PRICES.map((m) => (
@@ -192,10 +192,10 @@ export default function TokenCounterPage() {
                   Cache write ${m.cacheWrite} · Cache read <b>${m.cacheRead}</b>
                   <br />
                   {m.match === "opus"
-                    ? "The heavyweight — for the hardest reasoning and agentic work."
+                    ? "The heavyweight, for the hardest reasoning and agentic work."
                     : m.match === "sonnet"
-                    ? "The default — best cost/intelligence balance for coding."
-                    : "The economy tier — classification, extraction, high-volume calls."}
+                    ? "The default, best cost/intelligence balance for coding."
+                    : "The economy tier, classification, extraction, high-volume calls."}
                 </p>
               </div>
             ))}
@@ -215,8 +215,8 @@ export default function TokenCounterPage() {
           <div className="feat-grid" style={{ marginTop: 48 }}>
             {[
               ["~4 characters per token", "English prose averages 3.5–4 characters (≈0.75 words) per token. 'The quick brown fox' is 4 tokens; this whole sentence is about 12."],
-              ["Code tokenizes heavier", "Brackets, operators, and camelCase identifiers split into more tokens per character — budget 25–40% more than prose. This counter detects code and adjusts."],
-              ["You pay both directions", "Every call bills the entire prompt (input) plus the response (output) — and in a conversation, the whole history is re-sent as input each turn. Long chats compound."],
+              ["Code tokenizes heavier", "Brackets, operators, and camelCase identifiers split into more tokens per character, budget 25–40% more than prose. This counter detects code and adjusts."],
+              ["You pay both directions", "Every call bills the entire prompt (input) plus the response (output), and in a conversation, the whole history is re-sent as input each turn. Long chats compound."],
               ["Caching changes everything", "Repeated context (system prompts, codebases) can be cached: 25% extra to write, 90% off to read. It's why Claude Code can hold your repo in context affordably."],
             ].map(([h, pt]) => (
               <div className="feat fade" key={h}>
@@ -234,23 +234,23 @@ export default function TokenCounterPage() {
         items={[
           [
             "How do I get an exact token count?",
-            "Use the API's free `count_tokens` endpoint — it runs the real tokenizer server-side. For planning, budgeting, and prompt-size sanity checks, this estimator's ±5% is plenty.",
+            "Use the API's free `count_tokens` endpoint, it runs the real tokenizer server-side. For planning, budgeting, and prompt-size sanity checks, this estimator's ±5% is plenty.",
           ],
           [
             "Do Claude and GPT count tokens the same way?",
-            "No — every model family has its own tokenizer, so the same text produces different counts. The differences are usually within ~10–20% for English, but never assume counts transfer between providers.",
+            "No, every model family has its own tokenizer, so the same text produces different counts. The differences are usually within ~10–20% for English, but never assume counts transfer between providers.",
           ],
           [
             "How many tokens fit in Claude's context window?",
-            "Claude models offer 200K-token context windows (with 1M-token tiers available on some models). 200K tokens is roughly 150,000 words — about two novels — but remember: everything in context is billed as input on every call.",
+            "Claude models offer 200K-token context windows (with 1M-token tiers available on some models). 200K tokens is roughly 150,000 words, about two novels, but remember: everything in context is billed as input on every call.",
           ],
           [
             "Why did my agent workflow cost more than this estimate?",
-            "Agents loop: each tool call re-sends the conversation as input, and system prompts, tool definitions, and file contents all count. Multiply per-call cost by turns, and use cache pricing for the repeated prefix — or just measure real usage with ccusage and our Claude Code Wrapped tool.",
+            "Agents loop: each tool call re-sends the conversation as input, and system prompts, tool definitions, and file contents all count. Multiply per-call cost by turns, and use cache pricing for the repeated prefix, or just measure real usage with ccusage and our Claude Code Wrapped tool.",
           ],
           [
             "Is my text stored or sent anywhere?",
-            "No. The counter is client-side JavaScript — your text never leaves the browser.",
+            "No. The counter is client-side JavaScript, your text never leaves the browser.",
           ],
         ]}
       />
@@ -259,7 +259,7 @@ export default function TokenCounterPage() {
         heading="Spend those tokens on real work"
         lead={
           <>
-            The Agentary kits are token-efficient by design — tight skills, scoped agents, and
+            The Agentary kits are token-efficient by design, tight skills, scoped agents, and
             commands that get more done per call, for engineering and marketing.
           </>
         }
@@ -268,7 +268,7 @@ export default function TokenCounterPage() {
       <ToolFooter
         disclaimer={
           <>
-            <b>Token counts are estimates</b> produced by calibrated heuristics — Claude&apos;s
+            <b>Token counts are estimates</b> produced by calibrated heuristics, Claude&apos;s
             exact tokenizer is only available through the Anthropic API. Prices shown are public
             list prices as of {PRICES_AS_OF} and may change. Everything runs in your browser;
             nothing you paste is uploaded or stored.

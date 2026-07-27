@@ -8,7 +8,7 @@ const post = getPost("claude-code-custom-slash-commands-examples")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -45,7 +45,7 @@ export default function Page() {
         {
           href: "/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp",
           title: "Skills vs Subagents vs Slash Commands vs MCP",
-          desc: "When a slash command is the right primitive — and when it isn't.",
+          desc: "When a slash command is the right primitive, and when it isn't.",
         },
         {
           href: "/blog/claude-md-best-practices-template",
@@ -62,7 +62,7 @@ export default function Page() {
       <p className="intro">
         A custom slash command is the simplest extension Claude Code has: a markdown file in{" "}
         {code(".claude/commands/")} whose filename becomes the command and whose body becomes the
-        prompt. No registration, no build step — save the file, type {code("/")} and it&apos;s
+        prompt. No registration, no build step, save the file, type {code("/")} and it&apos;s
         there. What most people are missing isn&apos;t syntax, it&apos;s a starting library. Here
         are fifteen commands you can paste today, organized by the work they do.
       </p>
@@ -93,83 +93,83 @@ Fix GitHub issue #$ARGUMENTS.
 
       <h2>Code quality (1–4)</h2>
       <p>
-        <strong>1. /review</strong> — &quot;Review the current diff ({code("!git diff HEAD")})
+        <strong>1. /review</strong>, &quot;Review the current diff ({code("!git diff HEAD")})
         for correctness bugs first, style second. For each finding: file, line, what breaks, and a
-        concrete fix. Rank by severity. If nothing is wrong, say so — do not invent findings.&quot;
+        concrete fix. Rank by severity. If nothing is wrong, say so, do not invent findings.&quot;
       </p>
       <p>
-        <strong>2. /refactor</strong> — &quot;Refactor {code("$ARGUMENTS")} without changing
-        behavior. Tests must stay green — run them before and after. List each change and why it
+        <strong>2. /refactor</strong>, &quot;Refactor {code("$ARGUMENTS")} without changing
+        behavior. Tests must stay green, run them before and after. List each change and why it
         improves the code. If a change would alter behavior, stop and report instead.&quot;
       </p>
       <p>
-        <strong>3. /test</strong> — &quot;Write tests for {code("$ARGUMENTS")} following this
+        <strong>3. /test</strong>, &quot;Write tests for {code("$ARGUMENTS")} following this
         repo&apos;s existing test patterns. Cover the happy path, edge cases, and one failure mode.
         Run them and fix failures before finishing.&quot;
       </p>
       <p>
-        <strong>4. /explain</strong> — &quot;Explain how {code("$ARGUMENTS")} works: entry points,
+        <strong>4. /explain</strong>, &quot;Explain how {code("$ARGUMENTS")} works: entry points,
         data flow, key invariants, and anything surprising. Audience: a developer new to this
         codebase. No code changes.&quot;
       </p>
 
       <h2>Git and shipping (5–8)</h2>
       <p>
-        <strong>5. /commit</strong> — &quot;Stage and commit the current changes. Group unrelated
+        <strong>5. /commit</strong>, &quot;Stage and commit the current changes. Group unrelated
         changes into separate commits. Messages follow conventional commits; the subject line
         explains <em>why</em>, not just what.&quot;
       </p>
       <p>
-        <strong>6. /pr</strong> — &quot;Create a pull request for this branch: summarize the diff
+        <strong>6. /pr</strong>, &quot;Create a pull request for this branch: summarize the diff
         against main, list notable decisions and trade-offs, add a test plan, and open it with{" "}
         {code("gh pr create")}.&quot;
       </p>
       <p>
-        <strong>7. /changelog</strong> — &quot;Update CHANGELOG.md from commits since the last
+        <strong>7. /changelog</strong>, &quot;Update CHANGELOG.md from commits since the last
         release tag ({code("!git log $(git describe --tags --abbrev=0)..HEAD --oneline")}). Group
         by Added/Changed/Fixed. Write for users, not committers.&quot;
       </p>
       <p>
-        <strong>8. /release-check</strong> — &quot;Pre-release audit: run tests, typecheck, and
+        <strong>8. /release-check</strong>, &quot;Pre-release audit: run tests, typecheck, and
         build; check for TODOs and console.logs in the diff; verify version bumps are consistent.
         Output a go/no-go verdict with a checklist.&quot;
       </p>
 
       <h2>Debugging and maintenance (9–12)</h2>
       <p>
-        <strong>9. /debug</strong> — &quot;Debug this: {code("$ARGUMENTS")}. Reproduce first.
+        <strong>9. /debug</strong>, &quot;Debug this: {code("$ARGUMENTS")}. Reproduce first.
         State your hypothesis before changing anything, add instrumentation to confirm it, then
-        fix the root cause — not the symptom — and prove the fix with a test.&quot;
+        fix the root cause, not the symptom, and prove the fix with a test.&quot;
       </p>
       <p>
-        <strong>10. /deps</strong> — &quot;Audit dependencies: flag outdated packages, known
+        <strong>10. /deps</strong>, &quot;Audit dependencies: flag outdated packages, known
         vulnerabilities ({code("!npm audit")}), and anything unmaintained. Recommend upgrades in
         order of risk, and note breaking changes from changelogs.&quot;
       </p>
       <p>
-        <strong>11. /todo-sweep</strong> — &quot;Find every TODO/FIXME/HACK in src/. For each:
+        <strong>11. /todo-sweep</strong>, &quot;Find every TODO/FIXME/HACK in src/. For each:
         still relevant? If trivially fixable, fix it. Otherwise output a prioritized list with file
         and line references.&quot;
       </p>
       <p>
-        <strong>12. /dead-code</strong> — &quot;Find unused exports, unreachable branches, and
+        <strong>12. /dead-code</strong>, &quot;Find unused exports, unreachable branches, and
         orphaned files. Verify each candidate is truly unused (check dynamic imports and string
         references) before listing it for deletion.&quot;
       </p>
 
       <h2>Documentation and beyond (13–15)</h2>
       <p>
-        <strong>13. /docs</strong> — &quot;Update documentation for {code("$ARGUMENTS")}: check
+        <strong>13. /docs</strong>, &quot;Update documentation for {code("$ARGUMENTS")}: check
         README and docs/ against the current behavior of the code, fix drift, and flag anything
         undocumented that a new user would need.&quot;
       </p>
       <p>
-        <strong>14. /onboard</strong> — &quot;Give me a tour of this codebase: purpose, stack, the
+        <strong>14. /onboard</strong>, &quot;Give me a tour of this codebase: purpose, stack, the
         five most important files, how data flows through a typical request, and what I should
         read first. Then suggest three good first tasks.&quot;
       </p>
       <p>
-        <strong>15. /standup</strong> — &quot;Summarize what changed in this repo in the last 24
+        <strong>15. /standup</strong>, &quot;Summarize what changed in this repo in the last 24
         hours ({code("!git log --since=yesterday --oneline")}): what shipped, what&apos;s in
         progress, anything blocked. Three bullets, written for a standup.&quot;
       </p>
@@ -179,14 +179,14 @@ Fix GitHub issue #$ARGUMENTS.
         <li>
           <strong>Encode the checklist, not just the ask.</strong> &quot;Review my code&quot; is a
           wish. Numbered steps with an output format is a workflow that runs the same way every
-          time — that consistency is the entire value of a command.
+          time, that consistency is the entire value of a command.
         </li>
         <li>
           <strong>Inject fresh context with {code("!")}.</strong> A command that pulls the actual
           diff, log, or audit output grounds Claude in reality instead of memory.
         </li>
         <li>
-          <strong>Define &quot;done&quot;.</strong> End with the verification step — run the
+          <strong>Define &quot;done&quot;.</strong> End with the verification step, run the
           tests, show the output, produce the verdict. Commands without a finish line produce
           plausible-looking half-work.
         </li>
@@ -199,7 +199,7 @@ Fix GitHub issue #$ARGUMENTS.
       <div className="callout">
         <p>
           <strong>These 15 are the free sample:</strong> the Agentary kits ship 181 slash
-          commands covering review, testing, security, refactoring, docs, marketing, and more —
+          commands covering review, testing, security, refactoring, docs, marketing, and more, 
           installed in one command. <a href="/#pricing">Browse the full library →</a>
         </p>
       </div>
@@ -208,7 +208,7 @@ Fix GitHub issue #$ARGUMENTS.
       <div className="faq" style={{ marginTop: 22 }}>
         <details className="q">
           <summary>
-            Slash command or skill — which should I make? <span className="plus">+</span>
+            Slash command or skill, which should I make? <span className="plus">+</span>
           </summary>
           <div className="a">
             Commands run when you type them; skills fire automatically when the task matches. If
@@ -222,7 +222,7 @@ Fix GitHub issue #$ARGUMENTS.
             Can commands take multiple arguments? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Yes — {code("$1")}, {code("$2")}, etc. for positional arguments, or {code("$ARGUMENTS")}{" "}
+            Yes, {code("$1")}, {code("$2")}, etc. for positional arguments, or {code("$ARGUMENTS")}{" "}
             for the whole string. Add an {code("argument-hint")} in frontmatter so the menu shows
             what to pass.
           </div>
@@ -234,7 +234,7 @@ Fix GitHub issue #$ARGUMENTS.
           <div className="a">
             Check the location ({code(".claude/commands/")} in the project or{" "}
             {code("~/.claude/commands/")} globally), the extension ({code(".md")}), and restart the
-            session. Subdirectories create namespaces — {code("commands/git/pr.md")} appears as a
+            session. Subdirectories create namespaces, {code("commands/git/pr.md")} appears as a
             project command with &quot;git&quot; in its description.
           </div>
         </details>

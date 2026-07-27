@@ -7,7 +7,7 @@ import { SITE_URL } from "@/app/lib/site";
  * Landing page for the free Website Security Audit Claude skill.
  * Reuses the global design system in app/globals.css so it matches the main site.
  *
- * Free, no-gate download — the button links straight to the skill zip.
+ * Free, no-gate download, the button links straight to the skill zip.
  */
 const ZIP_URL = "/downloads/website-security-audit.zip";
 
@@ -76,7 +76,7 @@ export default function SecurityAuditPage() {
           </h1>
           <p className="sub reveal-h d3">
             A free Claude skill that audits <b>your own</b> website or codebase for the issues
-            that actually get sites breached — then hands you a plain-English report with exact
+            that actually get sites breached, then hands you a plain-English report with exact
             fixes. <b>No security expertise needed.</b>
           </p>
           <div className="cta-row reveal-h d4">
@@ -97,7 +97,7 @@ export default function SecurityAuditPage() {
               <span className="dot r" />
               <span className="dot y" />
               <span className="dot g" />
-              <span className="term-title">claude — security audit</span>
+              <span className="term-title">claude, security audit</span>
             </div>
             <div className="term-body">
               <div>
@@ -111,7 +111,7 @@ export default function SecurityAuditPage() {
               <div style={sev.crit}>
                 🔴 CRITICAL  Stripe live key hardcoded in <span className="dim">checkout.js:42</span>
               </div>
-              <div style={sev.high}>🟠 HIGH      No HTTPS redirect — http:// stays plain</div>
+              <div style={sev.high}>🟠 HIGH      No HTTPS redirect, http:// stays plain</div>
               <div style={sev.med}>🟡 MEDIUM    Missing Content-Security-Policy header</div>
               <div style={sev.low}>🔵 LOW       Server banner leaks &quot;nginx/1.18.0&quot;</div>
               <div className="dim" style={{ marginTop: 10 }}>
@@ -128,15 +128,15 @@ export default function SecurityAuditPage() {
           <div className="tag fade">What it catches</div>
           <h2 className="fade">The 7 things small sites get wrong</h2>
           <p className="lead fade">
-            Most breaches don&apos;t come from elite hackers — they come from boring, fixable
+            Most breaches don&apos;t come from elite hackers, they come from boring, fixable
             mistakes. This skill checks for all of them.
           </p>
           <div className="sol-grid" style={{ textAlign: "left" }}>
             {[
               ["🔓", "Missing / broken HTTPS", "No SSL, expired certs, no HTTP→HTTPS redirect, outdated TLS, and missing HSTS."],
-              ["📋", "Weak security headers", "Missing CSP, X-Frame-Options, nosniff and more — the easy wins that block XSS and clickjacking."],
+              ["📋", "Weak security headers", "Missing CSP, X-Frame-Options, nosniff and more, the easy wins that block XSS and clickjacking."],
               ["📂", "Exposed files", "Publicly reachable .env, .git, backups, and config files leaking your secrets."],
-              ["🔑", "Hardcoded secrets", "API keys, tokens and passwords sitting in your code — and in your git history."],
+              ["🔑", "Hardcoded secrets", "API keys, tokens and passwords sitting in your code, and in your git history."],
               ["📦", "Vulnerable dependencies", "Known CVEs in your npm / pip / composer packages, mapped to severity."],
               ["💉", "Risky code patterns", "SQL injection, XSS, weak cookies, wide-open CORS, and debug mode left on in production."],
               ["🚪", "Open admin & access control", "Unprotected admin panels, default credentials, and publicly exposed cloud storage."],
@@ -158,7 +158,7 @@ export default function SecurityAuditPage() {
             <div className="tag t-teal" style={{ position: "relative" }}>
               Free download
             </div>
-            <h2 style={{ position: "relative" }}>Download the skill — it&apos;s free</h2>
+            <h2 style={{ position: "relative" }}>Download the skill, it&apos;s free</h2>
             <p className="lead" style={{ position: "relative", margin: "16px auto 0" }}>
               No signup, no email. Click below, unzip, and run your first audit in two minutes.
             </p>
@@ -201,7 +201,7 @@ export default function SecurityAuditPage() {
           <div className="tag fade">Go further</div>
           <h2 className="fade">Loved the skill? Get the full kits.</h2>
           <p className="lead fade">
-            The security audit is one skill. The kits give you dozens — everything you need to ship
+            The security audit is one skill. The kits give you dozens, everything you need to ship
             faster and market smarter with Claude.
           </p>
           <div className="kits" style={{ textAlign: "left" }}>

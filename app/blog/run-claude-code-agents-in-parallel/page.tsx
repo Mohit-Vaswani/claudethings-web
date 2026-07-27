@@ -8,7 +8,7 @@ const post = getPost("run-claude-code-agents-in-parallel")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} — Agentary`,
+  title: `${post.title} · Agentary`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -50,7 +50,7 @@ export default function Page() {
         {
           href: "/blog/claude-code-subagents-not-working",
           title: "Why Your Subagents Aren't Working",
-          desc: "Context bleed and bad delegation — fix these before parallelizing.",
+          desc: "Context bleed and bad delegation, fix these before parallelizing.",
         },
         {
           href: "/blog/boilerplates-are-dead-claude-code-agents",
@@ -63,13 +63,13 @@ export default function Page() {
         Running multiple Claude Code agents at once is the closest thing this ecosystem has to a
         superpower: one agent refactors while another writes tests while a third updates docs. It
         is also the fastest way to burn through a token budget, because parallelism multiplies
-        context — every agent pays for its own understanding of the problem. This guide covers the
+        context, every agent pays for its own understanding of the problem. This guide covers the
         three orchestration patterns and the economics of each.
       </p>
 
       <h2>Why parallel agents cost more than you expect</h2>
       <p>
-        A subagent doesn&apos;t share your session&apos;s context — it starts clean and rebuilds
+        A subagent doesn&apos;t share your session&apos;s context, it starts clean and rebuilds
         whatever understanding it needs by reading files itself. Spin up four agents on the same
         codebase and you pay for the codebase-reading four times. Token use scales with{" "}
         <em>agents × context each agent loads</em>, not with the amount of useful work produced.
@@ -81,7 +81,7 @@ export default function Page() {
       <h3>Sequential: a pipeline, not a party</h3>
       <p>
         Implement → review → test, each stage handing a <em>summary</em> to the next. Nothing runs
-        concurrently, so this is the cheapest pattern — barely more expensive than a single
+        concurrently, so this is the cheapest pattern, barely more expensive than a single
         session, but each stage gets a fresh, focused context instead of one increasingly muddled
         window. Default to this. Most &quot;I need multiple agents&quot; problems are actually
         pipelines.
@@ -89,7 +89,7 @@ export default function Page() {
       <h3>Parallel: only for truly independent work</h3>
       <p>
         Multiple agents at the same time, each in its own context. The requirement is real
-        independence — separate files, separate concerns, no agent needing another&apos;s output.
+        independence, separate files, separate concerns, no agent needing another&apos;s output.
         Migrating fifty components to a new API, auditing three unrelated services, researching
         four candidate libraries: parallel. Two agents editing the same module: a merge conflict
         with a token bill attached.
@@ -98,7 +98,7 @@ export default function Page() {
       <p>
         Send several agents to investigate in parallel, then one agent (or your main session)
         synthesizes their reports and acts. This is the best-value pattern for research because
-        the expensive part — reading lots of material — happens in disposable contexts, and only
+        the expensive part, reading lots of material, happens in disposable contexts, and only
         conclusions flow back. The critical discipline: each researcher returns a bounded report
         (say, under 500 words), not its transcript.
       </p>
@@ -113,7 +113,7 @@ export default function Page() {
         <li>
           <strong>Write briefings, not vibes.</strong> Every agent should receive the files in
           scope, the acceptance criteria, and what&apos;s out of bounds. A precise brief costs a
-          paragraph and saves an agent ten files of exploratory reading — vague tasks are the #1
+          paragraph and saves an agent ten files of exploratory reading, vague tasks are the #1
           source of wasted tokens.
         </li>
         <li>
@@ -123,20 +123,20 @@ export default function Page() {
         </li>
         <li>
           <strong>Match the model to the task.</strong> Subagents can specify their model. Bulk
-          mechanical work — renames, format migrations, lint fixes — runs fine on a fast, cheap
+          mechanical work, renames, format migrations, lint fixes, runs fine on a fast, cheap
           model, at a fraction of the cost. Reserve the strongest model for planning, review, and
           anything with judgment. This single lever often cuts spend by more than half.
         </li>
         <li>
           <strong>Cap the crew.</strong> Two or three well-briefed agents nearly always beat
-          eight, because coordination overhead — merging, reconciling, deduplicating — grows
+          eight, because coordination overhead, merging, reconciling, deduplicating, grows
           faster than throughput. Add agents when tasks are independent, not when you&apos;re
           impatient.
         </li>
         <li>
           <strong>Isolate file access.</strong> Parallel agents that write must not share files.
           For heavyweight cases, git worktrees give each agent its own checkout of a separate
-          branch — genuine isolation, mergeable later, no stepping on each other.
+          branch, genuine isolation, mergeable later, no stepping on each other.
         </li>
         <li>
           <strong>Watch the meter.</strong> Check {code("/usage")} (or your API console&apos;s
@@ -155,7 +155,7 @@ export default function Page() {
         </li>
         <li>
           <strong>Implement (agent 1)</strong> while <strong>test-writing (agent 2)</strong> runs
-          in parallel against the same agreed spec — independent outputs, no shared files.
+          in parallel against the same agreed spec, independent outputs, no shared files.
         </li>
         <li>
           <strong>Review (agent 3, read-only, fresh context):</strong> reviews the combined diff
@@ -171,7 +171,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>This is what the kits orchestrate for you:</strong> Agentary ships
-          orchestrator agents plus sequential, parallel, and fan-out team patterns — 89 agents with
+          orchestrator agents plus sequential, parallel, and fan-out team patterns, 89 agents with
           the briefings, output contracts, and tool scoping already tuned.{" "}
           <a href="/#pricing">See the agent teams →</a>
         </p>
@@ -184,7 +184,7 @@ export default function Page() {
             How many agents can Claude Code run at once? <span className="plus">+</span>
           </summary>
           <div className="a">
-            More than you should use. The practical ceiling is coordination, not the platform —
+            More than you should use. The practical ceiling is coordination, not the platform, 
             beyond a handful of concurrent agents, merging their outputs costs more than the
             parallelism saves. Start with two or three.
           </div>
@@ -194,7 +194,7 @@ export default function Page() {
             Do parallel agents hit subscription rate limits? <span className="plus">+</span>
           </summary>
           <div className="a">
-            Parallel agents consume your usage allowance faster — that&apos;s arithmetic, on any
+            Parallel agents consume your usage allowance faster, that&apos;s arithmetic, on any
             plan. If you&apos;re hitting limits, move bulk work to cheaper models and reserve
             parallel runs for tasks where wall-clock time genuinely matters.
           </div>
@@ -206,7 +206,7 @@ export default function Page() {
           <div className="a">
             Often not. A bloated main context makes every subsequent message more expensive and
             the model measurably worse. Offloading research into a disposable agent context and
-            keeping only conclusions is frequently the cheaper option overall — isolation is a
+            keeping only conclusions is frequently the cheaper option overall, isolation is a
             cost optimization, not just a quality one.
           </div>
         </details>

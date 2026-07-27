@@ -4,7 +4,7 @@ import LegalLayout from "../components/LegalLayout";
 export const metadata: Metadata = {
   title: "Terms of Service · Agentary",
   description:
-    "The terms that govern your purchase, license, and use of Agentary — payments, refunds, acceptable use, and your rights and responsibilities.",
+    "The terms that govern your purchase, license, and use of Agentary, payments, refunds, acceptable use, and your rights and responsibilities.",
 };
 
 export default function TermsPage() {

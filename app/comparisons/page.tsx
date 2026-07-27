@@ -5,24 +5,24 @@ import { COMPARISONS } from "./comparisonsData";
 import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "AI Comparisons — Claude vs ChatGPT, Copilot & More",
+  title: "AI Comparisons, Claude vs ChatGPT, Copilot & More",
   description:
-    "Honest, hype-free comparisons for choosing AI tools: Claude vs ChatGPT, Sonnet vs Opus, and Claude Code vs GitHub Copilot — from people who use them all.",
+    "Honest, hype-free comparisons for choosing AI tools: Claude vs ChatGPT, Sonnet vs Opus, and Claude Code vs GitHub Copilot, from people who use them all.",
   alternates: { canonical: "/comparisons" },
   openGraph: {
-    title: "AI Comparisons — Claude vs ChatGPT, Copilot & More",
+    title: "AI Comparisons, Claude vs ChatGPT, Copilot & More",
     description:
       "Honest, hype-free comparisons: Claude vs ChatGPT, Sonnet vs Opus, Claude Code vs GitHub Copilot.",
     type: "website",
     url: `${SITE_URL}/comparisons`,
-    images: [{ url: ogImage("AI Comparisons — Claude vs ChatGPT, Copilot & More"), width: 1200, height: 630, alt: "AI tool comparisons." }],
+    images: [{ url: ogImage("AI Comparisons, Claude vs ChatGPT, Copilot & More"), width: 1200, height: 630, alt: "AI tool comparisons." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Comparisons — Claude vs ChatGPT, Copilot & More",
+    title: "AI Comparisons, Claude vs ChatGPT, Copilot & More",
     description:
       "Honest, hype-free comparisons: Claude vs ChatGPT, Sonnet vs Opus, Claude Code vs GitHub Copilot.",
-    images: [ogImage("AI Comparisons — Claude vs ChatGPT, Copilot & More")],
+    images: [ogImage("AI Comparisons, Claude vs ChatGPT, Copilot & More")],
   },
 };
 
@@ -38,7 +38,7 @@ export default function ComparisonsIndex() {
             Honest answers to <span className="grad">&quot;which one?&quot;</span>
           </h1>
           <p className="sub">
-            We use these tools daily and sell products for one of them — so each comparison states
+            We use these tools daily and sell products for one of them, so each comparison states
             its bias up front, then <b>argues from workloads, not fandom</b>.
           </p>
         </div>

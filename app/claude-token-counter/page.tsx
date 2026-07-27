@@ -3,9 +3,9 @@ import { toolMetadata, ToolJsonLd, type ToolSeoInput } from "@/app/lib/toolSeo";
 
 const seo: ToolSeoInput = {
   path: "/claude-token-counter",
-  title: "Claude Token Counter — Free Online Token & Cost Calculator",
+  title: "Claude Token Counter, Free Online Token & Cost Calculator",
   description:
-    "Free Claude token counter. Paste text or code to estimate tokens plus the API cost for Claude Opus, Sonnet, and Haiku — input and output, with cache pricing.",
+    "Free Claude token counter. Paste text or code to estimate tokens plus the API cost for Claude Opus, Sonnet, and Haiku, input and output, with cache pricing.",
   keywords: [
     "claude token counter",
     "claude tokenizer",
@@ -17,7 +17,7 @@ const seo: ToolSeoInput = {
     "claude sonnet pricing",
     "tokens to dollars claude",
   ],
-  ogTitle: "Claude Token Counter — Tokens & Cost, Instantly",
+  ogTitle: "Claude Token Counter, Tokens & Cost, Instantly",
   ogDescription:
     "Paste text or code, get the token estimate and the exact cost on Claude Opus, Sonnet, and Haiku. Free, no signup, client-side.",
   appName: "Claude Token Counter",
@@ -27,7 +27,7 @@ const seo: ToolSeoInput = {
     {
       question: "How accurate is this token counter?",
       answer:
-        "It's a calibrated estimate, typically within a few percent for English text and code. Claude's exact tokenizer is only available via the API's count_tokens endpoint, so any in-browser counter is an approximation — this one blends character and word heuristics tuned separately for prose and code.",
+        "It's a calibrated estimate, typically within a few percent for English text and code. Claude's exact tokenizer is only available via the API's count_tokens endpoint, so any in-browser counter is an approximation, this one blends character and word heuristics tuned separately for prose and code.",
     },
     {
       question: "How many tokens is a word for Claude?",
@@ -37,7 +37,7 @@ const seo: ToolSeoInput = {
     {
       question: "What do Claude tokens cost?",
       answer:
-        "Per million tokens: Claude Opus $15 input / $75 output, Claude Sonnet $3 input / $15 output, Claude Haiku $1 input / $5 output. Cache writes cost 25% extra on input; cache reads cost 90% less — which is why Claude Code leans so heavily on caching.",
+        "Per million tokens: Claude Opus $15 input / $75 output, Claude Sonnet $3 input / $15 output, Claude Haiku $1 input / $5 output. Cache writes cost 25% extra on input; cache reads cost 90% less, which is why Claude Code leans so heavily on caching.",
     },
     {
       question: "Why do input and output tokens cost different amounts?",
@@ -46,7 +46,7 @@ const seo: ToolSeoInput = {
     },
     {
       question: "Is my text uploaded when I count it?",
-      answer: "No — counting and pricing run entirely in your browser. Nothing you paste is sent anywhere.",
+      answer: "No, counting and pricing run entirely in your browser. Nothing you paste is sent anywhere.",
     },
   ],
 };

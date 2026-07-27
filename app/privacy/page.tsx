@@ -4,7 +4,7 @@ import LegalLayout from "../components/LegalLayout";
 export const metadata: Metadata = {
   title: "Privacy Policy · Agentary",
   description:
-    "How Agentary collects, uses, and protects your data — what we store, the analytics and payment tools we use, and the choices you have.",
+    "How Agentary collects, uses, and protects your data, what we store, the analytics and payment tools we use, and the choices you have.",
 };
 
 export default function PrivacyPage() {

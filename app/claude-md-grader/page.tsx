@@ -3,7 +3,7 @@ import { toolMetadata, ToolJsonLd, type ToolSeoInput } from "@/app/lib/toolSeo";
 
 const seo: ToolSeoInput = {
   path: "/claude-md-grader",
-  title: "CLAUDE.md Grader — Free Score & Linter for Your Claude Code Config",
+  title: "CLAUDE.md Grader, Free Score & Linter for Your Claude Code Config",
   description:
     "Free CLAUDE.md grader for Claude Code. Paste your CLAUDE.md and get a score out of 100 with exact fixes: token budget, progressive disclosure, linter duplication, vague instructions, and structure. Runs 100% in your browser.",
   keywords: [
@@ -17,7 +17,7 @@ const seo: ToolSeoInput = {
     "claude.md linter",
     "how to write claude.md",
   ],
-  ogTitle: "CLAUDE.md Grader — Score Your Claude Code Config /100",
+  ogTitle: "CLAUDE.md Grader, Score Your Claude Code Config /100",
   ogDescription:
     "Paste your CLAUDE.md, get a score /100 with the exact fixes: length, progressive disclosure, linter duplication, vague rules. Free & client-side.",
   appName: "CLAUDE.md Grader",
@@ -47,7 +47,7 @@ const seo: ToolSeoInput = {
     {
       question: "Why shouldn't CLAUDE.md repeat my linter rules?",
       answer:
-        "Prose rules like 'use 2-space indentation' or 'no semicolons' waste tokens and are less reliable than tooling — Claude Code sees your linter/formatter output directly. Keep mechanical style in ESLint/Prettier/Ruff configs and use CLAUDE.md for what tools can't check.",
+        "Prose rules like 'use 2-space indentation' or 'no semicolons' waste tokens and are less reliable than tooling, Claude Code sees your linter/formatter output directly. Keep mechanical style in ESLint/Prettier/Ruff configs and use CLAUDE.md for what tools can't check.",
     },
   ],
 };
