@@ -9,7 +9,7 @@ const DESC =
 const URL = `${SITE_URL}/comparisons/claude-sonnet-vs-opus`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} · Agentary`,
+  title: `${TITLE} · AgentsKit`,
   description: DESC,
   alternates: { canonical: "/comparisons/claude-sonnet-vs-opus" },
   openGraph: {
@@ -28,8 +28,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 export default function Page() {
@@ -195,7 +195,7 @@ export default function Page() {
           prompted Opus on almost anything, see{" "}
           <a href="/blog/10-prompting-techniques-for-claude">the ten techniques</a> that matter
           more than the tier, or install them pre-packaged via the{" "}
-          <a href="/#pricing">Agentary kits</a>.
+          <a href="/#pricing">AgentsKit kits</a>.
         </p>
       </div>
 

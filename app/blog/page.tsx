@@ -5,21 +5,21 @@ import { POSTS } from "./blogData";
 import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "Blog, Claude Code Guides, Agents & Prompting · Agentary",
+  title: "Blog, Claude Code Guides, Agents & Prompting · AgentsKit",
   description:
     "Practical guides for getting real work out of Claude: Claude Code walkthroughs, building AI agents, prompting techniques, and applied workflows.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Agentary Blog, Claude Code Guides, Agents & Prompting",
+    title: "AgentsKit Blog, Claude Code Guides, Agents & Prompting",
     description:
       "Practical guides for getting real work out of Claude, Claude Code, agents, prompting technique, applied workflows.",
     type: "website",
     url: `${SITE_URL}/blog`,
-    images: [{ url: ogImage("Blog, Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The Agentary blog." }],
+    images: [{ url: ogImage("Blog, Claude Code Guides, Agents & Prompting"), width: 1200, height: 630, alt: "The AgentsKit blog." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agentary Blog, Claude Code Guides, Agents & Prompting",
+    title: "AgentsKit Blog, Claude Code Guides, Agents & Prompting",
     description:
       "Practical guides for getting real work out of Claude, Claude Code, agents, prompting technique, applied workflows.",
     images: [ogImage("Blog, Claude Code Guides, Agents & Prompting")],
@@ -39,7 +39,7 @@ export default function BlogIndex() {
           </h1>
           <p className="sub">
             Long-form, practical, and specific: <b>Claude Code workflows, agent architecture, and
-            prompting technique</b>, the write-ups we wished existed while building Agentary.
+            prompting technique</b>, the write-ups we wished existed while building AgentsKit.
           </p>
         </div>
       </header>

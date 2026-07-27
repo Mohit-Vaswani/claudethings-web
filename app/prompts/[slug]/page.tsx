@@ -132,7 +132,7 @@ export default async function PromptCollectionPage({
 
             <div className="callout">
               <p>
-                <strong>Want this expertise installed, not pasted?</strong> The Agentary kits
+                <strong>Want this expertise installed, not pasted?</strong> The AgentsKit kits
                 turn workflows like these into <strong>89 agents, 103 skills, and 181 slash
                 commands</strong> that live inside Claude Code, one command to install, any stack.{" "}
                 <a href="/#pricing">See the kits →</a>

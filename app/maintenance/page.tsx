@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "We'll be right back · Agentary",
+  title: "We'll be right back · AgentsKit",
   description: "We're rolling out some important updates. Checkout is paused for a little while.",
   robots: { index: false, follow: false },
 };

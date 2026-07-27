@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { GEO_DISCOUNT, useGeoDiscount } from "./lib/geoDiscount";
+import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
 import { SITE_URL } from "@/app/lib/site";
 
 /**
- * Agentary landing page (Next.js App Router).
+ * AgentsKit landing page (Next.js App Router).
  * Styling lives in app/globals.css. Buy buttons use Polar's embed (loaded in layout.tsx).
  * Replace the REPLACE_* checkout links below with your real Polar product links.
  */
@@ -61,7 +61,7 @@ export default function Home() {
     cleanups.push(() => cio.disconnect());
 
     // terminal typing
-    const cmd = "npx github:agentary-dev/kit init --kit both";
+    const cmd = "npx github:getagentskit/kit init --kit both";
     const typedEl = document.getElementById("typed");
     const curEl = document.getElementById("cur");
     const outEl = document.getElementById("term-out");
@@ -133,7 +133,7 @@ export default function Home() {
       <nav id="nav">
         <div className="nav-inner">
           <a className="logo" href="#top">
-            Agentary
+            AgentsKit
           </a>
           <div className="nav-links">
             <a href="#whats-inside">What&apos;s inside</a>
@@ -147,7 +147,7 @@ export default function Home() {
               data-fast-goal="cta_get_claudethings"
               data-fast-goal-location="nav"
             >
-              Get Agentary <span className="ar">↗</span>
+              Get AgentsKit <span className="ar">↗</span>
             </a>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function Home() {
           </h1>
           <p className="sub reveal-h d3">
             Out of the box, Claude Code is one brilliant generalist, and you&apos;re the bottleneck.
-            Agentary drops in <b>89 specialist agents</b>, <b>103 ready-to-use skills</b>, and{" "}
+            AgentsKit drops in <b>89 specialist agents</b>, <b>103 ready-to-use skills</b>, and{" "}
             <b>181 slash commands</b> with a single command, so one person can plan, build, test,
             ship <em>and</em> market a real product, without hiring, without context-switching.
           </p>
@@ -176,7 +176,7 @@ export default function Home() {
               data-fast-goal="cta_get_claudethings"
               data-fast-goal-location="hero"
             >
-              Get Agentary <span className="ar">↗</span>
+              Get AgentsKit <span className="ar">↗</span>
             </a>
             <a className="btn btn-ghost btn-lg" href="#whats-inside">
               See what&apos;s inside <span className="ar">↗</span>
@@ -317,7 +317,7 @@ export default function Home() {
                 <div className="ic">02</div>
                 <h3>Gets better while you sleep</h3>
                 <p>
-                  A template is frozen the day you buy it. Agentary isn&apos;t. When Anthropic ships
+                  A template is frozen the day you buy it. AgentsKit isn&apos;t. When Anthropic ships
                   a smarter Claude, your whole team levels up automatically, and every update we
                   add is yours free, forever.
                 </p>
@@ -325,7 +325,7 @@ export default function Home() {
               <div className="show-vista vista v2">
                 <div className="ui-card">
                   <div className="u-label">Lifetime updates</div>
-                  <div className="ui-line">$ agentary update</div>
+                  <div className="ui-line">$ agentskit update</div>
                   <div className="ui-line">
                     <span className="ck">✓</span> up to date, no upgrade fees
                   </div>
@@ -528,7 +528,7 @@ export default function Home() {
                   data-fast-goal="cta_get_claudethings"
                   data-fast-goal-location="how_it_works"
                 >
-                  Get Agentary <span className="ar">↗</span>
+                  Get AgentsKit <span className="ar">↗</span>
                 </a>
               </div>
             </div>
@@ -537,7 +537,7 @@ export default function Home() {
                 <div className="n">01</div>
                 <h3>Install</h3>
                 <p>
-                  Paste the <code>npx github:agentary-dev/…</code> one-liner from your private
+                  Paste the <code>npx github:getagentskit/…</code> one-liner from your private
                   repo&apos;s README. Pick engineer, marketing, or both. No global install, nothing
                   to configure.
                 </p>
@@ -577,7 +577,7 @@ export default function Home() {
               <p>
                 Just want the debugger?{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>
-                  agentary add agent debugger
+                  agentskit add agent debugger
                 </code>
                 . Pull in one agent or all 89, never all-or-nothing.
               </p>
@@ -597,7 +597,7 @@ export default function Home() {
               <p>
                 One payment, no subscription. Run{" "}
                 <code style={{ fontFamily: "var(--font-mono)", fontSize: "12px" }}>
-                  agentary update
+                  agentskit update
                 </code>{" "}
                 any time to pull the newest agents, free, for life.
               </p>
@@ -635,7 +635,7 @@ export default function Home() {
                   <th>Feature</th>
                   <th>Boilerplate</th>
                   <th>Other AI kits</th>
-                  <th>Agentary</th>
+                  <th>AgentsKit</th>
                 </tr>
               </thead>
               <tbody>
@@ -765,8 +765,20 @@ export default function Home() {
                   <span className="big">49</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
-                {/* MAINTENANCE: checkout paused during rebrand — points to /maintenance. Restore Polar href + data-polar-checkout attrs when live. */}
-                <a className="btn btn-ghost" href="/maintenance">
+                {/* POLAR: Engineer product checkout link */}
+                <a
+                  className="btn btn-ghost"
+                  href={withDiscount(
+                    "https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa",
+                    indiaOffer
+                  )}
+                  data-polar-checkout=""
+                  data-polar-checkout-theme="light"
+                  data-fast-goal="initiate_checkout"
+                  data-fast-goal-plan="engineer"
+                  data-fast-goal-price="49"
+                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
+                >
                   Get Engineer Kit <span className="ar">↗</span>
                 </a>
               </div>
@@ -804,8 +816,20 @@ export default function Home() {
                   <span className="was">$129</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
-                {/* MAINTENANCE: checkout paused during rebrand — points to /maintenance. Restore Polar href + data-polar-checkout attrs when live. */}
-                <a className="btn btn-primary" href="/maintenance">
+                {/* POLAR: Bundle product checkout link */}
+                <a
+                  className="btn btn-primary"
+                  href={withDiscount(
+                    "https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC",
+                    indiaOffer
+                  )}
+                  data-polar-checkout=""
+                  data-polar-checkout-theme="light"
+                  data-fast-goal="initiate_checkout"
+                  data-fast-goal-plan="bundle"
+                  data-fast-goal-price="89"
+                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
+                >
                   Get the Bundle <span className="ar">↗</span>
                 </a>
               </div>
@@ -847,8 +871,20 @@ export default function Home() {
                   <span className="big">49</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
-                {/* MAINTENANCE: checkout paused during rebrand — points to /maintenance. Restore Polar href + data-polar-checkout attrs when live. */}
-                <a className="btn btn-ghost" href="/maintenance">
+                {/* POLAR: Marketing product checkout link */}
+                <a
+                  className="btn btn-ghost"
+                  href={withDiscount(
+                    "https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL",
+                    indiaOffer
+                  )}
+                  data-polar-checkout=""
+                  data-polar-checkout-theme="light"
+                  data-fast-goal="initiate_checkout"
+                  data-fast-goal-plan="marketing"
+                  data-fast-goal-price="49"
+                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
+                >
                   Get Marketing Kit <span className="ar">↗</span>
                 </a>
               </div>
@@ -915,7 +951,7 @@ export default function Home() {
                   <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  Yes, Agentary is built specifically for{" "}
+                  Yes, AgentsKit is built specifically for{" "}
                   <a href="https://claude.com/claude-code" style={{ color: "var(--ember)" }}>
                     Claude Code
                   </a>
@@ -933,8 +969,8 @@ export default function Home() {
                 <div className="a">
                   Access to a private GitHub repo containing the kit(s) you bought: a{" "}
                   <code>.claude/</code> directory of agents, skills, and slash commands, CLAUDE.md
-                  templates, the <code>agentary</code> installer CLI, and full docs. You drop it
-                  into any project with a one-line <code>npx github:agentary-dev/…</code> command
+                  templates, the <code>agentskit</code> installer CLI, and full docs. You drop it
+                  into any project with a one-line <code>npx github:getagentskit/…</code> command
                   that pulls straight from your private repo, the exact command is in your
                   repo&apos;s README.
                 </div>
@@ -966,7 +1002,7 @@ export default function Home() {
                   How do updates work? <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  Buy once, get every future update. Run <code>agentary update</code> (or{" "}
+                  Buy once, get every future update. Run <code>agentskit update</code> (or{" "}
                   <code>git pull</code>) to refresh. Your custom files and CLAUDE.md are never
                   touched.
                 </div>
@@ -976,7 +1012,7 @@ export default function Home() {
                   Is this affiliated with Anthropic? <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  No. Agentary is an independent, unofficial product and is not affiliated
+                  No. AgentsKit is an independent, unofficial product and is not affiliated
                   with, endorsed by, or sponsored by Anthropic. &quot;Claude&quot; and &quot;Claude
                   Code&quot; are trademarks of Anthropic.
                 </div>
@@ -986,7 +1022,7 @@ export default function Home() {
                   What&apos;s the refund policy? <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  Agentary is a digital product delivered instantly and in full at checkout,
+                  AgentsKit is a digital product delivered instantly and in full at checkout,
                   so all sales are final and purchases are non-refundable. Have questions before
                   buying? Email us and we&apos;ll help you decide.
                 </div>
@@ -1011,7 +1047,7 @@ export default function Home() {
               data-fast-goal="cta_get_claudethings"
               data-fast-goal-location="final_cta"
             >
-              Get Agentary <span className="ar">↗</span>
+              Get AgentsKit <span className="ar">↗</span>
             </a>
           </div>
           <div className="guarantee">🔒 Secure checkout · Pay once, use forever</div>
@@ -1024,7 +1060,7 @@ export default function Home() {
           <div className="foot-top">
             <div>
               <a className="logo" href="#top">
-                Agentary
+                AgentsKit
               </a>
               <p
                 style={{
@@ -1075,20 +1111,20 @@ export default function Home() {
                 >
                   epictools.io@gmail.com
                 </a>
-                <a href={SITE_URL}>agentary.dev</a>
+                <a href={SITE_URL}>agentskit.co</a>
                 <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>
           </div>
           <div className="disclaimer">
-            <b>Unofficial &amp; independent.</b> Agentary is not affiliated with, endorsed by, or
+            <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by, or
             sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
-            &quot;Anthropic&quot; are trademarks of Anthropic. Agentary is a curated
+            &quot;Anthropic&quot; are trademarks of Anthropic. AgentsKit is a curated
             distribution; many bundled components are sourced from open-source projects under
             MIT/Apache-2.0 licenses, with full attribution preserved in the product&apos;s CREDITS
             file.
             <br />
-            <br />© {year} Agentary. All rights reserved.
+            <br />© {year} AgentsKit. All rights reserved.
           </div>
         </div>
       </footer>

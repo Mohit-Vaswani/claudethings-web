@@ -9,7 +9,7 @@ const DESC =
 const URL = `${SITE_URL}/tools/claude-mcp-servers`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} · Agentary`,
+  title: `${TITLE} · AgentsKit`,
   description: DESC,
   alternates: { canonical: "/tools/claude-mcp-servers" },
   openGraph: {
@@ -28,8 +28,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 export default function Page() {
@@ -190,7 +190,7 @@ claude mcp list`}</pre>
 
       <div className="callout">
         <p>
-          <strong>MCP gives Claude hands; skills give it expertise.</strong> The Agentary kits
+          <strong>MCP gives Claude hands; skills give it expertise.</strong> The AgentsKit kits
           ship 103 skills and 181 commands that put both to work, code review, security audits,
           SEO, email sequences, installed in one command.{" "}
           <a href="/#pricing">See what&apos;s inside →</a>

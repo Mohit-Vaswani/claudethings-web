@@ -9,7 +9,7 @@ const DESC =
 const URL = `${SITE_URL}/tools/claude-productivity-tools`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} · Agentary`,
+  title: `${TITLE} · AgentsKit`,
   description: DESC,
   alternates: { canonical: "/tools/claude-productivity-tools" },
   openGraph: {
@@ -28,8 +28,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 export default function Page() {
@@ -147,7 +147,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>The productized version:</strong> the Agentary kits install 89 agents, 103
+          <strong>The productized version:</strong> the AgentsKit kits install 89 agents, 103
           skills, and 181 slash commands, engineering and marketing workflows that turn this
           whole page into a one-command setup. <a href="/#pricing">See the kits →</a>
         </p>

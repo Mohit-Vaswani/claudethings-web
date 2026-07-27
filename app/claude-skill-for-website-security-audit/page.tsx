@@ -45,7 +45,7 @@ const jsonLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   description:
     "A free Claude skill that audits your own website or codebase for common security issues and produces a prioritized report with exact fixes.",
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 export default function Page() {

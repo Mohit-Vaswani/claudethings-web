@@ -348,7 +348,7 @@ function drawCard(canvas: HTMLCanvasElement, s: WrappedStats) {
   ctx.fillText("Get yours free →", 64, H - 50);
   ctx.fillStyle = ember;
   ctx.font = `700 20px ${mono}`;
-  ctx.fillText("agentary.dev/claude-code-wrapped", 236, H - 50);
+  ctx.fillText("agentskit.co/claude-code-wrapped", 236, H - 50);
   ctx.fillStyle = boneFaint;
   ctx.textAlign = "right";
   ctx.font = `500 17px ${sans}`;
@@ -586,7 +586,7 @@ export default function WrappedPage() {
         heading="Burning that many tokens? Make them count."
         lead={
           <>
-            The Agentary kits are a library of production-grade agents, skills, and slash
+            The AgentsKit kits are a library of production-grade agents, skills, and slash
             commands that make every one of those tokens do more work, reviews, tests, security
             audits, marketing.
           </>

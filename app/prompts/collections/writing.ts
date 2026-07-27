@@ -5,7 +5,7 @@ export const writing: PromptCollection = {
   label: "Writing",
   icon: "✍️",
   title: "10 Claude Prompts for Writing That Doesn't Sound Like AI",
-  metaTitle: "10 Claude Prompts for Writing (Copy & Paste) · Agentary",
+  metaTitle: "10 Claude Prompts for Writing (Copy & Paste) · AgentsKit",
   description:
     "Ten Claude prompts for writers: first drafts with real voice, ruthless editing, structure fixes, de-AI-ifying text, and rewriting for a specific reader.",
   intro: [

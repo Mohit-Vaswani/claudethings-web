@@ -8,7 +8,7 @@ const post = getPost("how-to-build-ai-agents-with-claude")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} · Agentary`,
+  title: `${post.title} · AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 export default function Page() {
@@ -259,7 +259,7 @@ async function runAgent(task: string) {
 
       <div className="callout">
         <p>
-          <strong>Want the pre-built version?</strong> The Agentary kits are exactly this
+          <strong>Want the pre-built version?</strong> The AgentsKit kits are exactly this
           philosophy productized: 89 specialized agents, 103 skills, and 181 commands for
           engineering and marketing work, installed into Claude Code with one command.{" "}
           <a href="/#pricing">See the kits →</a>

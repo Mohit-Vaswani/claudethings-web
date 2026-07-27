@@ -426,7 +426,7 @@ export default function ValidatorPage() {
       <nav id="nav">
         <div className="nav-inner">
           <a className="logo" href={SITE_URL}>
-            Agentary
+            AgentsKit
           </a>
           <div className="nav-links">
             <a href={`${SITE_URL}/#whats-inside`}>What&apos;s inside</a>
@@ -639,7 +639,7 @@ export default function ValidatorPage() {
           <div className="tag fade">Go further</div>
           <h2 className="fade">Want 103 skills that already pass?</h2>
           <p className="lead fade">
-            This validator is free. The Agentary kits give you a whole library of
+            This validator is free. The AgentsKit kits give you a whole library of
             production-grade agents, skills, and slash commands, every one written to the exact
             bar this linter enforces.
           </p>
@@ -710,7 +710,7 @@ export default function ValidatorPage() {
           <div className="foot-top">
             <div>
               <a className="logo" href={SITE_URL}>
-                Agentary
+                AgentsKit
               </a>
               <p style={{ color: "var(--bone-faint)", fontSize: 14, marginTop: 12, maxWidth: "34ch" }}>
                 Your AI engineering &amp; marketing team for Claude Code.
@@ -741,7 +741,7 @@ export default function ValidatorPage() {
               <div className="foot-col">
                 <h2>Connect</h2>
                 <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
-                <a href={SITE_URL}>agentary.dev</a>
+                <a href={SITE_URL}>agentskit.co</a>
                 <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>
@@ -753,11 +753,11 @@ export default function ValidatorPage() {
             and passing it does not guarantee acceptance in every context.
             <br />
             <br />
-            <b>Unofficial &amp; independent.</b> Agentary is not affiliated with, endorsed by, or
+            <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by, or
             sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
             &quot;Anthropic&quot; are trademarks of Anthropic.
             <br />
-            <br />© {year} Agentary. All rights reserved.
+            <br />© {year} AgentsKit. All rights reserved.
           </div>
         </div>
       </footer>

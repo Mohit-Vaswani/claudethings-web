@@ -9,7 +9,7 @@ const DESC =
 const URL = `${SITE_URL}/tools/claude-coding-tools`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} · Agentary`,
+  title: `${TITLE} · AgentsKit`,
   description: DESC,
   alternates: { canonical: "/tools/claude-coding-tools" },
   openGraph: {
@@ -28,8 +28,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 export default function Page() {
@@ -144,7 +144,7 @@ export default function Page() {
           <a href="/claude-skill-for-website-security-audit">website security audit skill</a>.
         </li>
         <li>
-          <strong>The full library:</strong> the Agentary Engineering Kit, 58 agents, 61
+          <strong>The full library:</strong> the AgentsKit Engineering Kit, 58 agents, 61
           skills, and 159 commands covering review, testing, security, refactoring, and shipping.{" "}
           <a href="/#pricing">One command to install</a>.
         </li>

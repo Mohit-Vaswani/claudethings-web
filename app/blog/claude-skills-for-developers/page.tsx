@@ -8,7 +8,7 @@ const post = getPost("claude-skills-for-developers")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} · Agentary`,
+  title: `${post.title} · AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 const faqLd = {
@@ -198,7 +198,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Or start with a library:</strong> Agentary ships 103 skills, 89 agents, and 181
+          <strong>Or start with a library:</strong> AgentsKit ships 103 skills, 89 agents, and 181
           commands, trigger-tested, deduplicated, and installed with one command, so you can spend
           your time on the project-specific skills only you can write.{" "}
           <a href="/#pricing">See the kits →</a>

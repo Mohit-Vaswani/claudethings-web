@@ -48,7 +48,7 @@ const softwareLd = {
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   description:
     "A free, client-side validator and linter for Claude Code Agent Skill SKILL.md files. Checks YAML frontmatter, name and description rules, body length, and when-to-use structure.",
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 const faqLd = {
@@ -91,7 +91,7 @@ const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Agentary", item: SITE_URL },
+    { "@type": "ListItem", position: 1, name: "AgentsKit", item: SITE_URL },
     { "@type": "ListItem", position: 2, name: "SKILL.md Validator", item: URL },
   ],
 };

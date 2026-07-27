@@ -1,6 +1,6 @@
 {
-  "name": "Agentary",
-  "short_name": "Agentary",
+  "name": "AgentsKit",
+  "short_name": "AgentsKit",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

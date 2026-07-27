@@ -6,7 +6,7 @@ import { TOOL_GUIDES } from "./guidesData";
 import { SITE_URL } from "@/app/lib/site";
 
 /**
- * /tools, index of free Agentary tools. Data-driven from toolsData.ts so
+ * /tools, index of free AgentsKit tools. Data-driven from toolsData.ts so
  * launching a new tool is a one-line addition. Reuses the global design system.
  */
 export default function ToolsIndex() {
@@ -43,7 +43,7 @@ export default function ToolsIndex() {
       <nav id="nav">
         <div className="nav-inner">
           <a className="logo" href={SITE_URL}>
-            Agentary
+            AgentsKit
           </a>
           <div className="nav-links">
             <a href={`${SITE_URL}/#whats-inside`}>What&apos;s inside</a>
@@ -68,7 +68,7 @@ export default function ToolsIndex() {
           <p className="sub reveal-h d3">
             A growing collection of <b>free tools and skills</b> for people building with Claude
             Code, validators, auditors, and generators. No signup, no cost. Made by the team behind
-            the Agentary kits.
+            the AgentsKit kits.
           </p>
         </div>
       </header>
@@ -152,7 +152,7 @@ export default function ToolsIndex() {
           <div className="tag fade">Go further</div>
           <h2 className="fade">Loved the free tools? Get the full kits.</h2>
           <p className="lead fade">
-            The tools above are free forever. The Agentary kits give you a whole library, 
+            The tools above are free forever. The AgentsKit kits give you a whole library, 
             89 agents, 103 skills, and 181 slash commands you drop into any project with one
             command.
           </p>
@@ -221,7 +221,7 @@ export default function ToolsIndex() {
           <div className="foot-top">
             <div>
               <a className="logo" href={SITE_URL}>
-                Agentary
+                AgentsKit
               </a>
               <p style={{ color: "var(--bone-faint)", fontSize: 14, marginTop: 12, maxWidth: "34ch" }}>
                 Your AI engineering &amp; marketing team for Claude Code.
@@ -262,17 +262,17 @@ export default function ToolsIndex() {
               <div className="foot-col">
                 <h2>Connect</h2>
                 <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
-                <a href={SITE_URL}>agentary.dev</a>
+                <a href={SITE_URL}>agentskit.co</a>
                 <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
               </div>
             </div>
           </div>
           <div className="disclaimer">
-            <b>Unofficial &amp; independent.</b> Agentary is not affiliated with, endorsed by, or
+            <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by, or
             sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
             &quot;Anthropic&quot; are trademarks of Anthropic.
             <br />
-            <br />© {year} Agentary. All rights reserved.
+            <br />© {year} AgentsKit. All rights reserved.
           </div>
         </div>
       </footer>

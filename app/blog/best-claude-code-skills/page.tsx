@@ -8,7 +8,7 @@ const post = getPost("best-claude-code-skills")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} · Agentary`,
+  title: `${post.title} · AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -170,12 +170,12 @@ export default function Page() {
       </p>
       <p>
         The one-command version: skills increasingly ship in plugins and kits, installed as a
-        bundle instead of folder-by-folder, which is exactly how Agentary works.
+        bundle instead of folder-by-folder, which is exactly how AgentsKit works.
       </p>
 
       <div className="callout">
         <p>
-          <strong>Everything on this list, one command:</strong> the Agentary kits include all
+          <strong>Everything on this list, one command:</strong> the AgentsKit kits include all
           fifteen categories above among 103 skills, descriptions tuned to trigger, scripts
           bundled, kept current, plus the 89 agents and 181 commands they pair with.{" "}
           <a href="/#pricing">Install the full library →</a>

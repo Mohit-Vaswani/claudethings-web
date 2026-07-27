@@ -69,7 +69,7 @@ export default function ComparisonsIndex() {
           <p className="lead">
             Start with the <a href="/prompts" className="accent">free prompt library</a>, graduate
             to <a href="/blog/getting-started-with-claude-code" className="accent">Claude Code</a>,
-            and install the <a href="/#pricing" className="accent">Agentary kits</a> when
+            and install the <a href="/#pricing" className="accent">AgentsKit kits</a> when
             you&apos;re ready to move faster than prompts allow.
           </p>
         </div>

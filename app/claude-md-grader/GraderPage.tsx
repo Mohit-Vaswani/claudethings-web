@@ -474,7 +474,7 @@ export default function GraderPage() {
         heading="Want the configs already done right?"
         lead={
           <>
-            The Agentary kits ship production-grade agents, skills, and commands, written to
+            The AgentsKit kits ship production-grade agents, skills, and commands, written to
             the same bar this grader enforces, so your whole Claude Code setup starts at an A.
           </>
         }

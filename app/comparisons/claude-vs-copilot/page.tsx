@@ -9,7 +9,7 @@ const DESC =
 const URL = `${SITE_URL}/comparisons/claude-vs-copilot`;
 
 export const metadata: Metadata = {
-  title: `${TITLE} · Agentary`,
+  title: `${TITLE} · AgentsKit`,
   description: DESC,
   alternates: { canonical: "/comparisons/claude-vs-copilot" },
   openGraph: {
@@ -28,8 +28,8 @@ const articleLd = {
   headline: TITLE,
   description: DESC,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 export default function Page() {

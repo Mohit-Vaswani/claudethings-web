@@ -8,7 +8,7 @@ const post = getPost("best-claude-code-hooks")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} · Agentary`,
+  title: `${post.title} · AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -225,7 +225,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Guarantees, plus the judgment to go with them.</strong> Hooks enforce; skills and
-          agents decide. Agentary ships 103 skills, 89 agents, and 181 commands that encode how
+          agents decide. AgentsKit ships 103 skills, 89 agents, and 181 commands that encode how
           your review, testing, security, and release work should be done.{" "}
           <a href="/#pricing">See the full library →</a>
         </p>

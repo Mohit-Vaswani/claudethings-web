@@ -5,7 +5,7 @@ import { USE_CASES } from "./useCasesData";
 import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
-  title: "Claude Use Cases, Real Workflows by Role · Agentary",
+  title: "Claude Use Cases, Real Workflows by Role · AgentsKit",
   description:
     "How developers, data scientists, product managers, and students actually use Claude, where it excels, realistic workflows, and starter prompts per role.",
   alternates: { canonical: "/use-cases" },
@@ -70,7 +70,7 @@ export default function UseCasesIndex() {
             Whatever your role, the pattern repeats: prompts get you started,{" "}
             <a href="/blog/getting-started-with-claude-code" className="accent">Claude Code</a>{" "}
             closes the loop, and the{" "}
-            <a href="/#pricing" className="accent">Agentary kits</a> install the expertise, 
+            <a href="/#pricing" className="accent">AgentsKit kits</a> install the expertise, 
             89 agents, 103 skills, 181 commands.
           </p>
           <p style={{ marginTop: 26 }}>

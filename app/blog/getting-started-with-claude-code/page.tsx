@@ -8,7 +8,7 @@ const post = getPost("getting-started-with-claude-code")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} · Agentary`,
+  title: `${post.title} · AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -172,7 +172,7 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
       </p>
       <p>
         You can write your own, or install a library of them. Our{" "}
-        <a href="/#pricing">Agentary kits</a> package 89 agents, 103 skills, and 181 slash
+        <a href="/#pricing">AgentsKit kits</a> package 89 agents, 103 skills, and 181 slash
         commands built exactly this way (and the free{" "}
         <a href="/claude-skill-md-validator">SKILL.md validator</a> lints the ones you write
         yourself).
@@ -228,7 +228,7 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
 
       <div className="callout">
         <p>
-          <strong>Shortcut the setup:</strong> the Agentary Engineering Kit ships 58 agents,
+          <strong>Shortcut the setup:</strong> the AgentsKit Engineering Kit ships 58 agents,
           61 skills, and 159 slash commands, code review, testing, security audits, refactoring
           workflows, installed into Claude Code with one command.{" "}
           <a href="/#pricing">See what&apos;s inside →</a>

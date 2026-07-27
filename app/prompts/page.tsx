@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       "Field-tested Claude prompts for coding, writing, data analysis, business, and marketing, with the reasoning behind each one.",
     type: "website",
     url: `${SITE_URL}/prompts`,
-    images: [{ url: ogImage("Claude Prompts Library, 50 Copy-Paste Prompts That Work"), width: 1200, height: 630, alt: "Claude prompts library by Agentary." }],
+    images: [{ url: ogImage("Claude Prompts Library, 50 Copy-Paste Prompts That Work"), width: 1200, height: 630, alt: "Claude prompts library by AgentsKit." }],
   },
   twitter: {
     card: "summary_large_image",
@@ -89,7 +89,7 @@ export default function PromptsIndex() {
           <div className="tag">Beyond prompts</div>
           <h2>Prompts are the manual way. Kits are the installed way.</h2>
           <p className="lead">
-            The Agentary kits package this kind of expertise as 89 agents, 103 skills, and 181
+            The AgentsKit kits package this kind of expertise as 89 agents, 103 skills, and 181
             slash commands that live inside Claude Code, so instead of pasting a code-review
             prompt, you type <code style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}>/review</code>.
           </p>

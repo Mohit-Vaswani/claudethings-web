@@ -8,7 +8,7 @@ const post = getPost("best-claude-code-subagents")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} · Agentary`,
+  title: `${post.title} · AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 const code = (s: string) => <code>{s}</code>;
@@ -177,7 +177,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Or skip the setup entirely:</strong> all twelve of these, and 77 more, tuned
-          with correct tool scoping and delegation descriptions, ship in the Agentary kits. 89
+          with correct tool scoping and delegation descriptions, ship in the AgentsKit kits. 89
           agents, one install command. <a href="/#pricing">See the full roster →</a>
         </p>
       </div>

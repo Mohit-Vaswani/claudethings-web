@@ -74,7 +74,7 @@ export function ToolNav({
     <nav id="nav">
       <div className="nav-inner">
         <a className="logo" href={SITE_URL}>
-          Agentary
+          AgentsKit
         </a>
         <div className="nav-links">
           {links.map((l) => (
@@ -213,7 +213,7 @@ export function ToolFooter({ disclaimer }: { disclaimer: ReactNode }) {
         <div className="foot-top">
           <div>
             <a className="logo" href={SITE_URL}>
-              Agentary
+              AgentsKit
             </a>
             <p style={{ color: "var(--bone-faint)", fontSize: 14, marginTop: 12, maxWidth: "34ch" }}>
               Your AI engineering &amp; marketing team for Claude Code.
@@ -246,7 +246,7 @@ export function ToolFooter({ disclaimer }: { disclaimer: ReactNode }) {
             <div className="foot-col">
               <h2>Connect</h2>
               <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>
-              <a href={SITE_URL}>agentary.dev</a>
+              <a href={SITE_URL}>agentskit.co</a>
               <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
             </div>
           </div>
@@ -255,11 +255,11 @@ export function ToolFooter({ disclaimer }: { disclaimer: ReactNode }) {
           {disclaimer}
           <br />
           <br />
-          <b>Unofficial &amp; independent.</b> Agentary is not affiliated with, endorsed by, or
+          <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by, or
           sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
           &quot;Anthropic&quot; are trademarks of Anthropic.
           <br />
-          <br />© {year} Agentary. All rights reserved.
+          <br />© {year} AgentsKit. All rights reserved.
         </div>
       </div>
     </footer>

@@ -8,7 +8,7 @@ const post = getPost("best-ai-coding-assistants")!;
 const URL = `${SITE_URL}/blog/${post.slug}`;
 
 export const metadata: Metadata = {
-  title: `${post.title} · Agentary`,
+  title: `${post.title} · AgentsKit`,
   description: post.description,
   alternates: { canonical: `/blog/${post.slug}` },
   openGraph: {
@@ -27,8 +27,8 @@ const articleLd = {
   headline: post.title,
   description: post.description,
   url: URL,
-  author: { "@type": "Organization", name: "Agentary" },
-  publisher: { "@type": "Organization", name: "Agentary", url: SITE_URL },
+  author: { "@type": "Organization", name: "AgentsKit" },
+  publisher: { "@type": "Organization", name: "AgentsKit", url: SITE_URL },
 };
 
 export default function Page() {
@@ -190,7 +190,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Skip the hour.</strong> Agentary turns a stock Claude Code install into a
+          <strong>Skip the hour.</strong> AgentsKit turns a stock Claude Code install into a
           configured one in a single command, 89 agents, 103 skills, and 181 commands covering
           review, testing, debugging, security, migrations, and shipping.{" "}
           <a href="/#pricing">Set it up in a minute →</a>
