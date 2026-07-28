@@ -134,13 +134,12 @@ body:has(.nx-page)::before{content:none}
 .nx-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
 .nx-micro{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--nx-faint)}
 
-/* TrustMRR verified-revenue badge (hero + final cta) */
-.nx-trustmrr{display:inline-block;margin-top:18px;line-height:0;border-radius:12px;
+/* TrustMRR verified-revenue badge (below pricing) */
+.nx-trustmrr{display:inline-block;line-height:0;border-radius:12px;
   opacity:.92;transition:opacity .2s ease,transform .2s ease}
 .nx-trustmrr:hover{opacity:1;transform:translateY(-2px)}
 .nx-trustmrr:focus-visible{outline:2px solid var(--nx-accent);outline-offset:4px}
 .nx-trustmrr img{display:block;width:220px;height:auto;max-width:100%}
-.nx-final .nx-trustmrr{margin-top:22px}
 @media(prefers-reduced-motion:reduce){.nx-trustmrr{transition:none}.nx-trustmrr:hover{transform:none}}
 
 /* hero entrance */
@@ -478,6 +477,7 @@ body:has(.nx-page)::before{content:none}
   color:var(--nx-faint);text-align:center;margin-top:28px;
 }
 .nx-plan-note{color:var(--nx-accent);text-align:center;margin-top:12px;font-size:13px}
+.nx-plan-proof{text-align:center;margin-top:26px}
 
 /* geo offer */
 .nx-geo{

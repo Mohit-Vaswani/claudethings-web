@@ -334,9 +334,6 @@ export default function Home() {
               <div className="nx-micro nx-rise nx-d4">
                 Requires Claude Code · One-time payment · Lifetime updates
               </div>
-              <div className="nx-rise nx-d5">
-                <TrustMrrBadge />
-              </div>
             </div>
             <div className="nx-rise nx-d5">{dashboard}</div>
           </div>
@@ -1110,6 +1107,9 @@ export default function Home() {
             [ Secure checkout via Polar · instant private-repo access after purchase ]
           </div>
           <p className="nx-plan-note">This is the launch price — prices will increase soon.</p>
+          <div className="nx-plan-proof">
+            <TrustMrrBadge />
+          </div>
         </div>
       </section>
 
@@ -1242,8 +1242,6 @@ export default function Home() {
             </a>
           </div>
           <span className="nx-micro">🔒 Secure checkout · Pay once, use forever</span>
-          <TrustMrrBadge />
-
           <div className="nx-final-dash" aria-hidden="true">
             {dashboard}
           </div>
