@@ -34,6 +34,31 @@ const MARQUEE_AGENTS: [string, string][] = [
   ["cmd", "/email-sequence"],
 ];
 
+/**
+ * Third-party revenue badge — TrustMRR verifies the Polar numbers and serves the
+ * SVG, so it stays a plain <img> (no next/image remote host config, no layout
+ * shift: width/height match the served artwork).
+ */
+function TrustMrrBadge() {
+  return (
+    <a
+      className="nx-trustmrr"
+      href="https://trustmrr.com/startup/claudethings"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://trustmrr.com/api/embed/claudethings?format=svg&theme=dark"
+        alt="TrustMRR verified revenue badge"
+        width={220}
+        height={90}
+        loading="lazy"
+      />
+    </a>
+  );
+}
+
 export default function Home() {
   // India-only 30% offer. False everywhere else, and on the first paint.
   const indiaOffer = useGeoDiscount();
@@ -308,6 +333,9 @@ export default function Home() {
               </div>
               <div className="nx-micro nx-rise nx-d4">
                 Requires Claude Code · One-time payment · Lifetime updates
+              </div>
+              <div className="nx-rise nx-d5">
+                <TrustMrrBadge />
               </div>
             </div>
             <div className="nx-rise nx-d5">{dashboard}</div>
@@ -1214,6 +1242,8 @@ export default function Home() {
             </a>
           </div>
           <span className="nx-micro">🔒 Secure checkout · Pay once, use forever</span>
+          <TrustMrrBadge />
+
           <div className="nx-final-dash" aria-hidden="true">
             {dashboard}
           </div>
