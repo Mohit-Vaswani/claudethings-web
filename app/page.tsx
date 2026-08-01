@@ -313,7 +313,7 @@ export default function Home() {
                 Ship like a full team, <em>solo.</em>
               </h1>
               <p className="nx-sub nx-rise nx-d3">
-                Out of the box, Claude Code is one brilliant generalist — and you&apos;re the
+                Out of the box, Claude Code is one brilliant generalist, and you&apos;re the
                 bottleneck. AgentsKit drops in <b>89 specialist agents</b>, <b>103 skills</b> and{" "}
                 <b>181 slash commands</b> with one command, so one person can plan, build, test,
                 ship <b>and</b> market a real product.
@@ -366,7 +366,7 @@ export default function Home() {
             </div>
             <div className="nx-sec-side">
               Claude Code is incredible. But by default it&apos;s one generalist taking orders from
-              you, one prompt at a time — so the whole product lands on your shoulders.
+              you, one prompt at a time, so the whole product lands on your shoulders.
             </div>
           </div>
           <div className="nx-prob-grid">
@@ -420,7 +420,7 @@ export default function Home() {
             <h2 className="nx-h2">Stop prompting a generalist. Start delegating to specialists.</h2>
             <p className="nx-lead">
               Everything installs into your project&apos;s <code>.claude/</code> folder, so
-              Claude Code picks it up automatically. No new tool to learn — it&apos;s the Claude
+              Claude Code picks it up automatically. No new tool to learn. It&apos;s the Claude
               Code you already use, with a team behind it.
             </p>
           </div>
@@ -449,7 +449,7 @@ export default function Home() {
                 <h3>Live in your project in under 2 minutes</h3>
                 <p>
                   Paste one <code>npx</code> command. Pick engineer, marketing, or both. No global
-                  install, nothing to configure — agents, skills and commands land in{" "}
+                  install, nothing to configure. Agents, skills and commands land in{" "}
                   <code>.claude/</code> and Claude Code picks them up automatically.
                 </p>
                 <a
@@ -487,7 +487,7 @@ export default function Home() {
                 <p>
                   Agents learn your actual codebase and match your patterns, instead of dumping
                   someone else&apos;s architecture on top of yours. Teach it your project once in{" "}
-                  <code>CLAUDE.md</code> — never re-explain it again.
+                  <code>CLAUDE.md</code>, and never re-explain it again.
                 </p>
                 <a className="nx-btn nx-btn-ghost" href="#kits">
                   Explore the kits <span className="ar">↗</span>
@@ -500,10 +500,10 @@ export default function Home() {
                 <div className="nx-ui">
                   <div className="u-label">From first commit to launch day</div>
                   <div className="nx-ui-line">
-                    <span className="ck">🛠</span> Engineer — 58 agents · 61 skills · 159 commands
+                    <span className="ck">🛠</span> Engineer: 58 agents · 61 skills · 159 commands
                   </div>
                   <div className="nx-ui-line">
-                    <span className="ck">📣</span> Marketing — 31 agents · 42 skills · 32 commands
+                    <span className="ck">📣</span> Marketing: 31 agents · 42 skills · 32 commands
                   </div>
                   <div className="nx-ui-line">
                     <span className="ck">✓</span> agentskit update → free, forever
@@ -517,7 +517,7 @@ export default function Home() {
                 </h3>
                 <p>
                   Engineers who build and ship the feature, marketers who write the launch, the
-                  emails and the SEO. Most kits stop at the code — yours takes the product all the
+                  emails and the SEO. Most kits stop at the code. Yours takes the product all the
                   way to customers. And when Anthropic ships a smarter Claude, your whole team
                   levels up automatically.
                 </p>
@@ -721,7 +721,7 @@ export default function Home() {
                 <div>
                   <h3>Teach it your project once</h3>
                   <p>
-                    Fill in the generated <code>CLAUDE.md</code> — stack, conventions, brand voice.
+                    Fill in the generated <code>CLAUDE.md</code>: stack, conventions, brand voice.
                     Every agent reads it first, so you never re-explain your project again.
                   </p>
                 </div>
@@ -756,7 +756,7 @@ export default function Home() {
               <h3>Take only what you need</h3>
               <p>
                 Just want the debugger? <code>agentskit add agent debugger</code>. Pull in one agent
-                or all 89 — never all-or-nothing.
+                or all 89. Never all-or-nothing.
               </p>
             </div>
             <div className="nx-feat nx-fade">
@@ -772,7 +772,7 @@ export default function Home() {
               <h3>Pay once, own it forever</h3>
               <p>
                 One payment, no subscription. Run <code>agentskit update</code> any time to pull
-                the newest agents — free, for life.
+                the newest agents. Free, for life.
               </p>
             </div>
             <div className="nx-feat nx-fade">
@@ -787,7 +787,7 @@ export default function Home() {
               <div className="fi">⇄</div>
               <h3>Agents that team up</h3>
               <p>
-                They chain, fan out in parallel, and delegate to each other — an orchestrator picks
+                They chain, fan out in parallel, and delegate to each other. An orchestrator picks
                 the right play so you don&apos;t have to.
               </p>
             </div>
@@ -795,7 +795,7 @@ export default function Home() {
               <div className="fi">§</div>
               <h3>Clean and above-board</h3>
               <p>
-                Curated from MIT/Apache projects with full attribution and license files — no murky
+                Curated from MIT/Apache projects with full attribution and license files. No murky
                 IP, nothing to worry about.
               </p>
             </div>
@@ -858,7 +858,7 @@ export default function Home() {
                   <td>Tech stack</td>
                   <td>Often locked</td>
                   <td>
-                    <span className="yes">✓</span>any — adapts via CLAUDE.md
+                    <span className="yes">✓</span>any (adapts via CLAUDE.md)
                   </td>
                 </tr>
                 <tr>
@@ -905,7 +905,7 @@ export default function Home() {
             <h2 className="nx-h2">Less than an hour of a freelancer. Yours for good.</h2>
             <p className="nx-lead">
               One payment, lifetime access, and every future update included. Delivered instantly
-              as private-repo access the moment you check out — no subscription, no seats. Works
+              as private-repo access the moment you check out. No subscription, no seats. Works
               with any Claude Code plan: Pro, Max, Team, or API.
             </p>
           </div>
@@ -917,7 +917,7 @@ export default function Home() {
                 🇮🇳
               </span>
               <div className="copy">
-                <b>{GEO_DISCOUNT.percent}% off for India.</b> Purchasing-power pricing — your code{" "}
+                <b>{GEO_DISCOUNT.percent}% off for India.</b> Purchasing-power pricing. Your code{" "}
                 <code>{GEO_DISCOUNT.code}</code> is waiting in the discount box at checkout. Hit{" "}
                 <b>Apply</b> to take {GEO_DISCOUNT.percent}% off.
               </div>
@@ -1106,7 +1106,7 @@ export default function Home() {
           <div className="nx-plan-foot">
             [ Secure checkout via Polar · instant private-repo access after purchase ]
           </div>
-          <p className="nx-plan-note">This is the launch price — prices will increase soon.</p>
+          <p className="nx-plan-note">This is the launch price. Prices will increase soon.</p>
           <div className="nx-plan-proof">
             <TrustMrrBadge />
           </div>
@@ -1142,12 +1142,12 @@ export default function Home() {
                   ChatGPT? <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  Yes — AgentsKit is built specifically for{" "}
+                  Yes. AgentsKit is built specifically for{" "}
                   <a href="https://claude.com/claude-code">Claude Code</a>, Anthropic&apos;s AI
                   coding tool for the terminal, desktop app, and IDE. The kits are agents, skills,
                   and slash commands that live in your project&apos;s <code>.claude/</code> folder,
                   which is a Claude Code format. It does not run inside Cursor, Copilot, or the
-                  ChatGPT app. Any Claude Code plan works — Pro, Max, Team, or API billing.
+                  ChatGPT app. Any Claude Code plan works: Pro, Max, Team, or API billing.
                 </div>
               </details>
               <details className="nx-q nx-fade">
@@ -1160,7 +1160,7 @@ export default function Home() {
                   <code>.claude/</code> directory of agents, skills, and slash commands, CLAUDE.md
                   templates, the <code>agentskit</code> installer CLI, and full docs. You drop it
                   into any project with a one-line <code>npx github:getagentskit/…</code> command
-                  that pulls straight from your private repo — the exact command is in your
+                  that pulls straight from your private repo. The exact command is in your
                   repo&apos;s README.
                 </div>
               </details>
@@ -1171,7 +1171,7 @@ export default function Home() {
                 </summary>
                 <div className="a">
                   You need <a href="https://claude.com/claude-code">Claude Code</a> and a project to
-                  work in. The agents do the heavy lifting — you direct them in plain English.
+                  work in. The agents do the heavy lifting. You direct them in plain English.
                   Installation is a single command.
                 </div>
               </details>
@@ -1181,7 +1181,7 @@ export default function Home() {
                   <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  No. Agents adapt to your stack — Next.js, Django, Rails, Go, Rust, anything — by
+                  No. Agents adapt to your stack (Next.js, Django, Rails, Go, Rust, anything) by
                   reading your CLAUDE.md. Zero forced architecture.
                 </div>
               </details>

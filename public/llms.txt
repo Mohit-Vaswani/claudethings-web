@@ -1,6 +1,6 @@
 # AgentsKit
 
-> AgentsKit is a paid toolkit for [Claude Code](https://claude.com/claude-code) that drops a full AI engineering and marketing team into any project with one command — 89 specialized agents, 103 pre-built skills, and 181 slash commands. It works with any tech stack, adapts to your conventions via a CLAUDE.md file, and ships as two kits (Engineer + Marketing) you can install separately or together.
+> AgentsKit is a paid toolkit for [Claude Code](https://claude.com/claude-code) that drops a full AI engineering and marketing team into any project with one command: 89 specialized agents, 103 pre-built skills, and 181 slash commands. It works with any tech stack, adapts to your conventions via a CLAUDE.md file, and ships as two kits (Engineer + Marketing) you can install separately or together.
 
 AgentsKit is an independent, unofficial product. It is not affiliated with, endorsed by, or sponsored by Anthropic. "Claude" and "Claude Code" are trademarks of Anthropic. It is delivered as a private GitHub repository and installed with a one-line `npx github:getagentskit/… init` command (no npm publish, no global install; Node 18+).
 
@@ -41,21 +41,21 @@ AgentsKit is an independent, unofficial product. It is not affiliated with, endo
 ## Free resources (guides & prompt library)
 
 - [Claude prompt library](https://www.agentskit.co/prompts): 50 field-tested Claude prompts across five collections, each with the reasoning for why it works.
-- [Claude prompts for data analysis](https://www.agentskit.co/prompts/claude-prompts-for-data-analysis): 10 prompts — dataset profiling, hypothesis-first analysis, SQL with guardrails, statistical sanity checks, executive translation.
-- [Claude prompts for writing](https://www.agentskit.co/prompts/claude-prompts-for-writing): 10 prompts — voice-matched drafts, ruthless editing, de-AI-ifying text, structure diagnosis, titles.
-- [Claude prompts for business](https://www.agentskit.co/prompts/claude-prompts-for-business): 10 prompts — strategy red-teaming, pricing decisions, negotiation prep, hiring scorecards, decision journals.
-- [Claude prompts for coding](https://www.agentskit.co/prompts/claude-prompts-for-coding): 10 prompts — hypothesis-driven debugging, adversarial code review, refactoring plans, bug-hunting tests, security pre-flight.
-- [Claude prompts for marketing](https://www.agentskit.co/prompts/claude-prompts-for-marketing): 10 prompts — positioning, landing pages, customer-language mining, email sequences, SEO briefs, ad variants.
+- [Claude prompts for data analysis](https://www.agentskit.co/prompts/claude-prompts-for-data-analysis): 10 prompts covering dataset profiling, hypothesis-first analysis, SQL with guardrails, statistical sanity checks, executive translation.
+- [Claude prompts for writing](https://www.agentskit.co/prompts/claude-prompts-for-writing): 10 prompts covering voice-matched drafts, ruthless editing, de-AI-ifying text, structure diagnosis, titles.
+- [Claude prompts for business](https://www.agentskit.co/prompts/claude-prompts-for-business): 10 prompts covering strategy red-teaming, pricing decisions, negotiation prep, hiring scorecards, decision journals.
+- [Claude prompts for coding](https://www.agentskit.co/prompts/claude-prompts-for-coding): 10 prompts covering hypothesis-driven debugging, adversarial code review, refactoring plans, bug-hunting tests, security pre-flight.
+- [Claude prompts for marketing](https://www.agentskit.co/prompts/claude-prompts-for-marketing): 10 prompts covering positioning, landing pages, customer-language mining, email sequences, SEO briefs, ad variants.
 - [Blog](https://www.agentskit.co/blog): practical guides for building with Claude.
-- [Getting started with Claude Code](https://www.agentskit.co/blog/getting-started-with-claude-code): install to first shipped feature — CLAUDE.md, permissions, skills, workflow habits.
+- [Getting started with Claude Code](https://www.agentskit.co/blog/getting-started-with-claude-code): install to first shipped feature: CLAUDE.md, permissions, skills, workflow habits.
 - [How to build AI agents with Claude](https://www.agentskit.co/blog/how-to-build-ai-agents-with-claude): the agent loop, tool use, MCP, Agent SDK, and reliability practices, with code.
 - [10 prompting techniques for Claude](https://www.agentskit.co/blog/10-prompting-techniques-for-claude): context front-loading, examples, XML tags, chain-of-thought, role prompts, and more, each with before/after.
-- [7 Claude prompts for smarter investing](https://www.agentskit.co/blog/7-claude-prompts-for-smarter-investing): research workflows (annual reports, thesis red-teaming, decision journals) — educational, not financial advice.
+- [7 Claude prompts for smarter investing](https://www.agentskit.co/blog/7-claude-prompts-for-smarter-investing): research workflows (annual reports, thesis red-teaming, decision journals). Educational, not financial advice.
 - [Use cases](https://www.agentskit.co/use-cases): honest, role-by-role maps of where Claude changes real work.
 - [Claude for developers](https://www.agentskit.co/use-cases/claude-for-developers) · [Claude for data scientists](https://www.agentskit.co/use-cases/claude-for-data-scientists) · [Claude for product managers](https://www.agentskit.co/use-cases/claude-for-product-managers) · [Claude for students](https://www.agentskit.co/use-cases/claude-for-students)
 - [Comparisons](https://www.agentskit.co/comparisons): hype-free tool comparisons with bias disclosed.
 - [Claude vs ChatGPT](https://www.agentskit.co/comparisons/claude-vs-chatgpt) · [Claude Sonnet vs Opus](https://www.agentskit.co/comparisons/claude-sonnet-vs-opus) · [Claude vs GitHub Copilot](https://www.agentskit.co/comparisons/claude-vs-copilot)
-- [Claude coding tools guide](https://www.agentskit.co/tools/claude-coding-tools): the 2026 stack — Claude Code, IDE surfaces, MCP connectors, skills layer.
+- [Claude coding tools guide](https://www.agentskit.co/tools/claude-coding-tools): the 2026 stack, covering Claude Code, IDE surfaces, MCP connectors, skills layer.
 - [Claude MCP servers guide](https://www.agentskit.co/tools/claude-mcp-servers): what MCP is, the connector categories worth installing, and how to add them safely.
 - [Claude productivity tools guide](https://www.agentskit.co/tools/claude-productivity-tools): Projects, Artifacts, connectors, skills, and power-user habits.
 
