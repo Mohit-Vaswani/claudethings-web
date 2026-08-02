@@ -110,8 +110,8 @@ body:has(.nx-page)::before{content:none}
   padding-bottom:64px;
 }
 @media(max-width:960px){.nx-hero-grid{grid-template-columns:1fr;gap:44px}}
-/* grid items default to min-width:auto — without this the dashboard mockup's
-   min-content width stretches the whole column past the viewport and .nx-page's
+/* grid items default to min-width:auto — without this the mockup's min-content
+   width stretches the whole column past the viewport and .nx-page's
    overflow-x:clip crops the hero copy/buttons instead of wrapping them */
 .nx-hero-grid > *{min-width:0}
 .nx-chip{
@@ -148,7 +148,12 @@ body:has(.nx-page)::before{content:none}
 .nx-d4{animation-delay:.38s}.nx-d5{animation-delay:.5s}
 @keyframes nxRise{to{opacity:1;transform:none}}
 
-/* ---------- dashboard mockup (hero + final cta) ---------- */
+/* hero install terminal — fills the hero's right column instead of the 560px cap */
+.nx-hero-term .nx-term{max-width:none}
+.nx-hero-term .nx-term-body{min-height:230px}
+@media(max-width:960px){.nx-hero-term .nx-term{max-width:560px;margin:0 auto}}
+
+/* ---------- dashboard mockup (final cta) ---------- */
 .nx-dash{
   border:1px solid var(--nx-line);border-radius:10px;overflow:hidden;
   background:var(--nx-panel);

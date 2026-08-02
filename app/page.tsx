@@ -59,6 +59,34 @@ function TrustMrrBadge() {
   );
 }
 
+/**
+ * Terminal mockup for the one-command install animation. Rendered twice (hero and
+ * the "One-command install" row), so every element id is namespaced by `id` and the
+ * typing effect below is wired up per instance.
+ */
+function InstallTerminal({ id }: { id: string }) {
+  return (
+    <div className="nx-term" id={id}>
+      <div className="nx-term-bar">
+        <span className="dot"></span>
+        <span className="dot"></span>
+        <span className="dot"></span>
+        <span className="nx-term-title">your-project · bash</span>
+      </div>
+      <div className="nx-term-body">
+        <div>
+          <span className="pr">$</span> <span className="cmd" id={`${id}-typed`}></span>
+          <span className="nx-cursor" id={`${id}-cur`}></span>
+        </div>
+        <div id={`${id}-out`}></div>
+      </div>
+    </div>
+  );
+}
+
+/** Terminal instances on the page, in DOM order. */
+const TERMINAL_IDS = ["hero-term", "term"];
+
 export default function Home() {
   // India-only 30% offer. False everywhere else, and on the first paint.
   const indiaOffer = useGeoDiscount();
@@ -110,18 +138,8 @@ export default function Home() {
     document.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => cio.observe(el));
     cleanups.push(() => cio.disconnect());
 
-    // terminal typing
+    // terminal typing — each InstallTerminal types itself once it scrolls into view
     const cmd = "npx github:getagentskit/kit init --kit both";
-    const typedEl = document.getElementById("typed");
-    const curEl = document.getElementById("cur");
-    const outEl = document.getElementById("term-out");
-    const term = document.getElementById("term");
-    const timeouts: ReturnType<typeof setTimeout>[] = [];
-    if (typedEl && outEl) {
-      typedEl.textContent = "";
-      outEl.innerHTML = "";
-      if (curEl) curEl.style.display = "inline-block";
-    }
     const lines: [string, string][] = [
       ["ok", "✔ Installing into your-project"],
       ["ok", "✔ engineer kit → 58 agents, 61 skills, 159 commands"],
@@ -129,46 +147,60 @@ export default function Home() {
       ["ok", "✔ wrote CLAUDE.md, fill it in so agents learn your project"],
       ["dim", "› Done. Open Claude Code, your AI team is ready."],
     ];
-    let i = 0;
-    const type = () => {
-      if (!typedEl) return;
-      if (i <= cmd.length) {
-        typedEl.textContent = cmd.slice(0, i);
-        i++;
-        timeouts.push(setTimeout(type, 55));
-        return;
-      }
-      if (curEl) curEl.style.display = "none";
-      let j = 0;
-      const out = () => {
-        if (j >= lines.length || !outEl) return;
-        const d = document.createElement("div");
-        d.className = lines[j][0];
-        d.style.opacity = "0";
-        d.style.transition = "opacity .3s";
-        d.textContent = lines[j][1];
-        outEl.appendChild(d);
-        requestAnimationFrame(() => (d.style.opacity = "1"));
-        j++;
-        timeouts.push(setTimeout(out, 420));
+    const timeouts: ReturnType<typeof setTimeout>[] = [];
+    const termIOs: IntersectionObserver[] = [];
+
+    TERMINAL_IDS.forEach((id) => {
+      const term = document.getElementById(id);
+      const typedEl = document.getElementById(`${id}-typed`);
+      const curEl = document.getElementById(`${id}-cur`);
+      const outEl = document.getElementById(`${id}-out`);
+      if (!term || !typedEl || !outEl) return;
+
+      typedEl.textContent = "";
+      outEl.innerHTML = "";
+      if (curEl) curEl.style.display = "inline-block";
+
+      let i = 0;
+      const type = () => {
+        if (i <= cmd.length) {
+          typedEl.textContent = cmd.slice(0, i);
+          i++;
+          timeouts.push(setTimeout(type, 55));
+          return;
+        }
+        if (curEl) curEl.style.display = "none";
+        let j = 0;
+        const out = () => {
+          if (j >= lines.length) return;
+          const d = document.createElement("div");
+          d.className = lines[j][0];
+          d.style.opacity = "0";
+          d.style.transition = "opacity .3s";
+          d.textContent = lines[j][1];
+          outEl.appendChild(d);
+          requestAnimationFrame(() => (d.style.opacity = "1"));
+          j++;
+          timeouts.push(setTimeout(out, 420));
+        };
+        out();
       };
-      out();
-    };
-    let startIO: IntersectionObserver | null = null;
-    if (term) {
-      startIO = new IntersectionObserver(
+
+      const startIO = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
             type();
-            startIO?.disconnect();
+            startIO.disconnect();
           }
         },
         { threshold: 0.4 }
       );
       startIO.observe(term);
-    }
+      termIOs.push(startIO);
+    });
+
     cleanups.push(() => {
-      startIO?.disconnect();
+      termIOs.forEach((io) => io.disconnect());
       timeouts.forEach(clearTimeout);
     });
 
@@ -313,8 +345,7 @@ export default function Home() {
                 Ship like a full team, <em>solo.</em>
               </h1>
               <p className="nx-sub nx-rise nx-d3">
-                Out of the box, Claude Code is one brilliant generalist, and you&apos;re the
-                bottleneck. AgentsKit drops in <b>89 specialist agents</b>, <b>103 skills</b> and{" "}
+                AgentsKit drops in <b>89 specialist agents</b>, <b>103 skills</b> and{" "}
                 <b>181 slash commands</b> with one command, so one person can plan, build, test,
                 ship <b>and</b> market a real product.
               </p>
@@ -335,7 +366,9 @@ export default function Home() {
                 Requires Claude Code · One-time payment · Lifetime updates
               </div>
             </div>
-            <div className="nx-rise nx-d5">{dashboard}</div>
+            <div className="nx-hero-term nx-rise nx-d5">
+              <InstallTerminal id="hero-term" />
+            </div>
           </div>
         </div>
 
@@ -428,21 +461,7 @@ export default function Home() {
             {/* row 1: terminal */}
             <div className="nx-row nx-fade">
               <div className="nx-row-media">
-                <div className="nx-term" id="term">
-                  <div className="nx-term-bar">
-                    <span className="dot"></span>
-                    <span className="dot"></span>
-                    <span className="dot"></span>
-                    <span className="nx-term-title">your-project · bash</span>
-                  </div>
-                  <div className="nx-term-body">
-                    <div>
-                      <span className="pr">$</span> <span className="cmd" id="typed"></span>
-                      <span className="nx-cursor" id="cur"></span>
-                    </div>
-                    <div id="term-out"></div>
-                  </div>
-                </div>
+                <InstallTerminal id="term" />
               </div>
               <div className="nx-row-text">
                 <div className="nx-kicker">One-command install</div>
