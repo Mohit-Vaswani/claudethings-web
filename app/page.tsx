@@ -96,7 +96,7 @@ function ProofPill() {
     <span className="nx-proof">
       <span className="dot" aria-hidden="true" />
       <span>
-        <b>{PROOF.buyers} builders</b> are already shipping with AgentsKit all in the last{" "}
+        <b>{PROOF.buyers} builders</b> are already shipping with AgentsKit - all in the last{" "}
         {PROOF.days} days.
       </span>
     </span>
