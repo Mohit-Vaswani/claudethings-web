@@ -134,6 +134,31 @@ body:has(.nx-page)::before{content:none}
 .nx-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
 .nx-micro{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--nx-faint)}
 
+/* early-buyer social proof pill (hero + above the price ladder) */
+.nx-proof{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--nx-line);background:var(--nx-panel);
+  padding:7px 14px;border-radius:999px;
+  font-size:12.5px;line-height:1.4;color:var(--nx-dim);text-align:left;
+}
+.nx-proof b{color:var(--nx-text);font-weight:600}
+.nx-proof .dot{
+  width:7px;height:7px;flex:none;border-radius:50%;background:var(--nx-green);
+  animation:nxProofPing 2.6s ease-out infinite;
+}
+@keyframes nxProofPing{
+  0%{box-shadow:0 0 0 0 rgba(63,185,80,.5)}
+  70%{box-shadow:0 0 0 7px rgba(63,185,80,0)}
+  100%{box-shadow:0 0 0 0 rgba(63,185,80,0)}
+}
+@media(prefers-reduced-motion:reduce){.nx-proof .dot{animation:none}}
+.nx-proof-center{text-align:center;margin:22px 0 26px}
+/* wraps to two lines on narrow screens — a stadium radius reads wrong there */
+@media(max-width:560px){
+  .nx-proof{border-radius:14px;align-items:flex-start}
+  .nx-proof .dot{margin-top:6px}
+}
+
 /* TrustMRR verified-revenue badge (below pricing) */
 .nx-trustmrr{display:inline-block;line-height:0;border-radius:12px;
   opacity:.92;transition:opacity .2s ease,transform .2s ease}

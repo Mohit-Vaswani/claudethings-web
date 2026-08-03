@@ -87,6 +87,22 @@ function InstallTerminal({ id }: { id: string }) {
 /** Terminal instances on the page, in DOM order. */
 const TERMINAL_IDS = ["hero-term", "term"];
 
+/** Early-buyer social proof. Single source of truth — bump as sales come in. */
+const PROOF = { buyers: 14, days: 20 };
+
+/** Live-buyer count. Rendered in the hero and above the price ladder. */
+function ProofPill() {
+  return (
+    <span className="nx-proof">
+      <span className="dot" aria-hidden="true" />
+      <span>
+        <b>{PROOF.buyers} builders</b> are already shipping with AgentsKit — all in the last{" "}
+        {PROOF.days} days.
+      </span>
+    </span>
+  );
+}
+
 export default function Home() {
   // India-only 30% offer. False everywhere else, and on the first paint.
   const indiaOffer = useGeoDiscount();
@@ -361,6 +377,9 @@ export default function Home() {
                 <a className="nx-btn nx-btn-ghost nx-btn-lg" href="#whats-inside">
                   ▷ See what&apos;s inside
                 </a>
+              </div>
+              <div className="nx-rise nx-d4" style={{ marginBottom: 18 }}>
+                <ProofPill />
               </div>
               <div className="nx-micro nx-rise nx-d4">
                 Requires Claude Code · One-time payment · Lifetime updates
@@ -942,6 +961,10 @@ export default function Home() {
               </div>
             </div>
           )}
+
+          <div className="nx-proof-center nx-fade">
+            <ProofPill />
+          </div>
 
           {/* PRICE LADDER, bundle price rises as spots fill */}
           <div className="nx-ladder nx-fade" aria-label="Bundle pricing steps">
