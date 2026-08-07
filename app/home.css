@@ -131,16 +131,9 @@ body:has(.nx-page)::before{content:none}
 }
 .nx-nav.scrolled .nx-nav-inner{padding-top:13px;padding-bottom:13px}
 .nx-logo{
-  display:flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:400;
+  display:flex;align-items:center;font-family:var(--font-display);font-weight:400;
   font-size:23px;letter-spacing:-.01em;color:var(--nx-text);
 }
-.nx-logo::before{
-  content:"";width:19px;height:19px;flex:none;border-radius:6px;
-  background:conic-gradient(from 210deg,var(--nx-accent),#f0873f 45%,var(--nx-text) 45%,var(--nx-text));
-  box-shadow:0 2px 8px -3px rgba(217,69,26,.7);
-  transition:transform .4s var(--nx-ease);
-}
-.nx-logo:hover::before{transform:rotate(90deg)}
 .nx-nav-links{display:flex;gap:2px;align-items:center;font-size:14px;color:var(--nx-dim)}
 .nx-nav-links a:not(.nx-btn){padding:7px 12px;border-radius:999px;position:relative;transition:color .2s}
 .nx-nav-links a:not(.nx-btn):hover{color:var(--nx-text)}

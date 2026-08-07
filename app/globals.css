@@ -92,16 +92,9 @@ nav.scrolled{
 .nav-inner{width:100%;max-width:var(--maxw);display:flex;align-items:center;justify-content:space-between;padding:18px 26px;transition:padding .35s var(--ease)}
 nav.scrolled .nav-inner{padding-top:13px;padding-bottom:13px}
 .logo{
-  display:flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:400;
+  display:flex;align-items:center;font-family:var(--font-display);font-weight:400;
   font-size:23px;letter-spacing:-.01em;color:var(--ink);
 }
-.logo::before{
-  content:"";width:19px;height:19px;flex:none;border-radius:6px;
-  background:conic-gradient(from 210deg,var(--ember),#f0873f 45%,var(--ink) 45%,var(--ink));
-  box-shadow:0 2px 8px -3px rgba(217,69,26,.7);
-  transition:transform .4s var(--ease);
-}
-.logo:hover::before{transform:rotate(90deg)}
 .nav-links{display:flex;gap:2px;align-items:center;font-size:14px;color:var(--bone-dim)}
 .nav-links a{transition:color .22s;padding:7px 12px;position:relative}
 .nav-links a:not(.nav-cta):hover{color:var(--ink)}
