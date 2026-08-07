@@ -49,7 +49,7 @@ function TrustMrrBadge() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="https://trustmrr.com/api/embed/claudethings?format=svg&theme=dark"
+        src="https://trustmrr.com/api/embed/claudethings?format=svg&theme=light"
         alt="TrustMRR verified revenue badge"
         width={220}
         height={90}
