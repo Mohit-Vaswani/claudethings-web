@@ -352,42 +352,71 @@ export default function Home() {
       {/* HERO */}
       <header id="top" className="nx-hero">
         <div className="nx-wrap">
-          <div className="nx-hero-grid">
-            <div>
-              <div className="nx-chip nx-rise nx-d1">
-                <b>New</b> Meet your AI workforce for Claude Code
-              </div>
-              <h1 className="nx-h1 nx-rise nx-d2">
-                Ship like a full team, <em>solo.</em>
-              </h1>
-              <p className="nx-sub nx-rise nx-d3">
-                AgentsKit drops in <b>89 specialist agents</b>, <b>103 skills</b> and{" "}
-                <b>181 slash commands</b> with one command, so one person can plan, build, test,
-                ship <b>and</b> market a real product.
-              </p>
-              <div className="nx-cta-row nx-rise nx-d4">
-                <a
-                  className="nx-btn nx-btn-primary nx-btn-lg"
-                  href="#pricing"
-                  data-fast-goal="cta_get_claudethings"
-                  data-fast-goal-location="hero"
-                >
-                  Get AgentsKit <span className="ar">↗</span>
-                </a>
-                <a className="nx-btn nx-btn-ghost nx-btn-lg" href="#whats-inside">
-                  ▷ See what&apos;s inside
-                </a>
-              </div>
-              <div className="nx-rise nx-d4" style={{ marginBottom: 18 }}>
-                <ProofPill />
-              </div>
-              <div className="nx-micro nx-rise nx-d4">
-                Requires Claude Code · One-time payment · Lifetime updates
-              </div>
+          {/* centered editorial stack: eyebrow → display headline → sub → CTAs → fine print */}
+          <div className="nx-hero-center">
+            <div className="nx-chip nx-hero-chip nx-rise nx-d1">
+              <b>New</b> Meet your AI workforce for Claude Code
             </div>
+            <h1 className="nx-h1 nx-rise nx-d2">
+              Your AI <em>engineering &amp; marketing</em> team{" "}
+              <span className="nb">in one command</span>
+            </h1>
+            <p className="nx-sub nx-rise nx-d3">
+              AgentsKit drops in <b>89 specialist agents</b>, <b>103 skills</b> and{" "}
+              <b>181 slash commands</b> with one command, so one person can plan, build, test, ship{" "}
+              <b>and</b> market a real product.
+            </p>
+            <div className="nx-cta-row nx-rise nx-d4">
+              <a
+                className="nx-btn nx-btn-primary nx-btn-lg"
+                href="#pricing"
+                data-fast-goal="cta_get_claudethings"
+                data-fast-goal-location="hero"
+              >
+                Get AgentsKit <span className="ar">↗</span>
+              </a>
+              <a className="nx-btn nx-btn-ghost nx-btn-lg" href="#whats-inside">
+                ▷ See what&apos;s inside
+              </a>
+            </div>
+            <div className="nx-micro nx-hero-fine nx-rise nx-d4">
+              Requires Claude Code · One-time payment · Lifetime updates
+            </div>
+            <div className="nx-hero-proof nx-rise nx-d4">
+              <ProofPill />
+            </div>
+          </div>
+
+          {/* showcase: install terminal on the warm vista + the kit ledger */}
+          <div className="nx-hero-showcase">
             <div className="nx-hero-term nx-rise nx-d5">
               <InstallTerminal id="hero-term" />
             </div>
+            <aside className="nx-hero-ledger nx-rise nx-d5">
+              <div className="nx-hero-ledger-label">Inside the kit</div>
+              <ul>
+                <li>
+                  <b data-count="89">89</b>
+                  <span>agents</span>
+                </li>
+                <li>
+                  <b data-count="103">103</b>
+                  <span>skills</span>
+                </li>
+                <li>
+                  <b data-count="181">181</b>
+                  <span>slash commands</span>
+                </li>
+                <li>
+                  <b>2</b>
+                  <span>kits ( engineer + marketing )</span>
+                </li>
+                <li>
+                  <b className="word">npx</b>
+                  <span>· no install needed</span>
+                </li>
+              </ul>
+            </aside>
           </div>
         </div>
 
