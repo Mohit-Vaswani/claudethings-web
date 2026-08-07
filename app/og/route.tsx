@@ -5,12 +5,12 @@ import { SITE_DOMAIN, SITE_NAME } from "@/app/lib/site";
 // Usage: /og?title=<title>&label=<pill>, wired up via app/lib/og.ts.
 export const runtime = "nodejs";
 
-const PAPER = "#f6f2ea"; // page background
-const EMBER = "#e04e1b"; // vermilion accent
-const TEXT = "#1e1912"; // primary text
-const DIM = "#5d564a"; // secondary text
-const LINE = "#d9d2c4"; // hairline
-const WHITE = "#fdfcf8"; // raised surface
+const PAPER = "#f6f3ee"; // page background
+const EMBER = "#d9451a"; // vermilion accent
+const TEXT = "#17140f"; // primary text
+const DIM = "#5b544b"; // secondary text
+const LINE = "#ded7ca"; // hairline
+const WHITE = "#fdfcfa"; // raised surface
 
 export function GET(req: Request) {
   const { searchParams } = new URL(req.url);
