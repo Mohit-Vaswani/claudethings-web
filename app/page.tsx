@@ -88,7 +88,7 @@ function InstallTerminal({ id }: { id: string }) {
 const TERMINAL_IDS = ["hero-term", "term"];
 
 /** Early-buyer social proof. Single source of truth — bump as sales come in. */
-const PROOF = { buyers: 14, days: 20 };
+const PROOF = { buyers: 15, window: "2 weeks" };
 
 /** Live-buyer count. Rendered in the hero and above the price ladder. */
 function ProofPill() {
@@ -97,7 +97,7 @@ function ProofPill() {
       <span className="dot" aria-hidden="true" />
       <span>
         <b>{PROOF.buyers} builders</b> are already shipping with AgentsKit - all in the last{" "}
-        {PROOF.days} days.
+        {PROOF.window}.
       </span>
     </span>
   );
@@ -1002,7 +1002,7 @@ export default function Home() {
               <span className="node" />
               <div className="step-price">$89</div>
               <div className="step-note">
-                <b>3</b> spots left
+                <b>2</b> spots left
               </div>
             </div>
             <div className="nx-ladder-step is-next">
