@@ -437,6 +437,48 @@ export default function Home() {
 
       <div className="nx-hatch" aria-hidden="true"></div>
 
+      {/* TESTIMONIAL — real buyer, links out to the live tweet */}
+      <section id="reviews" className="nx-sec nx-say">
+        <div className="nx-wrap">
+          <div className="nx-center nx-fade">
+            <div className="nx-label">What people say</div>
+          </div>
+          <figure className="nx-say-card nx-fade">
+            <blockquote className="nx-say-q">
+              <span aria-hidden="true" className="nx-say-mark">
+                &ldquo;
+              </span>
+              buying it last week was probably one of my best investments. genuinely love what
+              he&apos;s building here 🔥
+            </blockquote>
+            <figcaption className="nx-say-by">
+              <img
+                src="/founder.jpg"
+                alt="abhi, founder of craftpad"
+                className="nx-say-av"
+                width={112}
+                height={112}
+                loading="lazy"
+              />
+              <div className="nx-say-who">
+                <b>abhi</b>
+                <span>Founder of craftpad · @letcontactabhi</span>
+              </div>
+              <a
+                className="nx-say-link"
+                href="https://x.com/letcontactabhi/status/2086174287346782343"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See it on X <span className="ar">↗</span>
+              </a>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <div className="nx-hatch" aria-hidden="true"></div>
+
       {/* PROBLEM */}
       <section id="problem" className="nx-sec">
         <div className="nx-wrap">
