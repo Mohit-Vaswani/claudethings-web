@@ -18,8 +18,8 @@ export const GEO_DISCOUNT = {
   /** ISO 3166-1 alpha-2 country that gets the offer. */
   country: "IN",
   /** Must match the discount code created in the Polar dashboard. */
-  code: "INDIA30",
-  percent: 30,
+  code: "INDIAN50",
+  percent: 50,
 } as const;
 
 export const COUNTRY_COOKIE = "visitor_country";

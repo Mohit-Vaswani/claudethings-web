@@ -104,7 +104,7 @@ function ProofPill() {
 }
 
 export default function Home() {
-  // India-only 30% offer. False everywhere else, and on the first paint.
+  // India-only 50% offer. False everywhere else, and on the first paint.
   const indiaOffer = useGeoDiscount();
 
   useEffect(() => {
