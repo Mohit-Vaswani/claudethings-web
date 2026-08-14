@@ -28,7 +28,7 @@ export default function LegalPage() {
         </a>
         <a href="/refund">
           <h2>Refund Policy</h2>
-          <p>Why AgentsKit sales are final, and how to reach us.</p>
+          <p>The 14-day money-back guarantee, and how to claim it.</p>
           <span className="arrow">Read Refunds →</span>
         </a>
         <a href="/disclaimer">

@@ -1216,6 +1216,22 @@ export default function Home() {
               </ul>
             </div>
           </div>
+          {/* GUARANTEE, sits directly under the plans so it reads with the price */}
+          <div className="nx-guarantee nx-fade" role="note">
+            <span className="seal" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <path
+                  d="M12 2.6 4.2 5.6v6c0 4.4 3.1 8.3 7.8 9.8 4.7-1.5 7.8-5.4 7.8-9.8v-6L12 2.6Z"
+                  strokeLinejoin="round"
+                />
+                <path d="m8.6 11.9 2.4 2.4 4.4-4.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <div className="copy">
+              <b>14-Day Money-Back Guarantee</b>
+              <span>No questions asked</span>
+            </div>
+          </div>
           <div className="nx-plan-foot">
             [ Secure checkout via Polar · instant private-repo access after purchase ]
           </div>
@@ -1322,13 +1338,20 @@ export default function Home() {
               </details>
               <details className="nx-q nx-fade">
                 <summary data-fast-goal="faq_refund_policy">
-                  <span className="qn">07</span> What&apos;s the refund policy?{" "}
+                  <span className="qn">07</span> Is there a money-back guarantee?{" "}
                   <span className="plus">+</span>
                 </summary>
                 <div className="a">
-                  AgentsKit is a digital product delivered instantly and in full at checkout, so
-                  all sales are final and purchases are non-refundable. Have questions before
-                  buying? Email us and we&apos;ll help you decide.
+                  <p>Yes. 14 days, full refund, no questions asked.</p>
+                  <p>
+                    Put AgentsKit on a real feature. If it doesn&apos;t save you hours on that
+                    first ship, email us within 14 days and we&apos;ll send the money back.
+                  </p>
+                  <p>
+                    We can offer that because the kit isn&apos;t theory. Every agent, skill, and
+                    command in it earned its place in real production work before it shipped to
+                    you.
+                  </p>
                 </div>
               </details>
             </div>

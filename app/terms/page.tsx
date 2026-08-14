@@ -68,8 +68,9 @@ export default function TermsPage() {
 
       <h2>5. Refunds</h2>
       <p>
-        AgentsKit is a digital product delivered instantly, so all sales are final and
-        purchases are non-refundable. See our <a href="/refund">Refund Policy</a> for full details.
+        Every purchase is covered by a 14-day money-back guarantee. Email us within 14 days of your
+        purchase and we&apos;ll refund you in full, no questions asked; access to the Product ends
+        when the refund is issued. See our <a href="/refund">Refund Policy</a> for full details.
       </p>
 
       <h2>6. Acceptable use</h2>

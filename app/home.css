@@ -723,6 +723,26 @@ body:has(.nx-page)::before{content:none}
 .nx-plan-note{color:var(--nx-accent);text-align:center;margin-top:12px;font-size:13px}
 .nx-plan-proof{text-align:center;margin-top:26px}
 
+/* money-back guarantee, under the plan grid */
+.nx-guarantee{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  width:max-content;max-width:100%;margin:34px auto 0;
+  padding:14px 22px 14px 18px;border:1px solid rgba(29,127,74,.26);border-radius:14px;
+  background:linear-gradient(180deg,rgba(29,127,74,.08),rgba(29,127,74,.02));
+}
+.nx-guarantee .seal{display:flex;flex:none;color:var(--nx-green)}
+.nx-guarantee .seal svg{width:26px;height:26px}
+.nx-guarantee .copy{display:flex;flex-direction:column;gap:2px;text-align:left}
+.nx-guarantee .copy b{font-size:14.5px;font-weight:600;color:var(--nx-text);letter-spacing:-.01em}
+.nx-guarantee .copy span{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--nx-green);
+}
+@media(max-width:520px){
+  .nx-guarantee{width:auto;padding:14px 16px}
+  .nx-guarantee .copy b{font-size:13.5px}
+}
+
 /* geo offer */
 .nx-geo{
   display:flex;align-items:center;gap:14px;max-width:600px;margin:36px auto 0;
@@ -767,6 +787,7 @@ body:has(.nx-page)::before{content:none}
 .nx-q[open] summary .plus{transform:rotate(135deg);background:var(--nx-ink-btn);color:#f6f3ee;border-color:var(--nx-ink-btn)}
 .nx-q .a{padding:0 0 20px 27px;color:var(--nx-dim);font-size:13.5px;line-height:1.7;max-width:58ch;animation:nxAnswerIn .4s var(--nx-ease)}
 @keyframes nxAnswerIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.nx-q .a p+p{margin-top:12px}
 .nx-q .a a{color:var(--nx-accent)}
 .nx-q .a code{font-family:var(--font-mono);font-size:12px;background:var(--nx-panel);border:1px solid var(--nx-line2);padding:1px 6px;border-radius:5px;color:var(--nx-text)}
 
