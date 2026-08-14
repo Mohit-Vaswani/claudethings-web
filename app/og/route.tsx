@@ -118,7 +118,7 @@ export function GET(req: Request) {
             {SITE_DOMAIN}
           </div>
           <div style={{ display: "flex", fontSize: 20, fontWeight: 500, color: DIM }}>
-            89 agents · 103 skills · 181 slash commands
+            89 agents · 122 skills · 181 slash commands
           </div>
         </div>
       </div>

@@ -147,7 +147,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>The productized version:</strong> the AgentsKit kits install 89 agents, 103
+          <strong>The productized version:</strong> the AgentsKit kits install 89 agents, 122
           skills, and 181 slash commands, engineering and marketing workflows that turn this
           whole page into a one-command setup. <a href="/#pricing">See the kits →</a>
         </p>

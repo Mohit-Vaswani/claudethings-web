@@ -205,7 +205,7 @@ description: Review a diff for correctness, security, and clarity.
 
       <div className="callout">
         <p>
-          <strong>Skip the copy-paste stage:</strong> the AgentsKit kits ship 103 production
+          <strong>Skip the copy-paste stage:</strong> the AgentsKit kits ship 122 production
           skills across code, documents, marketing, and ops, descriptions tuned to trigger,
           scripts bundled, kept current, plus 89 agents and 181 commands.{" "}
           <a href="/#pricing">Install the full library →</a>

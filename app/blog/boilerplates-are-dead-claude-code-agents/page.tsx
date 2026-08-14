@@ -150,7 +150,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>This thesis is our product:</strong> AgentsKit kits are the agent-first
-          replacement for the boilerplate, 89 agents, 103 skills, and 181 commands that build,
+          replacement for the boilerplate, 89 agents, 122 skills, and 181 commands that build,
           review, and test in <em>your</em> stack, adapting to each project via CLAUDE.md instead
           of locking you into one. <a href="/#pricing">See the kits →</a>
         </p>

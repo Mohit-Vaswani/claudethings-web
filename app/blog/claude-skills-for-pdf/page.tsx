@@ -201,7 +201,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Document skills, pre-installed:</strong> AgentsKit bundles PDF, Word, Excel,
-          and PowerPoint skills, scripts included, triggers tuned, among 103 skills, 89 agents,
+          and PowerPoint skills, scripts included, triggers tuned, among 122 skills, 89 agents,
           and 181 commands. <a href="/#pricing">See the kits →</a>
         </p>
       </div>

@@ -225,7 +225,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Guarantees, plus the judgment to go with them.</strong> Hooks enforce; skills and
-          agents decide. AgentsKit ships 103 skills, 89 agents, and 181 commands that encode how
+          agents decide. AgentsKit ships 122 skills, 89 agents, and 181 commands that encode how
           your review, testing, security, and release work should be done.{" "}
           <a href="/#pricing">See the full library →</a>
         </p>

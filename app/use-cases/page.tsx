@@ -71,7 +71,7 @@ export default function UseCasesIndex() {
             <a href="/blog/getting-started-with-claude-code" className="accent">Claude Code</a>{" "}
             closes the loop, and the{" "}
             <a href="/#pricing" className="accent">AgentsKit kits</a> install the expertise, 
-            89 agents, 103 skills, 181 commands.
+            89 agents, 122 skills, 181 commands.
           </p>
           <p style={{ marginTop: 26 }}>
             <a href="/prompts" className="btn btn-ghost btn-lg">

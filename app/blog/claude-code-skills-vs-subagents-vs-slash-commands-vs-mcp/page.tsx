@@ -189,7 +189,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Skip the assembly:</strong> AgentsKit kits ship 89 subagents, 103 skills, and
+          <strong>Skip the assembly:</strong> AgentsKit kits ship 89 subagents, 122 skills, and
           181 slash commands, pre-built, pre-tuned, and installed into Claude Code with one
           command. <a href="/#pricing">See what&apos;s inside →</a>
         </p>

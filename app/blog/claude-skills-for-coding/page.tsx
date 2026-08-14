@@ -206,7 +206,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>All eight, already written:</strong> the AgentsKit engineer kit ships review,
-          testing, debugging, security, migration, and release skills tuned to trigger, part of 103
+          testing, debugging, security, migration, and release skills tuned to trigger, part of 122
           skills, 89 agents, and 181 commands installed with one command.{" "}
           <a href="/#pricing">See the kits →</a>
         </p>

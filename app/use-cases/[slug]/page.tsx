@@ -119,7 +119,7 @@ export default async function UseCasePage({
             <div className="callout">
               <p>
                 <strong>Skip the blank-slate setup:</strong> the AgentsKit kits install 89
-                specialized agents, 103 skills, and 181 slash commands into Claude Code with one
+                specialized agents, 122 skills, and 181 slash commands into Claude Code with one
                 command, engineering and marketing workflows included.{" "}
                 <a href="/#pricing">See the kits →</a>
               </p>

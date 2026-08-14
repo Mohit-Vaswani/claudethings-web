@@ -196,7 +196,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>The marketing kit for Claude Code:</strong> 31 agents, 42 skills, and 32 commands
+          <strong>The marketing kit for Claude Code:</strong> 31 agents, 61 skills, and 32 commands
           covering SEO content pipelines, brand voice enforcement, campaign planning, email
           sequences, competitive briefs, and reporting, installed in one command, no code
           required. <a href="/#pricing">See what&apos;s inside →</a>

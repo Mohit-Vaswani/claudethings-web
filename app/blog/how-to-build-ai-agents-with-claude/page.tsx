@@ -260,7 +260,7 @@ async function runAgent(task: string) {
       <div className="callout">
         <p>
           <strong>Want the pre-built version?</strong> The AgentsKit kits are exactly this
-          philosophy productized: 89 specialized agents, 103 skills, and 181 commands for
+          philosophy productized: 89 specialized agents, 122 skills, and 181 commands for
           engineering and marketing work, installed into Claude Code with one command.{" "}
           <a href="/#pricing">See the kits →</a>
         </p>

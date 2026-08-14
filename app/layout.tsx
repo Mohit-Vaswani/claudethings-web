@@ -9,11 +9,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "AgentsKit · Give Claude Code a Full Engineering & Marketing Team",
   description:
-    "Turn Claude Code from one generalist into a team of 89 specialist agents, 103 skills, and 181 slash commands, installed in one command. Build, ship and market a product solo. Pay once, updates for life.",
+    "Turn Claude Code from one generalist into a team of 89 specialist agents, 122 skills, and 181 slash commands, installed in one command. Build, ship and market a product solo. Pay once, updates for life.",
   openGraph: {
     title: "AgentsKit · Give Claude Code a Full Engineering & Marketing Team",
     description:
-      "89 specialist agents · 103 skills · 181 slash commands. One command, any stack. Build, ship and market solo. Pay once, yours for life.",
+      "89 specialist agents · 122 skills · 181 slash commands. One command, any stack. Build, ship and market solo. Pay once, yours for life.",
     type: "website",
     url: SITE_URL,
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AgentsKit · Give Claude Code a Full Engineering & Marketing Team",
     description:
-      "89 specialist agents · 103 skills · 181 slash commands. One command, any stack. Build, ship and market solo. Pay once, yours for life.",
+      "89 specialist agents · 122 skills · 181 slash commands. One command, any stack. Build, ship and market solo. Pay once, yours for life.",
     images: [ogImage("AgentsKit · Your AI Engineering & Marketing Team for Claude Code")],
   },
   metadataBase: new URL(SITE_URL),

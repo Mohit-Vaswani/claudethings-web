@@ -194,7 +194,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>The curated option:</strong> AgentsKit is a vetted library, 103 skills, 89
+          <strong>The curated option:</strong> AgentsKit is a vetted library, 122 skills, 89
           agents, and 181 commands, deduplicated, trigger-tested, and installed with one command
           instead of forty folder copies.{" "}
           <a href="/#pricing">See what is inside →</a>

@@ -78,7 +78,7 @@ export default function Page() {
         The case for it is coverage plus maintenance. Most plugins solve one slice: a review
         agent, a test writer, a docs helper. The problem with a slice is that your setup ends up
         as eight plugins from eight authors, with overlapping triggers, contradictory
-        conventions, and three abandoned repos. AgentsKit ships 89 agents, 103 skills, and 181
+        conventions, and three abandoned repos. AgentsKit ships 89 agents, 122 skills, and 181
         commands as one coherent library across engineering and marketing, descriptions tuned so
         things actually fire, deterministic work in bundled scripts, and one place to update when
         Claude Code changes.
@@ -207,7 +207,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>One install instead of eight:</strong> AgentsKit bundles 89 agents, 103
+          <strong>One install instead of eight:</strong> AgentsKit bundles 89 agents, 122
           skills, and 181 commands across engineering and marketing, triggers tuned, scripts
           included, maintained as Claude Code changes.{" "}
           <a href="/#pricing">See the full contents →</a>

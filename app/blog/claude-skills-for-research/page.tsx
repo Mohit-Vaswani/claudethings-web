@@ -196,7 +196,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Research, documents, and analysis in one library:</strong> AgentsKit ships 103
+          <strong>Research, documents, and analysis in one library:</strong> AgentsKit ships 122
           skills, including document processing, source evaluation, and analysis workflows, with 89
           agents and 181 commands. <a href="/#pricing">See the kits →</a>
         </p>

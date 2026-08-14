@@ -212,7 +212,7 @@ description: Extract text and tables from PDF files, fill
 
       <div className="callout">
         <p>
-          <strong>Prefer skills that already trigger?</strong> The 103 skills in the AgentsKit
+          <strong>Prefer skills that already trigger?</strong> The 122 skills in the AgentsKit
           kits ship with descriptions tuned exactly this way, installed in one command, firing on
           the first try. <a href="/#pricing">Browse the kits →</a>
         </p>

@@ -172,7 +172,7 @@ Next.js 15 (App Router) + TypeScript + Postgres via Drizzle.
       </p>
       <p>
         You can write your own, or install a library of them. Our{" "}
-        <a href="/#pricing">AgentsKit kits</a> package 89 agents, 103 skills, and 181 slash
+        <a href="/#pricing">AgentsKit kits</a> package 89 agents, 122 skills, and 181 slash
         commands built exactly this way (and the free{" "}
         <a href="/claude-skill-md-validator">SKILL.md validator</a> lints the ones you write
         yourself).

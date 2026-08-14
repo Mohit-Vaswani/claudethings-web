@@ -153,7 +153,7 @@ export default function ToolsIndex() {
           <h2 className="fade">Loved the free tools? Get the full kits.</h2>
           <p className="lead fade">
             The tools above are free forever. The AgentsKit kits give you a whole library, 
-            89 agents, 103 skills, and 181 slash commands you drop into any project with one
+            89 agents, 122 skills, and 181 slash commands you drop into any project with one
             command.
           </p>
           <div className="kits" style={{ textAlign: "left" }}>
@@ -194,7 +194,7 @@ export default function ToolsIndex() {
                 Turn Claude into your growth team.
               </p>
               <ul style={{ marginTop: 18 }}>
-                <li><span className="ck">✓</span> 31 agents · 42 skills · 32 commands</li>
+                <li><span className="ck">✓</span> 31 agents · 61 skills · 32 commands</li>
                 <li><span className="ck">✓</span> Content, SEO &amp; email-sequence skills</li>
                 <li><span className="ck">✓</span> Lifetime updates</li>
               </ul>

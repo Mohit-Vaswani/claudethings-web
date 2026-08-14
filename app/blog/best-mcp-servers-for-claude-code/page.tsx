@@ -210,7 +210,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Access is the easy half.</strong> AgentsKit ships the other half as one
-          install: 103 skills, 89 agents, and 181 commands that encode how the work should be
+          install: 122 skills, 89 agents, and 181 commands that encode how the work should be
           done, review, testing, security, migrations, SEO, campaigns, tuned to trigger and kept
           current. <a href="/#pricing">See what&apos;s inside →</a>
         </p>

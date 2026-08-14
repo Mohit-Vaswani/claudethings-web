@@ -146,7 +146,7 @@ export function KitsUpsell({
               Turn Claude into your growth team.
             </p>
             <ul style={{ marginTop: 18 }}>
-              <li><span className="ck">✓</span> 31 agents · 42 skills · 32 commands</li>
+              <li><span className="ck">✓</span> 31 agents · 61 skills · 32 commands</li>
               <li><span className="ck">✓</span> Content, SEO &amp; email-sequence skills</li>
               <li><span className="ck">✓</span> Landing-page &amp; funnel templates</li>
               <li><span className="ck">✓</span> Lifetime updates</li>
@@ -162,7 +162,7 @@ export function KitsUpsell({
         </div>
         <p className="fade" style={{ marginTop: 26 }}>
           <a href="https://www.agentskit.co/#pricing" className="accent" style={{ fontWeight: 600 }}>
-            Or grab all 89 agents, 103 skills &amp; 181 commands in the Complete Bundle →
+            Or grab all 89 agents, 122 skills &amp; 181 commands in the Complete Bundle →
           </a>
         </p>
       </div>

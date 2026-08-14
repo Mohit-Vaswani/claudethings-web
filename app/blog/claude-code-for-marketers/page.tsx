@@ -167,8 +167,8 @@ five with target keyword and suggested publish order.`}</pre>
 
       <div className="callout">
         <p>
-          <strong>That&apos;s exactly what the Marketing Kit is:</strong> 31 marketing agents, 42
-          skills, and 32 commands, content pipelines, SEO audits, campaign briefs, brand review, 
+          <strong>That&apos;s exactly what the Marketing Kit is:</strong> 31 marketing agents, 61
+          skills, and 32 commands, content pipelines, SEO audits, campaign briefs, brand review,
           pre-built and installed into Claude Code with one command.{" "}
           <a href="/#pricing">See the Marketing Kit →</a>
         </p>

@@ -159,7 +159,7 @@ export default function Home() {
     const lines: [string, string][] = [
       ["ok", "✔ Installing into your-project"],
       ["ok", "✔ engineer kit → 58 agents, 61 skills, 159 commands"],
-      ["ok", "✔ marketing kit → 31 agents, 42 skills, 22 commands (10 shared, already in)"],
+      ["ok", "✔ marketing kit → 31 agents, 61 skills, 22 commands (10 shared, already in)"],
       ["ok", "✔ wrote CLAUDE.md, fill it in so agents learn your project"],
       ["dim", "› Done. Open Claude Code, your AI team is ready."],
     ];
@@ -239,7 +239,7 @@ export default function Home() {
           Agents<span className="n">89</span>
         </span>
         <span className="nx-dash-tab">
-          Skills<span className="n">103</span>
+          Skills<span className="n">122</span>
         </span>
         <span className="nx-dash-tab">
           Commands<span className="n">181</span>
@@ -362,7 +362,7 @@ export default function Home() {
               <span className="nb">in one command</span>
             </h1>
             <p className="nx-sub nx-rise nx-d3">
-              AgentsKit drops in <b>89 specialist agents</b>, <b>103 skills</b> and{" "}
+              AgentsKit drops in <b>89 specialist agents</b>, <b>122 skills</b> and{" "}
               <b>181 slash commands</b> with one command, so one person can plan, build, test, ship{" "}
               <b>and</b> market a real product.
             </p>
@@ -400,7 +400,7 @@ export default function Home() {
                   <span>agents</span>
                 </li>
                 <li>
-                  <b data-count="103">103</b>
+                  <b data-count="122">122</b>
                   <span>skills</span>
                 </li>
                 <li>
@@ -612,7 +612,7 @@ export default function Home() {
                     <span className="ck">🛠</span> Engineer: 58 agents · 61 skills · 159 commands
                   </div>
                   <div className="nx-ui-line">
-                    <span className="ck">📣</span> Marketing: 31 agents · 42 skills · 32 commands
+                    <span className="ck">📣</span> Marketing: 31 agents · 61 skills · 32 commands
                   </div>
                   <div className="nx-ui-line">
                     <span className="ck">✓</span> agentskit update → free, forever
@@ -728,13 +728,22 @@ export default function Home() {
                   <span>agents</span>
                 </div>
                 <div>
-                  <b>42</b>
+                  <b>61</b>
                   <span>skills</span>
                 </div>
                 <div>
                   <b>32</b>
                   <span>commands</span>
                 </div>
+              </div>
+              <div className="nx-whatsnew">
+                <span className="nx-badge fresh">NEW</span>
+                <p>
+                  <b>19 new skills added recently</b> — offers &amp; guarantees, an advisory{" "}
+                  <code>marketing-council</code>, AI-search optimization (GEO/AEO), attribution,
+                  churn prevention, RevOps, PR, cold email, SMS, video, lead magnets, directory
+                  submissions, and more.
+                </p>
               </div>
               <ul>
                 <li>
@@ -762,8 +771,9 @@ export default function Home() {
                 <li>
                   <span className="ck">✓</span>
                   <span>
-                    42 skills covering SEO audits, programmatic SEO, full CRO set, pricing, paid
-                    ads, marketing psychology, analytics.
+                    61 skills covering SEO audits, programmatic SEO, the full CRO set, offers,
+                    pricing, paid ads, attribution, retention, RevOps, PR, and marketing
+                    psychology.
                   </span>
                 </li>
                 <li>
@@ -781,7 +791,7 @@ export default function Home() {
               <span>specialized agents</span>
             </div>
             <div className="nx-num">
-              <b data-count="103">103</b>
+              <b data-count="122">122</b>
               <span>pre-built skills</span>
             </div>
             <div className="nx-num">
@@ -934,7 +944,7 @@ export default function Home() {
                 <tr>
                   <td>What you get</td>
                   <td>Agents or boilerplate</td>
-                  <td>89 agents · 103 skills · 181 commands</td>
+                  <td>89 agents · 122 skills · 181 commands</td>
                 </tr>
                 <tr>
                   <td>
@@ -1150,7 +1160,7 @@ export default function Home() {
                   </span>
                 </li>
                 <li>
-                  <span className="ck">✓</span> 89 agents · 103 skills · 181 commands
+                  <span className="ck">✓</span> 89 agents · 122 skills · 181 commands
                 </li>
                 <li>
                   <span className="ck">✓</span>{" "}
@@ -1202,7 +1212,7 @@ export default function Home() {
                   <span className="ck">✓</span> 31 marketing agents
                 </li>
                 <li>
-                  <span className="ck">✓</span> 42 pre-built skills
+                  <span className="ck">✓</span> 61 pre-built skills
                 </li>
                 <li>
                   <span className="ck">✓</span> 32 slash commands

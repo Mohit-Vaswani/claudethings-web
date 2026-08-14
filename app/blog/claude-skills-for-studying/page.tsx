@@ -200,7 +200,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Skills are not just for students:</strong> the same mechanism that turns Claude
-          into a tutor turns it into a reviewer, an editor, or a researcher. AgentsKit ships 103
+          into a tutor turns it into a reviewer, an editor, or a researcher. AgentsKit ships 122
           production skills with 89 agents and 181 commands.{" "}
           <a href="/#pricing">See the kits →</a>
         </p>

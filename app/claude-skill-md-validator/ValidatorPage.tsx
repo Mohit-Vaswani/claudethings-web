@@ -637,7 +637,7 @@ export default function ValidatorPage() {
       <section id="kits">
         <div className="wrap center">
           <div className="tag fade">Go further</div>
-          <h2 className="fade">Want 103 skills that already pass?</h2>
+          <h2 className="fade">Want 122 skills that already pass?</h2>
           <p className="lead fade">
             This validator is free. The AgentsKit kits give you a whole library of
             production-grade agents, skills, and slash commands, every one written to the exact
@@ -682,7 +682,7 @@ export default function ValidatorPage() {
                 Turn Claude into your growth team.
               </p>
               <ul style={{ marginTop: 18 }}>
-                <li><span className="ck">✓</span> 31 agents · 42 skills · 32 commands</li>
+                <li><span className="ck">✓</span> 31 agents · 61 skills · 32 commands</li>
                 <li><span className="ck">✓</span> Content, SEO &amp; email-sequence skills</li>
                 <li><span className="ck">✓</span> Landing-page &amp; funnel templates</li>
                 <li><span className="ck">✓</span> Lifetime updates</li>
@@ -698,7 +698,7 @@ export default function ValidatorPage() {
           </div>
           <p className="fade" style={{ marginTop: 26 }}>
             <a href={`${SITE_URL}/#pricing`} className="accent" style={{ fontWeight: 600 }}>
-              Or grab all 89 agents, 103 skills &amp; 181 commands in the Complete Bundle →
+              Or grab all 89 agents, 122 skills &amp; 181 commands in the Complete Bundle →
             </a>
           </p>
         </div>

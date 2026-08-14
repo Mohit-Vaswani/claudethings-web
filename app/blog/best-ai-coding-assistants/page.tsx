@@ -191,7 +191,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Skip the hour.</strong> AgentsKit turns a stock Claude Code install into a
-          configured one in a single command, 89 agents, 103 skills, and 181 commands covering
+          configured one in a single command, 89 agents, 122 skills, and 181 commands covering
           review, testing, debugging, security, migrations, and shipping.{" "}
           <a href="/#pricing">Set it up in a minute →</a>
         </p>

@@ -198,7 +198,7 @@ export default function Page() {
 
       <div className="callout">
         <p>
-          <strong>Or start with a library:</strong> AgentsKit ships 103 skills, 89 agents, and 181
+          <strong>Or start with a library:</strong> AgentsKit ships 122 skills, 89 agents, and 181
           commands, trigger-tested, deduplicated, and installed with one command, so you can spend
           your time on the project-specific skills only you can write.{" "}
           <a href="/#pricing">See the kits →</a>

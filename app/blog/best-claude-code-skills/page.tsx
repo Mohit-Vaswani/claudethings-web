@@ -176,7 +176,7 @@ export default function Page() {
       <div className="callout">
         <p>
           <strong>Everything on this list, one command:</strong> the AgentsKit kits include all
-          fifteen categories above among 103 skills, descriptions tuned to trigger, scripts
+          fifteen categories above among 122 skills, descriptions tuned to trigger, scripts
           bundled, kept current, plus the 89 agents and 181 commands they pair with.{" "}
           <a href="/#pricing">Install the full library →</a>
         </p>

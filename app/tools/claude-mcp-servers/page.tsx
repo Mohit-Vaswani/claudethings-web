@@ -191,7 +191,7 @@ claude mcp list`}</pre>
       <div className="callout">
         <p>
           <strong>MCP gives Claude hands; skills give it expertise.</strong> The AgentsKit kits
-          ship 103 skills and 181 commands that put both to work, code review, security audits,
+          ship 122 skills and 181 commands that put both to work, code review, security audits,
           SEO, email sequences, installed in one command.{" "}
           <a href="/#pricing">See what&apos;s inside →</a>
         </p>

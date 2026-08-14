@@ -89,7 +89,7 @@ export default function PromptsIndex() {
           <div className="tag">Beyond prompts</div>
           <h2>Prompts are the manual way. Kits are the installed way.</h2>
           <p className="lead">
-            The AgentsKit kits package this kind of expertise as 89 agents, 103 skills, and 181
+            The AgentsKit kits package this kind of expertise as 89 agents, 122 skills, and 181
             slash commands that live inside Claude Code, so instead of pasting a code-review
             prompt, you type <code style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}>/review</code>.
           </p>
