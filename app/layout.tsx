@@ -4,7 +4,6 @@ import { SITE_DOMAIN, SITE_URL } from "@/app/lib/site";
 import type { ReactNode } from "react";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
-import PostHogInit from "@/app/components/PostHogInit";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -93,8 +92,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         {/* Vercel Web Analytics */}
         <Analytics />
-        {/* PostHog: session replay, product analytics, web analytics */}
-        <PostHogInit />
       </body>
     </html>
   );
