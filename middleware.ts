@@ -48,6 +48,9 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
 }
 
 export const config = {
-  // Skip API routes, framework internals, and obvious static assets.
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  // Skip API routes, framework internals, and obvious static assets. `ingest` is
+  // the PostHog reverse proxy — it's the highest-volume path on the site and
+  // none of it is a page view, so running crawler tracking and cookie writes on
+  // it would just burn middleware invocations and pollute DataFast.
+  matcher: ["/((?!api|ingest|_next/static|_next/image|favicon.ico).*)"],
 };
