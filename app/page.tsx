@@ -1050,22 +1050,24 @@ export default function Home() {
           {/* PRICE LADDER, bundle price rises as spots fill */}
           <div className="nx-ladder nx-fade" aria-label="Bundle pricing steps">
             <div className="nx-ladder-track" aria-hidden="true" />
+            <div className="nx-ladder-step is-past">
+              <span className="node" />
+              <div className="step-price">
+                <s>$89</s>
+              </div>
+              <div className="step-note">only for first 20</div>
+            </div>
             <div className="nx-ladder-step">
               <span className="node" />
-              <div className="step-price">$89</div>
+              <div className="step-price">$99</div>
               <div className="step-note">
-                <b>2</b> spots left
+                next <b>20</b> users
               </div>
             </div>
             <div className="nx-ladder-step is-next">
               <span className="node" />
-              <div className="step-price">$129</div>
-              <div className="step-note">next 50 users</div>
-            </div>
-            <div className="nx-ladder-step is-next">
-              <span className="node" />
-              <div className="step-price">$199</div>
-              <div className="step-note">next 50 users</div>
+              <div className="step-price">$139</div>
+              <div className="step-note">remaining users</div>
             </div>
           </div>
 
@@ -1081,7 +1083,7 @@ export default function Home() {
               <div className="nx-plan-buy">
                 <div className="amt">
                   <span className="cur">$</span>
-                  <span className="big">49</span>
+                  <span className="big">59</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
                 {/* POLAR: Engineer product checkout link */}
@@ -1095,7 +1097,7 @@ export default function Home() {
                   data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="engineer"
-                  data-fast-goal-price="49"
+                  data-fast-goal-price="59"
                   data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
                   Get Engineer Kit <span className="ar">↗</span>
@@ -1131,8 +1133,8 @@ export default function Home() {
               <div className="nx-plan-buy">
                 <div className="amt">
                   <span className="cur">$</span>
-                  <span className="big">89</span>
-                  <span className="was">$129</span>
+                  <span className="big">99</span>
+                  <span className="was">$139</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
                 {/* POLAR: Bundle product checkout link */}
@@ -1146,7 +1148,7 @@ export default function Home() {
                   data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="bundle"
-                  data-fast-goal-price="89"
+                  data-fast-goal-price="99"
                   data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
                   Get the Bundle <span className="ar">↗</span>
@@ -1187,7 +1189,7 @@ export default function Home() {
               <div className="nx-plan-buy">
                 <div className="amt">
                   <span className="cur">$</span>
-                  <span className="big">49</span>
+                  <span className="big">59</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
                 {/* POLAR: Marketing product checkout link */}
@@ -1201,7 +1203,7 @@ export default function Home() {
                   data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="marketing"
-                  data-fast-goal-price="49"
+                  data-fast-goal-price="59"
                   data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
                   Get Marketing Kit <span className="ar">↗</span>

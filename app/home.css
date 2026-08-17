@@ -686,8 +686,11 @@ body:has(.nx-page)::before{content:none}
   animation:nxPulse 2.4s ease-in-out infinite;
 }
 .nx-ladder-step.is-next .node{background:var(--nx-panel2);border:1px solid var(--nx-line);box-shadow:none;animation:none}
+.nx-ladder-step.is-past .node{background:var(--nx-line);border:1px solid var(--nx-line);box-shadow:none;animation:none}
 .nx-ladder-step .step-price{font-family:var(--font-display);font-weight:400;font-size:2.4rem;line-height:1;letter-spacing:-.02em;margin-top:16px;color:var(--nx-text)}
 .nx-ladder-step.is-next .step-price{color:var(--nx-faint)}
+.nx-ladder-step.is-past .step-price{color:var(--nx-faint)}
+.nx-ladder-step.is-past .step-price s{text-decoration:line-through;text-decoration-thickness:1.5px;text-decoration-color:var(--nx-accent)}
 .nx-ladder-step .step-note{font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--nx-faint);margin-top:9px}
 .nx-ladder-step .step-note b{color:var(--nx-accent);font-weight:500}
 
