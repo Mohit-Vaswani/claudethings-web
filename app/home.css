@@ -406,11 +406,28 @@ body:has(.nx-page)::before{content:none}
 
 /* ---------- testimonial band ---------- */
 .nx-say{padding:76px 0}
+/* rotator: every slide sits in the same grid cell, so the band keeps the
+   height of the tallest quote and nothing shifts when it advances */
+.nx-say-rot{margin:0 auto;max-width:820px}
+.nx-say-stack{display:grid}
+.nx-say-stack > .nx-say-card{grid-area:1/1}
+
 .nx-say-card{
-  margin:0 auto;max-width:820px;text-align:center;
+  margin:0 auto;max-width:820px;width:100%;text-align:center;
+  display:flex;flex-direction:column;
   background:var(--nx-bg2);border:1px solid var(--nx-line);border-radius:22px;
   padding:44px 46px 34px;box-shadow:var(--nx-sh-md);position:relative;overflow:hidden;
+  /* outgoing slide clears out first, incoming follows — no overlapping text */
+  opacity:0;transform:translateY(10px) scale(.99);pointer-events:none;
+  transition:opacity .26s var(--nx-ease),transform .26s var(--nx-ease);
 }
+.nx-say-card.is-on{
+  opacity:1;transform:none;pointer-events:auto;
+  transition:opacity .42s var(--nx-ease) .2s,transform .42s var(--nx-ease) .2s;
+}
+/* auto margin pins every byline to the card floor, so the avatar row holds
+   still across quotes of different lengths */
+.nx-say-stack .nx-say-q{margin-bottom:auto}
 .nx-say-card::before{
   content:"";position:absolute;left:0;right:0;top:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--nx-accent),transparent);opacity:.55;
@@ -455,6 +472,32 @@ body:has(.nx-page)::before{content:none}
   .nx-say-mark{display:none}
   .nx-say-by{justify-content:flex-start}
   .nx-say-link{margin-left:0;width:100%;justify-content:center}
+}
+
+/* progress dots — the active one fills up over SAY_MS so the next review is
+   visibly on its way; hovering the band pauses both timer and fill */
+.nx-say-nav{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:22px}
+.nx-say-dot{
+  appearance:none;border:0;background:none;padding:6px 0;cursor:pointer;
+  display:flex;align-items:center;
+}
+.nx-say-dot-fill{
+  display:block;width:34px;height:3px;border-radius:999px;overflow:hidden;
+  background:var(--nx-line2);transition:width .3s var(--nx-ease),background .3s;
+}
+.nx-say-dot:hover .nx-say-dot-fill{background:var(--nx-line)}
+.nx-say-dot.is-on .nx-say-dot-fill{width:56px;background:var(--nx-line)}
+.nx-say-dot-fill i{
+  display:block;height:100%;width:100%;border-radius:999px;
+  background:var(--nx-accent);transform-origin:left center;
+  animation:nx-say-fill linear forwards;
+}
+@keyframes nx-say-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+@media(prefers-reduced-motion:reduce){
+  .nx-say-card{transition:opacity .2s linear;transform:none}
+  .nx-say-card.is-on{transform:none}
+  .nx-say-dot-fill i{animation:none;transform:scaleX(1)}
 }
 
 /* ---------- problem cards ---------- */

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
 import { SITE_URL } from "@/app/lib/site";
 import "./home.css";
@@ -91,6 +91,135 @@ const TERMINAL_IDS = ["hero-term", "term"];
 const PROOF = { buyers: 15, window: "2 weeks" };
 
 /** Live-buyer count. Rendered in the hero and above the price ladder. */
+/**
+ * Real buyer reviews. One shows at a time and the band auto-advances every
+ * SAY_MS; each entry links out to the live tweet so the quote stays checkable.
+ */
+const TESTIMONIALS = [
+  {
+    quote:
+      "buying it last week was probably one of my best investments. genuinely love what he\u2019s building here \uD83D\uDD25",
+    name: "abhi",
+    role: "Founder of craftpad \u00b7 @letcontactabhi",
+    avatar: "/founder.jpg",
+    alt: "abhi, founder of craftpad",
+    url: "https://x.com/letcontactabhi/status/2086174287346782343",
+  },
+  {
+    quote:
+      "Mohit\u2026 thank you! I\u2019m using your kit in my new project and it\u2019s actually really helpful.",
+    name: "Ioannis Antypas",
+    role: "@ioannis_antypas",
+    avatar: "/founder2.jpg",
+    alt: "Ioannis Antypas",
+    url: "https://x.com/ioannis_antypas/status/2090063015060132179",
+  },
+];
+
+/** Dwell time per review, in ms. The progress bar animation is tied to it. */
+const SAY_MS = 5000;
+
+/**
+ * Auto-rotating testimonial band. All slides are stacked in one grid cell so the
+ * card keeps the height of the tallest quote and nothing jumps on advance; the
+ * bar underneath shows how long until the next one. Hover/focus pauses it.
+ */
+function Testimonials() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  // Bumped every time a fresh countdown starts; keys the progress fill so it
+  // restarts in lockstep with the timer instead of drifting out of sync.
+  const [run, setRun] = useState(0);
+
+  useEffect(() => {
+    if (paused) return;
+    setRun((n) => n + 1);
+    const t = window.setTimeout(
+      () => setActive((n) => (n + 1) % TESTIMONIALS.length),
+      SAY_MS
+    );
+    return () => window.clearTimeout(t);
+  }, [active, paused]);
+
+  return (
+    <div
+      className="nx-say-rot nx-fade"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+    >
+      <div className="nx-say-stack">
+        {TESTIMONIALS.map((t, i) => {
+          const on = i === active;
+          return (
+            <figure
+              key={t.url}
+              className={`nx-say-card${on ? " is-on" : ""}`}
+              aria-hidden={!on}
+              inert={!on}
+            >
+              <blockquote className="nx-say-q">
+                <span aria-hidden="true" className="nx-say-mark">
+                  &ldquo;
+                </span>
+                {t.quote}
+              </blockquote>
+              <figcaption className="nx-say-by">
+                <img
+                  src={t.avatar}
+                  alt={t.alt}
+                  className="nx-say-av"
+                  width={112}
+                  height={112}
+                  loading="lazy"
+                />
+                <div className="nx-say-who">
+                  <b>{t.name}</b>
+                  <span>{t.role}</span>
+                </div>
+                <a
+                  className="nx-say-link"
+                  href={t.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  See it on X <span className="ar">↗</span>
+                </a>
+              </figcaption>
+            </figure>
+          );
+        })}
+      </div>
+
+      <div className="nx-say-nav">
+        {TESTIMONIALS.map((t, i) => (
+          <button
+            key={t.url}
+            type="button"
+            className={`nx-say-dot${i === active ? " is-on" : ""}`}
+            aria-label={`Show review from ${t.name}`}
+            aria-current={i === active}
+            onClick={() => setActive(i)}
+          >
+            <span className="nx-say-dot-fill">
+              {i === active ? (
+                <i
+                  key={run}
+                  style={{
+                    animationDuration: `${SAY_MS}ms`,
+                    animationPlayState: paused ? "paused" : "running",
+                  }}
+                />
+              ) : null}
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ProofPill() {
   return (
     <span className="nx-proof">
@@ -443,37 +572,7 @@ export default function Home() {
           <div className="nx-center nx-fade">
             <div className="nx-label">What people say</div>
           </div>
-          <figure className="nx-say-card nx-fade">
-            <blockquote className="nx-say-q">
-              <span aria-hidden="true" className="nx-say-mark">
-                &ldquo;
-              </span>
-              buying it last week was probably one of my best investments. genuinely love what
-              he&apos;s building here 🔥
-            </blockquote>
-            <figcaption className="nx-say-by">
-              <img
-                src="/founder.jpg"
-                alt="abhi, founder of craftpad"
-                className="nx-say-av"
-                width={112}
-                height={112}
-                loading="lazy"
-              />
-              <div className="nx-say-who">
-                <b>abhi</b>
-                <span>Founder of craftpad · @letcontactabhi</span>
-              </div>
-              <a
-                className="nx-say-link"
-                href="https://x.com/letcontactabhi/status/2086174287346782343"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                See it on X <span className="ar">↗</span>
-              </a>
-            </figcaption>
-          </figure>
+          <Testimonials />
         </div>
       </section>
 
