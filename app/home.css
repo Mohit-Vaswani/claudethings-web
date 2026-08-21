@@ -150,7 +150,7 @@ body:has(.nx-page)::before{content:none}
 }
 
 /* ---------- hero ---------- */
-.nx-hero{padding:84px 0 0;border-bottom:1px solid var(--nx-line2)}
+.nx-hero{padding:148px 0 0;border-bottom:1px solid var(--nx-line2)}
 .nx-chip{
   display:inline-flex;align-items:center;gap:10px;margin-bottom:26px;
   font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
@@ -171,35 +171,30 @@ body:has(.nx-page)::before{content:none}
 .nx-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
 .nx-micro{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--nx-faint)}
 
-/* split hero — editorial copy on the left, media stage bleeding to the right rail.
-   The split spans the page frame (not .nx-wrap) so the stage can run flush to the
-   hairline rail the way the reference panel meets the sheet edge; the copy column
-   re-creates the wrap's gutter on its own so the type still lines up with the
-   sections below it. */
+/* split hero — editorial copy on the left, framed media stage on the right.
+   The two columns are equal halves and stretch to the same height so the stage
+   reads as a full-bleed panel rather than a floating image. */
 .nx-hero-split{
-  width:min(100%,calc(var(--nx-maxw) + 96px));margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;align-items:stretch;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(26px,3.6vw,54px);align-items:stretch;
+  padding-bottom:clamp(46px,6vw,78px);
 }
 .nx-hero-split > *{min-width:0}
 .nx-hero-copy{
   display:flex;flex-direction:column;align-items:flex-start;text-align:left;
-  /* re-creates the .nx-wrap gutter measured from the page rail, so hero type sits
-     on the same left edge as every section below. A percentage would resolve
-     against this column's own grid track, not the frame, hence the vw math. */
-  padding:clamp(40px,5.2vw,76px) clamp(24px,2.6vw,40px) clamp(44px,5.6vw,84px)
-          max(26px,calc((min(100vw,calc(var(--nx-maxw) + 96px)) - var(--nx-maxw)) / 2 + 26px));
+  padding-top:clamp(4px,1.6vw,26px);
 }
 .nx-hero-copy .nx-h1{
-  max-width:none;margin:0 0 20px;
-  font-size:clamp(2.05rem,3.35vw,2.95rem);line-height:1.08;letter-spacing:-.022em;
+  max-width:15ch;margin:0 0 22px;
+  font-size:clamp(2.35rem,4.4vw,3.75rem);line-height:1.03;letter-spacing:-.02em;
   text-wrap:balance;
 }
 /* keeps the closing phrase on one line — a lone "command" reads like an orphan */
 .nx-hero-copy .nx-h1 .nb{white-space:nowrap}
 .nx-hero-copy .nx-h1 em{padding-right:.06em}
-.nx-hero-copy .nx-sub{max-width:42ch;margin:0 0 28px;font-size:15.5px;line-height:1.65}
-.nx-hero-copy .nx-cta-row{gap:12px;margin-bottom:18px}
-.nx-hero-copy .nx-btn-lg{padding:15px 28px}
+.nx-hero-copy .nx-sub{max-width:44ch;margin:0 0 30px;font-size:16.5px;line-height:1.68}
+.nx-hero-copy .nx-cta-row{gap:14px;margin-bottom:20px}
+.nx-hero-copy .nx-btn-lg{padding:16px 30px}
 
 /* eyebrow gets barcode ticks on its trailing flank */
 .nx-hero-chip{padding:6px 16px 6px 6px;gap:12px}
@@ -213,42 +208,43 @@ body:has(.nx-page)::before{content:none}
 .nx-hero-fine{display:block}
 .nx-hero-fine::before{content:"[ ";color:var(--nx-line)}
 .nx-hero-fine::after{content:" ]";color:var(--nx-line)}
-.nx-hero-proof{margin-top:20px}
+.nx-hero-proof{margin-top:22px}
 
-/* kit ledger re-cut as a stat rail — margin-top:auto drops it to the foot of the
-   column, so it baselines against the bottom edge of the stage opposite */
-.nx-hero-stats{margin-top:auto;padding-top:clamp(44px,6vw,84px);width:100%}
+/* kit ledger re-cut as a stat rail — pushed to the foot of the copy column so it
+   baselines against the bottom edge of the stage panel */
+.nx-hero-stats{margin-top:auto;padding-top:clamp(30px,4.4vw,58px);width:100%}
 .nx-hero-ledger-label{
   font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--nx-accent);margin-bottom:18px;
+  color:var(--nx-accent);margin-bottom:16px;
 }
 .nx-hero-stats ul{
   list-style:none;margin:0;padding:0;
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
 }
 .nx-hero-stats li{
-  display:flex;flex-direction:column;gap:8px;
-  padding-left:22px;border-left:1px solid var(--nx-line);
+  display:flex;flex-direction:column;gap:6px;
+  padding-left:20px;border-left:1px solid var(--nx-line);
 }
 .nx-hero-stats li:first-child{padding-left:0;border-left:none}
 .nx-hero-stats b{
-  font-family:var(--font-display);font-weight:400;font-size:clamp(1.9rem,3vw,2.7rem);
-  line-height:1;letter-spacing:-.025em;color:var(--nx-text);font-variant-numeric:tabular-nums;
+  font-family:var(--font-display);font-weight:400;font-size:clamp(1.7rem,2.6vw,2.3rem);
+  line-height:1;letter-spacing:-.02em;color:var(--nx-text);font-variant-numeric:tabular-nums;
 }
-.nx-hero-stats span{font-size:12.5px;color:var(--nx-dim);line-height:1.35}
+.nx-hero-stats span{font-size:13px;color:var(--nx-dim);line-height:1.35}
 
 /* ---------- hero stage: install terminal on the warm vista ---------- */
 .nx-hero-stage{
-  position:relative;overflow:hidden;
-  min-height:clamp(430px,44vw,620px);
+  position:relative;overflow:hidden;border-radius:16px;
+  min-height:clamp(400px,42vw,560px);
   display:grid;place-items:center;
-  padding:clamp(20px,2.6vw,38px);
+  padding:clamp(20px,2.8vw,40px);
   /* option-one wash: gold light falling top-left into a deep roasted brown */
   background:
     radial-gradient(58% 42% at 20% 6%,rgba(247,226,177,.92),transparent 64%),
     radial-gradient(70% 55% at 88% 26%,rgba(206,163,96,.72),transparent 66%),
     radial-gradient(95% 70% at 46% 108%,#33200e 0%,transparent 62%),
     linear-gradient(162deg,#cdae72 0%,#ab7a3e 30%,#6f451e 60%,#2c1a0a 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),var(--nx-sh-lg);
 }
 /* slow light drift, same trick the old media panel used */
 .nx-hero-stage::before{
@@ -266,74 +262,64 @@ body:has(.nx-page)::before{content:none}
   0%{transform:translate3d(-14%,-8%,0) scale(1)}
   100%{transform:translate3d(16%,10%,0) scale(1.18)}
 }
-/* blueprint cross-hairs running the full panel */
+/* blueprint cross-hairs framing the card */
 .nx-stage-grid{
   position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
-    linear-gradient(90deg,transparent calc(12% - .5px),rgba(255,255,255,.15) 12%,transparent calc(12% + .5px)),
-    linear-gradient(90deg,transparent calc(88% - .5px),rgba(255,255,255,.15) 88%,transparent calc(88% + .5px)),
-    linear-gradient(180deg,transparent calc(13% - .5px),rgba(255,255,255,.15) 13%,transparent calc(13% + .5px)),
-    linear-gradient(180deg,transparent calc(87% - .5px),rgba(255,255,255,.15) 87%,transparent calc(87% + .5px));
+    linear-gradient(90deg,transparent calc(14% - .5px),rgba(255,255,255,.16) 14%,transparent calc(14% + .5px)),
+    linear-gradient(90deg,transparent calc(86% - .5px),rgba(255,255,255,.16) 86%,transparent calc(86% + .5px)),
+    linear-gradient(180deg,transparent calc(15% - .5px),rgba(255,255,255,.16) 15%,transparent calc(15% + .5px)),
+    linear-gradient(180deg,transparent calc(85% - .5px),rgba(255,255,255,.16) 85%,transparent calc(85% + .5px));
 }
 
-/* outline frame bracketing the card — the spec tags sit centred on its edges,
-   which is what keeps them clear of the terminal at every width */
-.nx-stage-frame{
-  position:relative;z-index:3;width:min(100%,470px);
-  /* the min must stay >= half the widest tag, or the side tag rides onto the card */
-  padding:clamp(40px,3.4vw,48px);
-  border:1px solid rgba(255,255,255,.26);border-radius:22px;
-}
-.nx-stage-card{position:relative}
+/* the card riding the stage */
+.nx-stage-card{position:relative;z-index:3;width:100%;max-width:480px}
 .nx-stage-card .nx-term{
   max-width:none;
-  box-shadow:0 2px 6px rgba(20,10,4,.3),0 40px 80px -30px rgba(20,10,4,.66);
+  box-shadow:0 2px 6px rgba(20,10,4,.28),0 40px 80px -30px rgba(20,10,4,.62);
 }
-.nx-stage-card .nx-term-body{font-size:11px;line-height:1.85;min-height:190px;padding:16px 16px 20px}
-.nx-stage-card .nx-term-title{font-size:10px}
+.nx-stage-card .nx-term-body{min-height:210px}
 
-/* frosted spec tags, each straddling one edge of the frame */
+/* frosted spec tags pinned around the card */
 .nx-stage-tag{
   position:absolute;z-index:4;display:inline-flex;align-items:center;gap:7px;
   font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
   color:rgba(255,248,236,.94);white-space:nowrap;
   padding:6px 12px;border-radius:100px;
-  background:rgba(38,22,10,.4);border:1px solid rgba(255,255,255,.24);
+  background:rgba(38,22,10,.34);border:1px solid rgba(255,255,255,.22);
   backdrop-filter:blur(9px) saturate(1.1);
   box-shadow:0 10px 24px -14px rgba(20,10,4,.7);
 }
 .nx-stage-tag i{font-style:normal;color:#f0c07a}
-.nx-stage-tag-top{top:0;left:50%;transform:translate(-50%,-50%)}
-.nx-stage-tag-side{top:50%;left:0;transform:translate(-50%,-50%)}
-.nx-stage-tag-bottom{bottom:0;left:50%;transform:translate(-50%,50%)}
+/* the card owns the middle band, so the tags ride the clear air above and below it */
+.nx-stage-tag-top{top:8%;left:50%;transform:translate(-50%,-50%)}
+.nx-stage-tag-side{top:78%;left:22px;transform:translateY(-50%)}
+.nx-stage-tag-bottom{top:90%;left:50%;transform:translate(-50%,-50%)}
 
-@media(max-width:1040px){
-  .nx-hero-copy .nx-sub{font-size:15px}
-  .nx-stage-frame{width:min(100%,420px)}
-}
 @media(max-width:960px){
-  .nx-hero-split{grid-template-columns:1fr}
-  .nx-hero-copy{align-items:center;text-align:center;padding:clamp(30px,6vw,56px) 26px 44px}
+  .nx-hero-split{grid-template-columns:1fr;gap:34px}
+  .nx-hero-copy{align-items:center;text-align:center}
   .nx-hero-copy .nx-h1{max-width:18ch;margin-left:auto;margin-right:auto}
   .nx-hero-copy .nx-sub{max-width:52ch;margin-left:auto;margin-right:auto}
   .nx-hero-copy .nx-cta-row{justify-content:center}
   .nx-hero-stats{margin-top:0}
   .nx-hero-stats li{align-items:center;text-align:center;padding-left:0}
-  .nx-hero-stage{min-height:clamp(400px,62vw,520px)}
+  .nx-hero-stage{min-height:clamp(340px,60vw,460px)}
 }
-/* narrow stage — the frame collapses to the panel width and the side tag has no
-   room to hang off it, so the tags stack into the flow instead */
-@media(max-width:600px){
+/* narrow stage — the card eats the full width, so the tags stop floating and
+   stack into the flow above and below it instead of sitting on the terminal */
+@media(max-width:760px){
   .nx-hero-stage{
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     gap:12px;min-height:0;padding:24px 16px;
   }
-  .nx-stage-frame{width:100%;padding:0;border:none;display:contents}
   .nx-stage-tag{position:static;transform:none}
   .nx-stage-tag-top{order:1}
-  .nx-stage-card{order:2;width:100%;margin:4px 0}
+  .nx-stage-card{order:2;max-width:none;margin:4px 0}
   .nx-stage-tag-side{order:3}
   .nx-stage-tag-bottom{order:4}
+}
+@media(max-width:560px){
   .nx-hero-stats span{font-size:11.5px}
   .nx-stage-tag{font-size:8.5px;padding:5px 9px}
 }

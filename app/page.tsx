@@ -480,67 +480,66 @@ export default function Home() {
 
       {/* HERO */}
       <header id="top" className="nx-hero">
-        {/* split hero: editorial copy column + a media stage that bleeds to the page rail */}
-        <div className="nx-hero-split">
-          {/* left: eyebrow → display headline → sub → CTAs → fine print → stat rail */}
-          <div className="nx-hero-copy">
-            <div className="nx-chip nx-hero-chip nx-rise nx-d1">
-              <b>New</b> Meet your AI workforce for Claude Code
-            </div>
-            <h1 className="nx-h1 nx-rise nx-d2">
-              Your AI <em>engineering &amp; marketing</em> team{" "}
-              <span className="nb">in one command</span>
-            </h1>
-            <p className="nx-sub nx-rise nx-d3">
-              AgentsKit drops in <b>89 specialist agents</b>, <b>122 skills</b> and{" "}
-              <b>181 slash commands</b> with one command, so one person can plan, build, test, ship{" "}
-              <b>and</b> market a real product.
-            </p>
-            <div className="nx-cta-row nx-rise nx-d4">
-              <a
-                className="nx-btn nx-btn-primary nx-btn-lg"
-                href="#pricing"
-                data-fast-goal="cta_get_claudethings"
-                data-fast-goal-location="hero"
-              >
-                Get AgentsKit <span className="ar">↗</span>
-              </a>
-              <a className="nx-btn nx-btn-ghost nx-btn-lg" href="#whats-inside">
-                ▷ See what&apos;s inside
-              </a>
-            </div>
-            <div className="nx-micro nx-hero-fine nx-rise nx-d4">
-              Requires Claude Code · One-time payment · Lifetime updates
-            </div>
-            <div className="nx-hero-proof nx-rise nx-d4">
-              <ProofPill />
+        <div className="nx-wrap">
+          {/* split hero: editorial copy column + framed media stage */}
+          <div className="nx-hero-split">
+            {/* left: eyebrow → display headline → sub → CTAs → fine print → stat rail */}
+            <div className="nx-hero-copy">
+              <div className="nx-chip nx-hero-chip nx-rise nx-d1">
+                <b>New</b> Meet your AI workforce for Claude Code
+              </div>
+              <h1 className="nx-h1 nx-rise nx-d2">
+                Your AI <em>engineering &amp; marketing</em> team{" "}
+                <span className="nb">in one command</span>
+              </h1>
+              <p className="nx-sub nx-rise nx-d3">
+                AgentsKit drops in <b>89 specialist agents</b>, <b>122 skills</b> and{" "}
+                <b>181 slash commands</b> with one command, so one person can plan, build, test, ship{" "}
+                <b>and</b> market a real product.
+              </p>
+              <div className="nx-cta-row nx-rise nx-d4">
+                <a
+                  className="nx-btn nx-btn-primary nx-btn-lg"
+                  href="#pricing"
+                  data-fast-goal="cta_get_claudethings"
+                  data-fast-goal-location="hero"
+                >
+                  Get AgentsKit <span className="ar">↗</span>
+                </a>
+                <a className="nx-btn nx-btn-ghost nx-btn-lg" href="#whats-inside">
+                  ▷ See what&apos;s inside
+                </a>
+              </div>
+              <div className="nx-micro nx-hero-fine nx-rise nx-d4">
+                Requires Claude Code · One-time payment · Lifetime updates
+              </div>
+              <div className="nx-hero-proof nx-rise nx-d4">
+                <ProofPill />
+              </div>
+
+              {/* the kit ledger, re-cut as a stat rail pinned to the bottom of the column */}
+              <div className="nx-hero-stats nx-rise nx-d5">
+                <div className="nx-hero-ledger-label">Inside the kit</div>
+                <ul>
+                  <li>
+                    <b data-count="89">89</b>
+                    <span>agents</span>
+                  </li>
+                  <li>
+                    <b data-count="122">122</b>
+                    <span>skills</span>
+                  </li>
+                  <li>
+                    <b data-count="181">181</b>
+                    <span>slash commands</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            {/* the kit ledger, re-cut as a stat rail pinned to the bottom of the column */}
-            <div className="nx-hero-stats nx-rise nx-d5">
-              <div className="nx-hero-ledger-label">Inside the kit</div>
-              <ul>
-                <li>
-                  <b data-count="89">89</b>
-                  <span>agents</span>
-                </li>
-                <li>
-                  <b data-count="122">122</b>
-                  <span>skills</span>
-                </li>
-                <li>
-                  <b data-count="181">181</b>
-                  <span>slash commands</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* right: install terminal on the warm vista, bracketed by an outline frame
-              whose edges the spec tags sit on */}
-          <div className="nx-hero-stage nx-rise nx-d5">
-            <div className="nx-stage-grid" aria-hidden="true"></div>
-            <div className="nx-stage-frame">
+            {/* right: install terminal floating on the warm vista, blueprint grid behind */}
+            <div className="nx-hero-stage nx-rise nx-d5">
+              <div className="nx-stage-grid" aria-hidden="true"></div>
               <span className="nx-stage-tag nx-stage-tag-top">
                 <i>◆</i> npx · no install needed
               </span>
