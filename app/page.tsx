@@ -469,21 +469,6 @@ export default function Home() {
                 ▷ See what&apos;s inside
               </a>
             </div>
-            {/* discount game — links to /game, one attempt per visitor */}
-            <a
-              className="nx-gamecap nx-rise nx-d4"
-              href="/game"
-              data-fast-goal="game_capsule"
-              data-fast-goal-location="hero"
-            >
-              <span className="ico" aria-hidden="true">
-                🎲
-              </span>
-              <span className="txt">
-                Play a game to get <b>up to 50% discount</b>
-              </span>
-              <span className="ar">↗</span>
-            </a>
             <div className="nx-micro nx-hero-fine nx-rise nx-d4">
               Requires Claude Code · One-time payment · Lifetime updates
             </div>

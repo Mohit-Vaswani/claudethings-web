@@ -830,7 +830,6 @@ body:has(.nx-page)::before{content:none}
   transform:translateX(-120%);transition:transform .75s var(--nx-ease);
 }
 .nx-gamecap:hover::after{transform:translateX(120%)}
-.nx-hero-center .nx-gamecap{margin:0 auto 18px}
 .nx-gamecap-row{display:flex;justify-content:center;margin-top:30px}
 @media(max-width:560px){
   .nx-gamecap{font-size:12.5px;padding:7px 15px 7px 8px;gap:9px}
