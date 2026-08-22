@@ -1089,24 +1089,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* discount game, sits with the prices it discounts */}
-          <div className="nx-gamecap-row nx-fade">
-            <a
-              className="nx-gamecap"
-              href="/game"
-              data-fast-goal="game_capsule"
-              data-fast-goal-location="pricing"
-            >
-              <span className="ico" aria-hidden="true">
-                🎲
-              </span>
-              <span className="txt">
-                Play a game to get <b>up to 50% discount</b>
-              </span>
-              <span className="ar">↗</span>
-            </a>
-          </div>
-
           {/* INDIA OFFER, rendered only for visitors geolocated to IN */}
           {indiaOffer && (
             <div className="nx-geo" role="note">
@@ -1127,6 +1109,24 @@ export default function Home() {
 
           {/* PRICE LADDER, bundle price rises as spots fill */}
           <PriceLadder fade />
+
+          {/* discount game, sits with the prices it discounts */}
+          <div className="nx-gamecap-row nx-fade">
+            <a
+              className="nx-gamecap"
+              href="/game"
+              data-fast-goal="game_capsule"
+              data-fast-goal-location="pricing"
+            >
+              <span className="ico" aria-hidden="true">
+                🎲
+              </span>
+              <span className="txt">
+                Play a game to get <b>up to 50% discount</b>
+              </span>
+              <span className="ar">↗</span>
+            </a>
+          </div>
 
           <div className="nx-price-grid">
             {/* ENGINEER */}
