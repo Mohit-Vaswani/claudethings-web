@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
+import { PLAN_BY_ID } from "./lib/plans";
+import { PriceLadder, ProofPill, TrustMrrBadge } from "./components/pricing";
 import { SITE_URL } from "@/app/lib/site";
 import "./home.css";
 
@@ -35,31 +37,6 @@ const MARQUEE_AGENTS: [string, string][] = [
 ];
 
 /**
- * Third-party revenue badge — TrustMRR verifies the Polar numbers and serves the
- * SVG, so it stays a plain <img> (no next/image remote host config, no layout
- * shift: width/height match the served artwork).
- */
-function TrustMrrBadge() {
-  return (
-    <a
-      className="nx-trustmrr"
-      href="https://trustmrr.com/startup/claudethings"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="https://trustmrr.com/api/embed/claudethings?format=svg&theme=light"
-        alt="TrustMRR verified revenue badge"
-        width={220}
-        height={90}
-        loading="lazy"
-      />
-    </a>
-  );
-}
-
-/**
  * Terminal mockup for the one-command install animation. Rendered twice (hero and
  * the "One-command install" row), so every element id is namespaced by `id` and the
  * typing effect below is wired up per instance.
@@ -87,10 +64,6 @@ function InstallTerminal({ id }: { id: string }) {
 /** Terminal instances on the page, in DOM order. */
 const TERMINAL_IDS = ["hero-term", "term"];
 
-/** Early-buyer social proof. Single source of truth — bump as sales come in. */
-const PROOF = { buyers: 15, window: "2 weeks" };
-
-/** Live-buyer count. Rendered in the hero and above the price ladder. */
 /**
  * Real buyer reviews. One shows at a time and the band auto-advances every
  * SAY_MS; each entry links out to the live tweet so the quote stays checkable.
@@ -217,18 +190,6 @@ function Testimonials() {
         ))}
       </div>
     </div>
-  );
-}
-
-function ProofPill() {
-  return (
-    <span className="nx-proof">
-      <span className="dot" aria-hidden="true" />
-      <span>
-        <b>{PROOF.buyers} builders</b> are already shipping with AgentsKit - all in the last{" "}
-        {PROOF.window}.
-      </span>
-    </span>
   );
 }
 
@@ -508,6 +469,21 @@ export default function Home() {
                 ▷ See what&apos;s inside
               </a>
             </div>
+            {/* discount game — links to /game, one attempt per visitor */}
+            <a
+              className="nx-gamecap nx-rise nx-d4"
+              href="/game"
+              data-fast-goal="game_capsule"
+              data-fast-goal-location="hero"
+            >
+              <span className="ico" aria-hidden="true">
+                🎲
+              </span>
+              <span className="txt">
+                Play a game to get <b>up to 50% discount</b>
+              </span>
+              <span className="ar">↗</span>
+            </a>
             <div className="nx-micro nx-hero-fine nx-rise nx-d4">
               Requires Claude Code · One-time payment · Lifetime updates
             </div>
@@ -1128,6 +1104,24 @@ export default function Home() {
             </p>
           </div>
 
+          {/* discount game, sits with the prices it discounts */}
+          <div className="nx-gamecap-row nx-fade">
+            <a
+              className="nx-gamecap"
+              href="/game"
+              data-fast-goal="game_capsule"
+              data-fast-goal-location="pricing"
+            >
+              <span className="ico" aria-hidden="true">
+                🎲
+              </span>
+              <span className="txt">
+                Play a game to get <b>up to 50% discount</b>
+              </span>
+              <span className="ar">↗</span>
+            </a>
+          </div>
+
           {/* INDIA OFFER, rendered only for visitors geolocated to IN */}
           {indiaOffer && (
             <div className="nx-geo" role="note">
@@ -1147,28 +1141,7 @@ export default function Home() {
           </div>
 
           {/* PRICE LADDER, bundle price rises as spots fill */}
-          <div className="nx-ladder nx-fade" aria-label="Bundle pricing steps">
-            <div className="nx-ladder-track" aria-hidden="true" />
-            <div className="nx-ladder-step is-past">
-              <span className="node" />
-              <div className="step-price">
-                <s>$89</s>
-              </div>
-              <div className="step-note">only for first 20</div>
-            </div>
-            <div className="nx-ladder-step">
-              <span className="node" />
-              <div className="step-price">$99</div>
-              <div className="step-note">
-                next <b>20</b> users
-              </div>
-            </div>
-            <div className="nx-ladder-step is-next">
-              <span className="node" />
-              <div className="step-price">$139</div>
-              <div className="step-note">remaining users</div>
-            </div>
-          </div>
+          <PriceLadder fade />
 
           <div className="nx-price-grid">
             {/* ENGINEER */}
@@ -1188,10 +1161,7 @@ export default function Home() {
                 {/* POLAR: Engineer product checkout link */}
                 <a
                   className="nx-btn nx-btn-ghost"
-                  href={withDiscount(
-                    "https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa",
-                    indiaOffer
-                  )}
+                  href={withDiscount(PLAN_BY_ID.engineer.checkoutUrl, indiaOffer)}
                   data-polar-checkout=""
                   data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
@@ -1199,7 +1169,7 @@ export default function Home() {
                   data-fast-goal-price="59"
                   data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
-                  Get Engineer Kit <span className="ar">↗</span>
+                  {PLAN_BY_ID.engineer.cta} <span className="ar">↗</span>
                 </a>
               </div>
               <ul>
@@ -1239,10 +1209,7 @@ export default function Home() {
                 {/* POLAR: Bundle product checkout link */}
                 <a
                   className="nx-btn nx-btn-primary"
-                  href={withDiscount(
-                    "https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC",
-                    indiaOffer
-                  )}
+                  href={withDiscount(PLAN_BY_ID.bundle.checkoutUrl, indiaOffer)}
                   data-polar-checkout=""
                   data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
@@ -1250,7 +1217,7 @@ export default function Home() {
                   data-fast-goal-price="99"
                   data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
-                  Get the Bundle <span className="ar">↗</span>
+                  {PLAN_BY_ID.bundle.cta} <span className="ar">↗</span>
                 </a>
               </div>
               <ul>
@@ -1294,10 +1261,7 @@ export default function Home() {
                 {/* POLAR: Marketing product checkout link */}
                 <a
                   className="nx-btn nx-btn-ghost"
-                  href={withDiscount(
-                    "https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL",
-                    indiaOffer
-                  )}
+                  href={withDiscount(PLAN_BY_ID.marketing.checkoutUrl, indiaOffer)}
                   data-polar-checkout=""
                   data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
@@ -1305,7 +1269,7 @@ export default function Home() {
                   data-fast-goal-price="59"
                   data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
-                  Get Marketing Kit <span className="ar">↗</span>
+                  {PLAN_BY_ID.marketing.cta} <span className="ar">↗</span>
                 </a>
               </div>
               <ul>

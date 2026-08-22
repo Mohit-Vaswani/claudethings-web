@@ -47,17 +47,24 @@ export function useGeoDiscount(): boolean {
 }
 
 /**
- * Appends the discount code to a Polar checkout link for eligible visitors.
+ * Appends a discount code to a Polar checkout link, when there is one to apply.
+ *
+ * Defaults to the India geo code, but `/game` passes the code the visitor won,
+ * so both offers share one helper.
  *
  * Note: `discount_code` only *prefills* Polar's discount box, the customer
  * still has to press Apply, which is why the banner copy says so. True
- * auto-apply requires separate India-only Checkout Links with the discount
- * preset on the link in the Polar dashboard; if those get made, swap the base
- * URLs in app/page.tsx instead of calling this.
+ * auto-apply requires separate Checkout Links with the discount preset on the
+ * link in the Polar dashboard; if those get made, swap the base URLs in
+ * app/lib/plans.ts instead of calling this.
  */
-export function withDiscount(checkoutUrl: string, eligible: boolean): string {
-  if (!eligible) return checkoutUrl;
+export function withDiscount(
+  checkoutUrl: string,
+  eligible: boolean,
+  code: string = GEO_DISCOUNT.code
+): string {
+  if (!eligible || !code) return checkoutUrl;
   const url = new URL(checkoutUrl);
-  url.searchParams.set("discount_code", GEO_DISCOUNT.code);
+  url.searchParams.set("discount_code", code);
   return url.toString();
 }
