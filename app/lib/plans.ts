@@ -1,10 +1,9 @@
 /**
  * The three Polar products, in one place.
  *
- * Both the landing page (app/page.tsx) and the discount game (app/game) render
- * buy buttons, and both need the exact same checkout links. Keeping the URLs
- * here means a product swap in Polar is a one-line change instead of a
- * find-and-replace across pages.
+ * Every page that renders a buy button needs the exact same checkout links.
+ * Keeping the URLs here means a product swap in Polar is a one-line change
+ * instead of a find-and-replace across pages.
  */
 
 export type Plan = {

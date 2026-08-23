@@ -49,8 +49,7 @@ export function useGeoDiscount(): boolean {
 /**
  * Appends a discount code to a Polar checkout link, when there is one to apply.
  *
- * Defaults to the India geo code, but `/game` passes the code the visitor won,
- * so both offers share one helper.
+ * Defaults to the India geo code; callers with a different offer pass their own.
  *
  * Note: `discount_code` only *prefills* Polar's discount box, the customer
  * still has to press Apply, which is why the banner copy says so. True

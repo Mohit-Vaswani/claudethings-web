@@ -799,43 +799,6 @@ body:has(.nx-page)::before{content:none}
   .nx-guarantee .copy b{font-size:13.5px}
 }
 
-/* discount game capsule — links the hero and the price grid to /game */
-.nx-gamecap{
-  display:inline-flex;align-items:center;gap:11px;
-  padding:8px 18px 8px 9px;border-radius:100px;
-  border:1px solid rgba(217,69,26,.32);
-  background:linear-gradient(180deg,rgba(217,69,26,.10),rgba(217,69,26,.035));
-  color:var(--nx-dim);font-size:13.5px;line-height:1.3;
-  box-shadow:var(--nx-sh-sm);position:relative;overflow:hidden;
-  transition:transform .22s var(--nx-ease),box-shadow .3s var(--nx-ease),
-             border-color .22s,background .22s;
-}
-.nx-gamecap .ico{
-  flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;
-  background:var(--nx-bg2);border:1px solid var(--nx-line);font-size:14px;
-  transition:transform .5s var(--nx-ease);
-}
-.nx-gamecap .txt b{color:var(--nx-accent);font-weight:600}
-.nx-gamecap .ar{font-size:11px;color:var(--nx-accent);transition:transform .24s var(--nx-ease)}
-.nx-gamecap:hover{
-  transform:translateY(-2px);border-color:rgba(217,69,26,.55);
-  box-shadow:var(--nx-sh-md);color:var(--nx-text);
-}
-.nx-gamecap:hover .ico{transform:rotate(-24deg) scale(1.06)}
-.nx-gamecap:hover .ar{transform:translate(3px,-3px)}
-/* soft sheen, same language as the buttons */
-.nx-gamecap::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(105deg,transparent 32%,rgba(255,255,255,.42) 50%,transparent 68%);
-  transform:translateX(-120%);transition:transform .75s var(--nx-ease);
-}
-.nx-gamecap:hover::after{transform:translateX(120%)}
-.nx-gamecap-row{display:flex;justify-content:center;margin-top:30px}
-@media(max-width:560px){
-  .nx-gamecap{font-size:12.5px;padding:7px 15px 7px 8px;gap:9px}
-  .nx-gamecap .ico{width:25px;height:25px;font-size:13px}
-}
-
 /* geo offer */
 .nx-geo{
   display:flex;align-items:center;gap:14px;max-width:600px;margin:36px auto 0;

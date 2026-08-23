@@ -3,10 +3,9 @@
 /**
  * Shared pieces of the pricing block.
  *
- * The landing page (app/page.tsx) and the discount game (app/game) both sell
- * the same three kits with the same social proof, so the buyer count, the
- * price ladder and the revenue badge live here rather than being kept in sync
- * by hand. The plan cards themselves are driven by app/lib/plans.ts.
+ * The buyer count, the price ladder and the revenue badge live here so the
+ * social proof has a single source of truth across the pages that sell the
+ * kits. The plan cards themselves are driven by app/lib/plans.ts.
  */
 
 /**
@@ -55,7 +54,7 @@ export function TrustMrrBadge() {
 /**
  * Bundle price ladder — the price rises as launch spots fill.
  * `fade` opts into the landing page's scroll-reveal; pages without the
- * IntersectionObserver (like /game) leave it off or nothing ever appears.
+ * IntersectionObserver leave it off or nothing ever appears.
  */
 export function PriceLadder({ fade = false }: { fade?: boolean }) {
   return (
