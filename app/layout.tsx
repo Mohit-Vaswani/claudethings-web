@@ -84,12 +84,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             gtag('config', 'G-KNHJ5C1QYJ');
           `}
         </Script>
-        {/* Polar checkout embed, powers the data-polar-checkout buttons */}
-        <Script
-          src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1/dist/embed.global.js"
-          strategy="afterInteractive"
-          data-auto-init=""
-        />
         {/* Vercel Web Analytics */}
         <Analytics />
       </body>

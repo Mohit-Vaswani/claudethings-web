@@ -11,13 +11,18 @@ import { useEffect, useState } from "react";
  * rendered and CDN-cached, so per-visitor country can't be baked into the HTML
  * without opting the whole page out of the cache.
  *
- * Nothing here enforces the discount, the code below must exist in the Polar
- * dashboard, and it ships in the client bundle, so treat it as public.
+ * Nothing here enforces the discount, the code below must exist in the Dodo
+ * Payments dashboard, and it ships in the client bundle, so treat it as public.
+ *
+ * There is deliberately no prefill helper: the buy buttons point at dodo.pe
+ * short links, which 302 to a fresh checkout session and drop the query string
+ * on the way, so appending `?discount_code=` would silently do nothing. The
+ * banner copy therefore asks the customer to type the code in themselves.
  */
 export const GEO_DISCOUNT = {
   /** ISO 3166-1 alpha-2 country that gets the offer. */
   country: "IN",
-  /** Must match the discount code created in the Polar dashboard. */
+  /** Must match the discount code created in the Dodo Payments dashboard. */
   code: "INDIAN50",
   percent: 50,
 } as const;
@@ -44,26 +49,4 @@ export function useGeoDiscount(): boolean {
   }, []);
 
   return eligible;
-}
-
-/**
- * Appends a discount code to a Polar checkout link, when there is one to apply.
- *
- * Defaults to the India geo code; callers with a different offer pass their own.
- *
- * Note: `discount_code` only *prefills* Polar's discount box, the customer
- * still has to press Apply, which is why the banner copy says so. True
- * auto-apply requires separate Checkout Links with the discount preset on the
- * link in the Polar dashboard; if those get made, swap the base URLs in
- * app/lib/plans.ts instead of calling this.
- */
-export function withDiscount(
-  checkoutUrl: string,
-  eligible: boolean,
-  code: string = GEO_DISCOUNT.code
-): string {
-  if (!eligible || !code) return checkoutUrl;
-  const url = new URL(checkoutUrl);
-  url.searchParams.set("discount_code", code);
-  return url.toString();
 }

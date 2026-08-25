@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 /**
- * Polar checkout success page. Each Checkout Link in the Polar Dashboard
- * redirects here with ?checkout_id={CHECKOUT_ID}; the DataFast script in
- * layout.tsx reads that param to attribute revenue to the visitor's
- * marketing channel. Keep the query string intact, no redirects here.
+ * Dodo Payments checkout success page. Each product's return URL in the Dodo
+ * dashboard must point here; Dodo appends its own params (status, payment_id)
+ * on the way back. Keep the query string intact and don't redirect from here,
+ * anything that reads the outcome of a purchase needs those params.
  */
 export default function SuccessPage() {
   const year = new Date().getFullYear();
@@ -51,8 +51,8 @@ export default function SuccessPage() {
             <h2>What happens next</h2>
             <ul>
               <li>
-                <strong>Check your email.</strong> Polar has sent your receipt and your private-repo
-                access invite to the address you used at checkout.
+                <strong>Check your email.</strong> Your receipt and your private-repo access
+                invite are on their way to the address you used at checkout.
               </li>
               <li>
                 <strong>Accept the GitHub invite.</strong> That unlocks the private repo with your

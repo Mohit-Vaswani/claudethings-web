@@ -38,9 +38,9 @@ export default function PrivacyPage() {
 
       <h2>2. Payment processing</h2>
       <p>
-        Payments are handled by our payment processor (Polar). We do not store your full card
-        details on our servers. The processor&apos;s handling of your payment data is governed by its
-        own privacy policy.
+        Payments are handled by our payment processor (Dodo Payments). We do not store your
+        full card details on our servers. The processor&apos;s handling of your payment data is
+        governed by its own privacy policy.
       </p>
 
       <h2>3. How we use your information</h2>

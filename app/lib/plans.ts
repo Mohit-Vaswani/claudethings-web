@@ -1,8 +1,8 @@
 /**
- * The three Polar products, in one place.
+ * The three Dodo Payments products, in one place.
  *
  * Every page that renders a buy button needs the exact same checkout links.
- * Keeping the URLs here means a product swap in Polar is a one-line change
+ * Keeping the URLs here means a product swap in Dodo is a one-line change
  * instead of a find-and-replace across pages.
  */
 
@@ -18,7 +18,13 @@ export type Plan = {
   price: number;
   /** Struck-through anchor price, when the plan has one. */
   was?: number;
-  /** POLAR: product checkout link. */
+  /**
+   * DODO PAYMENTS: hosted checkout link.
+   *
+   * These are dodo.pe short links; each one 302s to a fresh
+   * checkout.dodopayments.com/session/... URL and drops any query string on
+   * the way, so never try to pass params (discount codes, prefills) here.
+   */
   checkoutUrl: string;
   features: string[];
   /** The visually promoted plan in the price grid. */
@@ -32,8 +38,7 @@ export const PLANS: Plan[] = [
     who: "the software team",
     cta: "Get Engineer Kit",
     price: 59,
-    checkoutUrl:
-      "https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa",
+    checkoutUrl: "https://dodo.pe/engkit",
     features: [
       "58 engineering agents",
       "61 pre-built skills",
@@ -50,8 +55,7 @@ export const PLANS: Plan[] = [
     price: 99,
     was: 139,
     featured: true,
-    checkoutUrl:
-      "https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC",
+    checkoutUrl: "https://dodo.pe/kit",
     features: [
       "Everything in both kits",
       "89 agents · 122 skills · 181 commands",
@@ -66,8 +70,7 @@ export const PLANS: Plan[] = [
     who: "the growth team",
     cta: "Get Marketing Kit",
     price: 59,
-    checkoutUrl:
-      "https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL",
+    checkoutUrl: "https://dodo.pe/marketingkit",
     features: [
       "31 marketing agents",
       "61 pre-built skills",

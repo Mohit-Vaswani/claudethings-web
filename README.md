@@ -16,7 +16,7 @@ Open http://localhost:3000.
 
 ```
 app/
-├── layout.tsx     # metadata, fonts (next/font), Polar checkout <Script>
+├── layout.tsx     # metadata, fonts (next/font), analytics <Script>s
 ├── page.tsx       # the landing page (client component; all animations in a useEffect)
 └── globals.css    # all styles + design tokens
 ```
@@ -26,18 +26,22 @@ no external `<link>`, no layout shift.
 
 ## ⚠️ Before going live — set these
 
-### 1. Polar checkout links (required)
-In `app/page.tsx`, search for `REPLACE_` and swap in your real Polar checkout URLs:
-- `REPLACE_ENGINEER_LINK`, `REPLACE_MARKETING_LINK`, `REPLACE_BUNDLE_LINK`
+### 1. Dodo Payments checkout links (required)
+All three checkout URLs live in one place: `app/lib/plans.ts`. Swap them there and every buy
+button on the site follows.
 
-The Polar embed script is already loaded in `app/layout.tsx`, so any link with
-`data-polar-checkout` opens an inline checkout overlay. In each Polar product, enable the
-**GitHub Repository Access** benefit pointing at your private `agentskit-kit` repo for
-automatic delivery on purchase.
+They are plain links to Dodo's hosted checkout — no embed script, no overlay. The `dodo.pe`
+short links 302 to a fresh checkout session and **drop any query string**, so you cannot
+prefill a discount code or customer details through the URL.
+
+In the Dodo dashboard, per product:
+- set the **return URL** to `https://agentskit.co/success`
+- configure private-repo delivery (GitHub invite) so buyers get access on purchase
+- recreate any discount codes you relied on, including `INDIAN50` (see `app/lib/geoDiscount.ts`)
 
 ### 2. Prices
-Defaults: Engineer **$89**, Marketing **$89**, Bundle **$129**. Edit in the `#pricing` section of
-`app/page.tsx` to match what you set in Polar.
+Engineer **$59**, Marketing **$59**, Bundle **$99**. Edit in `app/lib/plans.ts` and in the
+`#pricing` section of `app/page.tsx`, and keep them matching what you set in Dodo.
 
 ### 3. Legal links
 Footer links to `/terms`, `/privacy`, `/refund` — point them at your real pages.
@@ -53,7 +57,7 @@ Footer links to `/terms`, `/privacy`, `/refund` — point them at your real page
 Since your main site is already Next.js, you can drop this in as a route:
 1. Copy `app/page.tsx` → a route in your site (e.g. `app/(marketing)/page.tsx` or `app/kit/page.tsx`).
 2. Merge the styles from `app/globals.css` (or scope them to a CSS module to avoid collisions).
-3. Add the three `next/font` imports and the Polar `<Script>` to your layout.
+3. Add the three `next/font` imports and the analytics `<Script>`s to your layout.
 4. Keep the `"use client"` directive on the page component (it uses `useEffect`).
 
 ## Notes
