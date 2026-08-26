@@ -37,7 +37,8 @@ export const PLANS: Plan[] = [
     name: "Engineer Kit",
     who: "the software team",
     cta: "Get Engineer Kit",
-    price: 59,
+    price: 49,
+    was: 59,
     checkoutUrl: "https://dodo.pe/engkit",
     features: [
       "58 engineering agents",
@@ -52,8 +53,8 @@ export const PLANS: Plan[] = [
     name: "Complete Bundle",
     who: "engineer + marketing",
     cta: "Get the Bundle",
-    price: 99,
-    was: 139,
+    price: 79,
+    was: 99,
     featured: true,
     checkoutUrl: "https://dodo.pe/kit",
     features: [
@@ -69,7 +70,8 @@ export const PLANS: Plan[] = [
     name: "Marketing Kit",
     who: "the growth team",
     cta: "Get Marketing Kit",
-    price: 59,
+    price: 49,
+    was: 59,
     checkoutUrl: "https://dodo.pe/marketingkit",
     features: [
       "31 marketing agents",

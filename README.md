@@ -40,8 +40,17 @@ In the Dodo dashboard, per product:
 - recreate any discount codes you relied on, including `INDIAN50` (see `app/lib/geoDiscount.ts`)
 
 ### 2. Prices
-Engineer **$59**, Marketing **$59**, Bundle **$99**. Edit in `app/lib/plans.ts` and in the
-`#pricing` section of `app/page.tsx`, and keep them matching what you set in Dodo.
+Engineer **$49**, Marketing **$49**, Bundle **$79**. All three live in `app/lib/plans.ts` —
+the `#pricing` cards in `app/page.tsx` read from it, so edit one place and keep it matching
+what you set in Dodo.
+
+### 2b. The launch ladder
+The bundle price steps up as launch seats fill, and the scarcity copy on the page (seats
+left, the fill meter, the card ribbon, the closing note) is all derived from **one number**:
+`LAUNCH.sold` in `app/components/pricing.tsx`. Bump it as sales come in and the whole
+pricing block re-reads. The steps themselves are `TIERS` in the same file — currently
+$79 for the first 20 buyers, $99 for the next 20, $139 after that. When a tier fills, also
+raise `price` in `app/lib/plans.ts` and the product price in Dodo so the checkout matches.
 
 ### 3. Legal links
 Footer links to `/terms`, `/privacy`, `/refund` — point them at your real pages.

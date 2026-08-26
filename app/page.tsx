@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { GEO_DISCOUNT, useGeoDiscount } from "./lib/geoDiscount";
 import { PLAN_BY_ID } from "./lib/plans";
-import { PriceLadder, ProofPill, TrustMrrBadge } from "./components/pricing";
+import { PriceLadder, ProofPill, TrustMrrBadge, ladderState } from "./components/pricing";
 import { SITE_URL } from "@/app/lib/site";
 import "./home.css";
 
@@ -197,6 +197,10 @@ function Testimonials() {
 export default function Home() {
   // India-only 50% offer. False everywhere else, and on the first paint.
   const indiaOffer = useGeoDiscount();
+  // Which launch tier the bundle is selling at right now, and how much of it
+  // is left. Drives the ladder, the card ribbon and the closing note so the
+  // whole pricing block tells one consistent story.
+  const bundleTier = ladderState();
 
   useEffect(() => {
     const cleanups: Array<() => void> = [];
@@ -1086,7 +1090,9 @@ export default function Home() {
             <p className="nx-lead">
               One payment, lifetime access, and every future update included. Delivered instantly
               as private-repo access the moment you check out. No subscription, no seats. Works
-              with any Claude Code plan: Pro, Max, Team, or API.
+              with any Claude Code plan: Pro, Max, Team, or API. The bundle is $
+              {PLAN_BY_ID.bundle.price} for both kits — $
+              {PLAN_BY_ID.engineer.price + PLAN_BY_ID.marketing.price} if you buy them apart.
             </p>
           </div>
 
@@ -1123,7 +1129,8 @@ export default function Home() {
               <div className="nx-plan-buy">
                 <div className="amt">
                   <span className="cur">$</span>
-                  <span className="big">59</span>
+                  <span className="big">{PLAN_BY_ID.engineer.price}</span>
+                  <span className="was">${PLAN_BY_ID.engineer.was}</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
                 {/* DODO: Engineer product checkout link */}
@@ -1134,7 +1141,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="engineer"
-                  data-fast-goal-price="59"
+                  data-fast-goal-price={String(PLAN_BY_ID.engineer.price)}
                   data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
                   {PLAN_BY_ID.engineer.cta} <span className="ar">↗</span>
@@ -1165,13 +1172,15 @@ export default function Home() {
                   <h3>Complete Bundle</h3>
                   <div className="who">engineer + marketing</div>
                 </div>
-                <div className="pill">Launch Price</div>
+                <div className={`pill${bundleTier.left !== null ? " hot" : ""}`}>
+                  {bundleTier.left !== null ? `${bundleTier.left} seats left` : "List price"}
+                </div>
               </div>
               <div className="nx-plan-buy">
                 <div className="amt">
                   <span className="cur">$</span>
-                  <span className="big">99</span>
-                  <span className="was">$139</span>
+                  <span className="big">{PLAN_BY_ID.bundle.price}</span>
+                  <span className="was">${PLAN_BY_ID.bundle.was}</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
                 {/* DODO: Bundle product checkout link */}
@@ -1182,11 +1191,22 @@ export default function Home() {
                   rel="noopener noreferrer"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="bundle"
-                  data-fast-goal-price="99"
+                  data-fast-goal-price={String(PLAN_BY_ID.bundle.price)}
                   data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
                   {PLAN_BY_ID.bundle.cta} <span className="ar">↗</span>
                 </a>
+                {bundleTier.left !== null && bundleTier.nextPrice !== null && (
+                  <div className="nx-plan-urgency">
+                    <span className="ico" aria-hidden="true">
+                      ↑
+                    </span>
+                    <span>
+                      Goes to <b>${bundleTier.nextPrice}</b> after {bundleTier.left} more{" "}
+                      {bundleTier.left === 1 ? "sale" : "sales"}
+                    </span>
+                  </div>
+                )}
               </div>
               <ul>
                 <li>
@@ -1223,7 +1243,8 @@ export default function Home() {
               <div className="nx-plan-buy">
                 <div className="amt">
                   <span className="cur">$</span>
-                  <span className="big">59</span>
+                  <span className="big">{PLAN_BY_ID.marketing.price}</span>
+                  <span className="was">${PLAN_BY_ID.marketing.was}</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
                 {/* DODO: Marketing product checkout link */}
@@ -1234,7 +1255,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="marketing"
-                  data-fast-goal-price="59"
+                  data-fast-goal-price={String(PLAN_BY_ID.marketing.price)}
                   data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
                 >
                   {PLAN_BY_ID.marketing.cta} <span className="ar">↗</span>
@@ -1278,7 +1299,16 @@ export default function Home() {
           <div className="nx-plan-foot">
             [ Secure checkout via Dodo Payments · instant private-repo access after purchase ]
           </div>
-          <p className="nx-plan-note">This is the launch price. Prices will increase soon.</p>
+          <p className="nx-plan-note">
+            {bundleTier.left !== null && bundleTier.nextPrice !== null ? (
+              <>
+                Launch pricing. {bundleTier.left} seats remain at ${bundleTier.price} — the next
+                buyer after that pays ${bundleTier.nextPrice}.
+              </>
+            ) : (
+              <>Launch pricing has ended. This is the list price.</>
+            )}
+          </p>
           <div className="nx-plan-proof">
             <TrustMrrBadge />
           </div>

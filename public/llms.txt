@@ -23,8 +23,8 @@ AgentsKit is an independent, unofficial product. It is not affiliated with, endo
 
 - [Engineer](https://www.agentskit.co/#pricing): $49 one-time, lifetime updates.
 - [Marketing](https://www.agentskit.co/#pricing): $49 one-time, lifetime updates.
-- [Complete Bundle](https://www.agentskit.co/#pricing): $89 one-time (normally $129), both kits, all 89 agents / 103 skills / 181 commands.
-- Every plan: one-time payment, lifetime updates, private-repo delivery, 14-day money-back guarantee. Secure checkout via Polar.
+- [Complete Bundle](https://www.agentskit.co/#pricing): $79 one-time launch price (rises to $99, then $139 as launch seats fill), both kits, all 89 agents / 122 skills / 181 commands.
+- Every plan: one-time payment, lifetime updates, private-repo delivery, 14-day money-back guarantee. Secure checkout via Dodo Payments.
 
 ## Key pages
 
