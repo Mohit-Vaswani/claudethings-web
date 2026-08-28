@@ -47,7 +47,7 @@ export default function TermsPage() {
       <h2>3. Third-party services</h2>
       <p>
         The Product is designed to run with Claude Code and may interact with third-party services
-        (including Anthropic&apos;s Claude and our payment processor, Dodo Payments). Your use of
+        (including Anthropic&apos;s Claude and our payment processor, Polar). Your use of
         those services is governed by their own terms. We are not responsible for third-party
         services and do not control their availability, pricing, or behavior.
       </p>

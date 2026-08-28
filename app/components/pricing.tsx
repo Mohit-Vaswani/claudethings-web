@@ -103,8 +103,8 @@ export function ProofPill() {
  * the SVG, so it stays a plain <img> (no next/image remote host config, no
  * layout shift: width/height match the served artwork).
  *
- * NOTE: the TrustMRR connection was set up against Polar; it needs repointing
- * at Dodo Payments in the TrustMRR dashboard or the badge will freeze.
+ * The TrustMRR connection reads the Polar account directly, so it tracks the
+ * same processor the buy buttons point at.
  */
 export function TrustMrrBadge() {
   return (

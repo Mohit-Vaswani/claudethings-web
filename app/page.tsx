@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { GEO_DISCOUNT, useGeoDiscount } from "./lib/geoDiscount";
+import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
 import { PLAN_BY_ID } from "./lib/plans";
 import { PriceLadder, ProofPill, TrustMrrBadge, ladderState } from "./components/pricing";
 import { SITE_URL } from "@/app/lib/site";
@@ -11,8 +11,8 @@ import "./home.css";
  * AgentsKit landing page (Next.js App Router) — dark, nexflow-inspired.
  * Styling lives in app/home.css (nx- prefixed, scoped to this page only;
  * globals.css keeps serving /tools, /blog, legal and the validator pages).
- * Buy buttons are plain links to the Dodo Payments hosted checkout
- * (URLs live in app/lib/plans.ts).
+ * Buy buttons use Polar's embed (loaded in layout.tsx); the checkout
+ * URLs live in app/lib/plans.ts.
  */
 
 /** Agent roster for the marquee ticker. Duplicated in JSX for the seamless loop. */
@@ -1103,8 +1103,8 @@ export default function Home() {
                 🇮🇳
               </span>
               <div className="copy">
-                <b>{GEO_DISCOUNT.percent}% off for India.</b> Purchasing-power pricing. Enter code{" "}
-                <code>{GEO_DISCOUNT.code}</code> in the discount box at checkout and hit{" "}
+                <b>{GEO_DISCOUNT.percent}% off for India.</b> Purchasing-power pricing. Your code{" "}
+                <code>{GEO_DISCOUNT.code}</code> is waiting in the discount box at checkout. Hit{" "}
                 <b>Apply</b> to take {GEO_DISCOUNT.percent}% off.
               </div>
             </div>
@@ -1133,12 +1133,12 @@ export default function Home() {
                   <span className="was">${PLAN_BY_ID.engineer.was}</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
-                {/* DODO: Engineer product checkout link */}
+                {/* POLAR: Engineer product checkout link */}
                 <a
                   className="nx-btn nx-btn-ghost"
-                  href={PLAN_BY_ID.engineer.checkoutUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={withDiscount(PLAN_BY_ID.engineer.checkoutUrl, indiaOffer)}
+                  data-polar-checkout=""
+                  data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="engineer"
                   data-fast-goal-price={String(PLAN_BY_ID.engineer.price)}
@@ -1183,12 +1183,12 @@ export default function Home() {
                   <span className="was">${PLAN_BY_ID.bundle.was}</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
-                {/* DODO: Bundle product checkout link */}
+                {/* POLAR: Bundle product checkout link */}
                 <a
                   className="nx-btn nx-btn-primary"
-                  href={PLAN_BY_ID.bundle.checkoutUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={withDiscount(PLAN_BY_ID.bundle.checkoutUrl, indiaOffer)}
+                  data-polar-checkout=""
+                  data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="bundle"
                   data-fast-goal-price={String(PLAN_BY_ID.bundle.price)}
@@ -1247,12 +1247,12 @@ export default function Home() {
                   <span className="was">${PLAN_BY_ID.marketing.was}</span>
                 </div>
                 <div className="once">one-time · lifetime updates</div>
-                {/* DODO: Marketing product checkout link */}
+                {/* POLAR: Marketing product checkout link */}
                 <a
                   className="nx-btn nx-btn-ghost"
-                  href={PLAN_BY_ID.marketing.checkoutUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={withDiscount(PLAN_BY_ID.marketing.checkoutUrl, indiaOffer)}
+                  data-polar-checkout=""
+                  data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="marketing"
                   data-fast-goal-price={String(PLAN_BY_ID.marketing.price)}
@@ -1297,7 +1297,7 @@ export default function Home() {
             </div>
           </div>
           <div className="nx-plan-foot">
-            [ Secure checkout via Dodo Payments · instant private-repo access after purchase ]
+            [ Secure checkout via Polar · instant private-repo access after purchase ]
           </div>
           <p className="nx-plan-note">
             {bundleTier.left !== null && bundleTier.nextPrice !== null ? (

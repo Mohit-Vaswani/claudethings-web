@@ -16,7 +16,7 @@ Open http://localhost:3000.
 
 ```
 app/
-├── layout.tsx     # metadata, fonts (next/font), analytics <Script>s
+├── layout.tsx     # metadata, fonts (next/font), analytics + Polar checkout <Script>s
 ├── page.tsx       # the landing page (client component; all animations in a useEffect)
 └── globals.css    # all styles + design tokens
 ```
@@ -26,23 +26,28 @@ no external `<link>`, no layout shift.
 
 ## ⚠️ Before going live — set these
 
-### 1. Dodo Payments checkout links (required)
+### 1. Polar checkout links (required)
 All three checkout URLs live in one place: `app/lib/plans.ts`. Swap them there and every buy
 button on the site follows.
 
-They are plain links to Dodo's hosted checkout — no embed script, no overlay. The `dodo.pe`
-short links 302 to a fresh checkout session and **drop any query string**, so you cannot
-prefill a discount code or customer details through the URL.
+They are Polar **Checkout Links** (`buy.polar.sh/polar_cl_...`). The Polar embed script is
+loaded in `app/layout.tsx`, so any link carrying `data-polar-checkout` opens an inline
+checkout overlay — enable **"Embeddable checkout"** on each Polar product or the overlay
+falls back to a full page load. Unlike a short link, the query string survives, so
+`withDiscount()` in `app/lib/geoDiscount.ts` can prefill a discount code.
 
-In the Dodo dashboard, per product:
-- set the **return URL** to `https://agentskit.co/success`
-- configure private-repo delivery (GitHub invite) so buyers get access on purchase
-- recreate any discount codes you relied on, including `INDIAN50` (see `app/lib/geoDiscount.ts`)
+In the Polar dashboard, per product:
+- set the **success URL** to `https://agentskit.co/success?checkout_id={CHECKOUT_ID}` —
+  the `{CHECKOUT_ID}` placeholder is what DataFast reads to attribute the sale
+- attach the **GitHub Repository Access** benefit so buyers get the private-repo invite.
+  The benefit stores the org/repo as a *string*: after the Agentary → `agentskit` rename it
+  must be re-pointed at the new org, or new purchases deliver nothing
+- create the discount codes you rely on, including `INDIAN50` (see `app/lib/geoDiscount.ts`)
 
 ### 2. Prices
 Engineer **$49**, Marketing **$49**, Bundle **$79**. All three live in `app/lib/plans.ts` —
 the `#pricing` cards in `app/page.tsx` read from it, so edit one place and keep it matching
-what you set in Dodo.
+what you set in Polar.
 
 ### 2b. The launch ladder
 The bundle price steps up as launch seats fill, and the scarcity copy on the page (seats
@@ -50,7 +55,7 @@ left, the fill meter, the card ribbon, the closing note) is all derived from **o
 `LAUNCH.sold` in `app/components/pricing.tsx`. Bump it as sales come in and the whole
 pricing block re-reads. The steps themselves are `TIERS` in the same file — currently
 $79 for the first 20 buyers, $99 for the next 20, $139 after that. When a tier fills, also
-raise `price` in `app/lib/plans.ts` and the product price in Dodo so the checkout matches.
+raise `price` in `app/lib/plans.ts` and the product price in Polar so the checkout matches.
 
 ### 3. Legal links
 Footer links to `/terms`, `/privacy`, `/refund` — point them at your real pages.
@@ -66,7 +71,7 @@ Footer links to `/terms`, `/privacy`, `/refund` — point them at your real page
 Since your main site is already Next.js, you can drop this in as a route:
 1. Copy `app/page.tsx` → a route in your site (e.g. `app/(marketing)/page.tsx` or `app/kit/page.tsx`).
 2. Merge the styles from `app/globals.css` (or scope them to a CSS module to avoid collisions).
-3. Add the three `next/font` imports and the analytics `<Script>`s to your layout.
+3. Add the three `next/font` imports and the analytics + Polar `<Script>`s to your layout.
 4. Keep the `"use client"` directive on the page component (it uses `useEffect`).
 
 ## Notes

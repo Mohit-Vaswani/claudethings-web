@@ -1,8 +1,8 @@
 /**
- * The three Dodo Payments products, in one place.
+ * The three Polar products, in one place.
  *
  * Every page that renders a buy button needs the exact same checkout links.
- * Keeping the URLs here means a product swap in Dodo is a one-line change
+ * Keeping the URLs here means a product swap in Polar is a one-line change
  * instead of a find-and-replace across pages.
  */
 
@@ -19,11 +19,12 @@ export type Plan = {
   /** Struck-through anchor price, when the plan has one. */
   was?: number;
   /**
-   * DODO PAYMENTS: hosted checkout link.
+   * POLAR: Checkout Link from the Polar dashboard.
    *
-   * These are dodo.pe short links; each one 302s to a fresh
-   * checkout.dodopayments.com/session/... URL and drops any query string on
-   * the way, so never try to pass params (discount codes, prefills) here.
+   * These are buy.polar.sh links. The embed script in app/layout.tsx turns any
+   * anchor carrying `data-polar-checkout` into an inline overlay, and the query
+   * string survives, so params like `discount_code` do reach the checkout
+   * (see withDiscount() in app/lib/geoDiscount.ts).
    */
   checkoutUrl: string;
   features: string[];
@@ -39,7 +40,8 @@ export const PLANS: Plan[] = [
     cta: "Get Engineer Kit",
     price: 49,
     was: 59,
-    checkoutUrl: "https://dodo.pe/engkit",
+    checkoutUrl:
+      "https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa",
     features: [
       "58 engineering agents",
       "61 pre-built skills",
@@ -56,7 +58,8 @@ export const PLANS: Plan[] = [
     price: 79,
     was: 99,
     featured: true,
-    checkoutUrl: "https://dodo.pe/kit",
+    checkoutUrl:
+      "https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC",
     features: [
       "Everything in both kits",
       "89 agents · 122 skills · 181 commands",
@@ -72,7 +75,8 @@ export const PLANS: Plan[] = [
     cta: "Get Marketing Kit",
     price: 49,
     was: 59,
-    checkoutUrl: "https://dodo.pe/marketingkit",
+    checkoutUrl:
+      "https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL",
     features: [
       "31 marketing agents",
       "61 pre-built skills",
