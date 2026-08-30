@@ -52,6 +52,22 @@ export default function SiteShell({ children }: { children: ReactNode }) {
               >
                 Your AI engineering &amp; marketing team for Claude Code.
               </p>
+              {/* tinyshelf directory badge — see the note in app/page.tsx: the link
+                  must stay dofollow and point at www.tinyshelf.co itself. */}
+              <a
+                href="https://www.tinyshelf.co/?ref=agentskit.co"
+                title="Featured on tinyshelf"
+                target="_blank"
+                rel="noopener"
+                style={{ display: "inline-block", marginTop: 18 }}
+              >
+                <img
+                  src="https://www.tinyshelf.co/badge/tinyshelf-badge-dark-f4d1216a.svg"
+                  alt="Featured on tinyshelf"
+                  width={216}
+                  height={64}
+                />
+              </a>
             </div>
             <div className="foot-links">
               <div className="foot-col">

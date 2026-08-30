@@ -998,6 +998,9 @@ body:has(.nx-page)::before{content:none}
 .nx-footer{border-top:1px solid var(--nx-line2);padding:64px 0 36px;background:#090807}
 .nx-foot-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;margin-bottom:40px}
 .nx-foot-top .desc{color:var(--nx-faint);font-size:13.5px;margin-top:14px;max-width:32ch;line-height:1.65}
+.nx-foot-badge{display:inline-block;margin-top:18px;line-height:0;opacity:.92;transition:opacity .18s ease}
+.nx-foot-badge:hover{opacity:1}
+.nx-foot-badge img{display:block;max-width:100%;height:auto}
 .nx-foot-links{display:flex;gap:52px;flex-wrap:wrap}
 /* wrapping four columns onto a phone left 52px chasms between the rows */
 @media(max-width:640px){.nx-foot-links{display:grid;grid-template-columns:1fr 1fr;gap:30px 18px;width:100%}}
