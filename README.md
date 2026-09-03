@@ -42,7 +42,7 @@ In the Polar dashboard, per product:
 - attach the **GitHub Repository Access** benefit so buyers get the private-repo invite.
   The benefit stores the org/repo as a *string*: after the Agentary → `agentskit` rename it
   must be re-pointed at the new org, or new purchases deliver nothing
-- create the discount codes you rely on, including `INDIAN50` (see `app/lib/geoDiscount.ts`)
+- create the discount codes you rely on, including `SAVE50` (see `app/lib/geoDiscount.ts`)
 
 ### 2. Prices
 Engineer **$49**, Marketing **$49**, Bundle **$79**. All three live in `app/lib/plans.ts` —

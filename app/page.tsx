@@ -195,8 +195,9 @@ function Testimonials() {
 }
 
 export default function Home() {
-  // India-only 50% offer. False everywhere else, and on the first paint.
-  const indiaOffer = useGeoDiscount();
+  // Purchasing-power 50% offer. Ineligible everywhere off the country list,
+  // and on the first paint.
+  const geoOffer = useGeoDiscount();
   // Which launch tier the bundle is selling at right now, and how much of it
   // is left. Drives the ladder, the card ribbon and the closing note so the
   // whole pricing block tells one consistent story.
@@ -1096,14 +1097,18 @@ export default function Home() {
             </p>
           </div>
 
-          {/* INDIA OFFER, rendered only for visitors geolocated to IN */}
-          {indiaOffer && (
+          {/* GEO OFFER, rendered only for visitors in an eligible country */}
+          {geoOffer.eligible && (
             <div className="nx-geo" role="note">
               <span className="flag" aria-hidden="true">
-                🇮🇳
+                {geoOffer.flag ?? "🌍"}
               </span>
               <div className="copy">
-                <b>{GEO_DISCOUNT.percent}% off for India.</b> Purchasing-power pricing. Your code{" "}
+                <b>
+                  {GEO_DISCOUNT.percent}% off
+                  {geoOffer.countryName ? ` in ${geoOffer.countryName}` : " where you are"}.
+                </b>{" "}
+                Purchasing-power pricing — your country is eligible. Your code{" "}
                 <code>{GEO_DISCOUNT.code}</code> is waiting in the discount box at checkout. Hit{" "}
                 <b>Apply</b> to take {GEO_DISCOUNT.percent}% off.
               </div>
@@ -1136,13 +1141,13 @@ export default function Home() {
                 {/* POLAR: Engineer product checkout link */}
                 <a
                   className="nx-btn nx-btn-ghost"
-                  href={withDiscount(PLAN_BY_ID.engineer.checkoutUrl, indiaOffer)}
+                  href={withDiscount(PLAN_BY_ID.engineer.checkoutUrl, geoOffer.eligible)}
                   data-polar-checkout=""
                   data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="engineer"
                   data-fast-goal-price={String(PLAN_BY_ID.engineer.price)}
-                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
+                  data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
                 >
                   {PLAN_BY_ID.engineer.cta} <span className="ar">↗</span>
                 </a>
@@ -1186,13 +1191,13 @@ export default function Home() {
                 {/* POLAR: Bundle product checkout link */}
                 <a
                   className="nx-btn nx-btn-primary"
-                  href={withDiscount(PLAN_BY_ID.bundle.checkoutUrl, indiaOffer)}
+                  href={withDiscount(PLAN_BY_ID.bundle.checkoutUrl, geoOffer.eligible)}
                   data-polar-checkout=""
                   data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="bundle"
                   data-fast-goal-price={String(PLAN_BY_ID.bundle.price)}
-                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
+                  data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
                 >
                   {PLAN_BY_ID.bundle.cta} <span className="ar">↗</span>
                 </a>
@@ -1250,13 +1255,13 @@ export default function Home() {
                 {/* POLAR: Marketing product checkout link */}
                 <a
                   className="nx-btn nx-btn-ghost"
-                  href={withDiscount(PLAN_BY_ID.marketing.checkoutUrl, indiaOffer)}
+                  href={withDiscount(PLAN_BY_ID.marketing.checkoutUrl, geoOffer.eligible)}
                   data-polar-checkout=""
                   data-polar-checkout-theme="dark"
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="marketing"
                   data-fast-goal-price={String(PLAN_BY_ID.marketing.price)}
-                  data-fast-goal-geo-offer={indiaOffer ? GEO_DISCOUNT.code : undefined}
+                  data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
                 >
                   {PLAN_BY_ID.marketing.cta} <span className="ar">↗</span>
                 </a>
