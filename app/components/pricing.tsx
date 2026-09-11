@@ -1,5 +1,7 @@
 "use client";
 
+import type { CSSProperties } from "react";
+
 /**
  * Shared pieces of the pricing block.
  *
@@ -26,10 +28,17 @@ export const LAUNCH = {
 
 /** Bundle price steps. Seats fill in order; the last tier is the ceiling. */
 export const TIERS: { price: number; seats: number | null }[] = [
-  { price: 79, seats: 20 },
-  { price: 99, seats: 20 },
-  { price: 139, seats: null },
+  { price: 49, seats: 50 },
+  { price: 89, seats: null },
 ];
+
+/**
+ * Buyers served by every tier before index `i`, so a step can say what it is
+ * really waiting on ("after 50 customers") instead of a bare seat count.
+ */
+function customersBefore(i: number): number {
+  return TIERS.slice(0, i).reduce((n, t) => n + (t.seats ?? 0), 0);
+}
 
 export type LadderState = {
   /** Index of the tier currently on sale. */
@@ -156,6 +165,13 @@ export function PriceLadder({ fade = false }: { fade?: boolean }) {
         )}
       </div>
 
+      {/* the launch tier is capped, so say so in plain words under the headline */}
+      {st.seats !== null && (
+        <div className="nx-ladder-scarce">
+          Very few available · only {st.seats} seats ever at ${st.price}
+        </div>
+      )}
+
       {/* how full the tier that is currently selling is */}
       {st.seats !== null && (
         <div className="nx-ladder-meter">
@@ -175,13 +191,18 @@ export function PriceLadder({ fade = false }: { fade?: boolean }) {
             <span>
               <b>{st.taken}</b> of {st.seats} claimed at ${st.price}
             </span>
-            <span>Price steps up every {st.seats} sales</span>
+            <span>
+              First {st.seats} customers only{st.nextPrice !== null ? ` · then $${st.nextPrice}` : ""}
+            </span>
           </div>
         </div>
       )}
 
       {/* the rail: where the price has been, is, and goes */}
-      <div className="nx-ladder-steps">
+      <div
+        className="nx-ladder-steps"
+        style={{ "--steps": TIERS.length } as CSSProperties}
+      >
         <div className="nx-ladder-track" aria-hidden="true" />
         {TIERS.map((t, i) => {
           const state = i < st.index ? "is-past" : i === st.index ? "is-now" : "is-next";
@@ -197,11 +218,16 @@ export function PriceLadder({ fade = false }: { fade?: boolean }) {
                 {state === "is-past" && "gone"}
                 {state === "is-now" && (
                   <>
-                    buying now · <b>{st.left ?? 0} left</b>
+                    {t.seats === null ? (
+                      "buying now"
+                    ) : (
+                      <>
+                        first {t.seats} · <b>{st.left ?? 0} left</b>
+                      </>
+                    )}
                   </>
                 )}
-                {state === "is-next" &&
-                  (t.seats === null ? "everyone after" : `next ${t.seats} buyers`)}
+                {state === "is-next" && `after ${customersBefore(i)} customers`}
               </div>
               {state === "is-now" && <span className="step-flag">You are here</span>}
             </div>

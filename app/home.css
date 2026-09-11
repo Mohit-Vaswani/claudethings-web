@@ -742,6 +742,13 @@ body:has(.nx-page)::before{content:none}
 }
 @media(prefers-reduced-motion:reduce){.nx-ladder-hd .dot{animation:none}}
 
+/* the cap, said in words — the launch tier is a fixed number of seats */
+.nx-ladder-scarce{
+  width:fit-content;max-width:100%;margin:-10px auto 20px;
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--nx-accent);text-align:center;
+}
+
 /* meter: how full the tier that is currently selling is */
 .nx-ladder-meter{max-width:520px;margin:0 auto 34px}
 .nx-ladder-meter .bar{
@@ -776,9 +783,12 @@ body:has(.nx-page)::before{content:none}
 }
 
 /* step rail */
-.nx-ladder-steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);padding-top:8px}
+/* --steps is set inline from TIERS.length, so adding or removing a price step
+   re-lays the rail (and the track's inset, half a column on each side) itself */
+.nx-ladder-steps{position:relative;display:grid;grid-template-columns:repeat(var(--steps,3),1fr);padding-top:8px}
 .nx-ladder-track{
-  position:absolute;top:15px;left:16.6667%;right:16.6667%;height:1px;
+  position:absolute;top:15px;
+  left:calc(50% / var(--steps,3));right:calc(50% / var(--steps,3));height:1px;
   background:linear-gradient(90deg,var(--nx-line),var(--nx-accent) 50%,var(--nx-line));
 }
 .nx-ladder-step{
