@@ -59,7 +59,7 @@ Price: $49 one-time, lifetime updates.
 ## Pricing
 
 - Engineer: $49 one-time. 58 engineering agents, 61 skills, 159 commands, CLAUDE.md template + CLI, private repo + lifetime updates.
-- Complete Bundle: $89 one-time (best value: the two kits bought apart are $98). Everything in both kits: 89 agents, 122 skills, 181 commands, both CLAUDE.md templates, private repo + lifetime updates.
+- Complete Bundle: $89 one-time (best value: the two kits bought apart are $98). Launch pricing: $89 for the first 50 customers, then $149 for everyone after. Everything in both kits: 89 agents, 122 skills, 181 commands, both CLAUDE.md templates, private repo + lifetime updates.
 - Marketing: $49 one-time. 31 marketing agents, 42 skills, 32 commands, brand CLAUDE.md template + CLI, private repo + lifetime updates.
 
 All plans are one-time payments with lifetime updates, private-repo delivery, and a 14-day money-back guarantee. Checkout is handled securely by Polar, with instant private-repo access after purchase.

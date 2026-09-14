@@ -29,14 +29,15 @@ export const LAUNCH = {
 /**
  * Bundle price steps. Seats fill in order; the last tier is the ceiling.
  *
- * The launch ladder is closed — one uncapped tier at list price, which is what
- * Polar actually charges. Every derived scarcity claim (seats left, the fill
- * meter, the card ribbon, the step rail) switches itself off on an uncapped
- * tier, so there is nothing else to edit. To run another launch, put a capped
- * tier in front of this one and the whole block comes back.
+ * $89 is capped at 50 customers and then the bundle is $149 for good. The cap
+ * is the whole claim the page makes, so it has to be a decision, not a prop:
+ * when `sold` reaches 50 the price in Polar has to actually become $149 or the
+ * page has been lying to the 50th buyer. To close the launch instead, drop the
+ * capped tier and every scarcity element switches itself off.
  */
 export const TIERS: { price: number; seats: number | null }[] = [
-  { price: 89, seats: null },
+  { price: 89, seats: 50 },
+  { price: 149, seats: null },
 ];
 
 /**
@@ -147,9 +148,9 @@ export function TrustMrrBadge() {
  *
  * Three parts, all driven by `ladderState()`: a headline that names the exact
  * cost of waiting, a fill meter for the tier that is currently selling, and
- * the step rail showing where the price has been and where it goes next. With
- * the launch closed there is only the ceiling tier, so the headline states the
- * list price and the meter and rail render nothing.
+ * the step rail showing where the price has been and where it goes next. Once
+ * only the uncapped ceiling tier is left the headline states the list price and
+ * the meter and rail render nothing.
  *
  * `fade` opts into the landing page's scroll-reveal; pages without the
  * IntersectionObserver leave it off or nothing ever appears.
