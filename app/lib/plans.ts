@@ -38,8 +38,7 @@ export const PLANS: Plan[] = [
     name: "Engineer Kit",
     who: "the software team",
     cta: "Get Engineer Kit",
-    price: 29,
-    was: 49,
+    price: 49,
     checkoutUrl:
       "https://buy.polar.sh/polar_cl_Er908aZqr0UbRXHvU6aN6ZAHkSK3JHGOpjSxc1fh4fa",
     features: [
@@ -55,8 +54,7 @@ export const PLANS: Plan[] = [
     name: "Complete Bundle",
     who: "engineer + marketing",
     cta: "Get the Bundle",
-    price: 49,
-    was: 89,
+    price: 89,
     featured: true,
     checkoutUrl:
       "https://buy.polar.sh/polar_cl_2ud2OuwNAiIs8g45iC9MIjT9WJo1vyxSSrkNM2GKHpC",
@@ -73,8 +71,7 @@ export const PLANS: Plan[] = [
     name: "Marketing Kit",
     who: "the growth team",
     cta: "Get Marketing Kit",
-    price: 29,
-    was: 49,
+    price: 49,
     checkoutUrl:
       "https://buy.polar.sh/polar_cl_vOplSsz5PWStSTwZZREndYhyvd2JL8fMaOv1c1wt3pL",
     features: [

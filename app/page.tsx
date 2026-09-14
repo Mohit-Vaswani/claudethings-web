@@ -1119,7 +1119,8 @@ export default function Home() {
             <ProofPill />
           </div>
 
-          {/* PRICE LADDER, bundle price rises as spots fill */}
+          {/* PRICE LADDER, states the live bundle price (and, during a launch,
+              how many seats are left before it rises) */}
           <PriceLadder fade />
 
           <div className="nx-price-grid">
@@ -1135,7 +1136,9 @@ export default function Home() {
                 <div className="amt">
                   <span className="cur">$</span>
                   <span className="big">{PLAN_BY_ID.engineer.price}</span>
-                  <span className="was">${PLAN_BY_ID.engineer.was}</span>
+                  {PLAN_BY_ID.engineer.was && (
+                    <span className="was">${PLAN_BY_ID.engineer.was}</span>
+                  )}
                 </div>
                 <div className="once">one-time · lifetime updates</div>
                 {/* POLAR: Engineer product checkout link */}
@@ -1185,7 +1188,9 @@ export default function Home() {
                 <div className="amt">
                   <span className="cur">$</span>
                   <span className="big">{PLAN_BY_ID.bundle.price}</span>
-                  <span className="was">${PLAN_BY_ID.bundle.was}</span>
+                  {PLAN_BY_ID.bundle.was && (
+                    <span className="was">${PLAN_BY_ID.bundle.was}</span>
+                  )}
                 </div>
                 <div className="once">one-time · lifetime updates</div>
                 {/* POLAR: Bundle product checkout link */}
@@ -1249,7 +1254,9 @@ export default function Home() {
                 <div className="amt">
                   <span className="cur">$</span>
                   <span className="big">{PLAN_BY_ID.marketing.price}</span>
-                  <span className="was">${PLAN_BY_ID.marketing.was}</span>
+                  {PLAN_BY_ID.marketing.was && (
+                    <span className="was">${PLAN_BY_ID.marketing.was}</span>
+                  )}
                 </div>
                 <div className="once">one-time · lifetime updates</div>
                 {/* POLAR: Marketing product checkout link */}

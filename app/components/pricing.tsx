@@ -26,9 +26,16 @@ export const LAUNCH = {
   window: "2 weeks",
 };
 
-/** Bundle price steps. Seats fill in order; the last tier is the ceiling. */
+/**
+ * Bundle price steps. Seats fill in order; the last tier is the ceiling.
+ *
+ * The launch ladder is closed — one uncapped tier at list price, which is what
+ * Polar actually charges. Every derived scarcity claim (seats left, the fill
+ * meter, the card ribbon, the step rail) switches itself off on an uncapped
+ * tier, so there is nothing else to edit. To run another launch, put a capped
+ * tier in front of this one and the whole block comes back.
+ */
 export const TIERS: { price: number; seats: number | null }[] = [
-  { price: 49, seats: 50 },
   { price: 89, seats: null },
 ];
 
@@ -140,7 +147,9 @@ export function TrustMrrBadge() {
  *
  * Three parts, all driven by `ladderState()`: a headline that names the exact
  * cost of waiting, a fill meter for the tier that is currently selling, and
- * the step rail showing where the price has been and where it goes next.
+ * the step rail showing where the price has been and where it goes next. With
+ * the launch closed there is only the ceiling tier, so the headline states the
+ * list price and the meter and rail render nothing.
  *
  * `fade` opts into the landing page's scroll-reveal; pages without the
  * IntersectionObserver leave it off or nothing ever appears.
@@ -160,7 +169,7 @@ export function PriceLadder({ fade = false }: { fade?: boolean }) {
           </span>
         ) : (
           <span>
-            The bundle is at its <b>list price of ${st.price}</b>. All launch seats are gone.
+            The bundle is <b>${st.price} one-time</b> — both kits, lifetime updates.
           </span>
         )}
       </div>
@@ -198,42 +207,45 @@ export function PriceLadder({ fade = false }: { fade?: boolean }) {
         </div>
       )}
 
-      {/* the rail: where the price has been, is, and goes */}
-      <div
-        className="nx-ladder-steps"
-        style={{ "--steps": TIERS.length } as CSSProperties}
-      >
-        <div className="nx-ladder-track" aria-hidden="true" />
-        {TIERS.map((t, i) => {
-          const state = i < st.index ? "is-past" : i === st.index ? "is-now" : "is-next";
-          const jump = i > 0 ? t.price - TIERS[i - 1].price : 0;
-          return (
-            <div className={`nx-ladder-step ${state}`} key={t.price}>
-              <span className="node" />
-              <div className="step-price">
-                {state === "is-past" ? <s>${t.price}</s> : <>${t.price}</>}
-                {jump > 0 && <span className="jump">+${jump}</span>}
+      {/* the rail: where the price has been, is, and goes. A single tier has no
+          story to tell, so it stays off the page entirely. */}
+      {TIERS.length > 1 && (
+        <div
+          className="nx-ladder-steps"
+          style={{ "--steps": TIERS.length } as CSSProperties}
+        >
+          <div className="nx-ladder-track" aria-hidden="true" />
+          {TIERS.map((t, i) => {
+            const state = i < st.index ? "is-past" : i === st.index ? "is-now" : "is-next";
+            const jump = i > 0 ? t.price - TIERS[i - 1].price : 0;
+            return (
+              <div className={`nx-ladder-step ${state}`} key={t.price}>
+                <span className="node" />
+                <div className="step-price">
+                  {state === "is-past" ? <s>${t.price}</s> : <>${t.price}</>}
+                  {jump > 0 && <span className="jump">+${jump}</span>}
+                </div>
+                <div className="step-note">
+                  {state === "is-past" && "gone"}
+                  {state === "is-now" && (
+                    <>
+                      {t.seats === null ? (
+                        "buying now"
+                      ) : (
+                        <>
+                          first {t.seats} · <b>{st.left ?? 0} left</b>
+                        </>
+                      )}
+                    </>
+                  )}
+                  {state === "is-next" && `after ${customersBefore(i)} customers`}
+                </div>
+                {state === "is-now" && <span className="step-flag">You are here</span>}
               </div>
-              <div className="step-note">
-                {state === "is-past" && "gone"}
-                {state === "is-now" && (
-                  <>
-                    {t.seats === null ? (
-                      "buying now"
-                    ) : (
-                      <>
-                        first {t.seats} · <b>{st.left ?? 0} left</b>
-                      </>
-                    )}
-                  </>
-                )}
-                {state === "is-next" && `after ${customersBefore(i)} customers`}
-              </div>
-              {state === "is-now" && <span className="step-flag">You are here</span>}
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
