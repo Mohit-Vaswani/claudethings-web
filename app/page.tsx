@@ -1526,6 +1526,15 @@ export default function Home() {
                 <a href="/disclaimer">Disclaimer</a>
               </div>
               <div className="nx-foot-col">
+                <h2>More Products</h2>
+                <a href="https://notchbuddy.com" target="_blank" rel="noopener">
+                  NotchBuddy
+                </a>
+                <a href="https://trymacapps.com" target="_blank" rel="noopener">
+                  TryMacApps
+                </a>
+              </div>
+              <div className="nx-foot-col">
                 <h2>Connect</h2>
                 <a
                   href="mailto:epictools.io@gmail.com"
