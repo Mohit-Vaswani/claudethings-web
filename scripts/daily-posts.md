@@ -161,13 +161,21 @@ If the build fails, fix it. Do not open a PR on a red build.
 
 ## 6. Open the PR
 
+Note the branch you are currently on **before** branching — that is your base.
+
 ```
+git rev-parse --abbrev-ref HEAD          # remember this as <base>
 git checkout -b daily/YYYY-MM-DD
 git add content/blog/*.mdx content/keyword-backlog.json
 git commit
 git push -u origin daily/YYYY-MM-DD
-gh pr create
+gh pr create --base <base>
 ```
+
+If `<base>` is `main`, that is the normal case and `--base main` is correct. If
+it is anything else, the MDX pipeline has not been merged to `main` yet and your
+posts depend on it, so the PR **must** stack on that branch — targeting `main`
+would produce a PR whose posts cannot build.
 
 PR title: `Daily posts: <Mon DD> (<n> articles)`
 
