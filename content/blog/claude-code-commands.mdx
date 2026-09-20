@@ -1,0 +1,192 @@
+---
+title: "Claude Code Commands: The Complete Reference"
+description: "Every built-in Claude Code slash command, what it actually does, and how to write your own custom commands with arguments, bash execution, and file references."
+intro: "Claude Code ships with around two dozen built-in slash commands, and lets you add your own as plain markdown files. Most people learn four of them and stop, which means they keep doing by hand what a command would do in one keystroke. This is the full reference: what each built-in actually does, and how to write custom commands that take arguments, run shell commands, and pull in files."
+date: "2026-09-20"
+tag: "Commands"
+icon: "⌘"
+eyebrow: "Reference"
+crumb: "Commands"
+targetKeyword: "claude code commands"
+related:
+  - href: "/blog/claude-code-custom-slash-commands-examples"
+    title: "Custom Slash Command Examples"
+    desc: "Ten commands worth stealing, with the full markdown for each."
+  - href: "/claude-slash-command-generator"
+    title: "Free Slash Command Generator"
+    desc: "Describe what you want, get a working command file."
+  - href: "/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp"
+    title: "Skills vs Subagents vs Commands vs MCP"
+    desc: "Which extension mechanism to reach for, and when."
+faq:
+  - q: "What is the difference between a slash command and a skill?"
+    a: "A slash command is something you invoke deliberately by typing it. A skill is something Claude loads on its own when a task matches its description. Use a command when you want to trigger a workflow at a moment you choose; use a skill when you want Claude to apply knowledge automatically without being asked."
+  - q: "Where do custom Claude Code commands live?"
+    a: "Project commands go in .claude/commands/ and are shared with your team through git. Personal commands go in ~/.claude/commands/ and are available in every project on your machine. Each command is a single markdown file whose filename becomes the command name."
+  - q: "Can a slash command run shell commands?"
+    a: "Yes. A line beginning with an exclamation mark inside backticks runs in your shell before the prompt reaches Claude, and its output is substituted into the prompt. The command's frontmatter must list Bash under allowed-tools for this to work."
+  - q: "How do I pass arguments to a custom command?"
+    a: "Use $ARGUMENTS for everything typed after the command name, or $1, $2 and so on for individual positional arguments. Adding an argument-hint line to the frontmatter makes the expected arguments show up in the autocomplete menu."
+  - q: "Do slash commands work inside subagents?"
+    a: "No. Slash commands are an interactive-session feature, expanded when you type them. A subagent receives a prompt, not a transcript, so it cannot invoke one. Put logic you need available to subagents in a skill instead."
+---
+
+## The built-ins worth knowing
+
+Type `/` in any Claude Code session and you get the menu. These are the ones that
+change how you work, rather than just reporting status:
+
+- **`/clear`** wipes the conversation and starts fresh. The single most
+  underused command. When Claude starts giving worse answers in a long session,
+  the context is usually polluted rather than the model being confused, and this
+  fixes it instantly.
+- **`/compact`** summarises the conversation so far and continues with the
+  summary in place of the full history. Use it when you want continuity;
+  use `/clear` when you don't.
+- **`/init`** reads your codebase and writes a `CLAUDE.md` describing it. Run
+  this once per project, then edit the result by hand.
+- **`/model`** switches model mid-session.
+- **`/agents`** opens the subagent manager, for creating and editing the
+  specialists a session can delegate to.
+- **`/review`** reviews the current diff.
+- **`/resume`** reopens a previous session, with its context intact.
+- **`/cost`** shows what the current session has spent.
+- **`/memory`** edits the memory files Claude carries between sessions.
+- **`/export`** dumps the conversation to a file.
+
+The rest are configuration and diagnostics: `/config`, `/permissions`, `/hooks`,
+`/mcp`, `/doctor`, `/status`, `/login`, `/logout`, `/bug`, `/add-dir`,
+`/terminal-setup`, `/vim`.
+
+## Writing your own
+
+A custom command is one markdown file. The filename is the command name:
+`.claude/commands/ship.md` gives you `/ship`. The body is the prompt Claude
+receives when you invoke it.
+
+The simplest useful version has no frontmatter at all:
+
+```markdown
+Review the staged diff for bugs. Report only defects that would
+change behaviour, ranked by severity. Skip style commentary.
+```
+
+Save that as `.claude/commands/review-staged.md` and `/review-staged` now runs
+your review standard instead of a generic one.
+
+## Project commands vs personal commands
+
+Two locations, and the difference matters more than it looks:
+
+- **`.claude/commands/`** lives in the repo. It is committed, shared, and
+  versioned with the code. This is where team conventions belong: your deploy
+  checklist, your PR description format, your migration rules.
+- **`~/.claude/commands/`** lives in your home directory and follows you across
+  every project. This is where personal habits belong.
+
+The rule of thumb: if a new teammate cloning the repo would benefit from the
+command, it goes in the project. If it only reflects how *you* like to work, it
+goes in your home directory.
+
+## Arguments
+
+Everything typed after the command name is available as `$ARGUMENTS`:
+
+```markdown
+---
+argument-hint: <issue-number>
+description: Fix a GitHub issue end to end
+---
+
+Fix issue #$ARGUMENTS. Read the issue first, reproduce the problem,
+write a failing test, then fix it.
+```
+
+Now `/fix-issue 412` substitutes `412` into the prompt. For multiple arguments,
+use positional placeholders instead:
+
+```markdown
+---
+argument-hint: <from-version> <to-version>
+---
+
+Write the migration notes for upgrading from $1 to $2.
+```
+
+The `argument-hint` line is worth adding every time — it shows up in the
+autocomplete menu, so you don't have to remember the argument order.
+
+## Running shell commands inside a command
+
+A line starting with `!` inside backticks executes in your shell *before* the
+prompt reaches Claude, and its output is substituted in place. This is what turns
+a command from a saved prompt into something that gathers its own context:
+
+```markdown
+---
+allowed-tools: Bash(git diff:*), Bash(git log:*)
+description: Write a commit message from the staged changes
+---
+
+Staged diff:
+!`git diff --cached`
+
+Recent commit messages, for style:
+!`git log --oneline -10`
+
+Write a commit message matching the style above.
+```
+
+The `allowed-tools` frontmatter is required for this — without it, the shell
+execution is refused. Scope it as narrowly as the command actually needs.
+
+## Pulling in files
+
+Prefix a path with `@` to include a file's contents:
+
+```markdown
+Check this change against our conventions in @CLAUDE.md
+and the API contract in @docs/api-schema.md.
+```
+
+This resolves at invocation time, so the command always reads the current
+version of the file rather than a stale copy pasted into the prompt.
+
+## Namespacing
+
+Subdirectories become namespaces. A file at
+`.claude/commands/frontend/component.md` is invoked as `/frontend:component`.
+Once you pass roughly a dozen commands this stops being cosmetic — grouping them
+by area is the difference between an autocomplete menu you scan and one you
+scroll.
+
+## Frontmatter reference
+
+| Field | Purpose |
+| --- | --- |
+| `description` | Shown in the autocomplete menu. Write it; the default is the filename. |
+| `argument-hint` | Displays expected arguments during autocomplete. |
+| `allowed-tools` | Required for `!` shell execution. Scope narrowly. |
+| `model` | Pins this command to a specific model regardless of session setting. |
+
+<Callout>
+**Skip writing these from scratch:** the AgentsKit kits ship 181 slash commands
+already scoped, argument-hinted, and tested — `/api-scaffold`, `/test-coverage`,
+`/deploy-checklist`, `/campaign-brief` and the rest — alongside 89 agents and 103
+skills. [See what's included →](/#pricing)
+</Callout>
+
+## The mistake almost everyone makes
+
+People write commands that restate what Claude already does well. A `/refactor`
+command whose body is "refactor this code nicely" adds nothing — Claude was
+always going to do that.
+
+The commands that earn their place encode something Claude *cannot* infer: your
+deploy sequence, your team's PR format, which of your three test suites to run
+for a given change, the one directory that must never be touched without a
+migration. Commands are for institutional knowledge, not for restating good
+practice.
+
+If you find yourself explaining the same constraint in three consecutive
+sessions, that constraint is a command.

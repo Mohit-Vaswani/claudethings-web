@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
 import SiteShell from "../components/SiteShell";
 import { POSTS } from "./blogData";
+import { getPublishedMdxPosts } from "@/app/lib/posts";
 import { SITE_URL } from "@/app/lib/site";
 
 export const metadata: Metadata = {
@@ -27,6 +28,23 @@ export const metadata: Metadata = {
 };
 
 export default function BlogIndex() {
+  // Newest MDX posts lead, then the original hand-built posts. Both render
+  // through the same card, so the listing needs only the shared fields.
+  const legacySlugs = new Set(POSTS.map((p) => p.slug));
+  const cards = [
+    ...getPublishedMdxPosts()
+      .filter((p) => !legacySlugs.has(p.slug))
+      .map(({ slug, title, description, readingTime, tag, icon }) => ({
+        slug,
+        title,
+        description,
+        readingTime,
+        tag,
+        icon,
+      })),
+    ...POSTS,
+  ];
+
   return (
     <SiteShell>
       <header>
@@ -47,7 +65,7 @@ export default function BlogIndex() {
       <section style={{ paddingTop: 30 }}>
         <div className="wrap">
           <div className="tools-grid">
-            {POSTS.map((p) => (
+            {cards.map((p) => (
               <a className="tool-card" href={`/blog/${p.slug}`} key={p.slug}>
                 <div className="tool-top">
                   <span className="tool-ic">{p.icon}</span>

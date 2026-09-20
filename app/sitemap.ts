@@ -3,6 +3,7 @@ import { TOOLS } from "./tools/toolsData";
 import { TOOL_GUIDES } from "./tools/guidesData";
 import { COLLECTIONS } from "./prompts/promptsData";
 import { POSTS } from "./blog/blogData";
+import { getPublishedMdxPosts } from "@/app/lib/posts";
 import { USE_CASES } from "./use-cases/useCasesData";
 import { COMPARISONS } from "./comparisons/comparisonsData";
 import { SITE_URL } from "@/app/lib/site";
@@ -35,12 +36,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = POSTS.map((p) => ({
-    url: `${BASE}/blog/${p.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  // Legacy hand-built posts plus MDX posts from content/blog. A legacy folder
+  // route wins if a slug somehow exists in both, matching Next.js routing.
+  const legacySlugs = new Set(POSTS.map((p) => p.slug));
+  const blogPages: MetadataRoute.Sitemap = [
+    ...POSTS.map((p) => ({
+      url: `${BASE}/blog/${p.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    ...getPublishedMdxPosts()
+      .filter((p) => !legacySlugs.has(p.slug))
+      .map((p) => ({
+        url: `${BASE}/blog/${p.slug}`,
+        lastModified: new Date(`${p.date}T00:00:00Z`),
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      })),
+  ];
 
   const useCasePages: MetadataRoute.Sitemap = USE_CASES.map((u) => ({
     url: `${BASE}/use-cases/${u.slug}`,
