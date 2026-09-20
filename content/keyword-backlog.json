@@ -1,0 +1,138 @@
+{
+  "_comment": "Work queue for the daily post job (scripts/daily-posts.md). Each entry is one page targeting one primary query plus its close variants. Volumes and KD are US Google via DataForSEO, captured 2026-09-20. Status: todo | done. The job takes the top `todo` entries by priority, writes them, flips status to done, and refills the queue when fewer than 6 todos remain.",
+  "market": { "locationCode": 2840, "languageCode": "en" },
+  "capturedAt": "2026-09-20",
+  "targets": [
+    {
+      "slug": "claude-code-commands",
+      "primary": "claude code commands",
+      "volume": 1900,
+      "kd": 17,
+      "variants": ["claude commands", "claude code slash commands", "claude code custom commands"],
+      "angle": "Complete reference: every built-in, plus how to author custom commands.",
+      "status": "done"
+    },
+    {
+      "slug": "claude-code-subagents",
+      "primary": "claude code subagents",
+      "volume": 2400,
+      "kd": 19,
+      "variants": ["how to use subagents in claude code", "claude code subagents examples", "claude code subagents best practices"],
+      "angle": "What a subagent is, when delegation actually helps, and how to write one. Distinct from the existing best-claude-code-subagents listicle: this is the definitional guide.",
+      "status": "todo",
+      "priority": 1
+    },
+    {
+      "slug": "claude-code-superpowers",
+      "primary": "claude code superpowers",
+      "volume": 1600,
+      "kd": 21,
+      "variants": ["how to use superpowers claude code", "superpowers vs gsd", "claude code plugin superpowers"],
+      "angle": "What the Superpowers plugin is, what it installs, and whether it is worth it.",
+      "status": "todo",
+      "priority": 2
+    },
+    {
+      "slug": "claude-code-commands-vs-skills",
+      "primary": "claude code commands vs skills",
+      "volume": 90,
+      "kd": 0,
+      "variants": ["claude skills vs commands", "skills and commands claude code"],
+      "angle": "One decision, answered in the first paragraph: invoke vs auto-load. Split out of the combined four-way comparison post, which currently competes for six queries at once.",
+      "status": "todo",
+      "priority": 3
+    },
+    {
+      "slug": "claude-subagents-vs-skills",
+      "primary": "claude subagents vs skills",
+      "volume": 50,
+      "kd": 2,
+      "variants": ["claude code skills vs subagents", "claude agents vs subagents", "can subagents use skills"],
+      "angle": "Context isolation vs knowledge loading. Answer the 'can subagents use skills' question directly, it is the real intent.",
+      "status": "todo",
+      "priority": 4
+    },
+    {
+      "slug": "claude-code-sessions",
+      "primary": "claude code sessions",
+      "volume": 210,
+      "kd": 30,
+      "variants": ["claude code list sessions", "claude code resume previous session", "claude code session history", "claude code session management", "claude code session id"],
+      "angle": "Session model, resuming, history location, and naming. Five low-KD variants collapse into one page.",
+      "status": "todo",
+      "priority": 5
+    },
+    {
+      "slug": "anthropic-skill-creator",
+      "primary": "anthropic skill-creator",
+      "volume": 720,
+      "kd": 28,
+      "variants": ["claude code skills examples", "skill creator claude"],
+      "angle": "What the official skill-creator skill does and how to drive it.",
+      "status": "todo",
+      "priority": 6
+    },
+    {
+      "slug": "claude-code-plugin-marketplace",
+      "primary": "claude code plugin marketplace",
+      "volume": 1300,
+      "kd": 40,
+      "variants": ["anthropic plugin marketplace", "claude code add marketplace", "claude marketplace json", "claude code plugins-official"],
+      "angle": "How marketplaces work, the official one, and how to publish your own marketplace.json.",
+      "status": "todo",
+      "priority": 7
+    },
+    {
+      "slug": "how-to-install-claude-code-plugins",
+      "primary": "how to install claude code plugins",
+      "volume": 70,
+      "kd": 20,
+      "variants": ["how to use claude code plugins", "claude code plugin install", "claude code setup claude plugins official"],
+      "angle": "Install walkthrough. Pairs with the existing best-claude-code-plugins listicle rather than repeating it.",
+      "status": "todo",
+      "priority": 8
+    },
+    {
+      "slug": "everything-claude-code",
+      "primary": "everything claude code github",
+      "volume": 1600,
+      "kd": 28,
+      "variants": ["superpowers vs everything claude code"],
+      "angle": "What the repo is, what is in it, and how it compares to Superpowers.",
+      "status": "todo",
+      "priority": 9
+    },
+    {
+      "slug": "codex-subagents",
+      "primary": "codex subagents",
+      "volume": 1000,
+      "kd": 11,
+      "variants": ["how to use subagents in codex"],
+      "angle": "Adjacent-tool traffic. Covers Codex subagents honestly and links across to the Claude Code equivalent.",
+      "status": "todo",
+      "priority": 10
+    }
+  ],
+  "hubs": [
+    {
+      "slug": "claude-models",
+      "primary": "claude ai models",
+      "volume": 14800,
+      "kd": 48,
+      "variants": ["claude model", "claude models", "latest claude model", "claude versions", "claude new model"],
+      "angle": "Living model reference. Never republished, only updated. This is the single highest-volume cluster in the niche and the page answer engines cite most.",
+      "status": "todo",
+      "evergreen": true
+    },
+    {
+      "slug": "claude-code-changelog",
+      "primary": "claude code versions",
+      "volume": 2900,
+      "kd": 25,
+      "variants": ["claude code changelog", "claude code release notes", "claude code latest version"],
+      "angle": "Living changelog. Updated on every release, which is also the trigger for the day's feature post.",
+      "status": "todo",
+      "evergreen": true
+    }
+  ]
+}
