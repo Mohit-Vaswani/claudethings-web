@@ -1001,7 +1001,9 @@ body:has(.nx-page)::before{content:none}
 .nx-footer{border-top:1px solid var(--nx-line2);padding:64px 0 36px;background:#eeeae2}
 .nx-foot-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;margin-bottom:40px}
 .nx-foot-top .desc{color:var(--nx-faint);font-size:13.5px;margin-top:14px;max-width:32ch;line-height:1.65}
+.nx-foot-badges{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:18px}
 .nx-foot-badge{display:inline-block;margin-top:18px;line-height:0;opacity:.92;transition:opacity .18s ease}
+.nx-foot-badges .nx-foot-badge{margin-top:0}
 .nx-foot-badge:hover{opacity:1}
 .nx-foot-badge img{display:block;max-width:100%;height:auto}
 .nx-foot-links{display:flex;gap:52px;flex-wrap:wrap}

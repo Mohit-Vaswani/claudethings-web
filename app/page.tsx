@@ -1478,23 +1478,39 @@ export default function Home() {
                 AgentsKit
               </a>
               <p className="desc">Your AI engineering &amp; marketing team for Claude Code.</p>
-              {/* tinyshelf directory badge — must stay a dofollow link straight to
-                  www.tinyshelf.co and live in the server-rendered HTML, or their
-                  weekly re-check drops our listing's link to nofollow. */}
-              <a
-                className="nx-foot-badge"
-                href="https://www.tinyshelf.co/?ref=agentskit.co"
-                title="Featured on tinyshelf"
-                target="_blank"
-                rel="noopener"
-              >
-                <img
-                  src="https://www.tinyshelf.co/badge/tinyshelf-badge-light-5ca4026a.svg"
-                  alt="Featured on tinyshelf"
-                  width={216}
-                  height={64}
-                />
-              </a>
+              <div className="nx-foot-badges">
+                {/* tinyshelf directory badge — must stay a dofollow link straight to
+                    www.tinyshelf.co and live in the server-rendered HTML, or their
+                    weekly re-check drops our listing's link to nofollow. */}
+                <a
+                  className="nx-foot-badge"
+                  href="https://www.tinyshelf.co/?ref=agentskit.co"
+                  title="Featured on tinyshelf"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    src="https://www.tinyshelf.co/badge/tinyshelf-badge-light-5ca4026a.svg"
+                    alt="Featured on tinyshelf"
+                    width={216}
+                    height={64}
+                  />
+                </a>
+                <a
+                  className="nx-foot-badge"
+                  href="https://founder.page/hii_mohit"
+                  title="Find me on founder.page"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    src="https://founder.page/badge/hii_mohit.svg?style=solid"
+                    alt="Find me on founder.page"
+                    width={204}
+                    height={38}
+                  />
+                </a>
+              </div>
             </div>
             <div className="nx-foot-links">
               <div className="nx-foot-col">

@@ -71,6 +71,20 @@ export default function LegalLayout({
               >
                 Your AI engineering &amp; marketing team for Claude Code.
               </p>
+              <a
+                href="https://founder.page/hii_mohit"
+                title="Find me on founder.page"
+                target="_blank"
+                rel="noopener"
+                style={{ display: "inline-block", marginTop: 18 }}
+              >
+                <img
+                  src="https://founder.page/badge/hii_mohit.svg?style=solid"
+                  alt="Find me on founder.page"
+                  width={204}
+                  height={38}
+                />
+              </a>
             </div>
             <div className="foot-links">
               <div className="foot-col">
