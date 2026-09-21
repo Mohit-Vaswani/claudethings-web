@@ -1,0 +1,120 @@
+---
+title: "Claude Code Versions: Changelog & Release History"
+description: "The current Claude Code version, what shipped in recent releases, and how installing, updating, and pinning a version actually works across every install method."
+intro: "Claude Code follows three-part version numbers like 2.1.278, shipping new builds almost daily. The current release as of September 19, 2026 is 2.1.278. Run claude --version to check yours, or claude update to pull the latest. This page tracks recent releases and how Claude Code's install, update, and version-pinning system works."
+date: "2026-09-21"
+tag: "Releases"
+icon: "🔖"
+eyebrow: "Reference"
+crumb: "Versions"
+targetKeyword: "claude code versions"
+related:
+  - href: "/blog/claude-code-commands"
+    title: "Claude Code Commands Reference"
+    desc: "Every built-in slash command, including /doctor and /status."
+  - href: "/mcp-config-validator"
+    title: "Free MCP Config Validator"
+    desc: "Check your MCP setup before blaming the next release."
+  - href: "/blog/getting-started-with-claude-code"
+    title: "Getting Started with Claude Code"
+    desc: "Install, authenticate, and run your first session."
+faq:
+  - q: "What is the latest Claude Code version?"
+    a: "As of September 19, 2026, the latest release is 2.1.278. Claude Code ships new versions almost every day, so check the table on this page or run claude --version in your terminal for what's current right now."
+  - q: "How do I check what version of Claude Code I have?"
+    a: "Run claude --version in a terminal. A working install prints a version string like 2.1.278 (Claude Code). For a fuller diagnostic, including whether auto-update is enabled and the result of the last update attempt, run claude doctor instead."
+  - q: "Does Claude Code update automatically?"
+    a: "Only native installations (the curl/irm installer) auto-update in the background by default. Homebrew, WinGet, npm, and Linux package manager installs (apt, dnf, apk) do not auto-update and need a manual upgrade command specific to that install method."
+  - q: "How do I install an older Claude Code version?"
+    a: "On macOS, Linux, or WSL, run the install script with the version pinned: curl -fsSL https://claude.ai/install.sh | bash -s 2.1.89, substituting the version you want. The equivalent PowerShell and CMD commands accept the same version argument."
+  - q: "What is the difference between the latest and stable release channels?"
+    a: "The latest channel ships every release as soon as it's published. The stable channel runs a version that's typically about a week behind and skips releases with major regressions. Set autoUpdatesChannel in settings.json, or change it via /config, to switch between them."
+---
+
+## What is the current Claude Code version?
+
+**2.1.278**, released September 19, 2026. It changed how auto mode's classifier is billed for Claude API and Enterprise users — it now defaults to a server-side classifier that doesn't charge classifier overhead — and added an "Auto mode server" row to `/status` so you can see where your session's classifier is running.
+
+To check your own installed version, run:
+
+```bash
+claude --version
+```
+
+A working install prints something like `2.1.278 (Claude Code)`. If you want more than the version number — install health, settings-file validation, auto-update status — run `claude doctor` instead. It's read-only and starts no session.
+
+## How does Claude Code versioning work?
+
+Versions are three dot-separated numbers, like `2.1.278`. In practice the last segment increments on nearly every release — sometimes several times in one day when a regression needs a quick follow-up fix — while the first two segments stay fixed across long stretches of releases. Anthropic doesn't publish a formal semver contract for what triggers a minor-version bump versus a patch, so treat the number as a release counter rather than a strict semver signal about backward compatibility.
+
+## What changed in recent Claude Code releases?
+
+| Version | Date | Highlights |
+| --- | --- | --- |
+| 2.1.278 | Sep 19, 2026 | Server-side auto mode classifier by default for Claude API/Enterprise; new `/status` row |
+| 2.1.277 | Sep 18, 2026 | AGENTS.md support — reads it instead of CLAUDE.md when no CLAUDE.md is present |
+| 2.1.276 | Sep 18, 2026 | Fixed a request failure when `ANTHROPIC_BASE_URL` points at a proxy or gateway |
+| 2.1.275 | Sep 17, 2026 | Send-now key (ctrl+enter) to interrupt and send queued messages; skill/plugin sync from claude.ai |
+| 2.1.274 | Sep 17, 2026 | Visible warning at critical memory usage; MCP connection-timeout env var |
+| 2.1.273 | Sep 15, 2026 | MCP server disconnect notifications; forking sessions started with `--remote-control` |
+| 2.1.272 | Sep 15, 2026 | Maintenance release |
+| 2.1.271 | Sep 14, 2026 | Fast mode in Claude Code Remote sessions; mouse support in `/config` |
+| 2.1.270 | Sep 12, 2026 | Fixed a regression where read-only git commands wrongly asked for permission |
+| 2.1.269 | Sep 11, 2026 | `claude plugin eval`; `/output-style [name]`; Bash tool now includes a file diff in results |
+| 2.1.268 | Sep 10, 2026 | Fixed every turn failing on third-party Anthropic-compatible endpoints (2.1.265 regression) |
+
+This table covers the most recent releases as of this page's last update — check the [official changelog](https://code.claude.com/docs/en/changelog) for anything shipped after that.
+
+## How do I update Claude Code?
+
+It depends entirely on how you installed it:
+
+- **Native install** (`curl ... | bash` or the PowerShell equivalent): auto-updates in the background. Claude Code checks for updates on startup and periodically while running; the new version takes effect the next time you start a session.
+- **Homebrew**: run `brew upgrade claude-code` or `brew upgrade claude-code@latest`, matching whichever cask you installed. Homebrew does not auto-update by default.
+- **WinGet**: run `winget upgrade Anthropic.ClaudeCode`.
+- **npm**: run `npm install -g @anthropic-ai/claude-code@latest`. Avoid `npm update -g` — it respects the semver range from your original install and may not actually move you forward.
+- **apt / dnf / apk**: update through your normal system upgrade workflow for that package.
+
+To force an update immediately on an install method that supports it, run:
+
+```bash
+claude update
+```
+
+It reports `Successfully updated from <old version> to version <new version>`, or `Claude Code is up to date (<version>)` if there's nothing new.
+
+## How do I install a specific Claude Code version?
+
+Pass the version to the native installer:
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash -s 2.1.89
+```
+
+The Windows PowerShell and CMD installers take the same version argument. `claude --version` afterward confirms you landed on exactly that build.
+
+## Does Claude Code require Node.js?
+
+No. Claude Code ships as a native binary and doesn't invoke Node.js at runtime, regardless of install method. The npm install path (`npm install -g @anthropic-ai/claude-code`) just uses npm as a distribution mechanism — it pulls down the same per-platform native binary through an optional dependency and links it into place. As of version 2.1.198, that npm package does require Node.js 22 or later to be present at *install* time; on an older Node version, `npm install` prints an `EBADENGINE` warning but still completes, and the installed `claude` command runs regardless. If you don't want a Node dependency in the loop at all, use the native curl/irm installer or a platform package manager instead.
+
+## What is the difference between the latest and stable release channels?
+
+`latest` (the default) gives you every release the moment it ships. `stable` runs a version that's typically about a week old and skips releases known to have major regressions. Set it with `autoUpdatesChannel` in `settings.json`:
+
+```json
+{
+  "autoUpdatesChannel": "stable"
+}
+```
+
+Or change it interactively through `/config` → Auto-update channel, which will also prompt you to either stay on your current version or allow the downgrade when switching from latest to stable. Homebrew handles this differently — the channel is picked by which cask you install (`claude-code` for stable, `claude-code@latest` for latest), not by this setting.
+
+<Callout>
+**Stop losing an afternoon to "which release broke this":** the AgentsKit kits ship 181 slash commands, 89 agents, and 103 skills, version-tested as a set instead of assembled piecemeal from posts like this one. [See what's included →](/#pricing)
+</Callout>
+
+## The mistake almost everyone makes
+
+Assuming every install method keeps itself current the way the native installer does. It doesn't. If you installed Claude Code with Homebrew, WinGet, npm, or a Linux package manager, nothing updates it automatically — you can be months of fixes behind and not know it, because `claude` still runs fine on an old build. The AGENTS.md support in 2.1.277, the send-now key in 2.1.275, the auto mode billing change in 2.1.278 — none of that reaches you until you run the upgrade command for your specific install method.
+
+The fix is either switching to the native installer, which does auto-update, or putting the relevant upgrade command (`brew upgrade claude-code`, `npm install -g @anthropic-ai/claude-code@latest`, and so on) somewhere you'll actually run it — a weekly reminder, a dotfiles script, whatever survives contact with a busy week. Checking `claude doctor` occasionally is the cheapest way to catch a stale install before it costs you a feature you didn't know existed yet.

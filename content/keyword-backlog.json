@@ -19,7 +19,7 @@
       "kd": 19,
       "variants": ["how to use subagents in claude code", "claude code subagents examples", "claude code subagents best practices"],
       "angle": "What a subagent is, when delegation actually helps, and how to write one. Distinct from the existing best-claude-code-subagents listicle: this is the definitional guide.",
-      "status": "todo",
+      "status": "done",
       "priority": 1
     },
     {
@@ -121,7 +121,7 @@
       "kd": 48,
       "variants": ["claude model", "claude models", "latest claude model", "claude versions", "claude new model"],
       "angle": "Living model reference. Never republished, only updated. This is the single highest-volume cluster in the niche and the page answer engines cite most.",
-      "status": "todo",
+      "status": "done",
       "evergreen": true
     },
     {
@@ -131,7 +131,7 @@
       "kd": 25,
       "variants": ["claude code changelog", "claude code release notes", "claude code latest version"],
       "angle": "Living changelog. Updated on every release, which is also the trigger for the day's feature post.",
-      "status": "todo",
+      "status": "done",
       "evergreen": true
     }
   ]
