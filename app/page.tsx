@@ -825,6 +825,14 @@ export default function Home() {
 
       <div className="nx-hatch" aria-hidden="true"></div>
 
+      {/* KIT EXPLORER — everything the kits ship, browsable by kit and type */}
+      <KitExplorer />
+
+      <div className="nx-hatch" aria-hidden="true"></div>
+
+      {/* COST LEDGER — what building this setup yourself actually costs */}
+      <CostLedger />
+
       <div className="nx-hatch" aria-hidden="true"></div>
 
       {/* WHAT'S INSIDE — feature rows */}
@@ -1093,16 +1101,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <div className="nx-hatch" aria-hidden="true"></div>
-
-      {/* KIT EXPLORER — everything the kits ship, browsable by kit and type */}
-      <KitExplorer />
-
-      <div className="nx-hatch" aria-hidden="true"></div>
-
-      {/* COST LEDGER — what building this setup yourself actually costs */}
-      <CostLedger />
 
       <div className="nx-hatch" aria-hidden="true"></div>
 
