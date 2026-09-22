@@ -1,0 +1,190 @@
+---
+title: "Claude Code Commands vs Skills: What's Actually Different"
+description: "Custom commands and skills in Claude Code are the same underlying mechanism. The real decision is whether Claude can invoke it on its own or only you can."
+intro: "Custom commands and skills are the same mechanism in Claude Code: a file at .claude/commands/deploy.md and a skill at .claude/skills/deploy/SKILL.md both create /deploy and behave identically. The only real decision is invocation control — by default both can be auto-invoked by Claude when relevant, and you turn that off per-file with disable-model-invocation: true to make one explicit-only."
+date: "2026-09-22"
+tag: "Skills"
+icon: "🧩"
+eyebrow: "Comparison"
+crumb: "Commands vs Skills"
+targetKeyword: "claude code commands vs skills"
+related:
+  - href: "/blog/claude-code-commands"
+    title: "Claude Code Commands: The Complete Reference"
+    desc: "Every built-in command, plus the full frontmatter schema for writing your own."
+  - href: "/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp"
+    title: "Skills vs Subagents vs Commands vs MCP"
+    desc: "The four-way comparison, for when the question is bigger than just these two."
+  - href: "/claude-slash-command-generator"
+    title: "Free Slash Command Generator"
+    desc: "Describe what you want, get a working command or skill file."
+faq:
+  - q: "Are Claude Code commands and skills the same thing?"
+    a: "Mechanically, yes. A file at .claude/commands/deploy.md and a skill at .claude/skills/deploy/SKILL.md both register /deploy and run the same way once invoked. Skills are the current, recommended format; the commands directory is the older format that still works and is read the same way under the hood."
+  - q: "Can a custom command be invoked automatically by Claude, like a skill?"
+    a: "Yes. Automatic invocation is controlled by disable-model-invocation in the frontmatter, which defaults to false for both formats. A plain command file with no frontmatter at all is still eligible for Claude to invoke on its own if its content matches the task, unless you explicitly disable that."
+  - q: "Should I use .claude/commands/ or .claude/skills/ for a new file?"
+    a: "Use .claude/skills/<name>/SKILL.md for anything new. It supports the same frontmatter as commands plus a directory for supporting files, and reference material in that directory only loads into context when the skill actually runs. The commands directory still works and isn't deprecated, but skills is where new features land."
+  - q: "How do I make a skill explicit-invocation only, like a traditional command?"
+    a: "Set disable-model-invocation: true in the frontmatter. Claude will never invoke it on its own; only typing /skill-name or having the user ask for it directly triggers it. This is the setting that recreates the old commands-only behavior inside the skills format."
+  - q: "How do I make a skill invisible to the user and only usable by Claude?"
+    a: "Set user-invocable: false. Combined with a strong description, this is useful for skills that should activate automatically based on context but that you don't want cluttering the / autocomplete menu."
+---
+
+## Why this question keeps coming up
+
+Claude Code's documentation and its own UI both still say "commands" in
+places — the `/` autocomplete menu is labeled with command names, `/help`
+has a "Custom commands" tab, and plenty of existing guides (including
+tutorials written before the merge) describe them as separate systems. That's
+a reasonable thing to be confused by. The short version: the terminology
+lagged the implementation. Skills absorbed commands as a format, but the
+word "command" never went away, because typing `/name` is still what using
+either one looks like from your side of the conversation.
+
+## Is there actually a difference?
+
+Barely, mechanically. Claude Code's own documentation says it directly: "a
+file at `.claude/commands/deploy.md` and a skill at
+`.claude/skills/deploy/SKILL.md` both create `/deploy` and work the same
+way." Custom commands were merged into skills — the commands directory is
+the older, flatter format, and skills is the current one, but Claude Code
+reads both and treats them as the same underlying primitive: a markdown
+file with optional YAML frontmatter that becomes a `/name` you or Claude can
+trigger.
+
+So if you already have a `.claude/commands/` folder with working files,
+nothing is broken and nothing needs migrating today. The question worth
+answering isn't "which format" — it's the one thing that actually varies
+per file regardless of which directory it's in.
+
+## The one real decision: who can invoke it
+
+Every command or skill file has two independent invocation channels:
+
+- **You**, by typing `/name` (or having Claude do it because you asked in
+  plain language).
+- **Claude**, deciding on its own that the file's `description` matches
+  what the current task needs, and loading it without you typing anything.
+
+Both channels are on by default. The frontmatter field that controls
+Claude's channel is `disable-model-invocation`, and it defaults to `false`
+— meaning a brand-new command file with no frontmatter at all is still
+eligible for Claude to invoke automatically if its content happens to match
+the task. This is true whether the file lives in `.claude/commands/` or
+`.claude/skills/`.
+
+That's the actual decision to make when you write one of these files: do you
+want this to be a tool Claude reaches for on its own, or a tool that only
+runs when you deliberately ask for it?
+
+```yaml
+---
+description: Deploys the current branch to staging after running the test suite.
+disable-model-invocation: true
+---
+```
+
+Set `disable-model-invocation: true` and this becomes explicit-only — the
+old commands-only behavior, now expressed as a setting instead of a
+directory choice. Leave it unset, and a good `description` is what decides
+whether Claude picks it up on its own, the same way a subagent's
+`description` decides whether Claude delegates to it.
+
+There's a second, less common switch worth knowing: `user-invocable: false`
+hides a file from the `/` autocomplete menu entirely, so it only ever runs
+because Claude chose it, never because you typed it. Combine the two and you
+get four real configurations, not two:
+
+| `disable-model-invocation` | `user-invocable` | Behavior |
+| --- | --- | --- |
+| `false` (default) | `true` (default) | Either you or Claude can trigger it — the common case |
+| `true` | `true` | Explicit only. You type `/name`; Claude never invokes it on its own |
+| `false` | `false` | Claude-only. Never appears in autocomplete; Claude decides when it's relevant |
+| `true` | `true` with no description | Effectively dead — nothing triggers it automatically and nothing tells Claude when to |
+
+## Where commands still make sense on their own
+
+If your file is genuinely one paragraph — a saved prompt with no arguments,
+no shell execution, nothing beyond "do this thing I ask for by name" — a
+flat file in `.claude/commands/` is not a worse choice than a skill
+directory. The migration pressure toward skills comes from needing the
+extras: multiple supporting files, lazily-loaded reference material, or fine
+control over auto-invocation. A one-line command that does exactly one job
+doesn't need any of that, and creating a directory for it is just more to
+navigate later. The full built-in reference and frontmatter schema for
+either format is in the [commands guide](/blog/claude-code-commands); that
+page covers arguments, `$ARGUMENTS`, and the `!` shell-execution syntax that
+work identically in both.
+
+## Why skills is where you should put new files
+
+If the mechanics are identical, the reason to prefer `.claude/skills/` for
+anything new isn't invocation — it's what skills add on top:
+
+- **A directory, not just a file.** A skill can ship supporting scripts,
+  templates, and reference docs alongside `SKILL.md`. A command is a single
+  file.
+- **Reference material that doesn't cost context until used.** Files in a
+  skill's directory beyond `SKILL.md` itself load only when the skill
+  actually pulls them in, so a skill can carry a large reference doc without
+  taxing every conversation that doesn't need it.
+- **The full frontmatter surface.** `allowed-tools`, `disable-model-invocation`,
+  `user-invocable`, and dynamic `` !`command` `` context injection are all
+  skill features that a bare command file can use too, but they were added
+  as the format evolved into skills — new documentation and tooling assumes
+  the skills layout first.
+
+None of that changes how `/deploy` behaves once it fires. It changes how much
+you can build into the file before it fires.
+
+## When people ask this question, what they usually mean
+
+Two different questions get compressed into "commands vs skills," and they
+have different answers:
+
+**"Which file format should I use?"** — Skills, for anything new. Keep
+existing command files; there's no forcing function to migrate them.
+
+**"How do I control whether Claude uses this on its own?"** —
+`disable-model-invocation`, independent of format. This is almost always
+the question people actually have, because it's the one with a real
+behavioral consequence. Someone asking "commands vs skills" after watching
+Claude auto-trigger something they expected to type manually isn't asking
+about file layout at all.
+
+## The mistake worth naming
+
+Writing a vague `description` and assuming that's harmless because the file
+is "just a command." It isn't harmless — a weak or missing description is
+exactly what makes Claude's auto-invocation unpredictable, whether the file
+sits in `.claude/commands/` or `.claude/skills/`. If you don't want a file
+auto-invoked, say so explicitly with `disable-model-invocation: true` rather
+than hoping a bad description will accidentally suppress it. Relying on a
+weak description to keep something explicit-only is not a setting, it's
+luck, and it stops working the moment you improve the description for an
+unrelated reason.
+
+The second mistake is deciding this question in isolation from the other two
+extension mechanisms Claude Code offers. Commands and skills both put text
+into the conversation directly; if what you actually need is isolated
+context instead — a task that would flood the conversation with search
+results or file contents — neither format is right, and you want a
+[subagent](/blog/claude-code-subagents) instead. The full picture, including
+where MCP servers fit, is in the
+[four-way comparison](/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp).
+Getting the commands-vs-skills question right and then reaching for a skill
+where a subagent was needed just moves the mistake one level up.
+
+## Writing one instead of comparing
+
+If you've read this far because you're about to write a command or skill
+rather than just categorize an existing one, the
+[free slash command generator](/claude-slash-command-generator) produces a
+working file — frontmatter, arguments, and invocation settings included —
+from a plain-language description of what you want it to do, which is faster
+than assembling the frontmatter by hand for a first draft.
+
+<Callout>
+**Writing good descriptions for a dozen commands and skills gets tedious fast:** the AgentsKit kits ship 181 commands and 103 skills already scoped and tested, so you're choosing from a library instead of writing frontmatter from scratch. [See what's included →](/#pricing)
+</Callout>

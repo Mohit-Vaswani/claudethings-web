@@ -1,0 +1,194 @@
+---
+title: "Claude Code Superpowers: What It Is and Whether It's Worth It"
+description: "Superpowers is a Claude Code plugin that turns Claude into a structured development process — brainstorm, plan, TDD, review. Here's what it installs."
+intro: "Superpowers is a Claude Code plugin by obra that installs a full development methodology as 15 composable skills — brainstorming, plan writing, subagent-driven execution, red/green TDD, and code review — bootstrapped automatically at the start of every session so Claude follows the workflow without being asked."
+date: "2026-09-22"
+tag: "Plugins"
+icon: "🦸"
+eyebrow: "Explainer"
+crumb: "Superpowers"
+targetKeyword: "claude code superpowers"
+related:
+  - href: "/blog/best-claude-code-plugins"
+    title: "Best Claude Code Plugins"
+    desc: "Where Superpowers fits among the rest of the marketplace."
+  - href: "/blog/claude-code-subagents"
+    title: "Claude Code Subagents: The Complete Guide"
+    desc: "The delegation mechanism Superpowers builds its execution stage on."
+  - href: "/claude-subagent-generator"
+    title: "Free Subagent Generator"
+    desc: "Write your own agent files instead of installing someone else's."
+faq:
+  - q: "What is Claude Code Superpowers?"
+    a: "A plugin by developer obra that packages a software development methodology into 15 Claude Code skills, covering brainstorming, planning, git worktrees, subagent-driven execution, test-driven development, and code review. It's listed in Anthropic's official plugin marketplace under the name superpowers."
+  - q: "How do I install Superpowers in Claude Code?"
+    a: "Run /plugin install superpowers@claude-plugins-official. That marketplace is registered automatically the first time you start Claude Code interactively. There's also a separate Superpowers-maintained marketplace: /plugin marketplace add obra/superpowers-marketplace followed by /plugin install superpowers@superpowers-marketplace."
+  - q: "Does Superpowers slow down simple tasks?"
+    a: "It can. The methodology is built for multi-step feature work — brainstorm, plan, worktree, TDD, review — and that sequence is overhead for a one-line fix or a quick question. The using-superpowers skill decides when to engage the full workflow, but if you're doing something small, saying so directly usually gets you a shorter path."
+  - q: "Does Superpowers work with tools other than Claude Code?"
+    a: "The project ships equivalents for several coding agents beyond Claude Code, including Cursor, Codex, and others, with platform-specific install steps. The skills themselves are the same methodology; only the bootstrap mechanism differs per tool."
+  - q: "What's the difference between Superpowers and writing my own subagents?"
+    a: "Superpowers is a skills library plus a workflow, not a subagent collection — it uses Claude Code's own subagent-dispatch mechanism (dispatching-parallel-agents, subagent-driven-development) rather than shipping named agents you'd @-mention. Writing your own subagents gives you narrower, project-specific delegation; Superpowers gives you a ready-made process for the whole feature lifecycle."
+---
+
+## What is Claude Code Superpowers?
+
+Superpowers is a plugin, built by developer obra, that installs a complete software
+development process into Claude Code as a set of skills. Rather than one skill
+that does one thing, it's 15 skills designed to run in sequence — the project
+describes itself as "a complete software development methodology for your coding
+agents, built on top of a set of composable skills and some initial
+instructions."
+
+It's in Anthropic's official plugin marketplace, so you don't need to add a
+third-party source to get it:
+
+```
+/plugin install superpowers@claude-plugins-official
+```
+
+There's also a Superpowers-maintained marketplace with the same plugin, useful
+if you want updates ahead of whatever's pinned in the official one:
+
+```
+/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
+```
+
+## Where it sits relative to plain Claude Code
+
+Without Superpowers, getting Claude to consistently brainstorm before coding,
+write a plan, work test-first, and request review before merging means
+either repeating those instructions every session or building your own
+skills for each stage. Most people do neither, and get whatever Claude
+defaults to for a given task — usually reasonable for something small, more
+variable for something that spans several files and a few hours of work.
+Superpowers is a bet that this variability is worth trading for a fixed
+process, even on tasks where the fixed process is more structure than
+strictly necessary.
+
+## What does it actually install?
+
+Fifteen skills, grouped by what stage of work they cover:
+
+**Before you write code**
+- `using-superpowers` — the bootstrap skill. It loads automatically at session
+  start and checks for relevant skills before any task.
+- `brainstorming` — pushes back on jumping straight to implementation, refining
+  the design in readable chunks first.
+- `writing-plans` — breaks the work into small tasks, on the order of two to
+  five minutes each.
+
+**Executing**
+- `using-git-worktrees` — creates an isolated workspace once the design is
+  approved.
+- `dispatching-parallel-agents` and `subagent-driven-development` — dispatch
+  fresh [subagents](/blog/claude-code-subagents) per task, each with its own
+  context.
+- `test-driven-development` — enforces red/green/refactor: write the failing
+  test first, then the minimum code to pass it, then clean up.
+
+**Review and wrap-up**
+- `requesting-code-review` and `receiving-code-review` — a two-stage review
+  loop against the original plan.
+- `finishing-a-development-branch` — handles the merge decision once review
+  passes.
+
+**Debugging and meta**
+- `systematic-debugging` — a structured approach to tracking down bugs instead
+  of guessing.
+- `verification-before-completion` — checks work actually satisfies the plan
+  before calling it done.
+- `diagnosing-superpowers` — troubleshoots the plugin's own session issues.
+- `writing-skills` — teaches Claude how to author and test new skills, so the
+  methodology can extend itself.
+
+## How the workflow actually runs
+
+The sequence, in order, for a typical feature:
+
+1. **Brainstorming** activates before any code gets written, working through
+   the design in chunks you can actually read and react to.
+2. Once you approve the design, **using-git-worktrees** spins up an isolated
+   workspace so the work doesn't collide with whatever else is in your working
+   tree.
+3. **Writing-plans** turns the design into small, sequenced tasks.
+4. **Subagent-driven-development** dispatches a fresh subagent per task, each
+   one running a two-stage review before moving on.
+5. **Test-driven-development** governs each task's implementation: red, green,
+   refactor.
+6. **Requesting-code-review** checks the finished work against the plan.
+7. **Finishing-a-development-branch** handles what happens to the branch once
+   review passes.
+
+The project's own framing is blunt about intent: "the agent checks for
+relevant skills before any task. Mandatory workflows, not suggestions." That's
+the core design bet — instead of skills Claude might reach for, this is a
+process Claude is meant to follow every time, enforced by the bootstrap skill
+injecting itself at the start of the session.
+
+## How it compares to writing this yourself
+
+Nothing in Superpowers requires the plugin specifically — every skill is a
+plain markdown file, and you could write your own `brainstorming` or
+`test-driven-development` skill from scratch. What the plugin actually saves
+you is the sequencing: getting 15 skills to hand off to each other cleanly,
+with the bootstrap skill checking relevance before every task, takes several
+iterations to get right even once you know what each individual skill should
+say. If you've read the [subagents guide](/blog/claude-code-subagents) and
+already have a few narrow agents of your own, Superpowers' dispatch skills
+slot in next to them rather than replacing them — `dispatching-parallel-agents`
+delegates to whatever subagents exist in your project, custom or built-in.
+
+It's also a reasonable reference even if you don't install it. The skills are
+public on GitHub, so reading `writing-plans` or `systematic-debugging` is a
+free look at how one experienced Claude Code user structures a multi-step
+skill — useful even if you end up writing something narrower and more
+specific to your own codebase instead of adopting the whole methodology.
+
+## Is it worth installing?
+
+Depends on what you're using Claude Code for. If most of your sessions are
+small, targeted changes — fix this bug, add this field, answer this question
+— the full brainstorm-to-merge pipeline is more ceremony than the task needs.
+You can tell Claude to skip ahead, but at that point you're fighting the
+plugin's own bootstrap skill rather than benefiting from it.
+
+Where it earns its keep is longer, higher-stakes feature work: the kind where
+skipping a design conversation costs you a rewrite three days in, and where
+"just start coding" reliably produces something that technically works but
+needs to be redone once you actually read it. TDD-by-default and a mandatory
+review pass are exactly the disciplines that erode first under deadline
+pressure, and Superpowers makes them structural instead of optional.
+
+It's also worth trying if you already like the shape of this workflow but
+don't want to write 15 skills yourself. The plugin is a starting point you can
+read, understand, and fork — every skill is a plain markdown file, so nothing
+about it is a black box.
+
+## What not to do with it
+
+Don't install it and then fight its defaults on every session. If you find
+yourself routinely telling Claude to skip brainstorming, skip the worktree,
+skip the review — that's a sign this methodology doesn't match how you work,
+not a sign you're using it wrong. Uninstall it, or scope it to a subset of
+projects, rather than spending your first message every session steering
+around a mandatory workflow that isn't earning its overhead there.
+
+The other common mistake is installing Superpowers expecting it to replace
+your own subagent files. It doesn't ship named, project-specific agents —
+it uses Claude Code's subagent-dispatch mechanism as an implementation detail
+of its own workflow. If you need a subagent scoped to your codebase's
+conventions, you're still writing that yourself, or generating one with the
+[free subagent generator](/claude-subagent-generator).
+
+And don't confuse it with the other extension mechanisms Claude Code offers.
+Superpowers is entirely skills — no hooks, no MCP servers, no custom
+subagent definitions of its own. If what you actually need is a way to
+compare skills against commands or MCP servers before deciding where a piece
+of logic belongs, that's a [separate question](/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp)
+with its own answer, and installing a methodology plugin won't resolve it.
+
+<Callout>
+**Prefer subagents and skills scoped to your own stack over a generic methodology?** The AgentsKit kits ship 89 agents, 103 skills, and 181 commands, pre-scoped by role instead of one-size-fits-all. [See what's included →](/#pricing)
+</Callout>

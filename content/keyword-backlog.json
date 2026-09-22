@@ -29,7 +29,7 @@
       "kd": 21,
       "variants": ["how to use superpowers claude code", "superpowers vs gsd", "claude code plugin superpowers"],
       "angle": "What the Superpowers plugin is, what it installs, and whether it is worth it.",
-      "status": "todo",
+      "status": "done",
       "priority": 2
     },
     {
@@ -39,7 +39,7 @@
       "kd": 0,
       "variants": ["claude skills vs commands", "skills and commands claude code"],
       "angle": "One decision, answered in the first paragraph: invoke vs auto-load. Split out of the combined four-way comparison post, which currently competes for six queries at once.",
-      "status": "todo",
+      "status": "done",
       "priority": 3
     },
     {
@@ -49,7 +49,7 @@
       "kd": 2,
       "variants": ["claude code skills vs subagents", "claude agents vs subagents", "can subagents use skills"],
       "angle": "Context isolation vs knowledge loading. Answer the 'can subagents use skills' question directly, it is the real intent.",
-      "status": "todo",
+      "status": "done",
       "priority": 4
     },
     {
@@ -59,7 +59,7 @@
       "kd": 30,
       "variants": ["claude code list sessions", "claude code resume previous session", "claude code session history", "claude code session management", "claude code session id"],
       "angle": "Session model, resuming, history location, and naming. Five low-KD variants collapse into one page.",
-      "status": "todo",
+      "status": "done",
       "priority": 5
     },
     {
@@ -111,6 +111,56 @@
       "angle": "Adjacent-tool traffic. Covers Codex subagents honestly and links across to the Claude Code equivalent.",
       "status": "todo",
       "priority": 10
+    },
+    {
+      "slug": "claude-code-skills",
+      "primary": "claude code skills",
+      "volume": 12100,
+      "kd": 30,
+      "variants": ["what are claude code skills", "claude code skill.md", "skill.md format"],
+      "angle": "The definitional guide: what a skill is, the SKILL.md frontmatter schema, auto-invoke vs explicit invocation. Highest-volume gap in the backlog. Distinct from the site's existing niche 'skills for X' listicles and the skills-vs-subagents-vs-commands-vs-mcp comparison — this is the plain reference page those should link into.",
+      "status": "todo",
+      "priority": 11
+    },
+    {
+      "slug": "claude-code-hooks",
+      "primary": "claude code hooks",
+      "volume": 3600,
+      "kd": 16,
+      "variants": ["hooks claude code", "what are hooks in claude code", "claude code hooks examples"],
+      "angle": "The definitional guide: what hooks are, the event types (PreToolUse, PostToolUse, etc.), and a minimal working example. Pairs with the existing best-claude-code-hooks listicle rather than repeating it, same pattern as claude-code-commands next to its listicle.",
+      "status": "todo",
+      "priority": 12
+    },
+    {
+      "slug": "claude-code-statusline",
+      "primary": "claude code statusline",
+      "volume": 1900,
+      "kd": 14,
+      "variants": ["claude code statusline examples", "best claude code statusline", "claude statusline config"],
+      "angle": "How to configure a custom status line: the setting that wires a script in, what data the script receives, and a couple of working examples.",
+      "status": "todo",
+      "priority": 13
+    },
+    {
+      "slug": "claude-code-memory",
+      "primary": "claude code memory",
+      "volume": 1300,
+      "kd": 17,
+      "variants": ["claude code auto memory", "claude code persistent memory", "claude code memory files"],
+      "angle": "The three layers of Claude Code's memory — CLAUDE.md, the /memory command, and auto memory — how they differ and when each one applies. Distinct from claude-md-best-practices-template, which is specifically about writing CLAUDE.md well.",
+      "status": "todo",
+      "priority": 14
+    },
+    {
+      "slug": "claude-code-sandbox",
+      "primary": "claude code sandbox",
+      "volume": 1300,
+      "kd": 8,
+      "variants": ["claude code sandbox mode", "dangerously skip permissions vs sandbox"],
+      "angle": "What Claude Code's sandboxing does, when a command needs it disabled, and the safety trade-off. Low KD, real intent.",
+      "status": "todo",
+      "priority": 15
     }
   ],
   "hubs": [
