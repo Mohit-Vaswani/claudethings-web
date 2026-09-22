@@ -21,7 +21,7 @@ import type { CSSProperties } from "react";
  */
 export const LAUNCH = {
   /** Real buyers so far. Bump this as sales come in. */
-  sold: 28,
+  sold: 31,
   /** How long those sales took, for the proof pill. */
   window: "2 weeks",
 };
