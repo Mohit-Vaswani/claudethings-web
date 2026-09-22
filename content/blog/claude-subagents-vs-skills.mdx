@@ -1,0 +1,203 @@
+---
+title: "Claude Subagents vs Skills: The Actual Difference"
+description: "Subagents isolate context in a separate window; skills load knowledge into the conversation you're already in. Plus: yes, subagents can use skills."
+intro: "A subagent runs in its own isolated context window and returns a summary — use it when a task would flood your main conversation with output you won't need again. A skill loads instructions or knowledge directly into your current conversation when its description matches the task. Subagents isolate context; skills add knowledge in place. And yes, a subagent can use skills, both preloaded and discovered at runtime."
+date: "2026-09-22"
+tag: "Agents"
+icon: "🧠"
+eyebrow: "Comparison"
+crumb: "Subagents vs Skills"
+targetKeyword: "claude subagents vs skills"
+related:
+  - href: "/blog/claude-code-subagents"
+    title: "Claude Code Subagents: The Complete Guide"
+    desc: "Frontmatter schema, delegation rules, and how context isolation actually works."
+  - href: "/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp"
+    title: "Skills vs Subagents vs Commands vs MCP"
+    desc: "The four-way version, for when you're also weighing commands and MCP."
+  - href: "/claude-subagent-generator"
+    title: "Free Subagent Generator"
+    desc: "Describe the specialist you want, get a working agent file with a skills field."
+faq:
+  - q: "Can subagents use skills in Claude Code?"
+    a: "Yes, two ways. A subagent's frontmatter can list a skills field to preload the full content of named skills into its context at startup. Separately, a running subagent inherits the Skill tool by default, so it can discover and invoke project, user, and plugin skills on its own during execution, the same way the main conversation does."
+  - q: "What's the core difference between a subagent and a skill?"
+    a: "A subagent is a separate context window with its own system prompt and tools; it does work you delegate and hands back a summary, keeping the detail out of your main conversation. A skill is instructions or reference material that gets added to the conversation you're already in, without any context isolation. One isolates, the other informs."
+  - q: "Does using a skill inside a subagent cost the subagent's own context budget?"
+    a: "Yes. A preloaded skill's full content is injected into the subagent's context at startup, and a skill invoked at runtime via the Skill tool adds to the subagent's own context the same way it would add to the main conversation's. It never touches your main conversation's context either way — the isolation runs in both directions."
+  - q: "Can a skill spawn a subagent?"
+    a: "Yes, using the context: fork field in the skill's frontmatter. A forked skill starts a new subagent, passing it the skill's content as the initial prompt, and the subagent it spawns can be a named custom agent or one of the built-ins like Explore."
+  - q: "Should I write a subagent or a skill for a recurring task?"
+    a: "If the task involves reading or searching a lot of material you don't need to keep around afterward, that's a subagent. If it's a procedure or a set of facts Claude should apply directly to whatever you're already discussing, that's a skill. A task that's both — heavy research plus a defined output format — is often a skill with context: fork, which gets you a subagent's isolation with a skill's invocation."
+---
+
+## Why this comparison is confusing in the first place
+
+Both mechanisms are things Claude can reach for on its own, both are defined
+in similar-looking markdown files under `.claude/`, and both show up in the
+same kind of discussion about "how do I get Claude to do X reliably." That
+surface similarity is where the confusion starts — they look like two
+competing answers to the same question, when they're actually answers to two
+different questions that happen to come up together in practice: "how do I
+keep this from filling my context" and "how do I make Claude apply this
+consistently."
+
+## The one-sentence answer
+
+A subagent isolates context. A skill adds knowledge in place. That's the
+entire distinction, and almost every other difference between them follows
+from it.
+
+When Claude delegates to a **subagent**, the work happens in a separate
+context window — its own system prompt, its own tool access, no visibility
+into your conversation so far. Only the subagent's final report comes back.
+When Claude uses a **skill**, nothing gets isolated: the skill's content is
+inserted directly into the conversation you're already having, as a message,
+and stays there for the rest of the session.
+
+## Can subagents use skills?
+
+Yes — this is the question most people asking "subagents vs skills" actually
+want answered, and it's not an either/or. There are two separate mechanisms:
+
+**Preloading.** A subagent's frontmatter can list skills to load in full at
+startup:
+
+```yaml
+---
+name: api-developer
+description: Implements API endpoints following team conventions.
+skills:
+  - api-conventions
+  - error-handling-patterns
+---
+
+Implement the requested endpoint, following the preloaded conventions.
+```
+
+The full content of each listed skill is injected into the subagent's
+context before it does anything else. This is for knowledge the subagent
+should have unconditionally, every time it runs — team conventions, a style
+guide, a fixed procedure.
+
+**Runtime discovery.** Without any `skills` field at all, a subagent still
+inherits the `Skill` tool by default, and can search for and invoke project,
+user, or plugin skills on its own during execution, exactly the way the main
+conversation does. Preloading isn't what grants skill access — it's a
+shortcut for skills you always want loaded. Omitting it doesn't cut the
+subagent off from skills; it just means the subagent decides at runtime
+whether it needs one.
+
+To actually block a subagent from skills, you have to do it deliberately:
+leave `Skill` out of its `tools` allowlist, or add it to `disallowedTools`.
+
+## What doesn't cross the isolation boundary
+
+Subagent isolation runs in both directions. What a subagent does *not*
+inherit from the main conversation:
+
+- Your conversation history
+- Files Claude already read in the main session
+- Skills already invoked earlier in the main conversation (unless preloaded
+  into the subagent explicitly)
+- Your output style and auto memory
+
+And what never comes back out of the subagent into your main conversation:
+
+- Every tool call and intermediate result it produced
+- The full text of any skill it loaded, preloaded or discovered
+- Anything beyond the final report Claude asked it to return
+
+That second list is the actual value proposition of a subagent. If a task
+needs to read forty files to answer one question, you want the forty files
+read somewhere that isn't your context window — and a subagent using a skill
+internally is still just a subagent, from your conversation's point of view.
+You see the summary either way.
+
+## When a skill spawns its own subagent
+
+The relationship also runs the other direction: a skill's frontmatter can
+set `context: fork`, which starts a new subagent and hands it the skill's
+content as its initial prompt.
+
+```yaml
+---
+name: code-review
+description: Review the current diff for defects.
+context: fork
+agent: Explore
+disable-model-invocation: true
+---
+
+Review the code changes and identify defects, ranked by severity.
+```
+
+This gets you a skill's invocation model — `/code-review`, or Claude
+triggering it by description match — combined with a subagent's isolation.
+It's the pattern worth reaching for when a task is both procedural (a skill's
+strength) and context-heavy (a subagent's strength), instead of picking one
+mechanism and living with its weak side.
+
+## What each one costs
+
+Neither mechanism is free, and the costs are different in kind, not just
+degree. A skill's cost is paid in your main conversation's context: once
+invoked, its full content sits there as a message for the rest of the
+session, competing for space with everything else. A [subagent's](/blog/claude-code-subagents)
+cost is paid in latency and, if it's running with a smaller model, in
+capability — spinning up a fresh context, doing the work, and summarizing
+back takes real time even for a task that wouldn't have taken long done
+inline.
+
+This is why "just use a subagent for everything, it's more isolated" is bad
+advice. A trivial lookup wrapped in subagent overhead is slower for no
+isolation benefit, since there was nothing to isolate. The isolation only
+pays for itself when the alternative — doing the work inline — would
+genuinely have polluted your context with output you don't need to keep.
+
+## How to actually decide
+
+Ask what the task produces, not what it's *about*:
+
+- **Produces a lot of intermediate material you won't reference again** —
+  logs, search results, file contents scanned to find one answer — use a
+  subagent. That material belongs in an isolated context, not yours.
+- **Produces instructions or facts Claude should apply directly to what
+  you're already discussing** — a checklist, a convention, a procedure — use
+  a skill. There's nothing to isolate; the point is for it to be part of the
+  conversation.
+- **Both** — heavy research *and* a defined, structured output — write a
+  skill with `context: fork`, or a subagent with preloaded skills. Don't
+  force a subagent to do a skill's job by making it "just answer directly,"
+  and don't force a skill to do a subagent's job by pasting search results
+  into the main conversation "just this once."
+
+## The mistake worth naming
+
+Reaching for a subagent to avoid writing a skill, because delegation feels
+like the more powerful tool. It isn't more powerful for every case — it's
+the isolation tool. A subagent for a task that produces one clear, reusable
+instruction just adds a round trip and a fresh context window for something
+that should have been added to your conversation directly. If what you
+actually wanted was "Claude, remember to always do X when Y," that's a
+skill, described well enough that Claude reaches for it — not a subagent you
+have to remember to invoke.
+
+The mirror-image mistake is writing an enormous skill that tries to do a
+subagent's job by instructing Claude to "read every file in this directory
+and summarize it" inline. That content still lands in your main context,
+defeating the reason you'd have reached for isolation in the first place.
+If a skill's instructions amount to "go gather a lot of material," that's
+the signal to add `context: fork` and let it run as a subagent instead of
+fighting your own context budget.
+
+For a wider view that also brings in slash commands and MCP servers, see the
+[four-way comparison](/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp).
+And if you're ready to write one rather than keep reading about the
+difference, the [free subagent generator](/claude-subagent-generator) turns
+a plain-language description into a working agent file, `skills` field
+included.
+
+<Callout>
+**Scoping subagents and skills correctly takes real trial and error the first few times:** the AgentsKit kits ship 89 agents and 103 skills already scoped and tested, so you're picking from working examples instead of guessing. [See what's included →](/#pricing)
+</Callout>

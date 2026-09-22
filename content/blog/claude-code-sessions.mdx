@@ -1,0 +1,212 @@
+---
+title: "Claude Code Sessions: Resuming, History, and Naming"
+description: "How Claude Code sessions work: resuming with --continue and --resume, where transcripts are stored, naming sessions, and finding old ones by branch or PR."
+intro: "A Claude Code session is a saved conversation tied to a project directory, written continuously to a local JSONL transcript as you work. Reopen the most recent one with claude --continue, browse all of them with claude --resume, or jump straight to a named one with claude --resume <name>. Transcripts live at ~/.claude/projects/<project>/<session-id>.jsonl by default."
+date: "2026-09-22"
+tag: "Sessions"
+icon: "🗂️"
+eyebrow: "Reference"
+crumb: "Sessions"
+targetKeyword: "claude code sessions"
+related:
+  - href: "/blog/claude-code-commands"
+    title: "Claude Code Commands: The Complete Reference"
+    desc: "/resume, /clear, /compact, and the rest of the built-ins that touch session state."
+  - href: "/blog/claude-code-subagents"
+    title: "Claude Code Subagents: The Complete Guide"
+    desc: "What a resumed session restores about its active subagents, and what it doesn't."
+  - href: "/claude-token-counter"
+    title: "Free Claude Token Counter"
+    desc: "Check how much of a long session's history is actually worth carrying forward."
+faq:
+  - q: "How do I resume my last Claude Code session?"
+    a: "Run claude --continue from the same project directory to reopen the most recent conversation. To pick from a list instead, run claude --resume, or use /resume inside an active session to switch conversations without restarting the CLI."
+  - q: "Where are Claude Code session transcripts stored?"
+    a: "By default at ~/.claude/projects/<project>/<session-id>.jsonl, where <project> is your working directory path with non-alphanumeric characters replaced by dashes. Each line is a JSON object for one message, tool call, or metadata entry. The format is internal and can change between releases, so scripts should use /export or the documented script interfaces rather than parsing the file directly."
+  - q: "How do I name a Claude Code session so I can find it later?"
+    a: "Pass -n when starting one, like claude -n auth-refactor, or run /rename inside an active session. Named sessions are resumable by that name with claude --resume <name> or /resume <name>, and the name shows in the session picker and the status line."
+  - q: "Can I resume a Claude Code session from a different directory?"
+    a: "Yes, with claude --resume <session-id>. Claude Code looks in the current project and its git worktrees first, then checks every other project on the machine, resolving the ID automatically as long as exactly one other project holds a transcript with messages for it. This needs Claude Code v2.1.223 or later; earlier versions only searched the current project and its worktrees."
+  - q: "What happens to permission mode when I resume a session?"
+    a: "It depends on how you resume. Plain terminal resume (--continue, --resume <session-id>, or --resume <name> with one match) restores the mode the session ended in, with some exceptions for bypassPermissions and auto mode. Picking a session from the interactive picker, or using /resume, does not restore the stored mode — it starts in whatever mode a brand-new session would use from that same command line."
+---
+
+## What counts as a session
+
+A session is a saved conversation, tied to the project directory you started
+it in. Claude Code writes it continuously to a local transcript as you work,
+so nothing about resuming later depends on a clean exit — you can quit,
+crash, or run `/clear`, and the prior conversation is still there to come
+back to. The CLI, the desktop app, [claude.ai/code](https://claude.ai/code),
+and the VS Code extension each keep their own session history; what follows
+covers the CLI.
+
+## Resuming a session
+
+Five entry points, depending on how precisely you know what you're looking
+for:
+
+| Command | What it does |
+| --- | --- |
+| `claude --continue` | Reopens the most recent conversation in the current directory |
+| `claude --resume` | Opens the interactive session picker |
+| `claude --resume <name>` | Resumes the named session directly |
+| `claude --resume <transcript-path>` | Resumes the conversation stored at that `.jsonl` path |
+| `/resume` | Switches to a different conversation from inside an active session |
+
+Sessions started with `claude -p` (non-interactive/headless) or the Agent SDK
+are left out of the picker and out of `--continue` — you resume one of those
+by passing its session ID directly to `claude --resume <session-id>`.
+
+A resumed session restores more than the message history: the model it was
+using (unless that model was retired or a `--model` flag overrides it at
+launch), the agent if it was started with `--agent`, the permission mode
+under most terminal-resume paths, any [active goal](/blog/claude-code-subagents),
+and scheduled tasks that haven't expired. It does not restore flags like
+`--mcp-config`, `--settings`, `--plugin-dir`, or `--add-dir` — pass those
+again if the session depended on them, since standard settings files are
+re-read at launch anyway and don't need repeating.
+
+## Where transcripts actually live
+
+By default: `~/.claude/projects/<project>/<session-id>.jsonl`, where
+`<project>` is your working directory's path with every non-alphanumeric
+character swapped for a dash. Each line is a JSON object — one message, tool
+call, or metadata entry.
+
+That format is internal to Claude Code and changes between releases without
+notice, so a script parsing the file directly can break on the next update.
+For anything programmatic, use the documented interfaces instead:
+
+- **`claude -p --output-format json`** to capture a run's result, session ID,
+  usage, and cost as structured JSON.
+- **`claude -p --resume <session-id>`** to send a follow-up prompt to an
+  existing session and capture the response, for example piping a summary
+  request through `jq`.
+- **The `transcript_path` field** that hooks and status-line commands receive
+  as input, useful for a `SessionEnd` hook that archives the transcript.
+- **`/export`**, for a human-readable rendering rather than structured data.
+
+A few environment variables and settings control storage: `CLAUDE_CONFIG_DIR`
+moves it off `~/.claude`, `cleanupPeriodDays` changes the default 30-day
+retention, and `CLAUDE_CODE_SKIP_PROMPT_HISTORY` suppresses transcript writes
+entirely if you don't want a record kept.
+
+## Naming sessions
+
+An unnamed session still gets two labels automatically — a default display
+name combining your working directory with a short suffix, and, unless
+you're running `claude -p` directly from a script, a generated title
+summarizing your first prompt. Neither of those is a reliable resume handle:
+the default display name specifically isn't one, and passing it to
+`--resume` won't find the session.
+
+To make a session resumable by a name you choose:
+
+| When | How |
+| --- | --- |
+| At startup | `claude -n auth-refactor` |
+| Mid-session | `/rename auth-refactor` |
+| From the session picker | Highlight it, press `Ctrl+R` |
+| Accepting a plan | Generates a title from the plan automatically, unless already named |
+
+Once set, `claude --resume auth-refactor` or `/resume auth-refactor` finds it
+directly. If you start or rename a session into a name another live session
+on the machine already holds, Claude Code leaves the name with the session
+that had it first and appends a two-word suffix to yours instead, like
+`auth-refactor-graceful-unicorn`, telling you when it happens.
+
+## Resuming a session that's gone cold
+
+On a Pro or Max plan, resuming a session that's been inactive for more than
+about an hour and is over 100,000 tokens triggers a dialog before your first
+message goes through, because the prompt cache backing that conversation has
+already expired. You get three options, and they trade completeness for
+per-request cost, not correctness:
+
+- **Resume from summary** — runs `/compact` immediately: one summarization
+  request over the full history, then later requests carry the summary, your
+  most recent exchanges, and up to five recently read files instead of
+  everything.
+- **Resume full session as-is** — loads the conversation unchanged. Claude
+  Code reprocesses and re-caches the full history on your next message, then
+  serves it from cache on subsequent ones while that cache stays warm.
+- **Don't ask me again** — resumes as-is and stops showing the dialog for
+  every future resume.
+
+Whichever you pick, the first request after a cold resume pays the full
+reprocessing cost once — the dialog only decides what later requests in that
+session carry forward. Resuming as-is keeps every detail available at a
+higher steady-state cost per request; resuming from summary is cheaper per
+request but whatever the summary drops is gone from Claude's context. If a
+session's history matters — you're mid-debugging and need the specific
+values you saw twenty tool calls ago — resume as-is. If you're picking up a
+finished feature to make one more small change, the summary is usually
+enough.
+
+## Using the session picker
+
+`claude --resume` with no arguments, or `/resume` inside a session, opens an
+interactive list. It defaults to sessions from your current worktree, plus
+any that added the current directory with `/add-dir`. From there:
+
+- `Ctrl+W` widens to every worktree of the current repository
+- `Ctrl+A` widens to every project on the machine
+- `Ctrl+B` filters to the current git branch
+- Typing any character enters search — and pasting a GitHub, GitLab, or
+  Bitbucket pull/merge request URL finds the session that created it
+
+That last one is worth knowing on its own: if you can't remember what you
+named a session but you remember which PR came out of it, paste the PR URL
+into the picker's search instead of scrolling.
+
+## Managing context without leaving the session
+
+Three commands control what's actually in the context window, separate from
+resuming or branching:
+
+- **`/clear`** starts an empty conversation. The previous one is saved and
+  still resumable through `/resume` or the rewind menu — `/clear` doesn't
+  delete anything, it just stops carrying the old history forward.
+- **`/compact [instructions]`** replaces the history with a summary, letting
+  you focus what survives with an optional instruction, like
+  `/compact keep the API contract details`.
+- **`/context`** shows what's currently consuming the context window, which
+  is the fastest way to check whether a session is worth compacting or
+  clearing before you keep going.
+
+These matter for the same reason the cold-resume dialog does: a session
+that's technically still "alive" isn't automatically the cheapest or clearest
+way to continue. If a conversation has wandered through several unrelated
+problems, `/clear` and starting the next one fresh is often faster than
+`/compact`-ing a summary of work you don't need summarized. Checking with the
+[free token counter](/claude-token-counter) before a long paste is one way to
+catch a session that's about to get expensive before it happens rather than
+after.
+
+## Branching instead of resuming
+
+`/branch` copies the conversation so far into a new session and switches you
+into it, leaving the original untouched — useful for trying a different
+approach without losing the path you were already on. From the command line,
+`claude --continue --fork-session` does the same thing. The confirmation
+after `/branch` prints both session IDs, so you can always get back to the
+original with `/resume <original-name>`.
+
+Branching, unlike a plain resume, carries over in-flight background
+subagents and Bash commands — they keep running, and their output lands in
+whichever session you're currently in, not the one you branched from.
+
+## The mistake worth naming
+
+Letting every session go unnamed and then hunting through the picker by
+scrollback later. The picker shows enough — time since last activity, branch,
+first-prompt summary — that this mostly works for a session or two back, and
+falls apart once you're juggling four or five things in parallel across
+worktrees. A two-second `-n` at startup is cheaper than the search later, and
+it's the difference between `claude --resume payment-retry-fix` and
+scrolling a list guessing which "fix the retry logic" entry is the right one.
+
+<Callout>
+**Long sessions burn tokens fast even before you factor in resuming from a summary:** check what a conversation's history is actually costing you with the [free Claude token counter](/claude-token-counter), or see the [AgentsKit bundle](/#pricing) for kits built to keep sessions focused in the first place.
+</Callout>
