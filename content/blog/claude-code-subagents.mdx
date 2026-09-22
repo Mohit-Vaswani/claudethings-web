@@ -1,0 +1,131 @@
+---
+title: "Claude Code Subagents: The Complete Guide"
+description: "What a Claude Code subagent actually is, the frontmatter schema, how delegation and context isolation work, and when writing one is worth it."
+intro: "A Claude Code subagent is a specialized assistant with its own context window, system prompt, and tool permissions, defined as a markdown file in .claude/agents/ or ~/.claude/agents/. Claude delegates to one automatically when a task matches its description, or you invoke it directly with @agent-name. It returns only a summary, keeping exploration out of your main conversation."
+date: "2026-09-21"
+tag: "Agents"
+icon: "🤖"
+eyebrow: "Reference"
+crumb: "Subagents"
+targetKeyword: "claude code subagents"
+related:
+  - href: "/claude-subagent-generator"
+    title: "Free Subagent Generator"
+    desc: "Describe the specialist you want, get a working agent file."
+  - href: "/blog/claude-code-commands"
+    title: "Claude Code Commands Reference"
+    desc: "The /agents command and every other built-in, in one place."
+  - href: "/blog/claude-code-skills-vs-subagents-vs-slash-commands-vs-mcp"
+    title: "Skills vs Subagents vs Commands vs MCP"
+    desc: "Which extension mechanism to reach for, and when."
+faq:
+  - q: "What is the difference between a Claude Code subagent and a skill?"
+    a: "A subagent runs in its own isolated context window and returns a summary to the main conversation — use it to keep exploration or research from flooding your context. A skill loads knowledge and instructions directly into the current conversation when its description matches the task. Subagents isolate context; skills add knowledge in place."
+  - q: "Can Claude Code subagents use skills?"
+    a: "Yes. A subagent's frontmatter can list skills to preload their full content at startup, and a running subagent can also discover and invoke project, user, and plugin skills on its own through the Skill tool, the same way the main conversation does."
+  - q: "Do Claude Code subagents see my conversation history?"
+    a: "No, with one exception. A regular subagent starts with a fresh context: its own system prompt, the delegation task Claude writes, the CLAUDE.md hierarchy, and a snapshot of git status — not your prior conversation, not files Claude already read, not your auto memory. A forked subagent is the exception; it inherits the parent's full context by design."
+  - q: "How many subagents can run at once in Claude Code?"
+    a: "20 concurrently by default, controlled by the CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS environment variable. Nesting is separately capped at three layers below the main conversation by default, via CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH."
+  - q: "Where do I create a custom Claude Code subagent?"
+    a: "Add a markdown file to .claude/agents/ for a project-specific subagent shared through git, or ~/.claude/agents/ for a personal one available in every project. Both directories are scanned recursively, so subfolders like agents/review/ work. The /agents command opens an interactive manager for creating and editing them without hand-writing the file."
+---
+
+## What is a Claude Code subagent?
+
+A subagent is a specialized version of Claude with its own context window, its own system prompt, a restricted set of tools, and independent permissions. The point is isolation: when a task would fill your main conversation with search results, log output, or file contents you'll never need again, a subagent does that digging in a separate context and hands back only what matters.
+
+This is different from just asking Claude to "be careful" about context. The subagent's transcript — every tool call, every file it reads — genuinely never enters your main conversation. Only its final report does.
+
+## Where do subagent files live?
+
+Two locations cover almost every use case:
+
+- **`.claude/agents/`** — project-scoped, checked into version control, shared with your team.
+- **`~/.claude/agents/`** — personal, available across every project on your machine.
+
+Both are scanned recursively, so grouping related subagents in subfolders (`agents/review/`, `agents/research/`) works fine. Plugins can also ship subagents in their own `agents/` directory, and organizations can deploy them through managed settings — those sit at higher and lower priority respectively when names collide.
+
+## What does a subagent file look like?
+
+One markdown file, YAML frontmatter on top, system prompt as the body:
+
+```markdown
+---
+name: code-reviewer
+description: Reviews code for quality and security issues. Use proactively after writing or modifying code.
+tools: Read, Glob, Grep
+model: sonnet
+---
+
+You are a code reviewer. When invoked, analyze the changed code and
+report specific, actionable defects — not style preferences. Rank
+findings by severity.
+```
+
+The filename doesn't matter for invocation; `name` in the frontmatter is what you type or `@`-mention.
+
+## Frontmatter reference
+
+| Field | Required | Purpose |
+| --- | --- | --- |
+| `name` | Yes | Lowercase letters and hyphens only. Becomes `agent_type` in hooks. |
+| `description` | Yes | What Claude reads to decide whether to delegate here. |
+| `tools` | No | Allowlist. Omit it and the subagent inherits the full set available to subagents. |
+| `disallowedTools` | No | Denylist, applied after `tools` or the inherited default. |
+| `model` | No | `sonnet`, `opus`, `haiku`, `fable`, a full model ID, or `inherit` for the main conversation's model. |
+| `permissionMode` | No | `default`, `acceptEdits`, `auto`, `dontAsk`, `bypassPermissions`, or `plan`. |
+| `skills` | No | Skills to preload — full content injected into the subagent's context at startup. |
+| `maxTurns` | No | Caps agentic turns before the subagent stops and marks its output partial. |
+
+## How does Claude decide to delegate to a subagent?
+
+Off the `description` field, matched against what your request needs and the current context. This is why a vague description ("helps with code") gets ignored and a specific one gets used: Claude is pattern-matching your task against that text, not the subagent's name. Adding a phrase like "use proactively" to the description measurably increases how often Claude reaches for it without being asked.
+
+## How do I invoke a subagent explicitly?
+
+Three ways, in order of how much control you want:
+
+1. **Natural language** — "use the code-reviewer agent on this diff" lets Claude decide whether and how to phrase the delegation.
+2. **`@`-mention** — type `@` and pick from the list, or write `@agent-code-reviewer` directly, to guarantee that specific subagent runs for this one request.
+3. **Session-wide** — `claude --agent code-reviewer` on the command line, or `"agent": "code-reviewer"` in `.claude/settings.json`, makes it the primary agent for the whole session.
+
+## Do subagents share context with the main conversation?
+
+No — a non-forked subagent starts clean. It gets its own system prompt plus environment details, the task message Claude writes when delegating, the CLAUDE.md hierarchy (unless the subagent sets `omitClaudeMd: true`), a git status snapshot from when the parent session started, and the full content of any skills listed in its `skills` field.
+
+What it does not get: your conversation history, files Claude already read, skills already invoked earlier in the session, or your output style preferences. That isolation is the entire feature — it's what keeps a research-heavy subagent from bloating the context you're actually working in.
+
+## Can subagents call other subagents?
+
+Yes, up to three layers below the main conversation by default. A subagent that itself needs to split work into parallel subtasks can spawn its own subagents, and so on, until it hits the configured depth limit — at which point Claude Code withholds the ability to spawn further ones. The limit is adjustable with the `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` environment variable, and setting it to `1` disables nesting entirely.
+
+## What are the built-in subagents?
+
+Claude Code ships a few that auto-load and can't be renamed:
+
+- **Explore** — read-only file discovery and code search, skips CLAUDE.md and git status to stay fast.
+- **Plan** — read-only research used to build a plan before presenting it in plan mode.
+- **general-purpose** — broader research and multi-step work, with the full subagent tool set.
+
+Explore and Plan are one-shot: unlike a custom subagent, they don't return an ID you can resume. If you need a subagent you'll come back to and extend, use `general-purpose` or a custom one instead.
+
+## Can I resume a subagent after it finishes?
+
+Yes, for custom subagents and `general-purpose` — not for Explore or Plan, which return no ID to resume. After a subagent completes, Claude has its agent ID or name and can send it another message to continue exactly where it left off: "continue that code review and now check the authorization logic" picks the same subagent back up with its full prior conversation, tool calls, and results intact. This is worth knowing before you reach for a fresh subagent every time — resuming keeps the context that subagent already built instead of re-deriving it.
+
+## What's a good first subagent to write?
+
+Something narrow with a clear trigger, not a generalist. A `code-reviewer` scoped to `Read, Glob, Grep` with no edit access is a safe first one: it can't touch your files, its job is obvious from its description, and you'll feel the context-isolation benefit immediately on any diff bigger than a few files. A research-only subagent for a specific, recurring lookup — checking a changelog, summarizing a log directory — is the other common starting point, because that's exactly the kind of task that otherwise fills your main conversation with output you only need once.
+
+Avoid starting with a subagent that needs write access and broad judgment calls. Those are harder to scope correctly, and a bad first experience with an overpowered subagent is usually what convinces people subagents "don't work," when the actual issue is the description and tool list being too wide.
+
+<Callout>
+**Writing every subagent by hand gets old fast:** the AgentsKit kits ship 89 agents already scoped, tool-restricted, and model-matched — alongside 103 skills and 181 commands. [See what's included →](/#pricing)
+</Callout>
+
+## The mistake almost everyone makes
+
+Writing a subagent whose `description` restates its `name`. `description: "Code reviewer agent"` on a subagent named `code-reviewer` tells Claude nothing it doesn't already know, so delegation happens inconsistently — Claude has no signal for *when* this is the right tool versus just doing the work inline.
+
+The description is the only thing Claude sees when deciding to delegate before it has read your subagent's system prompt. Write it like you're briefing a coworker on when to hand this off, not what the agent is called: "Reviews a diff for security and correctness issues; use after any change touching auth, payments, or user input." That sentence does the actual work. The name is just an address.
