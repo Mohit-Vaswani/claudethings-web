@@ -502,17 +502,6 @@ body:has(.nx-page)::before{content:none}
   .nx-say-dot-fill i{animation:none;transform:scaleX(1)}
 }
 
-/* ---------- problem cards ---------- */
-.nx-prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:46px}
-.nx-prob{
-  background:var(--nx-bg2);border:1px solid var(--nx-line);border-radius:16px;padding:26px;
-  box-shadow:var(--nx-sh-sm);transition:transform .3s var(--nx-ease),box-shadow .3s var(--nx-ease);
-}
-.nx-prob:hover{transform:translateY(-3px);box-shadow:var(--nx-sh-md)}
-.nx-prob h3{font-family:var(--font-display);font-weight:400;font-size:1.35rem;letter-spacing:normal;margin-bottom:10px;display:flex;gap:10px;align-items:baseline;color:var(--nx-text)}
-.nx-prob h3 .x{color:var(--nx-red);font-family:var(--font-mono);font-size:.7em}
-.nx-prob p{color:var(--nx-dim);font-size:13.5px;line-height:1.65}
-
 /* ---------- feature rows (media + text, alternating) ---------- */
 .nx-rows{display:flex;flex-direction:column;gap:14px;margin-top:52px}
 .nx-row{
@@ -627,92 +616,6 @@ body:has(.nx-page)::before{content:none}
 .nx-num b{font-family:var(--font-display);font-weight:400;font-size:clamp(2.9rem,6vw,4.2rem);line-height:1;letter-spacing:-.02em;display:block;margin-bottom:10px;font-variant-numeric:tabular-nums;color:var(--nx-text)}
 .nx-num span{font-family:var(--font-mono);font-size:10px;color:var(--nx-dim);text-transform:uppercase;letter-spacing:.16em}
 .nx-num::after{content:"";position:absolute;top:28px;right:28px;width:20px;height:8px;background:repeating-linear-gradient(90deg,var(--nx-accent) 0 2px,transparent 2px 5px)}
-
-/* ---------- how it works ---------- */
-.nx-hiw{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
-@media(max-width:820px){.nx-hiw{grid-template-columns:1fr;gap:34px}}
-.nx-hiw-left{position:sticky;top:120px}
-@media(max-width:820px){.nx-hiw-left{position:static}}
-.nx-steps{display:flex;flex-direction:column;gap:14px}
-.nx-step{
-  border:1px solid var(--nx-line);border-radius:16px;padding:28px;background:var(--nx-bg2);
-  display:flex;gap:22px;box-shadow:var(--nx-sh-sm);
-  transition:transform .3s var(--nx-ease),box-shadow .3s var(--nx-ease);
-}
-.nx-step:hover{transform:translateY(-3px);box-shadow:var(--nx-sh-md)}
-.nx-step .n{
-  font-family:var(--font-mono);color:var(--nx-accent);font-size:12px;flex:none;
-  width:42px;height:42px;display:grid;place-items:center;
-  border:1px solid var(--nx-line);border-radius:12px;background:var(--nx-panel);
-}
-.nx-step h3{font-family:var(--font-display);font-weight:400;letter-spacing:normal;font-size:1.45rem;margin-bottom:7px;color:var(--nx-text)}
-.nx-step p{color:var(--nx-dim);font-size:13.5px;line-height:1.65;max-width:46ch}
-.nx-step code{font-family:var(--font-mono);font-size:12px;color:var(--nx-text);background:var(--nx-panel);border:1px solid var(--nx-line2);padding:1px 6px;border-radius:5px}
-
-/* ---------- benefits grid ---------- */
-.nx-feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px}
-@media(max-width:880px){.nx-feat-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.nx-feat-grid{grid-template-columns:1fr}}
-.nx-feat{
-  background:var(--nx-bg2);border:1px solid var(--nx-line);border-radius:16px;padding:28px;
-  box-shadow:var(--nx-sh-sm);transition:transform .3s var(--nx-ease),box-shadow .3s var(--nx-ease);
-}
-.nx-feat:hover{transform:translateY(-3px);box-shadow:var(--nx-sh-md)}
-.nx-feat .fi{
-  width:44px;height:44px;display:grid;place-items:center;font-size:17px;margin-bottom:20px;
-  background:var(--nx-panel);border:1px solid var(--nx-line);border-radius:12px;
-  font-family:var(--font-mono);color:var(--nx-accent);transition:transform .35s var(--nx-ease);
-}
-.nx-feat:hover .fi{transform:rotate(-6deg) scale(1.06)}
-.nx-feat h3{font-family:var(--font-display);font-weight:400;font-size:1.35rem;letter-spacing:normal;margin-bottom:8px;color:var(--nx-text)}
-.nx-feat p{color:var(--nx-dim);font-size:13.5px;line-height:1.65}
-.nx-feat code{font-family:var(--font-mono);font-size:11.5px;color:var(--nx-text);background:var(--nx-panel);border:1px solid var(--nx-line2);padding:1px 5px;border-radius:5px}
-
-/* ---------- comparison ---------- */
-.nx-cmp{margin:48px auto 0;max-width:860px;border:1px solid var(--nx-line);border-radius:18px;overflow:hidden;background:var(--nx-bg2);box-shadow:var(--nx-sh-sm)}
-.nx-cmp table{width:100%;border-collapse:collapse;font-size:13.5px}
-.nx-cmp th,.nx-cmp td{padding:16px 20px;border-bottom:1px solid var(--nx-line2)}
-.nx-cmp tr:last-child td{border-bottom:none}
-.nx-cmp thead th{
-  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;
-  color:var(--nx-faint);font-weight:500;text-align:center;background:var(--nx-panel);
-}
-.nx-cmp thead th:first-child{text-align:left}
-.nx-cmp thead th:last-child{color:var(--nx-accent);background:var(--nx-panel2)}
-.nx-cmp td:first-child{color:var(--nx-dim);text-align:left}
-.nx-cmp td{text-align:center;color:var(--nx-faint)}
-.nx-cmp td:last-child{color:var(--nx-text);font-weight:500;background:rgba(217,69,26,.05)}
-.nx-cmp .no{color:var(--nx-red);font-family:var(--font-mono);font-size:12px}
-.nx-cmp .yes{color:var(--nx-green);font-family:var(--font-mono);font-size:12px;margin-right:7px}
-.nx-cmp-foot{
-  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
-  padding:22px;border-top:1px solid var(--nx-line2);background:var(--nx-panel);
-}
-.nx-cmp-foot p{color:var(--nx-dim);font-size:13px;line-height:1.55;margin:0}
-.nx-cmp-foot b{color:var(--nx-text);font-weight:600;display:block;font-size:14.5px;margin-bottom:2px}
-/* phones: three columns can't fit, and side-scrolling hid the AgentsKit column
-   (the one that sells) off the right edge — stack each row into a labelled card.
-   The ::before labels mirror the <thead> cells; keep them in sync. */
-@media(max-width:640px){
-  .nx-cmp table,.nx-cmp tbody,.nx-cmp tr,.nx-cmp td{display:block;width:100%}
-  .nx-cmp thead{display:none}
-  .nx-cmp tr{border-bottom:1px solid var(--nx-line2);padding:6px 0}
-  .nx-cmp tbody tr:last-child{border-bottom:none}
-  .nx-cmp td{border-bottom:none;padding:7px 18px;text-align:left}
-  .nx-cmp td:first-child{color:var(--nx-text);font-weight:600;padding-top:14px}
-  .nx-cmp td:not(:first-child){
-    display:flex;align-items:baseline;gap:12px;
-    font-size:13px;padding-left:18px;
-  }
-  .nx-cmp td:not(:first-child)::before{
-    flex:none;width:88px;
-    font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--nx-faint);
-  }
-  .nx-cmp td:nth-child(2)::before{content:"Other kits"}
-  .nx-cmp td:nth-child(3)::before{content:"AgentsKit"}
-  .nx-cmp td:last-child{background:transparent;padding-bottom:14px}
-}
 
 /* ---------- pricing ---------- */
 /* The launch ladder. Three stacked parts — the "cost of waiting" headline,
@@ -1015,16 +918,189 @@ body:has(.nx-page)::before{content:none}
 .nx-disclaimer{border-top:1px solid var(--nx-line);padding-top:26px;color:var(--nx-faint);font-size:12px;line-height:1.7;max-width:84ch}
 .nx-disclaimer b{color:var(--nx-dim)}
 
+/* ---------- kit explorer — tabbed "everything you get" browser ---------- */
+.nx-xh{max-width:26ch}
+.nx-xlead{max-width:58ch;margin-top:20px}
+
+/* the kit name is a control: click it and the whole grid swaps kits */
+.nx-swap{
+  display:inline-flex;align-items:baseline;gap:.28em;
+  font-family:inherit;font-size:inherit;font-weight:inherit;line-height:1;
+  color:var(--nx-accent);cursor:pointer;
+  background:var(--nx-panel);border:1px solid var(--nx-line);
+  border-radius:16px;padding:.06em .3em .12em;margin:0 .04em;
+  transition:background .25s var(--nx-ease),border-color .25s var(--nx-ease),
+             transform .25s var(--nx-ease),box-shadow .3s var(--nx-ease);
+}
+.nx-swap:hover{background:var(--nx-panel2);border-color:rgba(217,69,26,.34);
+  transform:translateY(-2px);box-shadow:var(--nx-sh-sm)}
+.nx-swap .sw{font-family:var(--font-mono);font-size:.42em;color:var(--nx-faint);
+  transition:transform .35s var(--nx-ease),color .25s}
+.nx-swap:hover .sw{transform:rotate(180deg);color:var(--nx-accent)}
+.nx-swap:focus-visible{outline:2px solid var(--nx-accent);outline-offset:3px}
+
+/* segmented control, shared by the explorer tabs and the ledger switch */
+.nx-tabs,.nx-switch{
+  display:inline-flex;gap:4px;margin:30px auto 0;padding:5px;
+  background:var(--nx-bg2);border:1px solid var(--nx-line);
+  border-radius:999px;box-shadow:var(--nx-sh-sm);max-width:100%;
+}
+.nx-tab,.nx-switch button{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--font-body);font-size:13.5px;font-weight:600;
+  color:var(--nx-dim);background:transparent;border:0;cursor:pointer;
+  padding:10px 20px;border-radius:999px;white-space:nowrap;
+  transition:background .25s var(--nx-ease),color .25s,box-shadow .3s var(--nx-ease);
+}
+.nx-tab:hover,.nx-switch button:hover{color:var(--nx-text)}
+.nx-tab.on,.nx-switch button.on{
+  background:var(--nx-ink-btn);color:var(--nx-ink-btn-fg);box-shadow:var(--nx-sh-sm);
+}
+.nx-tab .n{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;
+  color:var(--nx-faint);background:var(--nx-panel);
+  border-radius:100px;padding:2px 8px;transition:background .25s,color .25s;
+}
+.nx-tab.on .n{background:rgba(246,243,238,.15);color:rgba(246,243,238,.82)}
+
+/* narrow phones: the segmented controls have to fit the gutter, not clip */
+@media(max-width:480px){
+  .nx-tab,.nx-switch button{padding:9px 13px;font-size:12.5px;gap:7px}
+  .nx-tab .n{font-size:9px;padding:2px 6px}
+  .nx-tabs,.nx-switch{padding:4px;gap:3px}
+}
+
+.nx-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:46px}
+@media(max-width:880px){.nx-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.nx-cards{grid-template-columns:1fr}}
+.nx-card{
+  background:var(--nx-bg2);border:1px solid var(--nx-line);border-radius:16px;
+  padding:24px 22px;box-shadow:var(--nx-sh-sm);text-align:left;
+  transition:transform .26s var(--nx-ease),box-shadow .3s var(--nx-ease),border-color .26s;
+  animation:nxCardIn .5s var(--nx-ease) both;
+}
+.nx-card:hover{transform:translateY(-3px);box-shadow:var(--nx-sh-md);border-color:rgba(23,20,15,.2)}
+.nx-card:nth-child(2){animation-delay:.04s}
+.nx-card:nth-child(3){animation-delay:.08s}
+.nx-card:nth-child(4){animation-delay:.12s}
+.nx-card:nth-child(5){animation-delay:.16s}
+.nx-card:nth-child(6){animation-delay:.2s}
+.nx-card:nth-child(7){animation-delay:.24s}
+.nx-card:nth-child(8){animation-delay:.28s}
+.nx-card:nth-child(9){animation-delay:.32s}
+@keyframes nxCardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.nx-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.nx-card .ic{
+  width:38px;height:38px;flex:none;display:grid;place-items:center;
+  font-size:15px;color:var(--nx-accent);
+  background:var(--nx-panel);border:1px solid var(--nx-line2);border-radius:11px;
+  transition:transform .3s var(--nx-ease),background .25s;
+}
+.nx-card:hover .ic{transform:rotate(-8deg) scale(1.06);background:var(--nx-panel2)}
+.nx-card .tg{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--nx-faint);background:var(--nx-panel);border:1px solid var(--nx-line2);
+  border-radius:100px;padding:5px 11px;white-space:nowrap;
+}
+.nx-card h3{
+  font-family:var(--font-mono);font-size:14px;font-weight:500;letter-spacing:-.01em;
+  color:var(--nx-text);margin:0 0 9px;overflow-wrap:anywhere;
+}
+.nx-card p{color:var(--nx-dim);font-size:13.3px;line-height:1.62;margin:0}
+.nx-cards-foot{
+  text-align:center;margin:26px auto 0;max-width:60ch;
+  font-size:12.5px;line-height:1.7;color:var(--nx-faint);
+}
+.nx-cards-foot code{
+  font-family:var(--font-mono);font-size:11.5px;color:var(--nx-text);
+  background:var(--nx-panel);border:1px solid var(--nx-line2);padding:2px 7px;border-radius:6px;
+}
+
+/* ---------- cost ledger — the bill you skip ---------- */
+.nx-ledger{display:grid;grid-template-columns:1.22fr .88fr;gap:52px;align-items:start;margin-top:52px}
+@media(max-width:920px){.nx-ledger{grid-template-columns:1fr;gap:36px}}
+.nx-ledger-rows{list-style:none;margin:0;padding:0 0 0 4px;position:relative}
+.nx-ledger-rows::before{
+  content:"";position:absolute;left:15px;top:14px;bottom:14px;width:1px;
+  background:repeating-linear-gradient(180deg,var(--nx-line) 0 4px,transparent 4px 9px);
+}
+.nx-lrow{
+  display:grid;grid-template-columns:24px auto 1fr;align-items:center;gap:14px;
+  padding:7px 0;animation:nxCardIn .45s var(--nx-ease) both;
+}
+.nx-lrow:nth-child(2){animation-delay:.03s}
+.nx-lrow:nth-child(3){animation-delay:.06s}
+.nx-lrow:nth-child(4){animation-delay:.09s}
+.nx-lrow:nth-child(5){animation-delay:.12s}
+.nx-lrow:nth-child(6){animation-delay:.15s}
+.nx-lrow:nth-child(7){animation-delay:.18s}
+.nx-lrow:nth-child(8){animation-delay:.21s}
+.nx-lrow:nth-child(9){animation-delay:.24s}
+.nx-lrow .mk{
+  position:relative;z-index:1;width:24px;height:24px;display:grid;place-items:center;
+  font-family:var(--font-mono);font-size:12px;color:var(--nx-faint);
+  background:var(--nx-bg);border-radius:50%;
+}
+.nx-ledger.nx-on .nx-lrow .mk{color:var(--nx-green)}
+.nx-lrow .cost{
+  font-family:var(--font-mono);font-size:11.5px;color:var(--nx-text);
+  background:var(--nx-bg2);border:1px solid var(--nx-line);border-radius:9px;
+  padding:7px 12px;white-space:nowrap;box-shadow:var(--nx-sh-sm);
+  min-width:84px;text-align:center;  /* keeps the price column aligned row to row */
+}
+.nx-ledger.nx-on .nx-lrow .cost{
+  color:var(--nx-accent);background:rgba(217,69,26,.06);border-color:rgba(217,69,26,.26);
+}
+.nx-lrow .job{color:var(--nx-dim);font-size:13.5px;line-height:1.5}
+@media(max-width:560px){
+  .nx-lrow{grid-template-columns:24px 1fr;row-gap:7px;padding:10px 0}
+  .nx-lrow .cost{justify-self:start}
+  .nx-lrow .job{grid-column:2/-1}
+}
+
+.nx-seal-wrap{
+  position:sticky;top:120px;text-align:center;
+  background:var(--nx-bg2);border:1px solid var(--nx-line);border-radius:20px;
+  padding:34px 28px 30px;box-shadow:var(--nx-sh-md);
+}
+@media(max-width:920px){.nx-seal-wrap{position:static}}
+.nx-seal{position:relative;width:190px;height:190px;margin:0 auto 22px;display:grid;place-items:center}
+.nx-seal .ring{
+  position:absolute;inset:0;border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,var(--nx-line) 0deg .7deg,transparent .7deg 6deg);
+  -webkit-mask:radial-gradient(circle,transparent 63%,#000 64%);
+  mask:radial-gradient(circle,transparent 63%,#000 64%);
+  animation:nxSpin 90s linear infinite;
+}
+.nx-ledger.nx-on .nx-seal .ring{
+  background:repeating-conic-gradient(from 0deg,rgba(217,69,26,.5) 0deg .9deg,transparent .9deg 6deg);
+}
+@keyframes nxSpin{to{transform:rotate(360deg)}}
+.nx-seal .core{position:relative;z-index:1}
+.nx-seal .core b{
+  display:block;font-family:var(--font-display);font-weight:400;
+  font-size:clamp(2.8rem,7vw,3.6rem);line-height:1;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;color:var(--nx-text);
+}
+.nx-ledger.nx-on .nx-seal .core b{color:var(--nx-accent)}
+.nx-seal .core span{
+  display:block;margin-top:8px;font-family:var(--font-mono);font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--nx-faint);
+}
+.nx-seal-note{
+  color:var(--nx-dim);font-size:13px;line-height:1.65;
+  max-width:36ch;margin:0 auto 22px;
+}
+
 /* ---------- small-screen hardening ---------- */
 /* grid/flex items default to min-width:auto, so one long unbreakable token
    (e.g. the npx install command) stretches its whole column past the viewport */
-.nx-hiw > *,.nx-faq-split > *,.nx-sec-split > *,.nx-row > *,.nx-kits > *,
-.nx-price-grid > *,.nx-prob-grid > *,.nx-feat-grid > *,.nx-numbers > *{min-width:0}
+.nx-faq-split > *,.nx-sec-split > *,.nx-row > *,.nx-kits > *,
+.nx-price-grid > *,.nx-numbers > *,
+.nx-cards > *,.nx-ledger > *,.nx-lrow > *{min-width:0}
 .nx-page code{overflow-wrap:anywhere}
 @media(max-width:420px){
   .nx-wrap{padding:0 18px}
-  .nx-step{padding:22px 20px;gap:16px}
-  .nx-step .n{width:34px;height:34px}
   .nx-kit{padding:26px 22px}
   .nx-kit-stats{gap:20px}
   .nx-plan-head,.nx-plan-buy{padding-left:20px;padding-right:20px}

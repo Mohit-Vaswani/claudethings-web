@@ -37,6 +37,286 @@ const MARQUEE_AGENTS: [string, string][] = [
   ["cmd", "/email-sequence"],
 ];
 
+/* =====================================================================
+   KIT EXPLORER — the "everything you get" browser.
+   Two axes, because that is genuinely how the product is shaped: which
+   kit you installed (engineer / marketing) and which kind of component
+   you are looking at (agents / skills / commands). Every card below is a
+   real file in the kit, so the grid can never drift from what ships.
+   ===================================================================== */
+
+type ExplorerCard = { ic: string; tag: string; name: string; body: string };
+type ExplorerKit = "engineer" | "marketing";
+type ExplorerTab = "agents" | "skills" | "commands";
+
+const EXPLORER: Record<ExplorerKit, Record<ExplorerTab, ExplorerCard[]>> = {
+  engineer: {
+    agents: [
+      { ic: "◈", tag: "Orchestrator", name: "tech-lead", body: "Takes the messy ask, breaks it into a plan, and hands each piece to the specialist that should own it. Your entry point for anything non-trivial." },
+      { ic: "⊞", tag: "Release gate", name: "shipper", body: "The last pair of eyes before anything goes out. Runs the checks, catches the half-finished work, and refuses the release when it isn't ready." },
+      { ic: "⌸", tag: "Backend", name: "backend-architect", body: "Designs the data model and the service boundaries before a line of it gets written, so you aren't unpicking the schema three sprints later." },
+      { ic: "◫", tag: "Frontend", name: "react-specialist", body: "Components, state and rendering paths that survive a real app. Pairs with nextjs-developer and ui-ux-designer for full-surface work." },
+      { ic: "⌖", tag: "Firefight", name: "debugger", body: "Reproduces first, theorises second. Works the stack trace down to the actual line instead of rewriting code until the symptom moves." },
+      { ic: "⊘", tag: "Quality", name: "code-reviewer", body: "Reads the diff the way a senior would: correctness, then the shortcut you took at 1am, then the thing that will page you later." },
+      { ic: "⚿", tag: "Security", name: "security-auditor", body: "Threat-models the change and hunts the boring vulnerabilities — authz holes, injection, leaked secrets — with penetration-tester on call." },
+      { ic: "⌗", tag: "Data", name: "postgres-pro", body: "Indexes, query plans and migrations. Works alongside database-optimizer and sql-pro when the slow page turns out to be the database." },
+      { ic: "⛁", tag: "Infra", name: "sre-engineer", body: "Deploys, rollbacks, alerting and the incident path. terraform-specialist and kubernetes-specialist handle the substrate underneath." },
+    ],
+    skills: [
+      { ic: "▤", tag: "Auto-loads", name: "test-driven-development", body: "Claude writes the failing test first and lets it drive the implementation — the discipline you keep meaning to hold, enforced by default." },
+      { ic: "◇", tag: "Next.js", name: "nextjs-app-router-patterns", body: "Server components, route handlers, caching and the streaming boundaries, applied the way the App Router actually wants them." },
+      { ic: "◎", tag: "Design", name: "tailwind-design-system", body: "Tokens, scale and component variants instead of a thousand one-off class strings. Ships with shadcn and ui-design-system." },
+      { ic: "⊛", tag: "Payments", name: "stripe-integration", body: "Checkout, webhooks, idempotency and the failure cases everyone discovers in production. Written once, correctly." },
+      { ic: "⊙", tag: "Data layer", name: "drizzle-orm-expert", body: "Type-safe schema and queries, plus database-migration for the part that is genuinely scary to get wrong." },
+      { ic: "◐", tag: "Debugging", name: "systematic-debugging", body: "A method, not a vibe: narrow the surface, bisect the change, prove the fix. Pairs with error-resolver on live incidents." },
+      { ic: "⊡", tag: "Containers", name: "docker-expert", body: "Layer caching, multi-stage builds and images that aren't 1.2GB. kubernetes-architect takes it from there." },
+      { ic: "◉", tag: "Browser", name: "playwright", body: "End-to-end tests that hold up in CI, with e2e-testing-patterns for the flake-free selectors and waiting strategy." },
+      { ic: "⊕", tag: "Extend it", name: "mcp-builder", body: "Build your own MCP servers and, with skill-creator, your own skills — the kit teaches Claude to grow the kit." },
+    ],
+    commands: [
+      { ic: "⌁", tag: "Scaffold", name: "/api-scaffold", body: "Routes, validation, types and tests for a new endpoint, matched to the conventions already in your repo." },
+      { ic: "⌂", tag: "Feature", name: "/create-feature", body: "Takes a feature from description to branch, plan and implementation, with /create-prd first when the spec is still fuzzy." },
+      { ic: "⊿", tag: "Red-green", name: "/tdd-red", body: "The TDD loop as three commands — /tdd-red, /tdd-green, /tdd-refactor — so the cycle is one keystroke each." },
+      { ic: "▦", tag: "Coverage", name: "/test-coverage", body: "Finds what is genuinely untested rather than what merely lowers the percentage, then writes the missing cases." },
+      { ic: "⌾", tag: "Review", name: "/multi-agent-review", body: "Fans the diff out to reviewer, security and architecture agents in parallel and reconciles what they each found." },
+      { ic: "⟐", tag: "Ship", name: "/deploy-checklist", body: "The pre-flight you keep in your head, written down and actually run: migrations, env, rollback path, monitoring." },
+      { ic: "⌬", tag: "CI", name: "/setup-ci-cd-pipeline", body: "A working pipeline for your stack — build, test, deploy — instead of a week of YAML archaeology." },
+      { ic: "⊚", tag: "Perf", name: "/optimize-bundle-size", body: "Measures before it cuts, then goes after the imports actually costing you, with /performance-audit for the runtime side." },
+      { ic: "⊗", tag: "Security", name: "/secrets-scanner", body: "Sweeps history and working tree for keys that shouldn't be there, alongside /dependency-audit and /security-hardening." },
+    ],
+  },
+  marketing: {
+    agents: [
+      { ic: "◈", tag: "Orchestrator", name: "growth-strategist", body: "Finds the one constraint actually holding your funnel back, then sequences the work against it instead of shipping busywork." },
+      { ic: "✎", tag: "Voice", name: "brand-voice", body: "Keeps every asset sounding like you wrote it, and quietly flags the claims that would get you in trouble." },
+      { ic: "⌕", tag: "Search", name: "seo-specialist", body: "Intent, structure and internal linking — with seo-analyzer auditing what you already have and where it leaks." },
+      { ic: "◫", tag: "Content", name: "content-marketer", body: "Briefs and drafts that argue a real position, not 1,200 words of throat-clearing around a keyword." },
+      { ic: "⊙", tag: "AI search", name: "search-ai-optimization-expert", body: "Getting cited by ChatGPT, Perplexity and AI Overviews — GEO and AEO, treated as its own channel rather than an SEO footnote." },
+      { ic: "⌗", tag: "Attribution", name: "marketing-attribution-analyst", body: "Connects spend to revenue and tells you which channel is quietly carrying the others' credit." },
+      { ic: "⊞", tag: "Research", name: "market-researcher", body: "Sizes the market and reads the demand honestly, with competitive-analyst on what everyone else is already claiming." },
+      { ic: "◇", tag: "Product", name: "product-strategist", body: "Positioning and roadmap pressure-tested against the market, so the launch has something to say." },
+      { ic: "⚑", tag: "Retention", name: "customer-success-manager", body: "Onboarding, expansion and the churn signals worth acting on before the cancellation email arrives." },
+    ],
+    skills: [
+      { ic: "◎", tag: "Advisory", name: "marketing-council", body: "Runs your plan past a panel of marketing perspectives and surfaces where they disagree — the argument is the value." },
+      { ic: "⊛", tag: "Conversion", name: "offers", body: "Structures the offer, the guarantee and the risk reversal. Pairs with pricing-strategy for what you actually charge." },
+      { ic: "▤", tag: "CRO", name: "page-cro", body: "The full CRO set — page, form, popup, signup-flow, onboarding and paywall — each with its own teardown method." },
+      { ic: "⌁", tag: "SEO", name: "programmatic-seo", body: "Templates hundreds of genuinely useful pages from structured data, with site-architecture and schema-markup behind it." },
+      { ic: "◐", tag: "Psychology", name: "marketing-psychology", body: "Why people actually buy, applied to copy — and where the same lever tips over into something you shouldn't ship." },
+      { ic: "✉", tag: "Lifecycle", name: "email-sequence", body: "Onboarding, nurture and win-back flows with timing and exit conditions, plus cold-email and sms for the outbound side." },
+      { ic: "⟐", tag: "Launch", name: "launch-strategy", body: "The week around launch day sequenced properly, with public-relations and co-marketing for the reach you don't own." },
+      { ic: "⊚", tag: "Acquisition", name: "free-tool-strategy", body: "Free tools as a channel — what to build, how it feeds the funnel — with lead-magnets and directory-submissions alongside." },
+      { ic: "⊘", tag: "Retention", name: "churn-prevention", body: "Finds where accounts go quiet and what to do about it, with revops and attribution closing the loop on revenue." },
+    ],
+    commands: [
+      { ic: "⌂", tag: "Plan", name: "/campaign-brief", body: "Objective, audience, message, channels and a week-by-week calendar — the brief you'd otherwise spend a morning writing." },
+      { ic: "✎", tag: "Content", name: "/blog-post", body: "A researched, structured post in your voice, with /content-calendar deciding what gets written in the first place." },
+      { ic: "◫", tag: "Page", name: "/landing-page", body: "Full page copy built on a real offer and a real objection list, not a hero headline with nothing underneath." },
+      { ic: "✉", tag: "Email", name: "/email-sequence", body: "Complete copy for the whole flow, timing included, with /newsletter for the recurring send." },
+      { ic: "⌕", tag: "Audit", name: "/seo-audit", body: "Technical, on-page and content-gap findings split into quick wins and the work that actually needs a quarter." },
+      { ic: "⊿", tag: "Positioning", name: "/value-prop", body: "Sharpens what you're claiming until it says something a competitor couldn't paste onto their own site." },
+      { ic: "⌾", tag: "Competitive", name: "/competitor-brief", body: "What they claim, where they're weak and the angle nobody has taken yet — battlecard included." },
+      { ic: "⟐", tag: "Launch", name: "/launch-plan", body: "The whole launch sequenced across channels, with /press-release and /social-pack for the assets it needs." },
+      { ic: "⇗", tag: "Distribution", name: "/publisher-all", body: "One draft, adapted and posted to dev.to, Medium, LinkedIn and X — /publisher-x and friends for one at a time." },
+    ],
+  },
+};
+
+const EXPLORER_TABS: { id: ExplorerTab; label: string; count: Record<ExplorerKit, string> }[] = [
+  { id: "agents", label: "Agents", count: { engineer: "58", marketing: "31" } },
+  { id: "skills", label: "Skills", count: { engineer: "61", marketing: "61" } },
+  { id: "commands", label: "Commands", count: { engineer: "159", marketing: "32" } },
+];
+
+const EXPLORER_LEAD: Record<ExplorerKit, Record<ExplorerTab, string>> = {
+  engineer: {
+    agents: "Named specialists you delegate to — or let tech-lead pick for you.",
+    skills: "Claude loads these on its own, exactly when the task calls for them.",
+    commands: "Slash commands you fire straight from the prompt, no setup.",
+  },
+  marketing: {
+    agents: "The growth team, reading the same codebase and CLAUDE.md as your engineers.",
+    skills: "Playbooks that load themselves the moment the work needs them.",
+    commands: "From brief to published, one slash command at a time.",
+  },
+};
+
+/**
+ * The tabbed kit browser. Kit swaps on the headline chip, component type on
+ * the segmented control — 54 real components, nine on screen at a time.
+ */
+function KitExplorer() {
+  const [kit, setKit] = useState<ExplorerKit>("engineer");
+  const [tab, setTab] = useState<ExplorerTab>("agents");
+  const cards = EXPLORER[kit][tab];
+  const other: ExplorerKit = kit === "engineer" ? "marketing" : "engineer";
+
+  return (
+    <section id="explore" className="nx-sec">
+      <div className="nx-wrap">
+        <div className="nx-center nx-fade">
+          <div className="nx-label">Everything you get</div>
+          <h2 className="nx-h2 nx-xh">
+            Load your{" "}
+            <button
+              type="button"
+              className="nx-swap"
+              onClick={() => setKit(other)}
+              aria-label={`Showing the ${kit} kit. Switch to the ${other} kit.`}
+            >
+              {kit === "engineer" ? "Engineer Kit" : "Marketing Kit"}
+              <span className="sw" aria-hidden="true">
+                ⇄
+              </span>
+            </button>
+            <br />
+            and just prompt it.
+          </h2>
+          <div className="nx-tabs" role="tablist" aria-label="Component type">
+            {EXPLORER_TABS.map((t) => (
+              <button
+                key={t.id}
+                type="button"
+                role="tab"
+                aria-selected={tab === t.id}
+                className={`nx-tab${tab === t.id ? " on" : ""}`}
+                onClick={() => setTab(t.id)}
+              >
+                {t.label}
+                <span className="n">{t.count[kit]}</span>
+              </button>
+            ))}
+          </div>
+          <p className="nx-lead nx-xlead">{EXPLORER_LEAD[kit][tab]}</p>
+        </div>
+        <div className="nx-cards" key={`${kit}-${tab}`}>
+          {cards.map((c) => (
+            <article className="nx-card" key={c.name}>
+              <div className="nx-card-top">
+                <span className="ic" aria-hidden="true">
+                  {c.ic}
+                </span>
+                <span className="tg">{c.tag}</span>
+              </div>
+              <h3>{c.name}</h3>
+              <p>{c.body}</p>
+            </article>
+          ))}
+        </div>
+        <p className="nx-cards-foot nx-fade">
+          Nine of {EXPLORER_TABS.find((t) => t.id === tab)?.count[kit]}{" "}
+          {tab} in the {kit} kit. Cherry-pick one with{" "}
+          <code>agentskit add {tab.slice(0, -1)} {cards[0].name.replace("/", "")}</code>, or install
+          the lot in one command.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* =====================================================================
+   THE LEDGER — what assembling this yourself actually costs.
+   Both columns are the same nine jobs: on the left the hours they take
+   when you build the setup from scratch, on the right the component in
+   the kit that already does it. The total at the bottom is just the sum
+   of the left column, so the claim stays checkable.
+   ===================================================================== */
+
+type LedgerRow = { cost: string; job: string; fix: string; via: string };
+
+const LEDGER: LedgerRow[] = [
+  { cost: "6+ hrs", job: "Writing a system prompt that Claude actually keeps to", fix: "One CLAUDE.md", via: "read first by all 89 agents" },
+  { cost: "2 days", job: "Wiring agents that hand work to each other cleanly", fix: "tech-lead → specialist → shipper", via: "delegation already wired" },
+  { cost: "4+ hrs", job: "Re-explaining your stack and conventions every session", fix: "Taught once", via: "matched on every task after" },
+  { cost: "8+ hrs", job: "Hand-rolling a review and test workflow you trust", fix: "/multi-agent-review", via: "code-reviewer · test-automator" },
+  { cost: "5+ hrs", job: "Rewriting the release checklist before every launch", fix: "/deploy-checklist", via: "sre-engineer · shipper" },
+  { cost: "10+ hrs", job: "Learning container, CI and infra patterns the hard way", fix: "/setup-ci-cd-pipeline", via: "docker-expert · terraform-specialist" },
+  { cost: "3+ hrs", job: "Hunting for a marketing framework to structure the copy", fix: "marketing-council", via: "offers · marketing-psychology" },
+  { cost: "4+ hrs", job: "Guessing at SEO structure and hoping it indexes", fix: "/seo-audit", via: "programmatic-seo · schema-markup" },
+  { cost: "∞", job: "Never being sure the setup you built is any good", fix: "agentskit doctor", via: "plus free updates, for life" },
+];
+
+/**
+ * The cost ledger. One dataset, two readings — flip the switch and every
+ * row swaps its price tag for the thing in the kit that removes it.
+ */
+function CostLedger() {
+  const [withKit, setWithKit] = useState(false);
+
+  return (
+    <section id="cost" className="nx-sec">
+      <div className="nx-wrap">
+        <div className="nx-center nx-fade">
+          <div className="nx-label">The honest math</div>
+          <h2 className="nx-h2 nx-xh">
+            Stop assembling the team.
+            <br />
+            <em>Start shipping the product.</em>
+          </h2>
+          <p className="nx-lead nx-xlead">
+            A year of tuning agents, skills and prompts, already done. Here is the bill you skip.
+          </p>
+          <div className="nx-switch" role="group" aria-label="Cost view">
+            <button
+              type="button"
+              className={!withKit ? "on" : ""}
+              aria-pressed={!withKit}
+              onClick={() => setWithKit(false)}
+            >
+              Building it yourself
+            </button>
+            <button
+              type="button"
+              className={withKit ? "on" : ""}
+              aria-pressed={withKit}
+              onClick={() => setWithKit(true)}
+            >
+              With AgentsKit
+            </button>
+          </div>
+        </div>
+
+        <div className={`nx-ledger${withKit ? " nx-on" : ""}`}>
+          <ol className="nx-ledger-rows" key={withKit ? "kit" : "diy"}>
+            {LEDGER.map((r) => (
+              <li className="nx-lrow" key={r.job}>
+                <span className="mk" aria-hidden="true">
+                  {withKit ? "✓" : "+"}
+                </span>
+                <span className="cost">{withKit ? r.fix : r.cost}</span>
+                <span className="job">{withKit ? r.via : r.job}</span>
+              </li>
+            ))}
+          </ol>
+
+          <aside className="nx-seal-wrap nx-fade">
+            <div className="nx-seal" aria-hidden="true">
+              <div className="ring"></div>
+              <div className="core">
+                <b>{withKit ? "~2" : "56+"}</b>
+                <span>{withKit ? "minutes" : "hours"}</span>
+              </div>
+            </div>
+            <p className="nx-seal-note">
+              {withKit
+                ? "One npx command, one CLAUDE.md, and the whole team is on your project. Everything above ships in the box."
+                : "That is the left column added up — before you have written a single line of the product you actually wanted to build."}
+            </p>
+            <a
+              className="nx-btn nx-btn-primary nx-btn-lg"
+              href="#pricing"
+              data-fast-goal="cta_get_claudethings"
+              data-fast-goal-location="cost_ledger"
+            >
+              Skip the 56 hours <span className="ar">↗</span>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /**
  * Terminal mockup for the one-command install animation. Rendered twice (hero and
  * the "One-command install" row), so every element id is namespaced by `id` and the
@@ -545,60 +825,6 @@ export default function Home() {
 
       <div className="nx-hatch" aria-hidden="true"></div>
 
-      {/* PROBLEM */}
-      <section id="problem" className="nx-sec">
-        <div className="nx-wrap">
-          <div className="nx-sec-split nx-fade">
-            <div>
-              <div className="nx-label">The solo-builder tax</div>
-              <h2 className="nx-h2">You&apos;re doing the job of an entire team, alone.</h2>
-            </div>
-            <div className="nx-sec-side">
-              Claude Code is incredible. But by default it&apos;s one generalist taking orders from
-              you, one prompt at a time, so the whole product lands on your shoulders.
-            </div>
-          </div>
-          <div className="nx-prob-grid">
-            <div className="nx-prob nx-fade">
-              <h3>
-                <span className="x">✕</span> You repeat yourself all day
-              </h3>
-              <p>
-                Every session you re-explain your stack, your conventions, your voice. Claude
-                forgets, you retype.
-              </p>
-            </div>
-            <div className="nx-prob nx-fade">
-              <h3>
-                <span className="x">✕</span> One generalist, not specialists
-              </h3>
-              <p>
-                One assistant guessing at backend, frontend, infra, security and copy. Jack of all
-                trades, master of the average.
-              </p>
-            </div>
-            <div className="nx-prob nx-fade">
-              <h3>
-                <span className="x">✕</span> Building isn&apos;t shipping
-              </h3>
-              <p>
-                You can generate code all day, but positioning, launch copy, SEO and emails still
-                pile up on you.
-              </p>
-            </div>
-            <div className="nx-prob nx-fade">
-              <h3>
-                <span className="x">✕</span> Nobody&apos;s checking your work
-              </h3>
-              <p>
-                No reviewer, no tester, no second pair of eyes. Bugs and security holes ship
-                because no one caught them.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <div className="nx-hatch" aria-hidden="true"></div>
 
       {/* WHAT'S INSIDE — feature rows */}
@@ -870,215 +1096,13 @@ export default function Home() {
 
       <div className="nx-hatch" aria-hidden="true"></div>
 
-      {/* HOW IT WORKS */}
-      <section id="how" className="nx-sec">
-        <div className="nx-wrap">
-          <div className="nx-hiw">
-            <div className="nx-hiw-left nx-fade">
-              <div className="nx-label">How it works</div>
-              <h2 className="nx-h2">One command. No setup. No copy-pasting.</h2>
-              <p className="nx-lead">Live in under 2 minutes, from checkout to a working AI team.</p>
-              <div style={{ marginTop: 28 }}>
-                <a
-                  className="nx-btn nx-btn-primary"
-                  href="#pricing"
-                  data-fast-goal="cta_get_claudethings"
-                  data-fast-goal-location="how_it_works"
-                >
-                  Get AgentsKit <span className="ar">↗</span>
-                </a>
-              </div>
-            </div>
-            <div className="nx-steps">
-              <div className="nx-step nx-fade">
-                <div className="n">01</div>
-                <div>
-                  <h3>Install</h3>
-                  <p>
-                    Paste the <code>npx github:getagentskit/…</code> one-liner from your private
-                    repo&apos;s README. Pick engineer, marketing, or both. No global install,
-                    nothing to configure.
-                  </p>
-                </div>
-              </div>
-              <div className="nx-step nx-fade">
-                <div className="n">02</div>
-                <div>
-                  <h3>Teach it your project once</h3>
-                  <p>
-                    Fill in the generated <code>CLAUDE.md</code>: stack, conventions, brand voice.
-                    Every agent reads it first, so you never re-explain your project again.
-                  </p>
-                </div>
-              </div>
-              <div className="nx-step nx-fade">
-                <div className="n">03</div>
-                <div>
-                  <h3>Delegate and ship</h3>
-                  <p>
-                    In Claude Code, just ask: <code>&quot;use tech-lead to build auth&quot;</code>{" "}
-                    or <code>/blog-post our launch</code>. The right specialist takes it from there.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* KIT EXPLORER — everything the kits ship, browsable by kit and type */}
+      <KitExplorer />
 
       <div className="nx-hatch" aria-hidden="true"></div>
 
-      {/* BENEFITS */}
-      <section className="nx-sec">
-        <div className="nx-wrap">
-          <div className="nx-fade">
-            <div className="nx-label">Benefits</div>
-            <h2 className="nx-h2">Why builders keep it installed.</h2>
-          </div>
-          <div className="nx-feat-grid">
-            <div className="nx-feat nx-fade">
-              <div className="fi">⌥</div>
-              <h3>Take only what you need</h3>
-              <p>
-                Just want the debugger? <code>agentskit add agent debugger</code>. Pull in one agent
-                or all 89. Never all-or-nothing.
-              </p>
-            </div>
-            <div className="nx-feat nx-fade">
-              <div className="fi">▣</div>
-              <h3>Can&apos;t break your project</h3>
-              <p>
-                Installs are non-destructive by design. Your <code>CLAUDE.md</code> and custom
-                configs are never touched or overwritten.
-              </p>
-            </div>
-            <div className="nx-feat nx-fade">
-              <div className="fi">∞</div>
-              <h3>Pay once, own it forever</h3>
-              <p>
-                One payment, no subscription. Run <code>agentskit update</code> any time to pull
-                the newest agents. Free, for life.
-              </p>
-            </div>
-            <div className="nx-feat nx-fade">
-              <div className="fi">≈</div>
-              <h3>Sounds like you, not a template</h3>
-              <p>
-                Agents learn your codebase and voice from CLAUDE.md, so the output ships as if you
-                wrote it.
-              </p>
-            </div>
-            <div className="nx-feat nx-fade">
-              <div className="fi">⇄</div>
-              <h3>Agents that team up</h3>
-              <p>
-                They chain, fan out in parallel, and delegate to each other. An orchestrator picks
-                the right play so you don&apos;t have to.
-              </p>
-            </div>
-            <div className="nx-feat nx-fade">
-              <div className="fi">§</div>
-              <h3>Clean and above-board</h3>
-              <p>
-                Curated from MIT/Apache projects with full attribution and license files. No murky
-                IP, nothing to worry about.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="nx-hatch" aria-hidden="true"></div>
-
-      {/* COMPARISON */}
-      <section className="nx-sec">
-        <div className="nx-wrap">
-          <div className="nx-center nx-fade">
-            <div className="nx-label">Comparison</div>
-            <h2 className="nx-h2">Why builders choose AgentsKit</h2>
-          </div>
-          <div className="nx-cmp nx-fade">
-            <table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Other kits</th>
-                  <th>AgentsKit</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>What you get</td>
-                  <td>Agents or boilerplate</td>
-                  <td>89 agents · 122 skills · 181 commands</td>
-                </tr>
-                <tr>
-                  <td>
-                    Engineering <em>and</em> marketing
-                  </td>
-                  <td>
-                    <span className="no">✕</span>
-                  </td>
-                  <td>
-                    <span className="yes">✓</span>both kits, one repo
-                  </td>
-                </tr>
-                <tr>
-                  <td>Installer</td>
-                  <td>Copy/paste or bun-only CLI</td>
-                  <td>
-                    <span className="yes">✓</span>npx · Node 18+
-                  </td>
-                </tr>
-                <tr>
-                  <td>Cherry-pick one component</td>
-                  <td>
-                    <span className="no">✕</span>
-                  </td>
-                  <td>
-                    <span className="yes">✓</span>add agent / skill / command
-                  </td>
-                </tr>
-                <tr>
-                  <td>Tech stack</td>
-                  <td>Often locked</td>
-                  <td>
-                    <span className="yes">✓</span>any (adapts via CLAUDE.md)
-                  </td>
-                </tr>
-                <tr>
-                  <td>Updates over time</td>
-                  <td>Sometimes</td>
-                  <td>
-                    <span className="yes">✓</span>lifetime, included
-                  </td>
-                </tr>
-                <tr>
-                  <td>Open-source attribution</td>
-                  <td>Rarely</td>
-                  <td>
-                    <span className="yes">✓</span>full CREDITS + licenses
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div className="nx-cmp-foot">
-              <p>
-                <b>Questions before you buy?</b>
-                We&apos;ll help you figure out if it fits your workflow.
-              </p>
-              <a
-                className="nx-btn nx-btn-ghost"
-                href="mailto:epictools.io@gmail.com"
-                data-fast-goal="contact_email"
-                data-fast-goal-location="comparison"
-              >
-                Contact us
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* COST LEDGER — what building this setup yourself actually costs */}
+      <CostLedger />
 
       <div className="nx-hatch" aria-hidden="true"></div>
 
