@@ -195,6 +195,18 @@ body:has(.nx-page)::before{content:none}
   opacity:.75;
 }
 
+/* on a phone the eyebrow has to stay one line inside the gutter, so the
+   tracking, the NEW badge and the tick flank all come down a notch */
+@media(max-width:560px){
+  .nx-hero-chip{font-size:9px;letter-spacing:.1em;gap:8px;padding:5px 12px 5px 5px}
+  .nx-hero-chip b{padding:3px 7px;letter-spacing:.06em}
+  .nx-hero-chip::after{width:14px;height:7px}
+}
+@media(max-width:400px){
+  .nx-hero-chip{font-size:8.5px;letter-spacing:.07em;gap:7px;padding:5px 11px 5px 5px}
+  .nx-hero-chip::after{display:none}
+}
+
 /* fine print, bracketed like a spec line */
 .nx-hero-fine{display:block}
 .nx-hero-fine::before{content:"[ ";color:var(--nx-line)}
