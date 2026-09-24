@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { trackSignup } from "./lib/clicks";
 import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
 import { PLAN_BY_ID } from "./lib/plans";
 import { PriceLadder, ProofPill, TrustMrrBadge, ladderState } from "./components/pricing";
@@ -1169,6 +1170,7 @@ export default function Home() {
                   href={withDiscount(PLAN_BY_ID.engineer.checkoutUrl, geoOffer.eligible)}
                   data-polar-checkout=""
                   data-polar-checkout-theme="dark"
+                  onClick={trackSignup}
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="engineer"
                   data-fast-goal-price={String(PLAN_BY_ID.engineer.price)}
@@ -1221,6 +1223,7 @@ export default function Home() {
                   href={withDiscount(PLAN_BY_ID.bundle.checkoutUrl, geoOffer.eligible)}
                   data-polar-checkout=""
                   data-polar-checkout-theme="dark"
+                  onClick={trackSignup}
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="bundle"
                   data-fast-goal-price={String(PLAN_BY_ID.bundle.price)}
@@ -1287,6 +1290,7 @@ export default function Home() {
                   href={withDiscount(PLAN_BY_ID.marketing.checkoutUrl, geoOffer.eligible)}
                   data-polar-checkout=""
                   data-polar-checkout-theme="dark"
+                  onClick={trackSignup}
                   data-fast-goal="initiate_checkout"
                   data-fast-goal-plan="marketing"
                   data-fast-goal-price={String(PLAN_BY_ID.marketing.price)}

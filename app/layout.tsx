@@ -55,6 +55,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             window.datafast.q.push(arguments);
           };`}
         </Script>
+        {/*
+          clicks.page analytics. A raw <script defer> rather than next/script
+          because the vendor tag has to sit in the <head> of the served HTML on
+          every route: next/script's afterInteractive (what DataFast, GA and
+          Polar use below) injects into the body after hydration, and
+          beforeInteractive would render-block. Defer keeps it off the critical
+          path while still having window.clicks ready before any click.
+        */}
+        <script defer src="https://clicks.page/t.js" data-site="373b05205q05" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
