@@ -319,9 +319,9 @@ function CostLedger() {
 }
 
 /**
- * Terminal mockup for the one-command install animation. Rendered twice (hero and
- * the "One-command install" row), so every element id is namespaced by `id` and the
- * typing effect below is wired up per instance.
+ * Terminal mockup for the one-command install animation (the "One-command install"
+ * row). Element ids are namespaced by `id` and the typing effect below is wired up
+ * per instance, so it can be rendered more than once.
  */
 function InstallTerminal({ id }: { id: string }) {
   return (
@@ -344,7 +344,7 @@ function InstallTerminal({ id }: { id: string }) {
 }
 
 /** Terminal instances on the page, in DOM order. */
-const TERMINAL_IDS = ["hero-term", "term"];
+const TERMINAL_IDS = ["term"];
 
 /**
  * Real buyer reviews. One shows at a time and the band auto-advances every
@@ -764,36 +764,23 @@ export default function Home() {
             </div>
           </div>
 
-          {/* showcase: install terminal on the warm vista + the kit ledger */}
+          {/* showcase: the "how it works" demo video */}
           <div className="nx-hero-showcase">
-            <div className="nx-hero-term nx-rise nx-d5">
-              <InstallTerminal id="hero-term" />
+            <div className="nx-hero-video nx-rise nx-d5">
+              <video
+                src="/video/agentskit-how-it-works.mp4"
+                poster="/video/agentskit-how-it-works.jpg"
+                width={1920}
+                height={1080}
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+                aria-label="AgentsKit demo: how it works"
+              />
             </div>
-            <aside className="nx-hero-ledger nx-rise nx-d5">
-              <div className="nx-hero-ledger-label">Inside the kit</div>
-              <ul>
-                <li>
-                  <b data-count="89">89</b>
-                  <span>agents</span>
-                </li>
-                <li>
-                  <b data-count="122">122</b>
-                  <span>skills</span>
-                </li>
-                <li>
-                  <b data-count="181">181</b>
-                  <span>slash commands</span>
-                </li>
-                <li>
-                  <b>2</b>
-                  <span>kits ( engineer + marketing )</span>
-                </li>
-                <li>
-                  <b className="word">npx</b>
-                  <span>· no install needed</span>
-                </li>
-              </ul>
-            </aside>
           </div>
         </div>
 
