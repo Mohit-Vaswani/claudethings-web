@@ -23,7 +23,7 @@ export const LAUNCH = {
   /** Real buyers so far. Bump this as sales come in. */
   sold: 33,
   /** How long those sales took, for the proof pill. */
-  window: "2 weeks",
+  window: "3 weeks",
 };
 
 /**
