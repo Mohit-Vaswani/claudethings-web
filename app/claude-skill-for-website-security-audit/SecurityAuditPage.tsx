@@ -283,6 +283,7 @@ export default function SecurityAuditPage() {
                 <a href={`${SITE_URL}/#whats-inside`}>What&apos;s inside</a>
                 <a href={`${SITE_URL}/#kits`}>Kits</a>
                 <a href={`${SITE_URL}/#pricing`}>Pricing</a>
+                <a href={`${SITE_URL}/demo`}>Demo</a>
                 <a href={`${SITE_URL}/#faq`}>FAQ</a>
               </div>
               <div className="foot-col">

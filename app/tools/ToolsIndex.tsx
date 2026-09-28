@@ -46,11 +46,13 @@ export default function ToolsIndex() {
             AgentsKit
           </a>
           <div className="nav-links">
-            <a href={`${SITE_URL}/#whats-inside`}>What&apos;s inside</a>
-            <a href="/tools">Tools</a>
+            <a href={`${SITE_URL}/#explore`}>Features</a>
             <a href={`${SITE_URL}/#pricing`}>Pricing</a>
+            <a href={`${SITE_URL}/#faq`}>FAQ</a>
+            <a href={`${SITE_URL}/demo`}>Demo</a>
+            <a href="/tools">Free tools</a>
             <a href={`${SITE_URL}/#pricing`} className="btn btn-primary nav-cta">
-              Get the kits
+              Get AgentsKit
             </a>
           </div>
         </div>
@@ -247,6 +249,7 @@ export default function ToolsIndex() {
                 <a href={`${SITE_URL}/#whats-inside`}>What&apos;s inside</a>
                 <a href={`${SITE_URL}/#kits`}>Kits</a>
                 <a href={`${SITE_URL}/#pricing`}>Pricing</a>
+                <a href={`${SITE_URL}/demo`}>Demo</a>
                 <a href={`${SITE_URL}/#faq`}>FAQ</a>
               </div>
               <div className="foot-col">

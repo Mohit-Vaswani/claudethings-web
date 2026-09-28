@@ -28,10 +28,11 @@ export default function LegalLayout({
             AgentsKit
           </a>
           <div className="nav-links">
-            <a href="/#whats-inside">What&apos;s inside</a>
-            <a href="/#kits">Kits</a>
+            <a href="/#explore">Features</a>
             <a href="/#pricing">Pricing</a>
             <a href="/#faq">FAQ</a>
+            <a href="/demo">Demo</a>
+            <a href="/tools">Free tools</a>
             <a className="btn btn-primary nav-cta" href="/#pricing">
               Get AgentsKit
             </a>
@@ -92,6 +93,7 @@ export default function LegalLayout({
                 <a href="/#whats-inside">What&apos;s inside</a>
                 <a href="/#kits">Kits</a>
                 <a href="/#pricing">Pricing</a>
+                <a href="/demo">Demo</a>
                 <a href="/#faq">FAQ</a>
               </div>
               <div className="foot-col">

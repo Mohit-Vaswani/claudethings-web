@@ -1,20 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { trackSignup } from "./lib/clicks";
 import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
 import { PLAN_BY_ID } from "./lib/plans";
 import { PriceLadder, ProofPill, TrustMrrBadge, ladderState } from "./components/pricing";
-import { SITE_URL } from "@/app/lib/site";
+import { BrandMark, SiteFooter, SiteNav } from "./components/HomeChrome";
 import "./home.css";
 
 /**
- * AgentsKit landing page (Next.js App Router) — dark, nexflow-inspired.
- * Styling lives in app/home.css (nx- prefixed, scoped to this page only;
- * globals.css keeps serving /tools, /blog, legal and the validator pages).
- * Buy buttons use Polar's embed (loaded in layout.tsx); the checkout
- * URLs live in app/lib/plans.ts.
+ * AgentsKit landing page (Next.js App Router) — quiet light layout modelled on
+ * typevoice.ai: one narrow column, big serif display, small icon labels,
+ * white rounded cards. Styling lives in app/home.css (nx- prefixed, scoped to
+ * this page and /demo; globals.css keeps serving /tools, /blog, legal…).
+ * Buy buttons use Polar's embed (loaded in layout.tsx); the checkout URLs
+ * live in app/lib/plans.ts. The product video lives on /demo.
  */
+
+/** Small icon + uppercase word that opens every section, TypeVoice-style. */
+function Label({ ic, children }: { ic: string; children: ReactNode }) {
+  return (
+    <div className="nx-label">
+      <span className="ic" aria-hidden="true">
+        {ic}
+      </span>
+      {children}
+    </div>
+  );
+}
 
 /** Agent roster for the marquee ticker. Duplicated in JSX for the seamless loop. */
 const MARQUEE_AGENTS: [string, string][] = [
@@ -155,9 +168,9 @@ function KitExplorer() {
   return (
     <section id="explore" className="nx-sec">
       <div className="nx-wrap">
-        <div className="nx-center nx-fade">
-          <div className="nx-label">Everything you get</div>
-          <h2 className="nx-h2 nx-xh">
+        <div className="nx-fade">
+          <Label ic="✳">Features</Label>
+          <h2 className="nx-h2">
             Load your{" "}
             <button
               type="button"
@@ -170,7 +183,7 @@ function KitExplorer() {
                 ⇄
               </span>
             </button>
-            <br />
+            {" "}
             and just prompt it.
           </h2>
           <div className="nx-tabs" role="tablist" aria-label="Component type">
@@ -188,7 +201,7 @@ function KitExplorer() {
               </button>
             ))}
           </div>
-          <p className="nx-lead nx-xlead">{EXPLORER_LEAD[kit][tab]}</p>
+          <p className="nx-lead">{EXPLORER_LEAD[kit][tab]}</p>
         </div>
         <div className="nx-cards" key={`${kit}-${tab}`}>
           {cards.map((c) => (
@@ -210,109 +223,6 @@ function KitExplorer() {
           <code>agentskit add {tab.slice(0, -1)} {cards[0].name.replace("/", "")}</code>, or install
           the lot in one command.
         </p>
-      </div>
-    </section>
-  );
-}
-
-/* =====================================================================
-   THE LEDGER — what assembling this yourself actually costs.
-   Both columns are the same nine jobs: on the left the hours they take
-   when you build the setup from scratch, on the right the component in
-   the kit that already does it. The total at the bottom is just the sum
-   of the left column, so the claim stays checkable.
-   ===================================================================== */
-
-type LedgerRow = { cost: string; job: string; fix: string; via: string };
-
-const LEDGER: LedgerRow[] = [
-  { cost: "6+ hrs", job: "Writing a system prompt that Claude actually keeps to", fix: "One CLAUDE.md", via: "read first by all 89 agents" },
-  { cost: "2 days", job: "Wiring agents that hand work to each other cleanly", fix: "tech-lead → specialist → shipper", via: "delegation already wired" },
-  { cost: "4+ hrs", job: "Re-explaining your stack and conventions every session", fix: "Taught once", via: "matched on every task after" },
-  { cost: "8+ hrs", job: "Hand-rolling a review and test workflow you trust", fix: "/multi-agent-review", via: "code-reviewer · test-automator" },
-  { cost: "5+ hrs", job: "Rewriting the release checklist before every launch", fix: "/deploy-checklist", via: "sre-engineer · shipper" },
-  { cost: "10+ hrs", job: "Learning container, CI and infra patterns the hard way", fix: "/setup-ci-cd-pipeline", via: "docker-expert · terraform-specialist" },
-  { cost: "3+ hrs", job: "Hunting for a marketing framework to structure the copy", fix: "marketing-council", via: "offers · marketing-psychology" },
-  { cost: "4+ hrs", job: "Guessing at SEO structure and hoping it indexes", fix: "/seo-audit", via: "programmatic-seo · schema-markup" },
-  { cost: "∞", job: "Never being sure the setup you built is any good", fix: "agentskit doctor", via: "plus free updates, for life" },
-];
-
-/**
- * The cost ledger. One dataset, two readings — flip the switch and every
- * row swaps its price tag for the thing in the kit that removes it.
- */
-function CostLedger() {
-  const [withKit, setWithKit] = useState(false);
-
-  return (
-    <section id="cost" className="nx-sec">
-      <div className="nx-wrap">
-        <div className="nx-center nx-fade">
-          <div className="nx-label">The honest math</div>
-          <h2 className="nx-h2 nx-xh">
-            Stop assembling the team.
-            <br />
-            <em>Start shipping the product.</em>
-          </h2>
-          <p className="nx-lead nx-xlead">
-            A year of tuning agents, skills and prompts, already done. Here is the bill you skip.
-          </p>
-          <div className="nx-switch" role="group" aria-label="Cost view">
-            <button
-              type="button"
-              className={!withKit ? "on" : ""}
-              aria-pressed={!withKit}
-              onClick={() => setWithKit(false)}
-            >
-              Building it yourself
-            </button>
-            <button
-              type="button"
-              className={withKit ? "on" : ""}
-              aria-pressed={withKit}
-              onClick={() => setWithKit(true)}
-            >
-              With AgentsKit
-            </button>
-          </div>
-        </div>
-
-        <div className={`nx-ledger${withKit ? " nx-on" : ""}`}>
-          <ol className="nx-ledger-rows" key={withKit ? "kit" : "diy"}>
-            {LEDGER.map((r) => (
-              <li className="nx-lrow" key={r.job}>
-                <span className="mk" aria-hidden="true">
-                  {withKit ? "✓" : "+"}
-                </span>
-                <span className="cost">{withKit ? r.fix : r.cost}</span>
-                <span className="job">{withKit ? r.via : r.job}</span>
-              </li>
-            ))}
-          </ol>
-
-          <aside className="nx-seal-wrap nx-fade">
-            <div className="nx-seal" aria-hidden="true">
-              <div className="ring"></div>
-              <div className="core">
-                <b>{withKit ? "~2" : "56+"}</b>
-                <span>{withKit ? "minutes" : "hours"}</span>
-              </div>
-            </div>
-            <p className="nx-seal-note">
-              {withKit
-                ? "One npx command, one CLAUDE.md, and the whole team is on your project. Everything above ships in the box."
-                : "That is the left column added up — before you have written a single line of the product you actually wanted to build."}
-            </p>
-            <a
-              className="nx-btn nx-btn-primary nx-btn-lg"
-              href="#pricing"
-              data-fast-goal="cta_get_claudethings"
-              data-fast-goal-location="cost_ledger"
-            >
-              Skip the 56 hours <span className="ar">↗</span>
-            </a>
-          </aside>
-        </div>
       </div>
     </section>
   );
@@ -475,24 +385,38 @@ function Testimonials() {
   );
 }
 
+/** What the team hands back in the hero ticker, right of the icon. */
+const TICKER_OUT =
+  "tech-lead split it into 4 tasks · backend-architect wrote the schema · test-automator: 12 passing · security-auditor: 0 critical · shipper: ready to merge · content-marketer drafted the launch post ·";
+
+/**
+ * AgentsKit vs building the setup yourself. Same nine jobs the old cost ledger
+ * priced; the DIY hours add up to the 56+ in the last row, so the claim stays
+ * checkable. `kitWins: false` marks the honest row where DIY comes out ahead.
+ */
+const COMPARE: { job: string; kit: string; diy: string; kitWins?: boolean }[] = [
+  { job: "A system prompt Claude keeps to", kit: "One CLAUDE.md, read by all 89 agents", diy: "6+ hrs of trial and error" },
+  { job: "Agents that hand work to each other", kit: "tech-lead → specialist → shipper, wired", diy: "2 days of wiring" },
+  { job: "Your stack and conventions", kit: "Taught once, matched on every task", diy: "Re-explained every session, 4+ hrs" },
+  { job: "Review and test workflow", kit: "/multi-agent-review, test-automator", diy: "8+ hrs hand-rolling one" },
+  { job: "Release checklist", kit: "/deploy-checklist, shipper", diy: "5+ hrs, rewritten per launch" },
+  { job: "CI, containers and infra", kit: "/setup-ci-cd-pipeline, docker-expert", diy: "10+ hrs the hard way" },
+  { job: "Marketing and SEO frameworks", kit: "marketing-council, /seo-audit", diy: "7+ hrs of hunting" },
+  { job: "Knowing the setup is any good", kit: "agentskit doctor, free updates", diy: "Never quite sure" },
+  { job: "Shaped exactly to your taste", kit: "Close, then edit any file", diy: "Fully, eventually", kitWins: false },
+];
+
 export default function Home() {
   // Purchasing-power 50% offer. Ineligible everywhere off the country list,
   // and on the first paint.
   const geoOffer = useGeoDiscount();
   // Which launch tier the bundle is selling at right now, and how much of it
-  // is left. Drives the ladder, the card ribbon and the closing note so the
+  // is left. Drives the ladder, the card pill and the closing note so the
   // whole pricing block tells one consistent story.
   const bundleTier = ladderState();
 
   useEffect(() => {
     const cleanups: Array<() => void> = [];
-
-    // nav scrolled state
-    const nav = document.getElementById("nav");
-    const onScroll = () => nav?.classList.toggle("scrolled", window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    onScroll();
-    cleanups.push(() => window.removeEventListener("scroll", onScroll));
 
     // scroll reveal
     const io = new IntersectionObserver(
@@ -503,33 +427,10 @@ export default function Home() {
             io.unobserve(e.target);
           }
         }),
-      { threshold: 0.14 }
+      { threshold: 0.12 }
     );
     document.querySelectorAll(".nx-fade").forEach((el) => io.observe(el));
     cleanups.push(() => io.disconnect());
-
-    // count up
-    const cio = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          const el = e.target as HTMLElement;
-          const end = Number(el.dataset.count);
-          let t0: number | null = null;
-          const step = (ts: number) => {
-            if (!t0) t0 = ts;
-            const p = Math.min((ts - t0) / 1100, 1);
-            el.textContent = String(Math.floor((1 - Math.pow(1 - p, 3)) * end));
-            if (p < 1) requestAnimationFrame(step);
-            else el.textContent = String(end);
-          };
-          requestAnimationFrame(step);
-          cio.unobserve(el);
-        }),
-      { threshold: 0.6 }
-    );
-    document.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => cio.observe(el));
-    cleanups.push(() => cio.disconnect());
 
     // terminal typing — each InstallTerminal types itself once it scrolls into view
     const cmd = "npx github:getagentskit/kit init --kit both";
@@ -600,358 +501,246 @@ export default function Home() {
     return () => cleanups.forEach((fn) => fn());
   }, []);
 
-  const year = new Date().getFullYear();
-
-  const dashboard = (
-    <div className="nx-dash">
-      <div className="nx-dash-crumb">
-        <span>
-          AgentsKit <span className="sep">/</span> your-project <span className="sep">/</span>{" "}
-          agents
-        </span>
-        <span className="nx-dash-alert">⚡ 2 agents running</span>
-      </div>
-      <div className="nx-dash-tabs">
-        <span className="nx-dash-tab on">
-          Agents<span className="n">89</span>
-        </span>
-        <span className="nx-dash-tab">
-          Skills<span className="n">122</span>
-        </span>
-        <span className="nx-dash-tab">
-          Commands<span className="n">181</span>
-        </span>
-        <span className="nx-dash-tab">Activity</span>
-      </div>
-      <div className="nx-dash-head">
-        <span>Status</span>
-        <span>Agent</span>
-        <span className="col-prog">Progress</span>
-      </div>
-      <div className="nx-dash-row">
-        <span className="nx-badge done">Completed</span>
-        <div>
-          <div className="task">tech-lead · plan auth feature</div>
-          <div className="meta">
-            <span>Delegated 3 tasks</span>
-            <span>Plan approved</span>
-          </div>
-        </div>
-        <div className="nx-prog">
-          <span className="pd ok">✓</span>
-          <span className="pl"></span>
-          <span className="pd ok">✓</span>
-          <span className="pl"></span>
-          <span className="pd ok">✓</span>
-        </div>
-      </div>
-      <div className="nx-dash-row">
-        <span className="nx-badge run">Running</span>
-        <div>
-          <div className="task">react-specialist · build login UI</div>
-          <div className="meta">
-            <span>Auto-delegated</span>
-            <span>In progress</span>
-          </div>
-        </div>
-        <div className="nx-prog">
-          <span className="pd ok">✓</span>
-          <span className="pl"></span>
-          <span className="pd spin">●</span>
-          <span className="pl"></span>
-          <span className="pd"></span>
-        </div>
-      </div>
-      <div className="nx-dash-row">
-        <span className="nx-badge done">Completed</span>
-        <div>
-          <div className="task">security-auditor · pre-ship audit</div>
-          <div className="meta">
-            <span>0 critical</span>
-            <span>Report ready</span>
-          </div>
-        </div>
-        <div className="nx-prog">
-          <span className="pd ok">✓</span>
-          <span className="pl"></span>
-          <span className="pd ok">✓</span>
-          <span className="pl"></span>
-          <span className="pd ok">✓</span>
-        </div>
-      </div>
-      <div className="nx-dash-row">
-        <span className="nx-badge queue">Queued</span>
-        <div>
-          <div className="task">seo-specialist · launch blog post</div>
-          <div className="meta">
-            <span>Waiting on ship</span>
-          </div>
-        </div>
-        <div className="nx-prog">
-          <span className="pd"></span>
-          <span className="pl"></span>
-          <span className="pd"></span>
-          <span className="pl"></span>
-          <span className="pd"></span>
-        </div>
-      </div>
-    </div>
-  );
+  const bundle = PLAN_BY_ID.bundle;
+  const singles = [PLAN_BY_ID.engineer, PLAN_BY_ID.marketing];
 
   return (
     <div className="nx-page">
-      <div className="nx-frame" aria-hidden="true"></div>
-
-      {/* NAV */}
-      <nav id="nav" className="nx-nav">
-        <div className="nx-nav-inner">
-          <a className="nx-logo" href="#top">
-            AgentsKit
-          </a>
-          <div className="nx-nav-links">
-            <a href="#whats-inside">What&apos;s inside</a>
-            <a href="#kits">Kits</a>
-            <a href="/tools">Free tools</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#faq">FAQ</a>
-            <a
-              className="nx-btn nx-btn-primary"
-              href="#pricing"
-              data-fast-goal="cta_get_claudethings"
-              data-fast-goal-location="nav"
-            >
-              Get AgentsKit <span className="ar">↗</span>
-            </a>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* HERO */}
       <header id="top" className="nx-hero">
-        <div className="nx-wrap">
-          {/* centered editorial stack: eyebrow → display headline → sub → CTAs → fine print */}
-          <div className="nx-hero-center">
-            <div className="nx-chip nx-hero-chip nx-rise nx-d1">
-              <b>New</b> Meet your AI workforce for Claude Code
-            </div>
-            <h1 className="nx-h1 nx-rise nx-d2">
-              Your AI <em>engineering &amp; marketing</em> team{" "}
-              <span className="nb">in one command</span>
-            </h1>
-            <p className="nx-sub nx-rise nx-d3">
-              AgentsKit drops in <b>89 specialist agents</b>, <b>122 skills</b> and{" "}
-              <b>181 slash commands</b> with one command, so one person can plan, build, test, ship{" "}
-              <b>and</b> market a real product.
-            </p>
-            <div className="nx-cta-row nx-rise nx-d4">
-              <a
-                className="nx-btn nx-btn-primary nx-btn-lg"
-                href="#pricing"
-                data-fast-goal="cta_get_claudethings"
-                data-fast-goal-location="hero"
-              >
-                Get AgentsKit <span className="ar">↗</span>
-              </a>
-              <a className="nx-btn nx-btn-ghost nx-btn-lg" href="#whats-inside">
-                ▷ See what&apos;s inside
-              </a>
-            </div>
-            <div className="nx-micro nx-hero-fine nx-rise nx-d4">
-              Requires Claude Code · One-time payment · Lifetime updates
-            </div>
-            <div className="nx-hero-proof nx-rise nx-d4">
-              <ProofPill />
+        {/* ticker: agents stream into the kit, finished work streams out */}
+        <div className="nx-ticker nx-rise nx-d1" aria-hidden="true">
+          <div className="nx-ticker-in">
+            <div className="nx-ticker-track">
+              {[0, 1].map((dup) =>
+                MARQUEE_AGENTS.map(([kind, name], idx) => (
+                  <span className="nx-mq-chip" key={`${dup}-${idx}`}>
+                    <b>{kind === "agent" ? "◆" : "$"}</b>
+                    {name}
+                  </span>
+                ))
+              )}
             </div>
           </div>
-
-          {/* showcase: the "how it works" demo video */}
-          <div className="nx-hero-showcase">
-            <div className="nx-hero-video nx-rise nx-d5">
-              <video
-                src="/video/agentskit-how-it-works.mp4"
-                poster="/video/agentskit-how-it-works.jpg"
-                width={1920}
-                height={1080}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                preload="metadata"
-                aria-label="AgentsKit demo: how it works"
-              />
+          <span className="nx-ticker-icon">
+            <BrandMark size={44} />
+          </span>
+          <div className="nx-ticker-out">
+            <div className="nx-ticker-track">
+              <span>{TICKER_OUT}</span>
+              <span>{TICKER_OUT}</span>
             </div>
           </div>
         </div>
 
-        {/* agent roster ticker */}
-        <div className="nx-marquee" aria-hidden="true">
-          <div className="nx-marquee-track">
-            {[0, 1].map((dup) =>
-              MARQUEE_AGENTS.map(([kind, name], idx) => (
-                <span className="nx-mq-chip" key={`${dup}-${idx}`}>
-                  <b>{kind === "agent" ? "◆" : "$"}</b>
-                  {name}
-                </span>
-              ))
-            )}
+        <div className="nx-wrap nx-hero-center">
+          <h1 className="nx-h1 nx-rise nx-d2">
+            One command.
+            <br />
+            <em>A whole team.</em>
+          </h1>
+          <p className="nx-sub nx-rise nx-d3">
+            89 specialist agents, 122 skills and 181 slash commands for Claude Code. Plan, build,
+            ship and market a real product on your own.
+          </p>
+          <div className="nx-cta-row nx-rise nx-d4">
+            <a
+              className="nx-btn nx-btn-primary nx-btn-lg"
+              href="#pricing"
+              data-fast-goal="cta_get_claudethings"
+              data-fast-goal-location="hero"
+            >
+              Get AgentsKit
+            </a>
+            <a
+              className="nx-btn nx-btn-soft nx-btn-lg"
+              href="/demo"
+              data-fast-goal="cta_see_demo"
+              data-fast-goal-location="hero"
+            >
+              <span className="play" aria-hidden="true">
+                ▶
+              </span>
+              See demo
+            </a>
           </div>
+          <div className="nx-micro nx-rise nx-d4">
+            Requires Claude Code · One-time payment · Lifetime updates
+          </div>
+          <div className="nx-hero-proof nx-rise nx-d5">
+            <ProofPill />
+          </div>
+          <a className="nx-down nx-rise nx-d5" href="#explore" aria-label="Scroll to features">
+            ↓
+          </a>
         </div>
       </header>
 
-      <div className="nx-hatch" aria-hidden="true"></div>
-
-      {/* TESTIMONIAL — real buyer, links out to the live tweet */}
-      <section id="reviews" className="nx-sec nx-say">
-        <div className="nx-wrap">
-          <div className="nx-center nx-fade">
-            <div className="nx-label">What people say</div>
-          </div>
-          <Testimonials />
-        </div>
-      </section>
-
-      <div className="nx-hatch" aria-hidden="true"></div>
+      {/* STATS STRIP */}
+      <div className="nx-wrap">
+        <ul className="nx-strip nx-fade">
+          <li>
+            <b className="g">89 agents</b> engineer + marketing
+          </li>
+          <li>
+            <b>122</b> skills
+          </li>
+          <li>
+            <b>181</b> commands
+          </li>
+          <li>
+            <b>~2 min</b> to install
+          </li>
+          <li>
+            <b>No subscription</b> pay once
+          </li>
+        </ul>
+      </div>
 
       {/* KIT EXPLORER — everything the kits ship, browsable by kit and type */}
       <KitExplorer />
 
-      <div className="nx-hatch" aria-hidden="true"></div>
-
-      {/* COST LEDGER — what building this setup yourself actually costs */}
-      <CostLedger />
-
-      <div className="nx-hatch" aria-hidden="true"></div>
-
-      {/* WHAT'S INSIDE — feature rows */}
+      {/* HOW IT FITS — nothing new to learn */}
       <section id="whats-inside" className="nx-sec">
         <div className="nx-wrap">
-          <div className="nx-center nx-fade">
-            <div className="nx-label">A team, not a tool</div>
-            <h2 className="nx-h2">Stop prompting a generalist. Start delegating to specialists.</h2>
-            <p className="nx-lead">
-              Everything installs into your project&apos;s <code>.claude/</code> folder, so
-              Claude Code picks it up automatically. No new tool to learn. It&apos;s the Claude
-              Code you already use, with a team behind it.
-            </p>
+          <div className="nx-fade">
+            <Label ic="◇">A team, not a tool</Label>
+            <h2 className="nx-h2">Nothing new to learn.</h2>
+            <div className="nx-prose">
+              <p>
+                Picture briefing a tech lead, a backend architect, a security auditor and a
+                copywriter on your project every single morning, from zero.
+              </p>
+              <p>
+                That is what prompting one generalist feels like. Every session starts cold, and
+                the result depends on how well you remembered to ask.
+              </p>
+              <p className="strong">
+                AgentsKit installs the team into your project&apos;s <code>.claude/</code> folder.
+                Claude Code picks it up on its own, reads your <code>CLAUDE.md</code> once, and
+                hands each job to the specialist that should own it.{" "}
+                <a href="/demo">Watch it happen</a>.
+              </p>
+            </div>
           </div>
-          <div className="nx-rows">
-            {/* row 1: terminal */}
-            <div className="nx-row nx-fade">
-              <div className="nx-row-media">
-                <InstallTerminal id="term" />
-              </div>
-              <div className="nx-row-text">
-                <div className="nx-kicker">One-command install</div>
-                <h3>Live in your project in under 2 minutes</h3>
-                <p>
-                  Paste one <code>npx</code> command. Pick engineer, marketing, or both. No global
-                  install, nothing to configure. Agents, skills and commands land in{" "}
-                  <code>.claude/</code> and Claude Code picks them up automatically.
-                </p>
-                <a
-                  className="nx-btn nx-btn-ghost"
-                  href="#pricing"
-                  data-fast-goal="cta_get_claudethings"
-                  data-fast-goal-location="row_install"
-                >
-                  Get AgentsKit <span className="ar">↗</span>
-                </a>
-              </div>
-            </div>
-            {/* row 2: your stack */}
-            <div className="nx-row nx-fade">
-              <div className="nx-row-media">
-                <div className="nx-ui">
-                  <div className="u-label">Adapts to your stack</div>
-                  <div className="nx-ui-line">
-                    <span className="ck">✓</span> Next.js · Django · Rails · Go · Rust
-                  </div>
-                  <div className="nx-ui-line">
-                    <span className="ck">✓</span> Reads your CLAUDE.md once
-                  </div>
-                  <div className="nx-ui-line">
-                    <span className="ck">✓</span> Matches your patterns &amp; conventions
-                  </div>
-                  <div className="nx-ui-line">
-                    <span className="ck">✓</span> Zero forced architecture
-                  </div>
+
+          {/* flow diagram */}
+          <div className="nx-flow nx-fade">
+            <div className="nx-flow-box">
+              <div className="nx-flow-tag">Your project</div>
+              <div className="nx-flow-row">
+                <div className="nx-flow-node">
+                  <span className="nx-flow-you">›_</span>
+                  <small>Your prompt</small>
+                </div>
+                <i className="nx-flow-ln" />
+                <div className="nx-flow-node">
+                  <span className="nx-flow-pill">tech-lead</span>
+                  <small>plans</small>
+                </div>
+                <i className="nx-flow-ln" />
+                <div className="nx-flow-node">
+                  <span className="nx-flow-pill hot">specialists</span>
+                  <small>build</small>
+                </div>
+                <i className="nx-flow-ln" />
+                <div className="nx-flow-node">
+                  <span className="nx-flow-pill">shipper</span>
+                  <small>gates</small>
+                </div>
+                <i className="nx-flow-ln" />
+                <div className="nx-flow-node">
+                  <span className="nx-flow-out">
+                    feat: stripe checkout <span className="ok">✓</span>
+                  </span>
+                  <small>Your repo</small>
                 </div>
               </div>
-              <div className="nx-row-text">
-                <div className="nx-kicker">No forced framework</div>
-                <h3>Drops into the project you already have</h3>
-                <p>
-                  Agents learn your actual codebase and match your patterns, instead of dumping
-                  someone else&apos;s architecture on top of yours. Teach it your project once in{" "}
-                  <code>CLAUDE.md</code>, and never re-explain it again.
-                </p>
-                <a className="nx-btn nx-btn-ghost" href="#kits">
-                  Explore the kits <span className="ar">↗</span>
-                </a>
-              </div>
             </div>
-            {/* row 3: code → launch */}
-            <div className="nx-row nx-fade">
-              <div className="nx-row-media">
-                <div className="nx-ui">
-                  <div className="u-label">From first commit to launch day</div>
-                  <div className="nx-ui-line">
-                    <span className="ck">🛠</span> Engineer: 58 agents · 61 skills · 159 commands
-                  </div>
-                  <div className="nx-ui-line">
-                    <span className="ck">📣</span> Marketing: 31 agents · 61 skills · 32 commands
-                  </div>
-                  <div className="nx-ui-line">
-                    <span className="ck">✓</span> agentskit update → free, forever
-                  </div>
-                </div>
-              </div>
-              <div className="nx-row-text">
-                <div className="nx-kicker">Two teams in one</div>
-                <h3>
-                  From first commit <em>to</em> launch day
-                </h3>
-                <p>
-                  Engineers who build and ship the feature, marketers who write the launch, the
-                  emails and the SEO. Most kits stop at the code. Yours takes the product all the
-                  way to customers. And when Anthropic ships a smarter Claude, your whole team
-                  levels up automatically.
-                </p>
-                <a
-                  className="nx-btn nx-btn-ghost"
-                  href="#pricing"
-                  data-fast-goal="cta_get_claudethings"
-                  data-fast-goal-location="row_launch"
-                >
-                  Get both kits <span className="ar">↗</span>
-                </a>
-              </div>
+            <div className="nx-flow-side">
+              <span className="nx-flow-chip">agentskit update</span>
+              <span className="nx-flow-cloud" aria-hidden="true">
+                ↻
+              </span>
+              <b>Updates</b>
+              <small>free, for life</small>
+            </div>
+          </div>
+
+          <div className="nx-grid2">
+            <div className="nx-tile nx-fade">
+              <h3>Lives in .claude/</h3>
+              <p>Native Claude Code format. No new app, no daemon, no account.</p>
+            </div>
+            <div className="nx-tile nx-fade">
+              <h3>Reads your CLAUDE.md</h3>
+              <p>Teach it your project once. Never re-explain it again.</p>
+            </div>
+            <div className="nx-tile nx-fade">
+              <h3>Any stack</h3>
+              <p>Next.js, Django, Rails, Go, Rust. Zero forced architecture.</p>
+            </div>
+            <div className="nx-tile nx-fade">
+              <h3>Plain files you own</h3>
+              <p>
+                Markdown agents and skills. Updates never touch your custom files. <a href="#faq">How updates work</a>
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="nx-hatch" aria-hidden="true"></div>
+      {/* HOW IT WORKS */}
+      <section id="how" className="nx-sec">
+        <div className="nx-wrap">
+          <div className="nx-fade">
+            <Label ic="▭">How it works</Label>
+            <h2 className="nx-h2">Two minutes, start to finish.</h2>
+          </div>
+          <ol className="nx-steps">
+            <li className="nx-tile nx-fade">
+              <span className="n">1</span>
+              <h3>Buy</h3>
+              <p>Pay once. Private-repo access lands the moment you check out.</p>
+            </li>
+            <li className="nx-tile nx-fade">
+              <span className="n">2</span>
+              <h3>Install</h3>
+              <p>
+                One <code>npx</code> command. Pick engineer, marketing, or both. Nothing global.
+              </p>
+            </li>
+            <li className="nx-tile nx-fade">
+              <span className="n">3</span>
+              <h3>Prompt</h3>
+              <p>Ask in plain English. tech-lead plans it, specialists build it, shipper gates it.</p>
+            </li>
+          </ol>
+          <div className="nx-fade nx-term-wrap">
+            <InstallTerminal id="term" />
+          </div>
+        </div>
+      </section>
 
       {/* KITS */}
       <section id="kits" className="nx-sec">
         <div className="nx-wrap">
-          <div className="nx-center nx-fade">
-            <div className="nx-label">Two kits · take one or both</div>
-            <h2 className="nx-h2">A full software team. A full growth team.</h2>
+          <div className="nx-fade">
+            <Label ic="◫">Two kits</Label>
+            <h2 className="nx-h2">A software team. A growth team.</h2>
             <p className="nx-lead">
-              Both are native Claude Code kits: agents you call by name, skills Claude loads on its
-              own exactly when they&apos;re needed, and slash commands you fire straight from the
-              prompt.
+              Take one or both. They read the same codebase and the same <code>CLAUDE.md</code>,
+              so the launch post knows what the feature actually does.
             </p>
           </div>
-          <div className="nx-kits">
-            {/* ENGINEER */}
-            <div className="nx-kit nx-fade">
-              <span className="nx-kit-tag">Engineer</span>
-              <h3>Engineer Kit</h3>
-              <div className="role">the software team</div>
+          <div className="nx-grid2">
+            <div className="nx-tile nx-kit nx-fade">
+              <div className="nx-kit-hd">
+                <h3>Engineer Kit</h3>
+                <span className="nx-kit-tag">the software team</span>
+              </div>
               <div className="nx-kit-stats">
                 <div>
                   <b>58</b>
@@ -966,50 +755,21 @@ export default function Home() {
                   <span>commands</span>
                 </div>
               </div>
-              <ul>
+              <ul className="nx-checks">
                 <li>
-                  <span className="ck">✓</span>
-                  <span>
-                    <b>tech-lead</b> plans &amp; delegates; <b>shipper</b> gates every release.
-                  </span>
+                  <b>tech-lead</b> plans and delegates, <b>shipper</b> gates every release
                 </li>
-                <li>
-                  <span className="ck">✓</span>
-                  <span>
-                    Build across the stack: <code>backend-architect</code>,{" "}
-                    <code>react-specialist</code>, <code>typescript-pro</code>,{" "}
-                    <code>python-pro</code>, <code>golang-pro</code>, <code>rust-pro</code>.
-                  </span>
-                </li>
-                <li>
-                  <span className="ck">✓</span>
-                  <span>
-                    Data &amp; infra: <code>postgres-pro</code>, <code>kubernetes-specialist</code>,{" "}
-                    <code>terraform-specialist</code>, <code>sre-engineer</code>.
-                  </span>
-                </li>
-                <li>
-                  <span className="ck">✓</span>
-                  <span>
-                    Quality: <code>code-reviewer</code>, <code>test-automator</code>,{" "}
-                    <code>debugger</code>, <code>security-auditor</code>.
-                  </span>
-                </li>
-                <li>
-                  <span className="ck">✓</span>
-                  <span>
-                    61 skills covering Next.js, Tailwind, Drizzle, Docker, Stripe, MCP, TDD,
-                    Playwright… plus <code>/api-scaffold</code>, <code>/test-coverage</code>,{" "}
-                    <code>/deploy-checklist</code>.
-                  </span>
-                </li>
+                <li>backend-architect, react-specialist, typescript-pro, rust-pro, golang-pro</li>
+                <li>postgres-pro, kubernetes-specialist, terraform-specialist, sre-engineer</li>
+                <li>code-reviewer, test-automator, debugger, security-auditor</li>
+                <li>Next.js, Tailwind, Drizzle, Docker, Stripe, MCP, TDD, Playwright skills</li>
               </ul>
             </div>
-            {/* MARKETING */}
-            <div className="nx-kit mkt nx-fade">
-              <span className="nx-kit-tag">Marketing</span>
-              <h3>Marketing Kit</h3>
-              <div className="role">the growth team</div>
+            <div className="nx-tile nx-kit nx-fade">
+              <div className="nx-kit-hd">
+                <h3>Marketing Kit</h3>
+                <span className="nx-kit-tag">the growth team</span>
+              </div>
               <div className="nx-kit-stats">
                 <div>
                   <b>31</b>
@@ -1024,87 +784,129 @@ export default function Home() {
                   <span>commands</span>
                 </div>
               </div>
-              <div className="nx-whatsnew">
-                <span className="nx-badge fresh">NEW</span>
-                <p>
-                  <b>19 new skills added recently</b> — offers &amp; guarantees, an advisory{" "}
-                  <code>marketing-council</code>, AI-search optimization (GEO/AEO), attribution,
-                  churn prevention, RevOps, PR, cold email, SMS, video, lead magnets, directory
-                  submissions, and more.
-                </p>
-              </div>
-              <ul>
+              <ul className="nx-checks">
                 <li>
-                  <span className="ck">✓</span>
-                  <span>
-                    <b>growth-strategist</b> finds your funnel&apos;s constraint;{" "}
-                    <b>brand-voice</b> keeps copy on-brand &amp; legally clean.
-                  </span>
+                  <b>growth-strategist</b> finds the funnel constraint, <b>brand-voice</b> keeps
+                  copy on-brand
                 </li>
+                <li>seo-specialist, content-marketer, competitive-analyst, market-researcher</li>
+                <li>/campaign-brief, /blog-post, /email-sequence, /landing-page, /launch-plan</li>
+                <li>SEO audits, programmatic SEO, the full CRO set, pricing, attribution, PR</li>
                 <li>
-                  <span className="ck">✓</span>
-                  <span>
-                    Specialists: <code>seo-specialist</code>, <code>content-marketer</code>,{" "}
-                    <code>competitive-analyst</code>, <code>market-researcher</code>.
-                  </span>
-                </li>
-                <li>
-                  <span className="ck">✓</span>
-                  <span>
-                    Commands that ship: <code>/campaign-brief</code>, <code>/blog-post</code>,{" "}
-                    <code>/email-sequence</code>, <code>/landing-page</code>,{" "}
-                    <code>/launch-plan</code>.
-                  </span>
-                </li>
-                <li>
-                  <span className="ck">✓</span>
-                  <span>
-                    61 skills covering SEO audits, programmatic SEO, the full CRO set, offers,
-                    pricing, paid ads, attribution, retention, RevOps, PR, and marketing
-                    psychology.
-                  </span>
-                </li>
-                <li>
-                  <span className="ck">✓</span>
-                  <span>From positioning to launch day, the same context as your code.</span>
+                  <span className="nx-new">New</span> 19 skills added recently, incl. GEO/AEO and
+                  marketing-council
                 </li>
               </ul>
-            </div>
-          </div>
-
-          {/* NUMBERS */}
-          <div className="nx-numbers nx-fade" style={{ marginTop: 16 }}>
-            <div className="nx-num">
-              <b data-count="89">89</b>
-              <span>specialized agents</span>
-            </div>
-            <div className="nx-num">
-              <b data-count="122">122</b>
-              <span>pre-built skills</span>
-            </div>
-            <div className="nx-num">
-              <b data-count="181">181</b>
-              <span>slash commands</span>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="nx-hatch" aria-hidden="true"></div>
+      {/* IN PRACTICE — you type / you get */}
+      <section id="example" className="nx-sec">
+        <div className="nx-wrap">
+          <div className="nx-fade">
+            <Label ic="✎">In practice</Label>
+            <h2 className="nx-h2">You type it once. It ships like a team built it.</h2>
+          </div>
+          <div className="nx-say-get nx-fade">
+            <div className="nx-tile nx-you">
+              <div className="nx-mini">You type</div>
+              <p>
+                /create-feature add stripe checkout with webhooks, tests, and a launch post for the
+                blog
+              </p>
+            </div>
+            <span className="nx-arrow" aria-hidden="true">
+              →
+            </span>
+            <div className="nx-tile nx-get">
+              <div className="nx-mini">You get</div>
+              <ul>
+                <li>
+                  <b>tech-lead</b> splits it into 4 tasks
+                </li>
+                <li>
+                  <b>backend-architect</b> schema, route, webhook handler
+                </li>
+                <li>
+                  <b>test-automator</b> 12 tests, all passing
+                </li>
+                <li>
+                  <b>security-auditor</b> 0 critical findings
+                </li>
+                <li>
+                  <b>shipper</b> ready to merge
+                </li>
+                <li>
+                  <b>content-marketer</b> launch post drafted in your voice
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPARED */}
+      <section id="compare" className="nx-sec">
+        <div className="nx-wrap">
+          <div className="nx-fade">
+            <Label ic="⇄">Compared</Label>
+            <h2 className="nx-h2">AgentsKit vs building it yourself.</h2>
+            <p className="nx-lead">
+              Both end with a tuned Claude Code setup. One takes about two minutes. One takes a
+              year of evenings.
+            </p>
+          </div>
+          <div className="nx-table-wrap nx-fade">
+            <table className="nx-table">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <span className="sr">Job</span>
+                  </th>
+                  <th scope="col">AgentsKit</th>
+                  <th scope="col">Building it yourself</th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARE.map((r) => (
+                  <tr key={r.job}>
+                    <th scope="row">{r.job}</th>
+                    <td className={r.kitWins === false ? "" : "win"}>{r.kit}</td>
+                    <td className={r.kitWins === false ? "win" : ""}>{r.diy}</td>
+                  </tr>
+                ))}
+                <tr className="total">
+                  <th scope="row">Time to a working team</th>
+                  <td className="win">~2 minutes</td>
+                  <td>56+ hours</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="nx-more nx-fade">
+            <a href="/comparisons">See more comparisons →</a>
+          </p>
+        </div>
+      </section>
+
+      {/* REVIEWS — real buyers, each links out to the live tweet */}
+      <section id="reviews" className="nx-sec">
+        <div className="nx-wrap">
+          <div className="nx-fade">
+            <Label ic="❝">Reviews</Label>
+            <h2 className="nx-h2">From people who bought it.</h2>
+          </div>
+          <Testimonials />
+        </div>
+      </section>
 
       {/* PRICING */}
       <section id="pricing" className="nx-sec">
         <div className="nx-wrap">
-          <div className="nx-center nx-fade">
-            <div className="nx-label">Pricing</div>
-            <h2 className="nx-h2">Less than an hour of a freelancer. Yours for good.</h2>
-            <p className="nx-lead">
-              One payment, lifetime access, and every future update included. Delivered instantly
-              as private-repo access the moment you check out. No subscription, no seats. Works
-              with any Claude Code plan: Pro, Max, Team, or API. The bundle is $
-              {PLAN_BY_ID.bundle.price} for both kits — $
-              {PLAN_BY_ID.engineer.price + PLAN_BY_ID.marketing.price} if you buy them apart.
-            </p>
+          <div className="nx-fade">
+            <Label ic="$">Pricing</Label>
           </div>
 
           {/* GEO OFFER, rendered only for visitors in an eligible country */}
@@ -1125,209 +927,107 @@ export default function Home() {
             </div>
           )}
 
-          <div className="nx-proof-center nx-fade">
-            <ProofPill />
+          <div className="nx-price nx-fade">
+            <div className="nx-price-l">
+              <h2 className="nx-h2">No subscription.</h2>
+              <p>
+                Pay once, get private-repo access the moment you check out, and every future update
+                after that. No seats, no renewal, nothing to cancel. Works with any Claude Code
+                plan: Pro, Max, Team or API.
+              </p>
+              <ul className="nx-checks">
+                <li>Both kits: 89 agents, 122 skills, 181 commands</li>
+                <li>Both CLAUDE.md templates + the agentskit CLI</li>
+                <li>Private repo, lifetime updates</li>
+                <li>14-day money-back guarantee, no questions asked</li>
+              </ul>
+              <p className="nx-price-foot">
+                Bought apart, the two kits are $
+                {PLAN_BY_ID.engineer.price + PLAN_BY_ID.marketing.price}. Just need one team? See
+                the single kits below.
+              </p>
+            </div>
+            <div className="nx-price-r">
+              <div className="nx-price-name">Complete Bundle</div>
+              <div className="nx-price-amt">
+                <span className="big">${bundle.price}</span>
+                {bundle.was && <span className="was">${bundle.was}</span>}
+              </div>
+              <div className={`nx-price-pill${bundleTier.left !== null ? " hot" : ""}`}>
+                {bundleTier.left !== null ? `${bundleTier.left} launch seats left` : "List price"}
+              </div>
+              <div className="nx-price-once">once, lifetime updates</div>
+              {/* POLAR: Bundle product checkout link */}
+              <a
+                className="nx-btn nx-btn-primary nx-btn-lg"
+                href={withDiscount(bundle.checkoutUrl, geoOffer.eligible)}
+                data-polar-checkout=""
+                data-polar-checkout-theme="dark"
+                onClick={trackSignup}
+                data-fast-goal="initiate_checkout"
+                data-fast-goal-plan="bundle"
+                data-fast-goal-price={String(bundle.price)}
+                data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
+              >
+                {bundle.cta}
+              </a>
+              {bundleTier.left !== null && bundleTier.nextPrice !== null && (
+                <div className="nx-price-urgency">
+                  Goes to <b>${bundleTier.nextPrice}</b> after {bundleTier.left} more{" "}
+                  {bundleTier.left === 1 ? "sale" : "sales"}
+                </div>
+              )}
+              <p className="nx-price-fine">
+                Secure checkout via Polar · instant private-repo access · 14-day money-back
+                guarantee
+              </p>
+            </div>
+          </div>
+
+          <div className="nx-singles">
+            {singles.map((p) => (
+              <div className="nx-tile nx-single nx-fade" key={p.id}>
+                <div>
+                  <h3>{p.name}</h3>
+                  <p>
+                    {p.who} ·{" "}
+                    {p.id === "engineer"
+                      ? "58 agents, 61 skills, 159 commands"
+                      : "31 agents, 61 skills, 32 commands"}
+                  </p>
+                </div>
+                <div className="nx-single-buy">
+                  <span className="amt">
+                    ${p.price}
+                    {p.was && <s>${p.was}</s>}
+                  </span>
+                  {/* POLAR: single-kit product checkout link */}
+                  <a
+                    className="nx-btn nx-btn-line"
+                    href={withDiscount(p.checkoutUrl, geoOffer.eligible)}
+                    data-polar-checkout=""
+                    data-polar-checkout-theme="dark"
+                    onClick={trackSignup}
+                    data-fast-goal="initiate_checkout"
+                    data-fast-goal-plan={p.id}
+                    data-fast-goal-price={String(p.price)}
+                    data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
+                  >
+                    {p.cta}
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* PRICE LADDER, states the live bundle price (and, during a launch,
               how many seats are left before it rises) */}
           <PriceLadder fade />
 
-          <div className="nx-price-grid">
-            {/* ENGINEER */}
-            <div className="nx-plan nx-fade">
-              <div className="nx-plan-head">
-                <div>
-                  <h3>Engineer Kit</h3>
-                  <div className="who">the software team</div>
-                </div>
-              </div>
-              <div className="nx-plan-buy">
-                <div className="amt">
-                  <span className="cur">$</span>
-                  <span className="big">{PLAN_BY_ID.engineer.price}</span>
-                  {PLAN_BY_ID.engineer.was && (
-                    <span className="was">${PLAN_BY_ID.engineer.was}</span>
-                  )}
-                </div>
-                <div className="once">one-time · lifetime updates</div>
-                {/* POLAR: Engineer product checkout link */}
-                <a
-                  className="nx-btn nx-btn-ghost"
-                  href={withDiscount(PLAN_BY_ID.engineer.checkoutUrl, geoOffer.eligible)}
-                  data-polar-checkout=""
-                  data-polar-checkout-theme="dark"
-                  onClick={trackSignup}
-                  data-fast-goal="initiate_checkout"
-                  data-fast-goal-plan="engineer"
-                  data-fast-goal-price={String(PLAN_BY_ID.engineer.price)}
-                  data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
-                >
-                  {PLAN_BY_ID.engineer.cta} <span className="ar">↗</span>
-                </a>
-              </div>
-              <ul>
-                <li>
-                  <span className="ck">✓</span> 58 engineering agents
-                </li>
-                <li>
-                  <span className="ck">✓</span> 61 pre-built skills
-                </li>
-                <li>
-                  <span className="ck">✓</span> 159 slash commands
-                </li>
-                <li>
-                  <span className="ck">✓</span> CLAUDE.md template + CLI
-                </li>
-                <li>
-                  <span className="ck">✓</span> Private repo + lifetime updates
-                </li>
-              </ul>
-            </div>
-            {/* BUNDLE */}
-            <div className="nx-plan featured nx-fade">
-              <div className="nx-plan-head">
-                <div>
-                  <h3>Complete Bundle</h3>
-                  <div className="who">engineer + marketing</div>
-                </div>
-                <div className={`pill${bundleTier.left !== null ? " hot" : ""}`}>
-                  {bundleTier.left !== null ? `${bundleTier.left} seats left` : "List price"}
-                </div>
-              </div>
-              <div className="nx-plan-buy">
-                <div className="amt">
-                  <span className="cur">$</span>
-                  <span className="big">{PLAN_BY_ID.bundle.price}</span>
-                  {PLAN_BY_ID.bundle.was && (
-                    <span className="was">${PLAN_BY_ID.bundle.was}</span>
-                  )}
-                </div>
-                <div className="once">one-time · lifetime updates</div>
-                {/* POLAR: Bundle product checkout link */}
-                <a
-                  className="nx-btn nx-btn-primary"
-                  href={withDiscount(PLAN_BY_ID.bundle.checkoutUrl, geoOffer.eligible)}
-                  data-polar-checkout=""
-                  data-polar-checkout-theme="dark"
-                  onClick={trackSignup}
-                  data-fast-goal="initiate_checkout"
-                  data-fast-goal-plan="bundle"
-                  data-fast-goal-price={String(PLAN_BY_ID.bundle.price)}
-                  data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
-                >
-                  {PLAN_BY_ID.bundle.cta} <span className="ar">↗</span>
-                </a>
-                {bundleTier.left !== null && bundleTier.nextPrice !== null && (
-                  <div className="nx-plan-urgency">
-                    <span className="ico" aria-hidden="true">
-                      ↑
-                    </span>
-                    <span>
-                      Goes to <b>${bundleTier.nextPrice}</b> after {bundleTier.left} more{" "}
-                      {bundleTier.left === 1 ? "sale" : "sales"}
-                    </span>
-                  </div>
-                )}
-              </div>
-              <ul>
-                <li>
-                  <span className="ck">✓</span>{" "}
-                  <span>
-                    <b>Everything</b> in both kits
-                  </span>
-                </li>
-                <li>
-                  <span className="ck">✓</span> 89 agents · 122 skills · 181 commands
-                </li>
-                <li>
-                  <span className="ck">✓</span>{" "}
-                  <span>
-                    Ship code <em>and</em> growth
-                  </span>
-                </li>
-                <li>
-                  <span className="ck">✓</span> Both CLAUDE.md templates
-                </li>
-                <li>
-                  <span className="ck">✓</span> Private repo + lifetime updates
-                </li>
-              </ul>
-            </div>
-            {/* MARKETING */}
-            <div className="nx-plan nx-fade">
-              <div className="nx-plan-head">
-                <div>
-                  <h3>Marketing Kit</h3>
-                  <div className="who">the growth team</div>
-                </div>
-              </div>
-              <div className="nx-plan-buy">
-                <div className="amt">
-                  <span className="cur">$</span>
-                  <span className="big">{PLAN_BY_ID.marketing.price}</span>
-                  {PLAN_BY_ID.marketing.was && (
-                    <span className="was">${PLAN_BY_ID.marketing.was}</span>
-                  )}
-                </div>
-                <div className="once">one-time · lifetime updates</div>
-                {/* POLAR: Marketing product checkout link */}
-                <a
-                  className="nx-btn nx-btn-ghost"
-                  href={withDiscount(PLAN_BY_ID.marketing.checkoutUrl, geoOffer.eligible)}
-                  data-polar-checkout=""
-                  data-polar-checkout-theme="dark"
-                  onClick={trackSignup}
-                  data-fast-goal="initiate_checkout"
-                  data-fast-goal-plan="marketing"
-                  data-fast-goal-price={String(PLAN_BY_ID.marketing.price)}
-                  data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
-                >
-                  {PLAN_BY_ID.marketing.cta} <span className="ar">↗</span>
-                </a>
-              </div>
-              <ul>
-                <li>
-                  <span className="ck">✓</span> 31 marketing agents
-                </li>
-                <li>
-                  <span className="ck">✓</span> 61 pre-built skills
-                </li>
-                <li>
-                  <span className="ck">✓</span> 32 slash commands
-                </li>
-                <li>
-                  <span className="ck">✓</span> Brand CLAUDE.md template + CLI
-                </li>
-                <li>
-                  <span className="ck">✓</span> Private repo + lifetime updates
-                </li>
-              </ul>
-            </div>
-          </div>
-          {/* GUARANTEE, sits directly under the plans so it reads with the price */}
-          <div className="nx-guarantee nx-fade" role="note">
-            <span className="seal" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <path
-                  d="M12 2.6 4.2 5.6v6c0 4.4 3.1 8.3 7.8 9.8 4.7-1.5 7.8-5.4 7.8-9.8v-6L12 2.6Z"
-                  strokeLinejoin="round"
-                />
-                <path d="m8.6 11.9 2.4 2.4 4.4-4.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-            <div className="copy">
-              <b>14-Day Money-Back Guarantee</b>
-              <span>No questions asked</span>
-            </div>
-          </div>
-          <div className="nx-plan-foot">
-            [ Secure checkout via Polar · instant private-repo access after purchase ]
-          </div>
           <p className="nx-plan-note">
             {bundleTier.left !== null && bundleTier.nextPrice !== null ? (
               <>
-                Launch pricing. {bundleTier.left} seats remain at ${bundleTier.price} — the next
+                Launch pricing. {bundleTier.left} seats remain at ${bundleTier.price}, the next
                 buyer after that pays ${bundleTier.nextPrice}.
               </>
             ) : (
@@ -1340,256 +1040,146 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="nx-hatch" aria-hidden="true"></div>
-
       {/* FAQ */}
       <section id="faq" className="nx-sec">
         <div className="nx-wrap">
-          <div className="nx-faq-split">
-            <div className="nx-faq-side nx-fade">
-              <div className="nx-label">FAQs</div>
-              <h2 className="nx-h2">Got questions? We&apos;ve got answers.</h2>
-              <div className="nx-faq-contact">
-                <p>Still have questions?</p>
-                <span>Reach out anytime</span>
-                <a
-                  className="nx-btn nx-btn-primary"
-                  href="mailto:epictools.io@gmail.com"
-                  data-fast-goal="contact_email"
-                  data-fast-goal-location="faq"
-                >
-                  Email us <span className="ar">↗</span>
-                </a>
-              </div>
-            </div>
-            <div className="nx-faq">
-              <details className="nx-q nx-fade">
-                <summary data-fast-goal="faq_need_claude_code">
-                  <span className="qn">01</span> Do I need Claude Code? Does it work with Cursor or
-                  ChatGPT? <span className="plus">+</span>
-                </summary>
-                <div className="a">
-                  Yes. AgentsKit is built specifically for{" "}
-                  <a href="https://claude.com/claude-code">Claude Code</a>, Anthropic&apos;s AI
-                  coding tool for the terminal, desktop app, and IDE. The kits are agents, skills,
-                  and slash commands that live in your project&apos;s <code>.claude/</code> folder,
-                  which is a Claude Code format. It does not run inside Cursor, Copilot, or the
-                  ChatGPT app. Any Claude Code plan works: Pro, Max, Team, or API billing.
-                </div>
-              </details>
-              <details className="nx-q nx-fade">
-                <summary data-fast-goal="faq_what_do_i_get">
-                  <span className="qn">02</span> What exactly do I get?{" "}
-                  <span className="plus">+</span>
-                </summary>
-                <div className="a">
-                  Access to a private GitHub repo containing the kit(s) you bought: a{" "}
-                  <code>.claude/</code> directory of agents, skills, and slash commands, CLAUDE.md
-                  templates, the <code>agentskit</code> installer CLI, and full docs. You drop it
-                  into any project with a one-line <code>npx github:getagentskit/…</code> command
-                  that pulls straight from your private repo. The exact command is in your
-                  repo&apos;s README.
-                </div>
-              </details>
-              <details className="nx-q nx-fade">
-                <summary data-fast-goal="faq_need_to_code">
-                  <span className="qn">03</span> Do I need to know how to code?{" "}
-                  <span className="plus">+</span>
-                </summary>
-                <div className="a">
-                  You need <a href="https://claude.com/claude-code">Claude Code</a> and a project to
-                  work in. The agents do the heavy lifting. You direct them in plain English.
-                  Installation is a single command.
-                </div>
-              </details>
-              <details className="nx-q nx-fade">
-                <summary data-fast-goal="faq_framework_lock_in">
-                  <span className="qn">04</span> Does it lock me into a framework?{" "}
-                  <span className="plus">+</span>
-                </summary>
-                <div className="a">
-                  No. Agents adapt to your stack (Next.js, Django, Rails, Go, Rust, anything) by
-                  reading your CLAUDE.md. Zero forced architecture.
-                </div>
-              </details>
-              <details className="nx-q nx-fade">
-                <summary data-fast-goal="faq_how_updates_work">
-                  <span className="qn">05</span> How do updates work?{" "}
-                  <span className="plus">+</span>
-                </summary>
-                <div className="a">
-                  Buy once, get every future update. Run <code>agentskit update</code> (or{" "}
-                  <code>git pull</code>) to refresh. Your custom files and CLAUDE.md are never
-                  touched.
-                </div>
-              </details>
-              <details className="nx-q nx-fade">
-                <summary data-fast-goal="faq_anthropic_affiliation">
-                  <span className="qn">06</span> Is this affiliated with Anthropic?{" "}
-                  <span className="plus">+</span>
-                </summary>
-                <div className="a">
-                  No. AgentsKit is an independent, unofficial product and is not affiliated with,
-                  endorsed by, or sponsored by Anthropic. &quot;Claude&quot; and &quot;Claude
-                  Code&quot; are trademarks of Anthropic.
-                </div>
-              </details>
-              <details className="nx-q nx-fade">
-                <summary data-fast-goal="faq_refund_policy">
-                  <span className="qn">07</span> Is there a money-back guarantee?{" "}
-                  <span className="plus">+</span>
-                </summary>
-                <div className="a">
-                  <p>Yes. 14 days, full refund, no questions asked.</p>
-                  <p>
-                    Put AgentsKit on a real feature. If it doesn&apos;t save you hours on that
-                    first ship, email us within 14 days and we&apos;ll send the money back.
-                  </p>
-                  <p>
-                    We can offer that because the kit isn&apos;t theory. Every agent, skill, and
-                    command in it earned its place in real production work before it shipped to
-                    you.
-                  </p>
-                </div>
-              </details>
-            </div>
+          <div className="nx-fade">
+            <Label ic="?">FAQ</Label>
+            <h2 className="nx-h2">Questions people ask.</h2>
           </div>
+          <div className="nx-faq">
+            <details className="nx-q">
+              <summary data-fast-goal="faq_need_claude_code">
+                Do I need Claude Code? Does it work with Cursor or ChatGPT?
+                <span className="plus">+</span>
+              </summary>
+              <div className="a">
+                Yes. AgentsKit is built specifically for{" "}
+                <a href="https://claude.com/claude-code">Claude Code</a>, Anthropic&apos;s AI coding
+                tool for the terminal, desktop app, and IDE. The kits are agents, skills, and slash
+                commands that live in your project&apos;s <code>.claude/</code> folder, which is a
+                Claude Code format. It does not run inside Cursor, Copilot, or the ChatGPT app. Any
+                Claude Code plan works: Pro, Max, Team, or API billing.
+              </div>
+            </details>
+            <details className="nx-q">
+              <summary data-fast-goal="faq_what_do_i_get">
+                What exactly do I get?
+                <span className="plus">+</span>
+              </summary>
+              <div className="a">
+                Access to a private GitHub repo containing the kit(s) you bought: a{" "}
+                <code>.claude/</code> directory of agents, skills, and slash commands, CLAUDE.md
+                templates, the <code>agentskit</code> installer CLI, and full docs. You drop it into
+                any project with a one-line <code>npx github:getagentskit/…</code> command that
+                pulls straight from your private repo. The exact command is in your repo&apos;s
+                README.
+              </div>
+            </details>
+            <details className="nx-q">
+              <summary data-fast-goal="faq_need_to_code">
+                Do I need to know how to code?
+                <span className="plus">+</span>
+              </summary>
+              <div className="a">
+                You need <a href="https://claude.com/claude-code">Claude Code</a> and a project to
+                work in. The agents do the heavy lifting. You direct them in plain English.
+                Installation is a single command.
+              </div>
+            </details>
+            <details className="nx-q">
+              <summary data-fast-goal="faq_framework_lock_in">
+                Does it lock me into a framework?
+                <span className="plus">+</span>
+              </summary>
+              <div className="a">
+                No. Agents adapt to your stack (Next.js, Django, Rails, Go, Rust, anything) by
+                reading your CLAUDE.md. Zero forced architecture.
+              </div>
+            </details>
+            <details className="nx-q">
+              <summary data-fast-goal="faq_how_updates_work">
+                How do updates work?
+                <span className="plus">+</span>
+              </summary>
+              <div className="a">
+                Buy once, get every future update. Run <code>agentskit update</code> (or{" "}
+                <code>git pull</code>) to refresh. Your custom files and CLAUDE.md are never
+                touched.
+              </div>
+            </details>
+            <details className="nx-q">
+              <summary data-fast-goal="faq_anthropic_affiliation">
+                Is this affiliated with Anthropic?
+                <span className="plus">+</span>
+              </summary>
+              <div className="a">
+                No. AgentsKit is an independent, unofficial product and is not affiliated with,
+                endorsed by, or sponsored by Anthropic. &quot;Claude&quot; and &quot;Claude
+                Code&quot; are trademarks of Anthropic.
+              </div>
+            </details>
+            <details className="nx-q">
+              <summary data-fast-goal="faq_refund_policy">
+                Is there a money-back guarantee?
+                <span className="plus">+</span>
+              </summary>
+              <div className="a">
+                <p>Yes. 14 days, full refund, no questions asked.</p>
+                <p>
+                  Put AgentsKit on a real feature. If it doesn&apos;t save you hours on that first
+                  ship, email us within 14 days and we&apos;ll send the money back.
+                </p>
+                <p>
+                  We can offer that because the kit isn&apos;t theory. Every agent, skill, and
+                  command in it earned its place in real production work before it shipped to you.
+                </p>
+              </div>
+            </details>
+          </div>
+          <p className="nx-more">
+            Still stuck?{" "}
+            <a
+              href="mailto:epictools.io@gmail.com"
+              data-fast-goal="contact_email"
+              data-fast-goal-location="faq"
+            >
+              Email us
+            </a>
+            . Want to see it first? <a href="/demo">Watch the demo</a>.
+          </p>
         </div>
       </section>
 
       {/* FINAL CTA */}
       <section className="nx-final">
         <div className="nx-wrap nx-fade">
-          <h2 className="nx-h2">Stop being the bottleneck. Ship like a team.</h2>
-          <p className="nx-lead">
-            89 specialists for code and growth, installed into Claude Code with one command. One
-            payment, yours for life.
-          </p>
-          <div className="nx-final-cta">
+          <h2 className="nx-h2">
+            Just prompt. <em>It ships.</em>
+          </h2>
+          <div className="nx-cta-row">
             <a
-              className="nx-btn nx-btn-primary nx-btn-lg"
+              className="nx-btn nx-btn-primary"
               href="#pricing"
               data-fast-goal="cta_get_claudethings"
               data-fast-goal-location="final_cta"
             >
-              Get AgentsKit <span className="ar">↗</span>
+              Get AgentsKit
+            </a>
+            <a className="nx-btn nx-btn-soft" href="/demo" data-fast-goal="cta_see_demo" data-fast-goal-location="final_cta">
+              <span className="play" aria-hidden="true">
+                ▶
+              </span>
+              See demo
             </a>
           </div>
-          <span className="nx-micro">🔒 Secure checkout · Pay once, use forever</span>
-          <div className="nx-final-dash" aria-hidden="true">
-            {dashboard}
-          </div>
+          <span className="nx-micro">
+            ${bundle.price} once · Lifetime updates · Works with any Claude Code plan
+          </span>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="nx-footer">
-        <div className="nx-wrap">
-          <div className="nx-foot-top">
-            <div>
-              <a className="nx-logo" href="#top">
-                AgentsKit
-              </a>
-              <p className="desc">Your AI engineering &amp; marketing team for Claude Code.</p>
-              <div className="nx-foot-badges">
-                {/* tinyshelf directory badge — must stay a dofollow link straight to
-                    www.tinyshelf.co and live in the server-rendered HTML, or their
-                    weekly re-check drops our listing's link to nofollow. */}
-                <a
-                  className="nx-foot-badge"
-                  href="https://www.tinyshelf.co/?ref=agentskit.co"
-                  title="Featured on tinyshelf"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <img
-                    src="https://www.tinyshelf.co/badge/tinyshelf-badge-light-5ca4026a.svg"
-                    alt="Featured on tinyshelf"
-                    width={216}
-                    height={64}
-                  />
-                </a>
-                <a
-                  className="nx-foot-badge"
-                  href="https://founder.page/hii_mohit"
-                  title="Find me on founder.page"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <img
-                    src="https://founder.page/badge/hii_mohit.svg?style=solid"
-                    alt="Find me on founder.page"
-                    width={204}
-                    height={38}
-                  />
-                </a>
-              </div>
-            </div>
-            <div className="nx-foot-links">
-              <div className="nx-foot-col">
-                <h2>Product</h2>
-                <a href="#whats-inside">What&apos;s inside</a>
-                <a href="#kits">Kits</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
-              </div>
-              <div className="nx-foot-col">
-                <h2>Free Tools</h2>
-                <a href="/tools">All free tools</a>
-                <a href="/claude-skill-md-validator">SKILL.md Validator</a>
-                <a href="/claude-skill-for-website-security-audit">Website Security Audit</a>
-              </div>
-              <div className="nx-foot-col">
-                <h2>Resources</h2>
-                <a href="/prompts">Claude prompts</a>
-                <a href="/blog">Blog</a>
-                <a href="/use-cases">Use cases</a>
-                <a href="/comparisons">Comparisons</a>
-              </div>
-              <div className="nx-foot-col">
-                <h2>Legal</h2>
-                <a href="/legal">Legal</a>
-                <a href="/terms">Terms</a>
-                <a href="/privacy">Privacy</a>
-                <a href="/refund">Refunds</a>
-                <a href="/disclaimer">Disclaimer</a>
-              </div>
-              <div className="nx-foot-col">
-                <h2>More Products</h2>
-                <a href="https://notchbuddy.com" target="_blank" rel="noopener">
-                  NotchBuddy
-                </a>
-                <a href="https://trymacapps.com" target="_blank" rel="noopener">
-                  TryMacApps
-                </a>
-              </div>
-              <div className="nx-foot-col">
-                <h2>Connect</h2>
-                <a
-                  href="mailto:epictools.io@gmail.com"
-                  data-fast-goal="contact_email"
-                  data-fast-goal-location="footer"
-                >
-                  epictools.io@gmail.com
-                </a>
-                <a href={SITE_URL}>agentskit.co</a>
-                <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">
-                  X (Twitter)
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="nx-disclaimer">
-            <b>Unofficial &amp; independent.</b> AgentsKit is not affiliated with, endorsed by, or
-            sponsored by Anthropic. &quot;Claude,&quot; &quot;Claude Code,&quot; and
-            &quot;Anthropic&quot; are trademarks of Anthropic. AgentsKit is a curated distribution;
-            many bundled components are sourced from open-source projects under MIT/Apache-2.0
-            licenses, with full attribution preserved in the product&apos;s CREDITS file.
-            <br />
-            <br />© {year} AgentsKit. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

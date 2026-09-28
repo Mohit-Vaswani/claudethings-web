@@ -25,6 +25,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
             <a href="/blog">Blog</a>
             <a href="/use-cases">Use cases</a>
             <a href="/tools">Free tools</a>
+            <a href="/demo">Demo</a>
             <a className="btn btn-primary nav-cta" href="/#pricing">
               Get AgentsKit
             </a>
@@ -99,6 +100,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
                 <a href="/#whats-inside">What&apos;s inside</a>
                 <a href="/#kits">Kits</a>
                 <a href="/#pricing">Pricing</a>
+                <a href="/demo">Demo</a>
                 <a href="/#faq">FAQ</a>
               </div>
               <div className="foot-col">
