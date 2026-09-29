@@ -537,9 +537,8 @@ export default function Home() {
 
         <div className="nx-wrap nx-hero-center">
           <h1 className="nx-h1 nx-rise nx-d2">
-            One command.
-            <br />
-            <em>A whole team.</em>
+            Your AI <em>engineering &amp; marketing</em> team{" "}
+            <span className="nb">in one command</span>
           </h1>
           <p className="nx-sub nx-rise nx-d3">
             89 specialist agents, 122 skills and 181 slash commands for Claude Code. Plan, build,

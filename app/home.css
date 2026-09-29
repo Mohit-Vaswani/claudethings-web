@@ -145,6 +145,8 @@ body:has(.nx-page)::before{content:none}
   text-align:center;
 }
 .nx-page .nx-h1 em,.nx-page .nx-h2 em{font-style:italic;color:inherit}
+.nx-hero-center .nx-h1{font-size:clamp(3rem,8.5vw,5.6rem)}
+.nx-hero-center .nx-h1 .nb{white-space:nowrap}
 .nx-sub{
   max-width:470px;margin:22px auto 0;font-size:17px;line-height:1.55;color:var(--nx-dim);text-align:center;
 }
