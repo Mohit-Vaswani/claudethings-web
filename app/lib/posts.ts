@@ -45,6 +45,17 @@ export interface MdxPost {
   date: string;
   /** Human label for the meta row, derived from `date` unless overridden. */
   dateDisplay: string;
+  /**
+   * ISO date of the last substantive revision. Feeds dateModified, the
+   * sitemap lastmod, and an "Updated" label, so a refreshed post reads as
+   * fresh to crawlers without faking its publish date. Defaults to `date`.
+   */
+  updated: string;
+  /** Human label for `updated`, or undefined when the post was never revised. */
+  updatedDisplay?: string;
+  /** Optional hero image path under public/, used for OG and Article schema. */
+  image?: string;
+  imageAlt?: string;
   readingTime: string;
   tag: string;
   icon: string;
@@ -82,6 +93,7 @@ function parse(slug: string, raw: string): MdxPost {
   const { data, content } = matter(raw);
 
   const date = String(data.date ?? "").slice(0, 10);
+  const updated = data.updated ? String(data.updated).slice(0, 10) : date;
   const faq: FaqItem[] = Array.isArray(data.faq)
     ? data.faq
         .filter((f: unknown): f is FaqItem => !!f && typeof f === "object" && "q" in f && "a" in f)
@@ -102,6 +114,10 @@ function parse(slug: string, raw: string): MdxPost {
     intro: String(data.intro ?? data.description ?? ""),
     date,
     dateDisplay: data.dateDisplay ? String(data.dateDisplay) : formatDate(date),
+    updated,
+    updatedDisplay: updated !== date ? formatDate(updated) : undefined,
+    image: data.image ? String(data.image) : undefined,
+    imageAlt: data.imageAlt ? String(data.imageAlt) : undefined,
     readingTime: data.readingTime ? String(data.readingTime) : readingTime(content),
     tag: String(data.tag ?? "Guide"),
     icon: String(data.icon ?? "📄"),

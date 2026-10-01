@@ -1,17 +1,20 @@
 ---
-title: "Claude AI Models: The Complete Lineup, Compared"
-description: "Every current Claude model — Opus 5, Sonnet 5, Haiku 4.5, and Fable 5.1 — compared on price, context window, knowledge cutoff, and what each one is actually for."
-intro: "Anthropic's current lineup is four models: Opus 5 for complex agentic coding and enterprise work, Sonnet 5 for the best balance of speed and intelligence, Haiku 4.5 for fast near-frontier tasks, and Fable 5.1 for demanding reasoning and long-horizon agentic work. All four take text and image input and share a 1M-token context window, except Haiku 4.5 at 200K."
+title: "Claude Models: Latest Lineup Compared (October 2026)"
+description: "The latest Claude models are Opus 5.5, Sonnet 5.5, Haiku 4.5 and Fable 5.1. Compare API names, pricing, context windows, image support, and which one to use."
+intro: "The latest Claude models are Claude Opus 5.5 and Claude Sonnet 5.5, alongside Haiku 4.5 and Fable 5.1. Opus 5.5 ($4 / $20 per million tokens) is Anthropic's recommended default, Sonnet 5.5 is the faster mid-price option, Haiku 4.5 is the fastest and cheapest, and Fable 5.1 is the most capable. All four accept image input."
 date: "2026-09-21"
+updated: "2026-10-01"
+image: "/blog/claude-models-compared.png"
+imageAlt: "Comparison of the latest Claude models: Opus 5.5, Sonnet 5.5, Haiku 4.5 and Fable 5.1, with API name, price, context window, max output and knowledge cutoff"
 tag: "Models"
 icon: "🧠"
 eyebrow: "Reference"
 crumb: "Models"
-targetKeyword: "claude ai models"
+targetKeyword: "claude models"
 related:
   - href: "/blog/claude-code-commands"
     title: "Claude Code Commands Reference"
-    desc: "Every built-in slash command, and how to write your own."
+    desc: "Every built-in slash command, including /model for switching models mid-session."
   - href: "/claude-plan-calculator"
     title: "Free Claude Plan Calculator"
     desc: "Work out what a workload actually costs before you commit to a model."
@@ -19,83 +22,113 @@ related:
     title: "Getting Started with Claude Code"
     desc: "Install, authenticate, and run your first session."
 faq:
-  - q: "What is the best Claude model for coding?"
-    a: "Claude Opus 5 is the default recommendation for most agentic coding and enterprise workloads. Reach for Claude Fable 5.1 specifically when your evals on Opus 5 still fall short at higher effort settings, or the task is long-horizon and reasoning-heavy rather than execution-heavy."
-  - q: "What is the difference between Claude Opus 5 and Claude Sonnet 5?"
-    a: "Opus 5 is priced at $5 input / $25 output per million tokens and is built for complex agentic coding and enterprise work. Sonnet 5 is priced at $2 input / $10 output per million tokens and targets the best combination of speed and intelligence for everyday production use. Both share a 1M-token context window and 128K max output."
-  - q: "Does claude-sonnet-5 always point to the newest Sonnet model?"
-    a: "No. From the Claude 4.6 generation onward, dateless model IDs like claude-sonnet-5 are pinned snapshots, not evergreen aliases. The weights behind that ID never change; a future model ships under a new ID entirely. Only aliases for models before Claude 4.6, such as claude-sonnet-4-5, resolve to the latest dated snapshot."
-  - q: "How much does Claude Opus 5 cost?"
-    a: "Claude Opus 5 is $5 per million input tokens and $25 per million output tokens on the Claude API. Batch API requests get a 50% discount, and cached prompt reads cost 10% of the base input price."
-  - q: "What is Claude Haiku 4.5 used for?"
-    a: "Claude Haiku 4.5 is the fastest current model, built for latency-sensitive work that still needs near-frontier intelligence — high-volume classification, chat, and any agent loop where response time matters more than maximum reasoning depth. It has a 200K context window versus 1M on the other three models, and is the only current model without adaptive thinking support."
+  - q: "What is the latest Claude model?"
+    a: "As of October 2026 the newest Claude models are Claude Opus 5.5 (claude-opus-5-5) and Claude Sonnet 5.5 (claude-sonnet-5-5). Opus 5.5 is Anthropic's recommended default for most workloads. Claude Fable 5.1 (claude-fable-5-1) is the most capable model, and Claude Haiku 4.5 is the fastest."
+  - q: "What is the Claude Haiku 4.5 API name?"
+    a: "On the Claude API, Haiku 4.5 is claude-haiku-4-5-20251001, and the alias claude-haiku-4-5 points to that snapshot. On Amazon Bedrock it is anthropic.claude-haiku-4-5, and on Google Cloud it is claude-haiku-4-5@20251001."
+  - q: "Which Claude model is best for images?"
+    a: "Every current Claude model accepts images as input, but none of them generate images; they answer in text. For reading screenshots, charts, diagrams and scanned documents, start with Claude Opus 5.5. Use Fable 5.1 for the hardest visual reasoning, and Haiku 4.5 for high-volume, low-cost image classification."
+  - q: "What is the difference between Claude Opus 5.5 and Claude Sonnet 5.5?"
+    a: "Opus 5.5 costs $4 input / $20 output per million tokens and is built for long-running agentic coding and knowledge work. Sonnet 5.5 costs $2 / $10 and trades some capability for speed. Both have a 1M-token context window, 128K max output, and a June 2026 knowledge cutoff."
+  - q: "How much does Claude Opus 5.5 cost?"
+    a: "Claude Opus 5.5 is $4 per million input tokens and $20 per million output tokens on the Claude API, cheaper than Opus 5 at $5 / $25. Batch requests are 50% off, and cached prompt reads cost 5% of the base input price."
+  - q: "Does a Claude model ID like claude-opus-5-5 automatically update to newer versions?"
+    a: "No. Every Claude model ID is a pinned snapshot, including dateless IDs like claude-opus-5-5 and claude-sonnet-5-5. The weights behind an ID never change. When Anthropic ships a newer model, it gets a new ID, and you have to change the string yourself to move to it."
 ---
 
-## What are the current Claude models?
+![The latest Claude models compared: Opus 5.5, Sonnet 5.5, Haiku 4.5 and Fable 5.1](/blog/claude-models-compared.png)
 
-Four models, as of this page's last update:
+## What is the latest Claude model?
 
-| Model | Best for | Context window | Max output | Price (in / out per MTok) | Reliable knowledge cutoff |
-| --- | --- | --- | --- | --- | --- |
-| **Claude Opus 5** | Complex agentic coding and enterprise work | 1M tokens | 128K tokens | $5 / $25 | May 2026 |
-| **Claude Sonnet 5** | Best combination of speed and intelligence | 1M tokens | 128K tokens | $2 / $10 | Jan 2026 |
-| **Claude Haiku 4.5** | Fastest, near-frontier intelligence | 200K tokens | 64K tokens | $1 / $5 | Feb 2025 |
-| **Claude Fable 5.1** | Demanding reasoning, long-horizon agentic work | 1M tokens | 128K tokens | $10 / $50 | Jun 2026 |
+**Claude Opus 5.5** and **Claude Sonnet 5.5** are the newest releases. They replace Opus 5 and Sonnet 5 as the current Opus and Sonnet. Anthropic's own recommendation is to start with Opus 5.5 for most workloads and move up to **Claude Fable 5.1** only when Opus 5.5 at higher effort still falls short.
 
-All four accept text and image input, produce text output, and support tool use and multilingual prompts. Thinking is adaptive on Opus 5, Sonnet 5, and Fable 5.1 — the model decides how much to think, steered by an effort parameter that defaults to `high` on all three. Fable 5.1 keeps adaptive thinking on at all times. Haiku 4.5 uses the older extended-thinking mode instead and doesn't take an effort parameter.
+The full current lineup is four models:
 
-Legacy models are still available on the Claude API if you have workloads pinned to them: Claude Fable 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.6, and Claude Sonnet 4.5. None of them are the right choice for a new project — they exist for continuity, not because they're cheaper or faster than the current lineup.
+| Model | Best for | API name | Context window | Max output | Price (in / out per MTok) | Knowledge cutoff |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Claude Opus 5.5** | Long-running agentic coding and knowledge work | `claude-opus-5-5` | 1M tokens | 128K | $4 / $20 | Jun 2026 |
+| **Claude Sonnet 5.5** | Best combination of speed and intelligence | `claude-sonnet-5-5` | 1M tokens | 128K | $2 / $10 | Jun 2026 |
+| **Claude Haiku 4.5** | Fastest, near-frontier intelligence | `claude-haiku-4-5` | 200K tokens | 64K | $1 / $5 | Feb 2025 |
+| **Claude Fable 5.1** | Demanding reasoning, long-horizon agentic work | `claude-fable-5-1` | 1M tokens | 128K | $10 / $50 | Jun 2026 |
+
+All four accept text and image input, produce text output, and support tool use and multilingual prompts. Relative speed runs Haiku 4.5 (fastest), Sonnet 5.5, Opus 5.5, then Fable 5.1 (slowest).
+
+## What changed in Opus 5.5 and Sonnet 5.5?
+
+**Opus 5.5 is cheaper than the model it replaces.** Opus 5 was $5 / $25 per million tokens; Opus 5.5 is $4 / $20, with the same 1M context window and 128K max output. Two behavior changes matter if you're migrating API code: thinking can no longer be turned off (the `effort` setting is the only control), and the default effort dropped from `high` to `medium`. Set effort explicitly if your results feel shallower after switching.
+
+**Sonnet 5.5 keeps Sonnet 5's price** at $2 / $10 and moves the knowledge cutoff forward to June 2026, from January 2026 on Sonnet 5. Effort still defaults to `high`, but the levels are recalibrated, so re-test the setting you used on Sonnet 5.
+
+Neither Opus 5 nor Sonnet 5 is going away soon. Both are now listed as legacy models and stay available, but new projects should use the 5.5 versions.
 
 ## Which Claude model should I use?
 
-Start with **Claude Opus 5** unless you have a specific reason not to. It's the recommended default for most workloads, coding included.
+Start with **Claude Opus 5.5** unless you have a specific reason not to. It's Anthropic's recommended default, coding included, and it's now cheaper than Opus 5 was.
 
-Move to **Claude Fable 5.1** when Opus 5 at higher effort genuinely isn't enough — a task that requires sustained reasoning across many steps, or an eval suite where Opus 5 plateaus below your bar. Fable 5.1 costs twice as much per output token as Opus 5, so this should be a measured decision, not a default.
+Move to **Claude Fable 5.1** when Opus 5.5 at higher effort genuinely isn't enough: a task that needs sustained reasoning across many steps, or an eval suite where Opus 5.5 plateaus below your bar. Fable 5.1 costs 2.5x as much per token as Opus 5.5, so make it a measured decision.
 
-Reach for **Claude Sonnet 5** when you're running production traffic and need Opus-adjacent quality at less than half the price, or when latency matters more than squeezing out the last few points of capability.
+Pick **Claude Sonnet 5.5** for production traffic where you want near-Opus quality at half the price, or where latency matters more than the last few points of capability.
 
-Pick **Claude Haiku 4.5** for anything high-volume and latency-sensitive: classification, routing, autocomplete-style agent loops, first-pass triage before escalating to a bigger model. It's a fifth the input price of Opus 5 and the fastest model in the lineup.
+Pick **Claude Haiku 4.5** for anything high-volume and latency-sensitive: classification, routing, autocomplete-style agent loops, first-pass triage before escalating to a bigger model. It's the cheapest and fastest model in the lineup, with a smaller 200K context window.
 
-## What is the difference between Claude Opus 5 and Claude Sonnet 5?
+## Which Claude model is best for images?
 
-Price and target workload. Opus 5 runs $5 input / $25 output per million tokens; Sonnet 5 runs $2 input / $10 output — less than half. Both share the same 1M-token context window, 128K max output, and adaptive thinking with a `high` default effort. The gap between them is capability on the hardest end of agentic coding and enterprise tasks, not architecture. If your evals show Sonnet 5 clearing your bar, it's the cheaper and faster choice; Opus 5 is for when it doesn't.
+Every current Claude model can *read* images, including screenshots, photos, charts, diagrams, and scanned PDFs. **No Claude model generates images.** If you need image generation, Claude isn't the tool; if you need image understanding, any of the four works.
+
+How to choose for image work:
+
+- **Screenshots, UI review, charts, and documents:** Claude Opus 5.5, the recommended default. It handles the common jobs well, like turning a UI screenshot into code or pulling numbers out of a chart.
+- **Hardest visual reasoning:** Claude Fable 5.1, for dense technical diagrams or multi-image analysis where Opus 5.5 misses details.
+- **High-volume image tagging or moderation:** Claude Haiku 4.5. At $1 / $5 per million tokens, it's the economical choice when you're processing thousands of images and each judgment is simple.
+- **Production apps with image input at scale:** Claude Sonnet 5.5, which balances quality and cost.
+
+## What are the Claude model API names?
+
+Since the Claude 4.6 generation, model IDs have no snapshot date: `claude-{name}-{major}-{minor}`, such as `claude-opus-5-5`. The same string works on the Claude API, Claude Platform on AWS, Google Cloud, and Microsoft Foundry. Amazon Bedrock adds an `anthropic.` prefix.
+
+| Model | Claude API | Amazon Bedrock | Google Cloud |
+| --- | --- | --- | --- |
+| Claude Opus 5.5 | `claude-opus-5-5` | `anthropic.claude-opus-5-5` | `claude-opus-5-5` |
+| Claude Sonnet 5.5 | `claude-sonnet-5-5` | `anthropic.claude-sonnet-5-5` | `claude-sonnet-5-5` |
+| Claude Haiku 4.5 | `claude-haiku-4-5-20251001` (alias `claude-haiku-4-5`) | `anthropic.claude-haiku-4-5` | `claude-haiku-4-5@20251001` |
+| Claude Fable 5.1 | `claude-fable-5-1` | `anthropic.claude-fable-5-1` | `claude-fable-5-1` |
+
+**Claude Haiku 4.5 is the exception.** It predates the dateless format, so its full API name is `claude-haiku-4-5-20251001`. The alias `claude-haiku-4-5` resolves to that snapshot, and Google Cloud uses an `@` separator: `claude-haiku-4-5@20251001`.
 
 ## How much do Claude models cost?
 
-Base API pricing per million tokens:
+Base Claude API pricing per million tokens:
 
-| Model | Input | Output |
-| --- | --- | --- |
-| Claude Fable 5.1 | $10 | $50 |
-| Claude Opus 5 | $5 | $25 |
-| Claude Sonnet 5 | $2 | $10 |
-| Claude Haiku 4.5 | $1 | $5 |
+| Model | Input | Output | Cached input read |
+| --- | --- | --- | --- |
+| Claude Fable 5.1 | $10 | $50 | 2.5% of input |
+| Claude Opus 5.5 | $4 | $20 | 5% of input |
+| Claude Sonnet 5.5 | $2 | $10 | 10% of input |
+| Claude Haiku 4.5 | $1 | $5 | 10% of input |
 
-Two discounts apply on top of these numbers. Batch API requests are 50% off the synchronous price. Prompt cache reads cost 10% of the base input price on Opus 5, Sonnet 5, and Haiku 4.5 — but only 2.5% on Fable 5.1. If you're running a workload with a large, stable system prompt or repeated context, caching changes the real cost more than the headline per-token price does. Run the numbers for your actual token mix through the [plan calculator](/claude-plan-calculator) before picking a model on price alone.
+Batch API requests are 50% off on every model. Prompt caching matters more than the headline price for any workload with a large, stable system prompt or repeated context. Run your actual token mix through the [plan calculator](/claude-plan-calculator) before picking a model on price alone.
 
-## How do Claude model IDs work across platforms?
+## Which Claude models are legacy or being retired?
 
-Starting with the Claude 4.6 generation, model IDs dropped the snapshot date. The format is `claude-{name}-{major}[-{minor}]` — major releases like Sonnet 5 and Opus 5 have no minor segment, so the ID is just `claude-sonnet-5` or `claude-opus-5`.
+These older models are still available on the Claude API, but none of them is the right pick for a new project: Claude Fable 5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 5, and Claude Sonnet 4.6.
 
-The Claude API ID is the same string across the Claude API, the Claude Platform on AWS, and Google Cloud. Amazon Bedrock prefixes it with `anthropic.` (for example `anthropic.claude-opus-5`), and Microsoft Foundry uses the same dateless ID as its deployment default. Haiku 4.5 is the exception across the board, since it predates the 4.6 generation and still carries a snapshot date: `claude-haiku-4-5-20251001` on the Claude API, `claude-haiku-4-5@20251001` on Google Cloud.
+**Claude Sonnet 4.5 is deprecated** and retires on November 30, 2026. Anthropic's recommended replacement is `claude-sonnet-5-5`.
 
-## Which Claude models are being retired?
-
-Every model ID has its own retirement commitment on Anthropic-operated platforms (the Claude API, Claude Platform on AWS, and Microsoft Foundry — Bedrock and Google Cloud set their own dates):
+Retirement commitments for the current four, on Anthropic-operated platforms (Bedrock and Google Cloud set their own dates):
 
 - Claude Haiku 4.5: not sooner than October 15, 2026
-- Claude Sonnet 5: not sooner than June 30, 2027
-- Claude Opus 5: not sooner than July 24, 2027
 - Claude Fable 5.1: not sooner than September 1, 2027
+- Claude Opus 5.5: not sooner than September 22, 2027
+- Claude Sonnet 5.5: not sooner than September 28, 2027
 
-None of the current four are close to retirement. These dates matter more for the legacy models still in production behind them — if you're on Sonnet 4.5 or an Opus 4.x model, check its own retirement date rather than assuming it matches the pattern above.
+Haiku 4.5's date is the one to watch. No deprecation has been announced yet, and Anthropic gives at least 60 days' notice before retiring a publicly released model. Still, a high-volume Haiku workload should have a migration plan ready.
 
 <Callout>
-**Pick the model, then skip the setup work:** the AgentsKit kits ship 181 slash commands, 89 agents, and 103 skills already scoped to the right model and effort level — no per-project trial and error over which Claude model to point a subagent at. [See what's included →](/#pricing)
+**Pick the model, then skip the setup work:** the AgentsKit kits ship 181 slash commands, 89 agents, and 103 skills already scoped to the right model and effort level, so you don't have to work out which Claude model to point each subagent at. [See what's included →](/#pricing)
 </Callout>
 
 ## The mistake almost everyone makes
 
-Treating a dateless model ID as if it were a pointer to "whatever is newest." It isn't, and this is a documented, explicit departure from how the Claude API used to work. Before the 4.6 generation, an alias like `claude-sonnet-4-5` really did resolve to the latest dated snapshot for that minor version — new snapshot, same alias, silently different weights. From 4.6 onward, that behavior is gone. `claude-sonnet-5` is the model, not an alias to it. The weights and configuration behind that ID are fixed for its entire lifetime; when Anthropic ships an improved version, it gets a new ID, and your existing integration keeps running on exactly what it was tested against until you change the string yourself.
+Treating a model ID as if it pointed to "whatever is newest." It doesn't. Every Claude model ID, including dateless ones like `claude-opus-5-5`, is a pinned snapshot. The weights behind it never change. When Anthropic ships an improved model, it gets a new ID, and your integration keeps running exactly what it was tested against until you change the string yourself.
 
-This is good news for stability and bad news if you've been assuming your integration quietly gets better over time without you doing anything. It doesn't, by design. If you want the newest model, you have to go get it — check the [Claude Code commands reference](/blog/claude-code-commands) for `/model`, which switches the active model mid-session, or update the model string in your API integration directly.
+So an app built on Opus 5 or Sonnet 5 stays there after the 5.5 releases. If you want the newest model, you have to switch to it: update the model string in your API code, or use `/model` in Claude Code (see the [Claude Code commands reference](/blog/claude-code-commands)) to switch the active model mid-session.

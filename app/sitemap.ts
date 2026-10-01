@@ -50,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .filter((p) => !legacySlugs.has(p.slug))
       .map((p) => ({
         url: `${BASE}/blog/${p.slug}`,
-        lastModified: new Date(`${p.date}T00:00:00Z`),
+        lastModified: new Date(`${p.updated}T00:00:00Z`),
         changeFrequency: "monthly" as const,
         priority: 0.7,
       })),

@@ -32,7 +32,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = `${SITE_URL}/blog/${post.slug}`;
-  const image = ogImage(post.title, post.tag);
+  const image = post.image ? `${SITE_URL}${post.image}` : ogImage(post.title, post.tag);
 
   return {
     title: `${post.title} · ${SITE_NAME}`,
@@ -46,7 +46,12 @@ export async function generateMetadata({
       type: "article",
       url,
       publishedTime: post.date,
-      images: [{ url: image, width: 1200, height: 630, alt: post.title }],
+      modifiedTime: post.updated,
+      images: [
+        post.image
+          ? { url: image, width: 1200, height: 675, alt: post.imageAlt ?? post.title }
+          : { url: image, width: 1200, height: 630, alt: post.title },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -75,7 +80,8 @@ export default async function BlogPostPage({
     description: post.description,
     url,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated,
+    ...(post.image ? { image: [`${SITE_URL}${post.image}`] } : {}),
     author: { "@type": "Organization", name: SITE_NAME },
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   };
@@ -100,7 +106,11 @@ export default async function BlogPostPage({
       crumbs={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: post.crumb }]}
       eyebrow={post.eyebrow}
       title={post.title}
-      meta={[post.dateDisplay, post.readingTime]}
+      meta={
+        post.updatedDisplay
+          ? [`Updated ${post.updatedDisplay}`, post.readingTime]
+          : [post.dateDisplay, post.readingTime]
+      }
       jsonLd={faqLd ? [articleLd, faqLd] : [articleLd]}
       related={post.related}
     >

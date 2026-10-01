@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ImgHTMLAttributes, ReactNode } from "react";
 import type { FaqItem } from "@/app/lib/posts";
 
 /**
@@ -46,4 +46,27 @@ export function PostFaq({ items }: { items: FaqItem[] }) {
   );
 }
 
-export const mdxComponents = { Callout };
+/**
+ * Markdown images. Post images are 1200px wide, so cap them to the column and
+ * give them the card treatment the rest of the site uses.
+ */
+function Img(props: ImgHTMLAttributes<HTMLImageElement>) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      {...props}
+      alt={props.alt ?? ""}
+      decoding="async"
+      style={{
+        display: "block",
+        width: "100%",
+        height: "auto",
+        borderRadius: 14,
+        border: "1px solid rgba(17,17,20,.10)",
+        margin: "8px 0",
+      }}
+    />
+  );
+}
+
+export const mdxComponents = { Callout, img: Img };
