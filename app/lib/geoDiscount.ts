@@ -57,6 +57,28 @@ export const GEO_DISCOUNT = {
 
 export const COUNTRY_COOKIE = "visitor_country";
 
+/**
+ * Local-currency display prices, already after the geo discount, for the
+ * countries where we quote one. Display only: Polar still charges USD with
+ * the code applied, so these are rounded marketing prices, not exact FX.
+ * Countries not listed here see the USD list price plus the banner.
+ */
+type PlanId = "engineer" | "bundle" | "marketing";
+const LOCAL_PRICES: Record<string, { currency: string; prices: Record<PlanId, number> }> = {
+  IN: { currency: "INR", prices: { bundle: 4299, engineer: 2399, marketing: 2399 } },
+};
+
+export type LocalPrice = { currency: string; prices: Record<PlanId, number> };
+
+/** Formats a local price with its symbol and grouping, e.g. 4299 -> "₹4,299". */
+export function formatLocal(amount: number, currency: string): string {
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
 function readCountryCookie(): string | null {
   const match = document.cookie.match(
     new RegExp(`(?:^|;\\s*)${COUNTRY_COOKIE}=([A-Za-z]{2})(?:;|$)`)
@@ -96,6 +118,8 @@ export type GeoOffer = {
   country: string | null;
   countryName: string | null;
   flag: string | null;
+  /** Discounted prices in the visitor's currency, when we quote one. */
+  local: LocalPrice | null;
 };
 
 const NO_OFFER: GeoOffer = {
@@ -103,6 +127,7 @@ const NO_OFFER: GeoOffer = {
   country: null,
   countryName: null,
   flag: null,
+  local: null,
 };
 
 /**
@@ -121,6 +146,7 @@ export function useGeoDiscount(): GeoOffer {
       country,
       countryName: nameFor(country),
       flag: flagFor(country),
+      local: LOCAL_PRICES[country] ?? null,
     });
   }, []);
 

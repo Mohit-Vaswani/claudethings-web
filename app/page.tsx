@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { trackSignup } from "./lib/clicks";
-import { GEO_DISCOUNT, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
+import { GEO_DISCOUNT, formatLocal, useGeoDiscount, withDiscount } from "./lib/geoDiscount";
 import { PLAN_BY_ID } from "./lib/plans";
 import { PriceLadder, ProofPill, TrustMrrBadge, ladderState } from "./components/pricing";
 import { BrandMark, SiteFooter, SiteNav } from "./components/HomeChrome";
@@ -414,6 +414,10 @@ export default function Home() {
   // is left. Drives the ladder, the card pill and the closing note so the
   // whole pricing block tells one consistent story.
   const bundleTier = ladderState();
+  // Discounted local-currency price for a plan, when the visitor's country
+  // has one (India today). Null means show the USD list price.
+  const localPrice = (id: "engineer" | "bundle" | "marketing") =>
+    geoOffer.local ? formatLocal(geoOffer.local.prices[id], geoOffer.local.currency) : null;
 
   useEffect(() => {
     const cleanups: Array<() => void> = [];
@@ -922,6 +926,12 @@ export default function Home() {
                 Purchasing-power pricing — your country is eligible. Your code{" "}
                 <code>{GEO_DISCOUNT.code}</code> is waiting in the discount box at checkout. Hit{" "}
                 <b>Apply</b> to take {GEO_DISCOUNT.percent}% off.
+                {geoOffer.local && (
+                  <>
+                    {" "}
+                    Prices shown in {geoOffer.local.currency}; Polar charges the USD equivalent.
+                  </>
+                )}
               </div>
             </div>
           )}
@@ -941,16 +951,31 @@ export default function Home() {
                 <li>14-day money-back guarantee, no questions asked</li>
               </ul>
               <p className="nx-price-foot">
-                Bought apart, the two kits are $
-                {PLAN_BY_ID.engineer.price + PLAN_BY_ID.marketing.price}. Just need one team? See
+                Bought apart, the two kits are{" "}
+                {geoOffer.local
+                  ? formatLocal(
+                      geoOffer.local.prices.engineer + geoOffer.local.prices.marketing,
+                      geoOffer.local.currency
+                    )
+                  : `$${PLAN_BY_ID.engineer.price + PLAN_BY_ID.marketing.price}`}
+                . Just need one team? See
                 the single kits below.
               </p>
             </div>
             <div className="nx-price-r">
               <div className="nx-price-name">Complete Bundle</div>
               <div className="nx-price-amt">
-                <span className="big">${bundle.price}</span>
-                {bundle.was && <span className="was">${bundle.was}</span>}
+                {localPrice("bundle") ? (
+                  <>
+                    <span className="big">{localPrice("bundle")}</span>
+                    <span className="was">${bundle.price}</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="big">${bundle.price}</span>
+                    {bundle.was && <span className="was">${bundle.was}</span>}
+                  </>
+                )}
               </div>
               <div className={`nx-price-pill${bundleTier.left !== null ? " hot" : ""}`}>
                 {bundleTier.left !== null ? `${bundleTier.left} launch seats left` : "List price"}
@@ -997,8 +1022,17 @@ export default function Home() {
                 </div>
                 <div className="nx-single-buy">
                   <span className="amt">
-                    ${p.price}
-                    {p.was && <s>${p.was}</s>}
+                    {localPrice(p.id) ? (
+                      <>
+                        {localPrice(p.id)}
+                        <s>${p.price}</s>
+                      </>
+                    ) : (
+                      <>
+                        ${p.price}
+                        {p.was && <s>${p.was}</s>}
+                      </>
+                    )}
                   </span>
                   {/* POLAR: single-kit product checkout link */}
                   <a
@@ -1173,7 +1207,7 @@ export default function Home() {
             </a>
           </div>
           <span className="nx-micro">
-            ${bundle.price} once · Lifetime updates · Works with any Claude Code plan
+            {localPrice("bundle") ?? `$${bundle.price}`} once · Lifetime updates · Works with any Claude Code plan
           </span>
         </div>
       </section>
