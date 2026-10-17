@@ -74,6 +74,11 @@ export default function Page() {
       jsonLd={[articleLd, faqLd]}
       related={[
         {
+          href: "/marketplace",
+          title: "Our Free Skills & Plugins Marketplace",
+          desc: "Hand-picked open-source skills, each with a plain-English review.",
+        },
+        {
           href: "/blog/claude-skills-github",
           title: "Claude Skills on GitHub",
           desc: "Where the open-source skills live and how to install them safely.",
@@ -96,6 +101,11 @@ export default function Page() {
         open, and once you understand how distribution actually works, finding good skills gets much
         easier. Here is the real map of the ecosystem: where skills live, how marketplaces work, how
         to vet what you find, and what you should be willing to pay for.
+      </p>
+      <p>
+        If you'd rather skip straight to vetted picks, we keep a{" "}
+        <a href="/marketplace">free marketplace of Claude skills and plugins</a>, each one
+        reviewed with a link to its GitHub repo.
       </p>
 
       <h2>What a marketplace actually is</h2>

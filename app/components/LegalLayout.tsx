@@ -102,6 +102,7 @@ export default function LegalLayout({
                 <a href="/blog">Blog</a>
                 <a href="/use-cases">Use cases</a>
                 <a href="/tools">Free tools</a>
+                <a href="/marketplace">Skills &amp; plugins marketplace</a>
               </div>
               <div className="foot-col">
                 <h2>Legal</h2>

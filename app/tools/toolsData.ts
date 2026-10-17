@@ -126,6 +126,17 @@ export const TOOLS: ToolEntry[] = [
     indexable: true,
   },
   {
+    slug: "/marketplace",
+    name: "Skills & Plugins Marketplace",
+    tagline: "Hand-picked open-source skills, reviewed",
+    description:
+      "A free marketplace of open-source Claude Code skills and plugins, from an autonomous sales agent to a launch-video maker and an AI search audit. Each one gets a plain-English review and a GitHub link.",
+    icon: "🏪",
+    badge: "New",
+    status: "live",
+    indexable: false,
+  },
+  {
     slug: "/claude-skill-md-validator",
     name: "SKILL.md Validator",
     tagline: "Lint a Claude skill's format in seconds",

@@ -30,6 +30,7 @@ AgentsKit is an independent, unofficial product. It is not affiliated with, endo
 
 - [Home](https://agentskit.co/): product overview, what's inside, kits, pricing, FAQ.
 - [Free tools](https://agentskit.co/tools): free browser tools and Claude skills for people building with Claude Code.
+- [Skills & plugins marketplace](https://agentskit.co/marketplace): hand-picked, free, open-source Claude Code skills and plugins, each with a review and GitHub link.
 - [Pricing](https://agentskit.co/#pricing): plans and what each includes.
 - [FAQ](https://agentskit.co/#faq): what you get, framework lock-in, updates, refunds.
 
@@ -66,6 +67,12 @@ AgentsKit runs a free, unauthenticated MCP server exposing every guide on this s
 - Endpoint: https://agentskit.co/api/mcp (HTTP transport, JSON-RPC 2.0)
 - Install: `claude mcp add --transport http agentskit https://agentskit.co/api/mcp`
 - Tools: `list_posts`, `get_post`, `search_posts`, `list_free_tools`
+
+## Free skills & plugins marketplace
+
+- [Harvey](https://agentskit.co/marketplace/harvey-ai-sales-agent): open-source autonomous AI sales agent that runs on a Claude Code or Codex subscription; finds prospects, writes cold email, handles replies.
+- [/brag](https://agentskit.co/marketplace/brag-launch-video-skill): agent skill that turns the current project into a short launch video with music and share copy.
+- [GEO-SEO Claude](https://agentskit.co/marketplace/geo-seo-claude): Claude Code skill that audits a site for AI search (GEO) and classic SEO, with a 0-100 score and PDF report.
 
 ## Optional
 

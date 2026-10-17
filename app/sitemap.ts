@@ -6,6 +6,7 @@ import { POSTS } from "./blog/blogData";
 import { getPublishedMdxPosts } from "@/app/lib/posts";
 import { USE_CASES } from "./use-cases/useCasesData";
 import { COMPARISONS } from "./comparisons/comparisonsData";
+import { MARKETPLACE } from "./marketplace/marketplaceData";
 import { SITE_URL } from "@/app/lib/site";
 
 const BASE = SITE_URL;
@@ -70,10 +71,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const marketplacePages: MetadataRoute.Sitemap = MARKETPLACE.map((m) => ({
+    url: `${BASE}/marketplace/${m.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   return [
     { url: `${BASE}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE}/demo`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/tools`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/marketplace`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/prompts`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/use-cases`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
@@ -84,6 +93,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...comparisonPages,
     ...toolPages,
     ...guidePages,
+    ...marketplacePages,
     { url: `${BASE}/legal`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },

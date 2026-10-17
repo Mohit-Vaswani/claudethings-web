@@ -119,6 +119,7 @@ export function SiteFooter() {
             <div className="nx-foot-col">
               <h2>Free Tools</h2>
               <a href="/tools">All free tools</a>
+              <a href="/marketplace">Free skills &amp; plugins</a>
               <a href="/claude-skill-md-validator">SKILL.md Validator</a>
               <a href="/claude-skill-for-website-security-audit">Website Security Audit</a>
             </div>

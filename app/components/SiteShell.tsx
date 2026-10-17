@@ -110,6 +110,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
                 <a href="/use-cases">Use cases</a>
                 <a href="/comparisons">Comparisons</a>
                 <a href="/tools">Free tools</a>
+                <a href="/marketplace">Skills &amp; plugins marketplace</a>
               </div>
               <div className="foot-col">
                 <h2>Legal</h2>
