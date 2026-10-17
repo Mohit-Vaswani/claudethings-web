@@ -106,6 +106,30 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           data-cookie_duration="30"
           strategy="afterInteractive"
         />
+        {/*
+          Affonso → Polar attribution. Tags buy.polar.sh links with
+          reference_id=<referral> at click time (capture phase, so it runs before
+          the Polar embed opens the overlay). Done on click rather than on load
+          because React re-renders these hrefs (geo discount) after hydration.
+        */}
+        <Script id="affonso-polar-ref" strategy="afterInteractive">
+          {`
+            document.addEventListener('click', function (e) {
+              var a = e.target && e.target.closest && e.target.closest('a[href*="buy.polar.sh"]');
+              if (!a) return;
+              var ref = window.affonso_referral;
+              if (!ref) {
+                var m = document.cookie.match(/(?:^|; )affonso_referral=([^;]*)/);
+                ref = m && decodeURIComponent(m[1]);
+              }
+              if (!ref) return;
+              var url = new URL(a.href);
+              if (url.searchParams.get('reference_id')) return;
+              url.searchParams.set('reference_id', ref);
+              a.href = url.toString();
+            }, true);
+          `}
+        </Script>
         {/* Vercel Web Analytics */}
         <Analytics />
       </body>
