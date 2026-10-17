@@ -99,6 +99,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           strategy="afterInteractive"
           data-auto-init=""
         />
+        {/* Affonso affiliate tracking pixel, must load on every page */}
+        <Script
+          src="https://cdn.affonso.io/js/pixel.min.js"
+          data-affonso="cmvcd49vv002254mdsawm3lsv"
+          data-cookie_duration="30"
+          strategy="afterInteractive"
+        />
         {/* Vercel Web Analytics */}
         <Analytics />
       </body>
