@@ -113,6 +113,9 @@ export default function LegalLayout({
               </div>
               <div className="foot-col">
                 <h2>Connect</h2>
+                <a href="https://agentskit.affonso.io" target="_blank" rel="noopener" data-fast-goal="affiliate_click">
+                  Affiliates: earn 50%
+                </a>
                 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
                 <a href={SITE_URL}>agentskit.co</a>
                 <a href="https://x.com/hii_mohit" target="_blank" rel="noopener noreferrer">X (Twitter)</a>

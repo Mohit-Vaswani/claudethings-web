@@ -148,6 +148,9 @@ export function SiteFooter() {
             </div>
             <div className="nx-foot-col">
               <h2>Connect</h2>
+              <a href="https://agentskit.affonso.io" target="_blank" rel="noopener" data-fast-goal="affiliate_click">
+                Affiliates: earn 50%
+              </a>
               <a
                 href="mailto:epictools.io@gmail.com"
                 data-fast-goal="contact_email"
