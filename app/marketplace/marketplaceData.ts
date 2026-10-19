@@ -11,8 +11,8 @@ export interface MarketplaceItem {
   slug: string;
   /** Short product name shown on the card. */
   name: string;
-  /** "Skill" or "Plugin", shown as the card pill. */
-  kind: "Skill" | "Plugin";
+  /** Shown as the card pill. */
+  kind: "Skill" | "Plugin" | "MCP server";
   /** H1 and <title> of the detail page. Written for search. */
   seoTitle: string;
   /** Meta description, ~150 chars. */
@@ -30,6 +30,8 @@ export interface MarketplaceItem {
   /** Category for the meta row and schema. */
   category: string;
   license: string;
+  /** Override for the schema.org license URL when it isn't a stock OSI license. */
+  licenseUrl?: string;
   /** Agents it runs in. */
   worksWith: string;
   keywords: string[];
@@ -109,6 +111,82 @@ export const MARKETPLACE: MarketplaceItem[] = [
       "claude seo skill",
       "llms.txt generator",
       "free geo audit",
+    ],
+  },
+  {
+    slug: "hypit-ai-video-cloning",
+    name: "Hypit",
+    kind: "Skill",
+    seoTitle: "Hypit: Clone Any Viral Video With Claude Code (Free, Open Source)",
+    metaDescription:
+      "Hypit is a free, open-source skill that lets Claude Code or Codex clone a viral video as an editable workflow, then swap the host, script or language and render variants.",
+    tagline: "Clone a viral video into a workflow you can remix",
+    description:
+      "Drop in a TikTok, Reel or ad and your agent rebuilds it as an editable composition: footage, word-timed captions, B-roll and effects. Swap the parts that change and render as many variants as you want.",
+    icon: "🎞️",
+    repo: "https://github.com/hypit-ai/hypit",
+    repoName: "hypit-ai/hypit",
+    category: "Video & content",
+    license: "Apache-2.0 (with conditions)",
+    licenseUrl: "https://github.com/hypit-ai/hypit/blob/main/LICENSE",
+    worksWith: "Claude Code, Codex",
+    keywords: [
+      "hypit ai",
+      "clone viral video ai",
+      "ai video agent",
+      "claude code video skill",
+      "ugc ad generator open source",
+      "ai video variants",
+    ],
+  },
+  {
+    slug: "rea-reverse-engineering-mcp",
+    name: "REA",
+    kind: "MCP server",
+    seoTitle: "REA: Reverse Engineer Any App With Claude Code (Free MCP Server)",
+    metaDescription:
+      "REA is a free, open-source MCP server that lets Claude Code, Codex or Cursor reverse engineer apps, Electron bundles and native binaries, with evidence for every finding.",
+    tagline: "See a feature you like, find out how it's built",
+    description:
+      "Connects your agent to Ghidra, Hopper, IDA, JADX and a browser so it can take apart native binaries, Electron and JavaScript apps, .NET, Android APKs and websites, then explain what it found and build your own version.",
+    icon: "🔬",
+    repo: "https://github.com/morluto/rea",
+    repoName: "morluto/rea",
+    category: "Reverse engineering",
+    license: "MIT",
+    worksWith: "Claude Code, Codex, Cursor, Gemini CLI",
+    keywords: [
+      "rea reverse engineering",
+      "reverse engineering mcp",
+      "claude code reverse engineering",
+      "ghidra mcp server",
+      "ai binary analysis",
+      "electron app reverse engineering",
+    ],
+  },
+  {
+    slug: "api-anything-website-to-api",
+    name: "API Anything",
+    kind: "Plugin",
+    seoTitle: "API Anything: Turn Any Website Into an API Your Agent Can Call",
+    metaDescription:
+      "API Anything is a free, open-source tool that teaches Claude Code a website once, then lets it call that site like an API over MCP instead of driving a slow browser.",
+    tagline: "Stop making your agent click through websites",
+    description:
+      "Watches a site's own frontend make a request, learns which parts are your inputs, and saves it as an operation your agent calls over MCP. Plain HTTP, JSON back, and it re-learns itself when the site changes.",
+    icon: "🔌",
+    repo: "https://github.com/goodnight000/api-anything",
+    repoName: "goodnight000/api-anything",
+    category: "Automation & data",
+    license: "MIT",
+    worksWith: "Claude Code, Codex, any MCP client",
+    keywords: [
+      "api anything",
+      "turn website into api",
+      "website to api ai",
+      "claude code mcp scraping",
+      "browser automation alternative",
+      "unofficial api generator",
     ],
   },
 ];

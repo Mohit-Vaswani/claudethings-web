@@ -73,6 +73,9 @@ AgentsKit runs a free, unauthenticated MCP server exposing every guide on this s
 - [Harvey](https://agentskit.co/marketplace/harvey-ai-sales-agent): open-source autonomous AI sales agent that runs on a Claude Code or Codex subscription; finds prospects, writes cold email, handles replies.
 - [/brag](https://agentskit.co/marketplace/brag-launch-video-skill): agent skill that turns the current project into a short launch video with music and share copy.
 - [GEO-SEO Claude](https://agentskit.co/marketplace/geo-seo-claude): Claude Code skill that audits a site for AI search (GEO) and classic SEO, with a 0-100 score and PDF report.
+- [Hypit](https://agentskit.co/marketplace/hypit-ai-video-cloning): open-source skill that lets Claude Code or Codex clone a viral video as an editable, word-timed workflow and render variants.
+- [REA](https://agentskit.co/marketplace/rea-reverse-engineering-mcp): MCP server that lets coding agents reverse engineer native binaries, Electron/JavaScript apps, .NET, Android and websites, with evidence.
+- [API Anything](https://agentskit.co/marketplace/api-anything-website-to-api): turns a website into operations an agent calls over MCP as plain HTTP, learned from the site's own frontend and self-repairing.
 
 ## Optional
 

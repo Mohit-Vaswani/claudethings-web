@@ -63,7 +63,7 @@ export default async function MarketplaceItemPage({
     sameAs: m.repo,
     applicationCategory: "DeveloperApplication",
     operatingSystem: m.worksWith,
-    license: `https://opensource.org/licenses/${m.license}`,
+    license: m.licenseUrl ?? `https://opensource.org/licenses/${m.license}`,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   };
 
