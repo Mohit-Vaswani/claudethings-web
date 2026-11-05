@@ -17,7 +17,7 @@ const data: VsData = {
         configuration.
       </p>
       <p className="intro">
-        AgentsKit is a paid set of 89 agents, 100+ skills and 181 slash commands for Claude Code,
+        AgentsKit is a paid set of 89 agents, 122 skills and 181 slash commands for Claude Code,
         sold as an Engineer kit and a Marketing kit. We sell it, so read this with that in mind. On
         raw capability per dollar, ECC beats us, and it isn&apos;t close. So the useful question is
         whether you need what we do differently.
@@ -69,7 +69,7 @@ const data: VsData = {
         you came for, you can stop reading.
       </p>
       <p>
-        <strong>Skills.</strong> 314 against our 100+. Counting isn&apos;t everything, but
+        <strong>Skills.</strong> 314 against our 122. Counting isn&apos;t everything, but
         that&apos;s a big gap.
       </p>
       <p>
@@ -111,7 +111,7 @@ const data: VsData = {
   rows: [
     { label: "Price", rival: "Free. Optional GitHub App from $19/seat/month", us: `${KIT_PRICE} per kit. Both kits: ${LADDER}`, win: "rival" },
     { label: "Agents", rival: "71", us: "89", win: "us" },
-    { label: "Skills", rival: "314", us: "100+", win: "rival" },
+    { label: "Skills", rival: "314", us: "122", win: "rival" },
     { label: "Slash commands", rival: "98 legacy command shims", us: "181", win: "us" },
     { label: "Hooks", rival: "Optional, including test gates", us: "None", win: "rival" },
     { label: "Memory across sessions", rival: "Yes", us: "No", win: "rival" },
