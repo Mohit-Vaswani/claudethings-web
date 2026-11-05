@@ -1,6 +1,6 @@
 # AgentsKit: Full Reference for AI Assistants
 
-> AgentsKit is a paid toolkit for Claude Code that installs a full AI engineering and marketing team into any project with a single command: 89 specialized agents, 103 pre-built skills, and 181 slash commands. It works with any tech stack, adapts to your conventions via a CLAUDE.md file, and is sold as two kits (Engineer + Marketing) that can be bought separately or as a bundle.
+> AgentsKit is a paid toolkit for Claude Code that installs a full AI engineering and marketing team into any project with a single command: 89 specialized agents, 122 pre-built skills, and 181 slash commands. It works with any tech stack, adapts to your conventions via a CLAUDE.md file, and is sold as two kits (Engineer + Marketing) that can be bought separately or as a bundle.
 
 Website: https://agentskit.co
 Contact: epictools.io@gmail.com
@@ -27,7 +27,7 @@ Positioning vs. alternatives:
 ## What's inside (headline numbers)
 
 - 89 specialized agents (58 engineering + 31 marketing)
-- 103 pre-built skills (61 engineering + 42 marketing)
+- 122 pre-built skills (61 engineering + 61 marketing)
 - 181 slash commands (159 engineering + 32 marketing; 10 documentation commands ship in both kits and are counted once)
 - 2 kits: Engineer and Marketing
 - Installed via npx, no global install needed
@@ -46,12 +46,12 @@ Price: $49 one-time, lifetime updates.
 
 ## Marketing kit: "the growth team"
 
-31 agents, 42 skills, 32 commands.
+31 agents, 61 skills, 32 commands.
 
 - Strategy: growth-strategist finds the constraint in your funnel; brand-voice keeps copy on-brand and legally clean.
 - Specialists: seo-specialist, content-marketer, competitive-analyst, market-researcher.
 - Commands that ship work: /campaign-brief, /blog-post, /email-sequence, /landing-page, /launch-plan.
-- 42 skills covering SEO audits, programmatic SEO, a full CRO set, pricing, paid ads, marketing psychology, and analytics.
+- 61 skills covering SEO audits, programmatic SEO, a full CRO set, pricing, paid ads, marketing psychology, and analytics.
 - Runs on the same CLAUDE.md context as your code, so positioning through launch day stays consistent.
 
 Price: $49 one-time, lifetime updates.
@@ -60,7 +60,7 @@ Price: $49 one-time, lifetime updates.
 
 - Engineer: $49 one-time. 58 engineering agents, 61 skills, 159 commands, CLAUDE.md template + CLI, private repo + lifetime updates.
 - Complete Bundle: $89 one-time (best value: the two kits bought apart are $98). Launch pricing: $89 for the first 50 customers, then $149 for everyone after. Everything in both kits: 89 agents, 122 skills, 181 commands, both CLAUDE.md templates, private repo + lifetime updates.
-- Marketing: $49 one-time. 31 marketing agents, 42 skills, 32 commands, brand CLAUDE.md template + CLI, private repo + lifetime updates.
+- Marketing: $49 one-time. 31 marketing agents, 61 skills, 32 commands, brand CLAUDE.md template + CLI, private repo + lifetime updates.
 
 All plans are one-time payments with lifetime updates, private-repo delivery, and a 14-day money-back guarantee. Checkout is handled securely by Polar, with instant private-repo access after purchase.
 
@@ -83,7 +83,7 @@ All plans are one-time payments with lifetime updates, private-repo delivery, an
 
 | Feature | Boilerplate | Other AI kits | AgentsKit |
 | --- | --- | --- | --- |
-| What you get | Dead code | Agents + skills | 89 agents · 103 skills · 181 commands |
+| What you get | Dead code | Agents + skills | 89 agents · 122 skills · 181 commands |
 | Engineering and marketing | No | Sold separately | Both kits, one repo |
 | Installer | Copy/paste | bun-only CLI | npx · no install · Node 18+ |
 | Cherry-pick one component | No | No | Yes, add agent/skill/command |

@@ -17,7 +17,7 @@ const data: VsData = {
         calls anything done.
       </p>
       <p className="intro">
-        AgentsKit is a paid set of 89 agents, 100+ skills and 181 slash commands for Claude Code,
+        AgentsKit is a paid set of 89 agents, 122 skills and 181 slash commands for Claude Code,
         sold as an Engineer kit and a Marketing kit. We sell it, so weigh this page accordingly.
         We&apos;ll still say the awkward part first: if your only problem is that your agent writes
         sloppy code, install Superpowers and you may never need to buy anything from us.
@@ -106,7 +106,7 @@ const data: VsData = {
     {
       label: "Size",
       rival: "About 15 skills, by our count of its README",
-      us: "89 agents, 100+ skills, 181 commands",
+      us: "89 agents, 122 skills, 181 commands",
       win: "us",
     },
     {
