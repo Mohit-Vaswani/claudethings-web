@@ -711,6 +711,32 @@ a.tool-card:hover .tool-arrow{transform:translateX(4px)}
 .prompt-note b{color:var(--ink);font-weight:600}
 
 /* table wrapper for in-article tables (reuses .cmp look, no top margin jump) */
+/* "AgentsKit vs X" pages (app/comparisons/VsPage.tsx) */
+.legal-doc .vs-verdict{margin-top:26px}
+.vs-actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 8px}
+.legal-doc .vs-actions a.btn{margin-top:0}
+.vs-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0 8px}
+@media(max-width:680px){.vs-split{grid-template-columns:1fr}}
+.vs-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:22px;box-shadow:var(--shadow-sm)}
+.legal-doc .vs-card h3{margin:0 0 6px}
+.legal-doc .vs-card p{font-size:14px;line-height:1.6;margin-bottom:6px}
+.vs-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin:18px 0 10px;color:var(--bone-faint)}
+.vs-label-yes{color:var(--ink)}
+.legal-doc .vs-list{margin:0;gap:8px}
+.legal-doc .vs-list li{font-size:13.5px;line-height:1.5}
+.legal-doc .vs-list li.vs-yes::before{content:"✓"}
+.legal-doc .vs-list li.vs-no::before{content:"×";color:var(--bone-faint)}
+.legal-doc .vs-legend{font-size:13.5px;margin-bottom:0}
+/* Keep our column on screen at phone width instead of behind a sideways scroll */
+@media(max-width:680px){
+  .cmp.vs-table table{min-width:0;table-layout:fixed;font-size:12.5px;line-height:1.45}
+  .cmp.vs-table th,.cmp.vs-table td{padding:11px 9px;overflow-wrap:anywhere}
+  .cmp.vs-table thead th{letter-spacing:.06em}
+  .cmp.vs-table th:first-child,.cmp.vs-table td:first-child{width:27%}
+}
+.legal-doc .vs-cta{margin-top:30px}
+.legal-doc .vs-cta p+p{margin-top:8px}
+.legal-doc .vs-cta a.btn{margin-top:16px}
 .legal-doc .cmp{margin:26px 0}
 .legal-doc .cmp td{color:var(--bone-dim)}
 .legal-doc .cmp td:first-child{color:var(--ink);font-weight:500}
