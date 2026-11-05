@@ -7,7 +7,7 @@ import { SITE_URL } from "@/app/lib/site";
 export const metadata: Metadata = {
   title: "AI Comparisons, Claude vs ChatGPT, Copilot & More",
   description:
-    "Honest, hype-free comparisons for choosing AI tools: Claude vs ChatGPT, Sonnet vs Opus, and Claude Code vs GitHub Copilot, from people who use them all.",
+    "Honest comparisons for choosing AI tools: AgentsKit vs Superpowers, ECC and ClaudeKit, plus Claude vs ChatGPT, Sonnet vs Opus and Claude Code vs Copilot.",
   alternates: { canonical: "/comparisons" },
   openGraph: {
     title: "AI Comparisons, Claude vs ChatGPT, Copilot & More",

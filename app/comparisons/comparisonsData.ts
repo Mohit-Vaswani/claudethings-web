@@ -13,6 +13,30 @@ export interface Comparison {
 
 export const COMPARISONS: Comparison[] = [
   {
+    slug: "agentskit-vs-superpowers",
+    title: "AgentsKit vs Superpowers",
+    vs: "AgentsKit · Superpowers",
+    description:
+      "A free framework that forces good process, against a paid catalog of specialists with a marketing kit. Where Superpowers wins, and when you don't need us.",
+    icon: "🧭",
+  },
+  {
+    slug: "agentskit-vs-everything-claude-code",
+    title: "AgentsKit vs Everything Claude Code",
+    vs: "AgentsKit · ECC",
+    description:
+      "ECC is free, has 314 skills, and adds hooks and memory we don't have. What AgentsKit does differently, and who should pick which.",
+    icon: "🧰",
+  },
+  {
+    slug: "agentskit-vs-claudekit",
+    title: "AgentsKit vs ClaudeKit (now AgentKit)",
+    vs: "AgentsKit · AgentKit",
+    description:
+      "Our closest paid competitor has more customers and supports more tools. We cost less, updates don't expire, and refunds still apply after install.",
+    icon: "📦",
+  },
+  {
     slug: "claude-vs-chatgpt",
     title: "Claude vs ChatGPT",
     vs: "Claude · ChatGPT",

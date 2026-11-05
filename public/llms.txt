@@ -55,6 +55,7 @@ AgentsKit is an independent, unofficial product. It is not affiliated with, endo
 - [Use cases](https://agentskit.co/use-cases): honest, role-by-role maps of where Claude changes real work.
 - [Claude for developers](https://agentskit.co/use-cases/claude-for-developers) · [Claude for data scientists](https://agentskit.co/use-cases/claude-for-data-scientists) · [Claude for product managers](https://agentskit.co/use-cases/claude-for-product-managers) · [Claude for students](https://agentskit.co/use-cases/claude-for-students)
 - [Comparisons](https://agentskit.co/comparisons): hype-free tool comparisons with bias disclosed.
+- [AgentsKit vs Superpowers](https://agentskit.co/comparisons/agentskit-vs-superpowers) · [AgentsKit vs Everything Claude Code](https://agentskit.co/comparisons/agentskit-vs-everything-claude-code) · [AgentsKit vs ClaudeKit (now AgentKit)](https://agentskit.co/comparisons/agentskit-vs-claudekit)
 - [Claude vs ChatGPT](https://agentskit.co/comparisons/claude-vs-chatgpt) · [Claude Sonnet vs Opus](https://agentskit.co/comparisons/claude-sonnet-vs-opus) · [Claude vs GitHub Copilot](https://agentskit.co/comparisons/claude-vs-copilot)
 - [Claude coding tools guide](https://agentskit.co/tools/claude-coding-tools): the 2026 stack, covering Claude Code, IDE surfaces, MCP connectors, skills layer.
 - [Claude MCP servers guide](https://agentskit.co/tools/claude-mcp-servers): what MCP is, the connector categories worth installing, and how to add them safely.

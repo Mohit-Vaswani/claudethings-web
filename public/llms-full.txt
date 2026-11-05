@@ -146,6 +146,9 @@ Role-by-role honest assessments with workflows and starter prompts:
 
 ### Comparisons: https://agentskit.co/comparisons
 Bias-disclosed, workload-based comparisons:
+- AgentsKit vs Superpowers: https://agentskit.co/comparisons/agentskit-vs-superpowers
+- AgentsKit vs Everything Claude Code (ECC): https://agentskit.co/comparisons/agentskit-vs-everything-claude-code
+- AgentsKit vs ClaudeKit (now AgentKit): https://agentskit.co/comparisons/agentskit-vs-claudekit
 - Claude vs ChatGPT: https://agentskit.co/comparisons/claude-vs-chatgpt
 - Claude Sonnet vs Opus (tier decision framework): https://agentskit.co/comparisons/claude-sonnet-vs-opus
 - Claude vs GitHub Copilot (completion vs delegation): https://agentskit.co/comparisons/claude-vs-copilot
