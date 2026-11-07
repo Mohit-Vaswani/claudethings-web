@@ -552,16 +552,16 @@ export default function Home() {
             <a
               className="nx-btn nx-btn-primary nx-btn-lg"
               href="#pricing"
-              data-fast-goal="cta_get_claudethings"
-              data-fast-goal-location="hero"
+              data-dc-goal="cta_get_claudethings"
+              data-dc-goal-location="hero"
             >
               Get AgentsKit
             </a>
             <a
               className="nx-btn nx-btn-soft nx-btn-lg"
               href="/demo"
-              data-fast-goal="cta_see_demo"
-              data-fast-goal-location="hero"
+              data-dc-goal="cta_see_demo"
+              data-dc-goal-location="hero"
             >
               <span className="play" aria-hidden="true">
                 ▶
@@ -988,10 +988,10 @@ export default function Home() {
                 data-polar-checkout=""
                 data-polar-checkout-theme="dark"
                 onClick={trackSignup}
-                data-fast-goal="initiate_checkout"
-                data-fast-goal-plan="bundle"
-                data-fast-goal-price={String(bundle.price)}
-                data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
+                data-dc-goal="initiate_checkout"
+                data-dc-goal-plan="bundle"
+                data-dc-goal-price={String(bundle.price)}
+                data-dc-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
               >
                 {bundle.cta}
               </a>
@@ -1041,10 +1041,10 @@ export default function Home() {
                     data-polar-checkout=""
                     data-polar-checkout-theme="dark"
                     onClick={trackSignup}
-                    data-fast-goal="initiate_checkout"
-                    data-fast-goal-plan={p.id}
-                    data-fast-goal-price={String(p.price)}
-                    data-fast-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
+                    data-dc-goal="initiate_checkout"
+                    data-dc-goal-plan={p.id}
+                    data-dc-goal-price={String(p.price)}
+                    data-dc-goal-geo-offer={geoOffer.eligible ? GEO_DISCOUNT.code : undefined}
                   >
                     {p.cta}
                   </a>
@@ -1082,7 +1082,7 @@ export default function Home() {
           </div>
           <div className="nx-faq">
             <details className="nx-q">
-              <summary data-fast-goal="faq_need_claude_code">
+              <summary data-dc-goal="faq_need_claude_code">
                 Do I need Claude Code? Does it work with Cursor or ChatGPT?
                 <span className="plus">+</span>
               </summary>
@@ -1096,7 +1096,7 @@ export default function Home() {
               </div>
             </details>
             <details className="nx-q">
-              <summary data-fast-goal="faq_what_do_i_get">
+              <summary data-dc-goal="faq_what_do_i_get">
                 What exactly do I get?
                 <span className="plus">+</span>
               </summary>
@@ -1110,7 +1110,7 @@ export default function Home() {
               </div>
             </details>
             <details className="nx-q">
-              <summary data-fast-goal="faq_need_to_code">
+              <summary data-dc-goal="faq_need_to_code">
                 Do I need to know how to code?
                 <span className="plus">+</span>
               </summary>
@@ -1121,7 +1121,7 @@ export default function Home() {
               </div>
             </details>
             <details className="nx-q">
-              <summary data-fast-goal="faq_framework_lock_in">
+              <summary data-dc-goal="faq_framework_lock_in">
                 Does it lock me into a framework?
                 <span className="plus">+</span>
               </summary>
@@ -1131,7 +1131,7 @@ export default function Home() {
               </div>
             </details>
             <details className="nx-q">
-              <summary data-fast-goal="faq_how_updates_work">
+              <summary data-dc-goal="faq_how_updates_work">
                 How do updates work?
                 <span className="plus">+</span>
               </summary>
@@ -1142,7 +1142,7 @@ export default function Home() {
               </div>
             </details>
             <details className="nx-q">
-              <summary data-fast-goal="faq_anthropic_affiliation">
+              <summary data-dc-goal="faq_anthropic_affiliation">
                 Is this affiliated with Anthropic?
                 <span className="plus">+</span>
               </summary>
@@ -1153,7 +1153,7 @@ export default function Home() {
               </div>
             </details>
             <details className="nx-q">
-              <summary data-fast-goal="faq_refund_policy">
+              <summary data-dc-goal="faq_refund_policy">
                 Is there a money-back guarantee?
                 <span className="plus">+</span>
               </summary>
@@ -1174,8 +1174,8 @@ export default function Home() {
             Still stuck?{" "}
             <a
               href="mailto:epictools.io@gmail.com"
-              data-fast-goal="contact_email"
-              data-fast-goal-location="faq"
+              data-dc-goal="contact_email"
+              data-dc-goal-location="faq"
             >
               Email us
             </a>
@@ -1194,12 +1194,12 @@ export default function Home() {
             <a
               className="nx-btn nx-btn-primary"
               href="#pricing"
-              data-fast-goal="cta_get_claudethings"
-              data-fast-goal-location="final_cta"
+              data-dc-goal="cta_get_claudethings"
+              data-dc-goal-location="final_cta"
             >
               Get AgentsKit
             </a>
-            <a className="nx-btn nx-btn-soft" href="/demo" data-fast-goal="cta_see_demo" data-fast-goal-location="final_cta">
+            <a className="nx-btn nx-btn-soft" href="/demo" data-dc-goal="cta_see_demo" data-dc-goal-location="final_cta">
               <span className="play" aria-hidden="true">
                 ▶
               </span>

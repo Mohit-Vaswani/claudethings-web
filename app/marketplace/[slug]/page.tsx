@@ -119,8 +119,8 @@ export default async function MarketplaceItemPage({
           href={m.repo}
           target="_blank"
           rel="noopener"
-          data-fast-goal="marketplace_github_click"
-          data-fast-goal-item={m.slug}
+          data-dc-goal="marketplace_github_click"
+          data-dc-goal-item={m.slug}
         >
           View {m.name} on GitHub →
         </a>

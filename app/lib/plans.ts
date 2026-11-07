@@ -7,7 +7,7 @@
  */
 
 export type Plan = {
-  /** Stable id, also sent to DataFast as `data-fast-goal-plan`. */
+  /** Stable id, also sent to DataBull as `data-dc-goal-plan`. */
   id: "engineer" | "bundle" | "marketing";
   name: string;
   /** One-line "who is this for". */

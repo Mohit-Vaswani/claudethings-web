@@ -4,7 +4,8 @@ import { useState } from "react";
 
 declare global {
   interface Window {
-    datafast?: (goal: string, params?: Record<string, string>) => void;
+    /** DataBull custom events, defined by its script in the root layout. */
+    datacheap?: (goal: string, params?: Record<string, string>) => void;
   }
 }
 
@@ -17,8 +18,8 @@ export default function CopyPrompt({ text, title }: { text: string; title?: stri
       await navigator.clipboard.writeText(text);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
-      // DataFast goal, param values are capped at 255 chars
-      window.datafast?.("copy_prompt", title ? { prompt: title.slice(0, 255) } : undefined);
+      // DataBull goal, param values capped at 255 chars
+      window.datacheap?.("copy_prompt", title ? { prompt: title.slice(0, 255) } : undefined);
     } catch {
       /* clipboard unavailable (e.g. non-secure context), ignore */
     }

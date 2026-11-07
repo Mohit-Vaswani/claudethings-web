@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 /**
  * Polar checkout success page. Each Checkout Link in the Polar dashboard
- * must redirect here with ?checkout_id={CHECKOUT_ID}; the DataFast script in
+ * must redirect here with ?checkout_id={CHECKOUT_ID}; the DataBull script in
  * layout.tsx reads that param to attribute revenue to the visitor's marketing
  * channel. Keep the query string intact and don't redirect from here.
  */

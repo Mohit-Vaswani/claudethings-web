@@ -38,7 +38,7 @@ falls back to a full page load. Unlike a short link, the query string survives, 
 
 In the Polar dashboard, per product:
 - set the **success URL** to `https://agentskit.co/success?checkout_id={CHECKOUT_ID}` —
-  the `{CHECKOUT_ID}` placeholder is what DataFast reads to attribute the sale
+  the `{CHECKOUT_ID}` placeholder is what DataBull reads to attribute the sale
 - attach the **GitHub Repository Access** benefit so buyers get the private-repo invite.
   The benefit stores the org/repo as a *string*: after the Agentary → `agentskit` rename it
   must be re-pointed at the new org, or new purchases deliver nothing

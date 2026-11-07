@@ -302,7 +302,7 @@ export default function SecurityAuditPage() {
               </div>
               <div className="foot-col">
                 <h2>Connect</h2>
-                <a href="https://agentskit.affonso.io" target="_blank" rel="noopener" data-fast-goal="affiliate_click">
+                <a href="https://agentskit.affonso.io" target="_blank" rel="noopener" data-dc-goal="affiliate_click">
                   Affiliates: earn 50%
                 </a>
                 <a href="mailto:epictools.io@gmail.com">epictools.io@gmail.com</a>

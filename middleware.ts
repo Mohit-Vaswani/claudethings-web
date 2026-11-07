@@ -1,21 +1,10 @@
-import {
-  NextResponse,
-  type NextFetchEvent,
-  type NextRequest,
-} from "next/server";
-import { trackAICrawlerRequest } from "@datafast/ai-crawl";
+import { NextResponse, type NextRequest } from "next/server";
 
 // Kept in sync by hand with COUNTRY_COOKIE in app/lib/geoDiscount.ts — that
 // module is "use client" and pulls in React, so it can't be imported here.
 const COUNTRY_COOKIE = "visitor_country";
 
-export function middleware(request: NextRequest, event: NextFetchEvent) {
-  // Fire-and-forget: the package uses event.waitUntil internally,
-  // so the response is never blocked on DataFast.
-  trackAICrawlerRequest(request, event, {
-    websiteId: "dfid_2KgXjGdUBXKPy7nxWR30T",
-  });
-
+export function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
   // Vercel sets x-vercel-ip-country on every edge request; it's absent in local

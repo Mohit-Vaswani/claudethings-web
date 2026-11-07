@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ogImage } from "@/app/lib/og";
-import { SITE_DOMAIN, SITE_URL } from "@/app/lib/site";
+import { SITE_URL } from "@/app/lib/site";
 import type { ReactNode } from "react";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
@@ -48,20 +48,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* DataFast goal queue, buffers window.datafast() calls made before the script loads */}
-        <Script id="datafast-queue" strategy="beforeInteractive">
-          {`window.datafast = window.datafast || function() {
-            window.datafast.q = window.datafast.q || [];
-            window.datafast.q.push(arguments);
-          };`}
-        </Script>
+        {/* DataBull analytics, tracks pageviews, route changes and traffic sources by itself */}
+        <script
+          defer
+          data-website-id="dc_rho14ipwbvf0zd"
+          data-domain="agentskit.co"
+          src="https://databull.mohitworkshere.workers.dev/js/script.js"
+        />
         {/*
           clicks.page analytics. A raw <script defer> rather than next/script
           because the vendor tag has to sit in the <head> of the served HTML on
-          every route: next/script's afterInteractive (what DataFast, GA and
-          Polar use below) injects into the body after hydration, and
-          beforeInteractive would render-block. Defer keeps it off the critical
-          path while still having window.clicks ready before any click.
+          every route: next/script's afterInteractive (what GA and Polar use
+          below) injects into the body after hydration, and beforeInteractive
+          would render-block. Defer keeps it off the critical path while still
+          having window.clicks ready before any click.
         */}
         <script defer src="https://clicks.page/t.js" data-site="373b05205q05" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -73,13 +73,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
-        {/* DataFast analytics */}
-        <Script
-          src="https://datafa.st/js/script.js"
-          data-website-id="dfid_2KgXjGdUBXKPy7nxWR30T"
-          data-domain={SITE_DOMAIN}
-          strategy="afterInteractive"
-        />
         {/* Google Analytics (GA4) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KNHJ5C1QYJ"

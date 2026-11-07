@@ -49,8 +49,8 @@ export function SiteNav() {
           <a
             className="nx-btn nx-btn-line"
             href="/#pricing"
-            data-fast-goal="cta_get_claudethings"
-            data-fast-goal-location="nav"
+            data-dc-goal="cta_get_claudethings"
+            data-dc-goal-location="nav"
           >
             Get AgentsKit
           </a>
@@ -149,13 +149,13 @@ export function SiteFooter() {
             </div>
             <div className="nx-foot-col">
               <h2>Connect</h2>
-              <a href="https://agentskit.affonso.io" target="_blank" rel="noopener" data-fast-goal="affiliate_click">
+              <a href="https://agentskit.affonso.io" target="_blank" rel="noopener" data-dc-goal="affiliate_click">
                 Affiliates: earn 50%
               </a>
               <a
                 href="mailto:epictools.io@gmail.com"
-                data-fast-goal="contact_email"
-                data-fast-goal-location="footer"
+                data-dc-goal="contact_email"
+                data-dc-goal-location="footer"
               >
                 epictools.io@gmail.com
               </a>

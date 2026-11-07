@@ -97,8 +97,8 @@ export default function DemoPage() {
               <a
                 className="nx-btn nx-btn-primary nx-btn-lg"
                 href="/#pricing"
-                data-fast-goal="cta_get_claudethings"
-                data-fast-goal-location="demo"
+                data-dc-goal="cta_get_claudethings"
+                data-dc-goal-location="demo"
               >
                 Get AgentsKit
               </a>

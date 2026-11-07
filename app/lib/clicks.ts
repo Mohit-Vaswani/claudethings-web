@@ -24,7 +24,7 @@ declare global {
  *
  * AgentsKit has no account signup — the kits are a one-time purchase and
  * access arrives as a GitHub invite — so the signup action here is a visitor
- * opening the Polar checkout. This sits alongside the existing DataFast
+ * opening the Polar checkout. This sits alongside the DataBull
  * `initiate_checkout` goal on the same buttons and counts the same moment.
  */
 export function trackSignup(): void {
